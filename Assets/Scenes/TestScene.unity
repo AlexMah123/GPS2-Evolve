@@ -411,7 +411,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 833ce7a441339ed4796d7878d996348e, type: 3}
   m_PrefabInstance: {fileID: 1259608050}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1184204891
+--- !u!114 &1184204893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -420,10 +420,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 1184204890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90d1a38a6dd5d6042ab2f91316d84d8e, type: 3}
+  m_Script: {fileID: 11500000, guid: fd7361dd3806c4f458852929a0520655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyScriptable: {fileID: 11400000, guid: e3989a3bb33c6f34a89a193e3da00be6, type: 2}
+  ability: {fileID: 11400000, guid: 6436b7b1c07359540abf9e5ba023cdaf, type: 2}
+  key: 32
+--- !u!114 &1184204894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184204890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ebb53441e92194390ba562af7e64df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player:
+    health: 300
+    defence: 5
+    attack: 20
+    attackSpeed: 0.8
+    speed: 2
+    jumpForce: 3
+    maxEvolveBar: 80
+    eatHeal: 5
+    eatTime: 1.5
 --- !u!1001 &1259608050
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,10 +9,14 @@ public class Player_Base
     //created by Alex
 
     [SerializeField] int health = 300;
-    [SerializeField] int defence = 6;
+    [SerializeField] int defence = 5;
     [SerializeField] int attack = 20;
-    [SerializeField] float speed = 5;
+    [SerializeField] float attackSpeed = 0.8f;
+    [SerializeField] float speed = 2;
     [SerializeField] float jumpForce = 3;
+    [SerializeField] int maxEvolveBar = 80;
+    [SerializeField] int eatHeal = 5;
+    [SerializeField] float eatTime = 1.5f;
 
     #region Properties
     public int Health
@@ -32,6 +36,13 @@ public class Player_Base
         get => attack;
         set => attack = value;
     }
+
+    public float AttackSpeed
+    {
+        get => attackSpeed;
+        set => attackSpeed = value;
+    }
+
     public float Speed
     {
         get => speed;
@@ -42,6 +53,24 @@ public class Player_Base
     {
         get => jumpForce;
         set => jumpForce = value;
+    }
+
+    public int MaxEvolveBar
+    {
+        get => maxEvolveBar;
+        set => maxEvolveBar = value;
+    }
+
+    public int EatHeal
+    {
+        get => eatHeal;
+        set => eatHeal = value;
+    }
+
+    public float EatTime
+    {
+        get => eatTime;
+        set => eatTime = value;
     }
     #endregion
 }

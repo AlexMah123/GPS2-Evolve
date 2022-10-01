@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a7027c519b091f49b32a2b6334c5f8a, type: 3}
-  m_Name: Unarmed_Human
+  m_Script: {fileID: 11500000, guid: 2e06fa888534707439d8e736f19d49c3, type: 3}
+  m_Name: Bite_Ability
   m_EditorClassIdentifier: 
-  name: Unarmed Human
-  health: 40
-  defence: 2
-  attack: 0
-  attackSpeed: 0
-  speed: 1.4
-  evolvePointGain: 2
+  name: Bite
+  attack: 40
+  description: Unleash a chomp infront of you
+  cooldownTime: 5
+  activeTime: 2

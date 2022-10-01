@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a7027c519b091f49b32a2b6334c5f8a, type: 3}
-  m_Name: Unarmed_Human
+  m_Name: Human_Armed1
   m_EditorClassIdentifier: 
-  name: Unarmed Human
-  health: 40
-  defence: 2
-  attack: 0
-  attackSpeed: 0
+  name: Human_Armed1(Grey)
+  health: 60
+  defence: 5
+  attack: 10
+  attackSpeed: 1
   speed: 1.4
-  evolvePointGain: 2
+  evolvePointGain: 3
