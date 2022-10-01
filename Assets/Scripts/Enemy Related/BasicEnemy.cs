@@ -4,7 +4,11 @@ using UnityEngine;
 
 [CreateAssetMenu]
 
-public class BasicEnemy : EnemyStats
+public class BasicEnemy : Enemy_Base
 {
+    public override void Spawn()
+    {
+        //base.Spawn();
+    }
 
 }

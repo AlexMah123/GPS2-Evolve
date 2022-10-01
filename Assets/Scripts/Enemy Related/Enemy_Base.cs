@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStats : ScriptableObject
+public class Enemy_Base : ScriptableObject
 {
-    //created by terrence
+    //created by Terrance, edited by Alex
 
     public new string name;
     public float health;

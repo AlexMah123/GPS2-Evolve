@@ -6,6 +6,8 @@ using UnityEngine;
 [Serializable]
 public class Player_Base
 {
+    //created by Alex
+
     [SerializeField] int health = 300;
     [SerializeField] int defence = 6;
     [SerializeField] int attack = 20;
