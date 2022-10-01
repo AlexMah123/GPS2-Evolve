@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
 
-public class BasicEnemy : Enemy_Base
+public class BasicEnemy : MonoBehaviour
 {
-    public override void Spawn()
+    public Enemy_Base enemyScriptable;
+
+    private void Start()
     {
-        //base.Spawn();
+        //enemyScriptable.Spawn();
+        Debug.Log(enemyScriptable.name);
     }
 
 }
