@@ -6,9 +6,10 @@ public class Player_BaseAbility : ScriptableObject
 {
     //created by Alex
 
+    [Header("Base Ability Details")]
     public new string name;
-    public int attack;
     public string description;
+    public int attack;
     public float cooldownTime;
     public float activeTime;
 

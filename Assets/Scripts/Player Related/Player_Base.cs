@@ -13,7 +13,7 @@ public class Player_Base
     [SerializeField] int attack = 20;
     [SerializeField] float attackSpeed = 0.8f;
     [SerializeField] float speed = 2;
-    [SerializeField] float jumpForce = 3;
+    [SerializeField] float jumpHeight = 3;
     [SerializeField] int maxEvolveBar = 80;
     [SerializeField] int eatHeal = 5;
     [SerializeField] float eatTime = 1.5f;
@@ -49,10 +49,10 @@ public class Player_Base
         set => speed = value;
     }
 
-    public float JumpForce
+    public float JumpHeight
     {
-        get => jumpForce;
-        set => jumpForce = value;
+        get => jumpHeight;
+        set => jumpHeight = value;
     }
 
     public int MaxEvolveBar
