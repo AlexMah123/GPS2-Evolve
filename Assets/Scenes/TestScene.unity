@@ -5762,7 +5762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
   speed: 10
-  rb: {fileID: 0}
+  rb: {fileID: 1466788782}
   joystick: {fileID: 1454285001}
 --- !u!136 &1466788781
 CapsuleCollider:
@@ -5870,6 +5870,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 11400000, guid: 6436b7b1c07359540abf9e5ba023cdaf, type: 2}
   key: 32
+--- !u!114 &1467696661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467696659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e0398845cc23e4ba2503858040b98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalModifiers:
+  - perks: {fileID: 11400000, guid: 0baa968c1e056644cba06b47b17f4e5f, type: 2}
+  - perks: {fileID: 11400000, guid: 9a0212208bebe95438be79fbe62f6b9c, type: 2}
 --- !u!1 &1469291474
 GameObject:
   m_ObjectHideFlags: 0

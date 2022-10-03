@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_BaseAbility : ScriptableObject
+public abstract class Player_BaseAbility : ScriptableObject
 {
     //created by Alex
 
