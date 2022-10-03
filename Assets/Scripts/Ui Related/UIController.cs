@@ -4,15 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenuUI : MonoBehaviour
+public class UIController : MonoBehaviour
 {
     //HYZ
     [SerializeField] private GameObject loadScreen;
     [SerializeField] private Slider loadVal;
 
-    public void PlayNew()
+    public void SwitchScene(int sceneIndex)
     {
-        StartCoroutine(LoadScene(1));
+        StartCoroutine(LoadScene(sceneIndex));
+    }
+    public void ButtonTest()
+    {
+        Debug.Log("Button Clicked");
     }
 
     IEnumerator LoadScene(int sceneIndex)
