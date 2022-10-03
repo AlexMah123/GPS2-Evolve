@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
+    //HYZ
     [SerializeField] private GameObject loadScreen;
     [SerializeField] private Slider loadVal;
 
