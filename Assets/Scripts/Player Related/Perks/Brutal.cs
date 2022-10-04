@@ -11,7 +11,7 @@ public class Brutal: Player_BasePerk
     public override PerkModifiers ApplyPerks(PerkModifiers perkMod)
     {
         // do something
-        perkMod.attackModifier = attackModifier;
+        perkMod.attackModifier += attackModifier;
         return perkMod;
     }
 }
