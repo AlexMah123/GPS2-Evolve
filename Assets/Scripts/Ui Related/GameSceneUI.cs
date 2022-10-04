@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSceneUI : MonoBehaviour
 {
@@ -9,17 +10,17 @@ public class GameSceneUI : MonoBehaviour
     [SerializeField] private GameObject perkWindow;
     [SerializeField] private GameObject evoWindow;
     [SerializeField] private GameObject pauseWindow;
+    [SerializeField] private GameObject settingsWindow;
 
     private void Update()
     {
-
         // REDO after input system is complete
-        if (Application.platform == RuntimePlatform.Android)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(Input.GetKeyDown("Cancel"))
             {
-                Debug.Log("paused");
-                pauseWindow.SetActive(!pauseWindow.activeSelf);
+                TogglePause();
+                Debug.Log(Time.timeScale);
             }
         }
     }
@@ -34,6 +35,20 @@ public class GameSceneUI : MonoBehaviour
     public void TogglePause()
     {
         pauseWindow.SetActive(!pauseWindow.activeSelf);
+        if(pauseWindow.activeSelf)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else if(!pauseWindow.activeSelf)
+        {
+            Time.timeScale = 1.0f;
+        }
+        Debug.Log(Time.timeScale);
+    }
+    public void ToggleSettings()
+    {
+        pauseWindow.SetActive(!pauseWindow.activeSelf);
+        settingsWindow.SetActive(!settingsWindow.activeSelf);
     }
     public void LvlUp()
     {
