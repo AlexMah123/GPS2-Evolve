@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Player_PerksManager : MonoBehaviour
 {
-    //created by Alex, WIP
+    //created by Alex
+
     [Header("Modifiers")]
     public List<Modifier> totalModifiers = new List<Modifier>();
     PerkModifiers currentPerk = new();
