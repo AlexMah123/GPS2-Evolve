@@ -14,15 +14,7 @@ public class GameSceneUI : MonoBehaviour
 
     private void Update()
     {
-        // REDO after input system is complete
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(Input.GetKeyDown("Cancel"))
-            {
-                TogglePause();
-                Debug.Log(Time.timeScale);
-            }
-        }
+       
     }
     public void TogglePerk()
     {
