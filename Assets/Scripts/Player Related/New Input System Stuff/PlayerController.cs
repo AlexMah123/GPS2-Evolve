@@ -42,10 +42,10 @@ public class PlayerController : MonoBehaviour
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
         Vector3 move = new Vector3(movementInput.y, 0f, -movementInput.x);
         controller.Move(move * Time.deltaTime * playerSpeed);
-        /*if (move != Vector3.zero)
+        if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;
-        }*/
+        }
 
         // Changes the height position of the player..
         if (playerInput.PlayerMain.Jump.triggered && groundedPlayer)
