@@ -27,7 +27,15 @@ public class EnemySpawner : MonoBehaviour
             spawnDelay -= Time.deltaTime;
             if (spawnDelay <= 0 && spawned < ESS[currentESS].spawnCount)
             {
-                Instantiate(ESS[currentESS].enemy, transform.position, Quaternion.identity);
+                //Instantiate(ESS[currentESS].enemy, transform.position, Quaternion.identity);
+                
+                GameObject enemy = EnemyObjectPool.enemyObjectPoolInstance.GetPooledEnemy();
+                if (enemy != null)
+                {
+                    enemy.transform.position = new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f));
+                    enemy.transform.rotation = transform.rotation;
+                    enemy.SetActive(true);
+                }
 
                 spawned++;
                 spawnDelay = spawnDelayMax;
