@@ -10,13 +10,13 @@ public class EnemyScriptable : ScriptableObject
     public GameObject enemy;
     public int spawnCount = 5;
     public float spawnDelay = 0.5f;
-    public new string name;
-    public int health;
-    public int defence;
-    public int attack;
-    public float attackSpeed;
-    public float speed;
-    public float evolvePointGain;
+    [SerializeField] new string name;
+    [SerializeField] int health;
+    [SerializeField] int defence;
+    [SerializeField] int attack;
+    [SerializeField] float attackSpeed;
+    [SerializeField] float speed;
+    [SerializeField] float evolvePointGain;
 
     [SerializeField] string testResponse = "signal received, should spawn enemy now";
 
