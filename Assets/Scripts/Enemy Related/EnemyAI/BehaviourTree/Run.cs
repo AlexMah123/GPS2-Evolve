@@ -3,32 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Walk : Node
+public class Run : Node
 {
     private GameObject _player;
     private Transform _transform;
     private NavMeshAgent _nva;
-    private Enemy_Base _scriptableEnemy;
-
-    public Walk(GameObject player, Transform transform,NavMeshAgent nva)
+    public Run(Transform transform , GameObject player,NavMeshAgent nva)
     {
-        _player = player;
         _transform = transform;
+        _player = player;
         _nva = nva;
     }
     public override NodeState Evaluate()
     {
         float d = Vector3.Distance(_player.transform.position, _transform.position);
-        if (d > 10)
+
+        if(d < 30)
         {
-            //Enter patrol stuff here
-            Debug.Log("walking");
+            Debug.Log("Running");
             state = NodeState.RUNNING;
         }
         else
         {
             state = NodeState.FAILURE;
         }
+        
         return state;
     }
 }

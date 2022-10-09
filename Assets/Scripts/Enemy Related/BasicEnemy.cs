@@ -18,5 +18,4 @@ public class BasicEnemy : MonoBehaviour
         Debug.Log(enemyScriptable2.name);
 
     }
-
 }
