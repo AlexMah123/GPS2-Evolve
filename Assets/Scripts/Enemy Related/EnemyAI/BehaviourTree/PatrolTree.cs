@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//HYZ
 [RequireComponent(typeof(NavMeshAgent))]
 public class PatrolTree : Tree
 {

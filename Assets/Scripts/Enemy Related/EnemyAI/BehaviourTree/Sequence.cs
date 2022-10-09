@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//HYZ
     public class Sequence : Node //And logic gate
     {
         public Sequence() : base() { }
