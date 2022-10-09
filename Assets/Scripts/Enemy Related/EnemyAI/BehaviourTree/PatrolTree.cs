@@ -15,14 +15,15 @@ public class PatrolTree : Tree
     }
     public void Awake()
     {
+        Debug.Log(ess.spawnCount);
         player = GameObject.Find("Kaiju_right_position");
     }
     public override Node SetupTree()
     {
         Node root = new Selector(new List<Node>
         {
-         new Run(this.transform,player,nva),
-         new Walk(player, this.transform, nva),
+         new Run(this.transform,player,nva,ess),
+         new Walk(this.transform,player,nva,ess),
     }); ; ;
         
         return root;

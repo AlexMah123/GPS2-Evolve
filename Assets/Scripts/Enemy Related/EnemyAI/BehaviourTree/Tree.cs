@@ -12,9 +12,10 @@ using UnityEngine;
         }
         private void Update()
         {
-            if (root != null)
-                root.Evaluate();
-            
+
+        if (root != null)
+        root.Evaluate();
+        
         }
 
         public abstract Node SetupTree();

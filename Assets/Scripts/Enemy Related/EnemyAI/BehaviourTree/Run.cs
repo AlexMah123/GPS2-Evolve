@@ -6,25 +6,34 @@ using UnityEngine.AI;
 //HYZ
 public class Run : Node
 {
+    [Header("Tree Var")]
     private GameObject _player;
     private Transform _transform;
     private NavMeshAgent _nva;
-    public Run(Transform transform , GameObject player,NavMeshAgent nva)
+    private EnemyScriptable _ess;
+
+    [Header("Ind Var")]
+    private bool Running;
+    public Run(Transform transform , GameObject player,NavMeshAgent nva, EnemyScriptable ess)
     {
         _transform = transform;
         _player = player;
         _nva = nva;
+        _ess = ess;
     }
     public override NodeState Evaluate()
     {
         float d = Vector3.Distance(_player.transform.position, _transform.position);
-
-        if(d < 30)
+        Running = d < 15 ? true : Running;
+        Running = d > 30 ? false : Running;
+        Vector3 targetDir = (_transform.position - _player.transform.position).normalized;
+        if (Running)
         {
-            Debug.Log("Running");
+            _nva.speed = _ess.Speed * 2;
+            _nva.SetDestination(targetDir + _transform.position);
             state = NodeState.RUNNING;
         }
-        else
+        else 
         {
             state = NodeState.FAILURE;
         }
