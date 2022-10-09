@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
         Vector3 move = new Vector3(movementInput.y, 0f, -movementInput.x);
-        controller.Move(move * Time.deltaTime * playerSpeed);
+        controller.Move(playerSpeed * Time.deltaTime * move);
         if (move != Vector3.zero)
         {
             gameObject.transform.forward = move;

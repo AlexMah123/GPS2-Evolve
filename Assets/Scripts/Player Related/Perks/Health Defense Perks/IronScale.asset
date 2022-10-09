@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46492a6bfc596724490665c10c608dd8, type: 3}
+  m_Name: IronScale
+  m_EditorClassIdentifier: 
+  name: Iron Scale
+  description: Envelope your body with tougher scales
+  perkTypes: 1
+  defenseModifier: 6

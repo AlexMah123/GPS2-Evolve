@@ -13,7 +13,7 @@ public class Player_PerksManager : MonoBehaviour
 
     private void Start()
     {
-        //UpdatePerk(currentPerk);
+        UpdatePerk(currentPerk);
         //UpdatePerk(currentPerk);
     }
 
@@ -22,7 +22,7 @@ public class Player_PerksManager : MonoBehaviour
         //resets the struct passed in
         perkMod = new();
 
-        //foreach perk in the list, apply all off them
+        //foreach perk in the list, apply all of them
         for (int i = 0; i < totalModifiers.Count; i++)
         {
             perkMod = totalModifiers[i].perks.ApplyPerks(perkMod);
@@ -33,10 +33,20 @@ public class Player_PerksManager : MonoBehaviour
         //sets currentPerk to all the modifiers gotten
         currentPerk = perkMod;
         Debug.Log(currentPerk.attackModifier);
+        Debug.Log(currentPerk.defenceModifier);
+
 
         #endregion
     }
 
+    public void UpdateEffects()
+    {
+        //foreach status in the list, apply all of them
+        for (int i = 0; i < totalModifiers.Count; i++)
+        {
+            totalModifiers[i].perks.ApplyEffects();
+        }
+    }
 }
 
 [Serializable]

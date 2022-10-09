@@ -1,0 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "Whip", menuName = "PlayerAbility/Whip")]
+public class Whip : Player_BaseAbility
+{
+    //created by Alex
+
+    public override void Activate(GameObject parent)
+    {
+        //activate ability
+    }
+}

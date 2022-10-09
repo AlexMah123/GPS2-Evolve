@@ -25,6 +25,10 @@ public abstract class Player_BasePerk : ScriptableObject
         return perkMod;
     }
 
+    public virtual void ApplyEffects()
+    {
+        //do nothing
+    }
 }
 
 public struct PerkModifiers
