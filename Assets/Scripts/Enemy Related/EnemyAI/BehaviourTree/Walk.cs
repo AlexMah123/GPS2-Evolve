@@ -9,7 +9,7 @@ public class Walk : Node
     private GameObject _player;
     private Transform _transform;
     private NavMeshAgent _nva;
-    private Enemy_Base _scriptableEnemy;
+    private EnemyScriptable _scriptableEnemy;
 
     public Walk(GameObject player, Transform transform,NavMeshAgent nva)
     {

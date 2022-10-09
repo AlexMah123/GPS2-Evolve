@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/Enemy_BaseSO")]
-public class Enemy_Base : ScriptableObject
-{
-    //created by Terrance, edited by Alex
+//created by terrence, edit by alex
+[CreateAssetMenu(fileName = "Enemy", menuName = "Enemy/EnemyScriptable")]
 
+public class EnemyScriptable : ScriptableObject
+{
+    public GameObject enemy;
+    public int spawnCount = 5;
+    public float spawnDelay = 0.5f;
     public new string name;
     public int health;
     public int defence;
@@ -15,10 +18,13 @@ public class Enemy_Base : ScriptableObject
     public float speed;
     public float evolvePointGain;
 
-    public virtual void Spawn()
+    [SerializeField] string testResponse = "signal received, should spawn enemy now";
+
+    public void signalTest()
     {
-        //spawn
+        Debug.Log(testResponse);
     }
+
 
     #region Properties
     public int Health

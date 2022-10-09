@@ -7,8 +7,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class PatrolTree : Tree
 {
-    public Enemy_Base scriptableEnemy;
-    public EnemySpawnerScriptable ess;
+    public EnemyScriptable ess;
     public GameObject player;
     public NavMeshAgent nva
     {

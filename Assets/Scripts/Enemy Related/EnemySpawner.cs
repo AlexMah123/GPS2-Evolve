@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 //created by terrence
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] EnemySpawnerScriptable[] ESS;
+    [SerializeField] EnemyScriptable[] ESS;
     [SerializeField] float waveDelayMax = 3;
     float waveDelay;
     int currentESS = 0;
