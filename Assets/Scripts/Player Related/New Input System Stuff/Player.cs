@@ -53,6 +53,51 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Skill 1"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea01db84-56d3-490f-99a0-5308f2e8f156"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skill 2"",
+                    ""type"": ""Button"",
+                    ""id"": ""56a94236-8db5-446a-8d66-ce35bc765de4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skill 3"",
+                    ""type"": ""Button"",
+                    ""id"": ""6d01be32-45db-492b-957c-3fdae1650b7e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Melee"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c394ffd-b4c2-469a-acec-6c56922670d3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Devour"",
+                    ""type"": ""Button"",
+                    ""id"": ""612c36ec-e1d9-4d26-8778-2a98506adf33"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -143,6 +188,61 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""action"": ""Look Around"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49ac1a26-1c44-4cbf-8174-24a2df9a67c6"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill 1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75e082de-f391-4ca3-988b-b446e36c0d75"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill 2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""218330f2-689c-460e-9273-df998157af9e"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill 3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a3ef1e4-da7d-4db6-a39c-c60a89299188"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Melee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4422cf2f-96dd-4bf1-8384-77736852fe49"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Devour"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -154,6 +254,11 @@ public partial class @Player : IInputActionCollection2, IDisposable
         m_PlayerMain_Move = m_PlayerMain.FindAction("Move", throwIfNotFound: true);
         m_PlayerMain_Jump = m_PlayerMain.FindAction("Jump", throwIfNotFound: true);
         m_PlayerMain_LookAround = m_PlayerMain.FindAction("Look Around", throwIfNotFound: true);
+        m_PlayerMain_Skill1 = m_PlayerMain.FindAction("Skill 1", throwIfNotFound: true);
+        m_PlayerMain_Skill2 = m_PlayerMain.FindAction("Skill 2", throwIfNotFound: true);
+        m_PlayerMain_Skill3 = m_PlayerMain.FindAction("Skill 3", throwIfNotFound: true);
+        m_PlayerMain_Melee = m_PlayerMain.FindAction("Melee", throwIfNotFound: true);
+        m_PlayerMain_Devour = m_PlayerMain.FindAction("Devour", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -216,6 +321,11 @@ public partial class @Player : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMain_Move;
     private readonly InputAction m_PlayerMain_Jump;
     private readonly InputAction m_PlayerMain_LookAround;
+    private readonly InputAction m_PlayerMain_Skill1;
+    private readonly InputAction m_PlayerMain_Skill2;
+    private readonly InputAction m_PlayerMain_Skill3;
+    private readonly InputAction m_PlayerMain_Melee;
+    private readonly InputAction m_PlayerMain_Devour;
     public struct PlayerMainActions
     {
         private @Player m_Wrapper;
@@ -223,6 +333,11 @@ public partial class @Player : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_PlayerMain_Move;
         public InputAction @Jump => m_Wrapper.m_PlayerMain_Jump;
         public InputAction @LookAround => m_Wrapper.m_PlayerMain_LookAround;
+        public InputAction @Skill1 => m_Wrapper.m_PlayerMain_Skill1;
+        public InputAction @Skill2 => m_Wrapper.m_PlayerMain_Skill2;
+        public InputAction @Skill3 => m_Wrapper.m_PlayerMain_Skill3;
+        public InputAction @Melee => m_Wrapper.m_PlayerMain_Melee;
+        public InputAction @Devour => m_Wrapper.m_PlayerMain_Devour;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMain; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -241,6 +356,21 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @LookAround.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnLookAround;
                 @LookAround.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnLookAround;
                 @LookAround.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnLookAround;
+                @Skill1.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnSkill1;
+                @Skill1.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnSkill1;
+                @Skill1.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnSkill1;
+                @Skill2.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnSkill2;
+                @Skill2.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnSkill2;
+                @Skill2.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnSkill2;
+                @Skill3.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnSkill3;
+                @Skill3.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnSkill3;
+                @Skill3.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnSkill3;
+                @Melee.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnMelee;
+                @Melee.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnMelee;
+                @Melee.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnMelee;
+                @Devour.started -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnDevour;
+                @Devour.performed -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnDevour;
+                @Devour.canceled -= m_Wrapper.m_PlayerMainActionsCallbackInterface.OnDevour;
             }
             m_Wrapper.m_PlayerMainActionsCallbackInterface = instance;
             if (instance != null)
@@ -254,6 +384,21 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @LookAround.started += instance.OnLookAround;
                 @LookAround.performed += instance.OnLookAround;
                 @LookAround.canceled += instance.OnLookAround;
+                @Skill1.started += instance.OnSkill1;
+                @Skill1.performed += instance.OnSkill1;
+                @Skill1.canceled += instance.OnSkill1;
+                @Skill2.started += instance.OnSkill2;
+                @Skill2.performed += instance.OnSkill2;
+                @Skill2.canceled += instance.OnSkill2;
+                @Skill3.started += instance.OnSkill3;
+                @Skill3.performed += instance.OnSkill3;
+                @Skill3.canceled += instance.OnSkill3;
+                @Melee.started += instance.OnMelee;
+                @Melee.performed += instance.OnMelee;
+                @Melee.canceled += instance.OnMelee;
+                @Devour.started += instance.OnDevour;
+                @Devour.performed += instance.OnDevour;
+                @Devour.canceled += instance.OnDevour;
             }
         }
     }
@@ -263,5 +408,10 @@ public partial class @Player : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLookAround(InputAction.CallbackContext context);
+        void OnSkill1(InputAction.CallbackContext context);
+        void OnSkill2(InputAction.CallbackContext context);
+        void OnSkill3(InputAction.CallbackContext context);
+        void OnMelee(InputAction.CallbackContext context);
+        void OnDevour(InputAction.CallbackContext context);
     }
 }
