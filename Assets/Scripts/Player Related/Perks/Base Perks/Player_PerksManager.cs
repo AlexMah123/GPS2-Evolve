@@ -7,35 +7,44 @@ public class Player_PerksManager : MonoBehaviour
 {
     //created by Alex
 
+    public static Player_PerksManager Instance { get; private set; }
+
     [Header("Modifiers")]
-    public List<Modifier> totalModifiers = new List<Modifier>();
-    PerkModifiers currentPerk = new();
+    public List<Modifier> totalModifiers = new();
+    PerkModifiers tempPerks = new();
+
+    private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
-        UpdatePerk(currentPerk);
-        //UpdatePerk(currentPerk);
+      
     }
 
-    public void UpdatePerk(PerkModifiers perkMod)
+    public PerkModifiers UpdatePerk(PerkModifiers perkMod)
     {
-        //resets the struct passed in
-        perkMod = new();
 
         //foreach perk in the list, apply all of them
         for (int i = 0; i < totalModifiers.Count; i++)
         {
-            perkMod = totalModifiers[i].perks.ApplyPerks(perkMod);
+            tempPerks = totalModifiers[i].perks.ApplyPerks(tempPerks);
         }
 
         //do something with perkMod
         #region ApplyAllPerks
-        //sets currentPerk to all the modifiers gotten
-        currentPerk = perkMod;
-        Debug.Log(currentPerk.attackModifier);
-        Debug.Log(currentPerk.defenceModifier);
 
+        perkMod = tempPerks;
 
+        return perkMod;
         #endregion
     }
 

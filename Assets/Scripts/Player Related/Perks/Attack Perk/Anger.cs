@@ -21,6 +21,6 @@ public class Anger : Player_BasePerk
 
     public override void ApplyEffects()
     {
-        base.ApplyEffects();
+        
     }
 }

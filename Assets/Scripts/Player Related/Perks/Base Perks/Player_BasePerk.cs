@@ -31,6 +31,7 @@ public abstract class Player_BasePerk : ScriptableObject
     }
 }
 
+[System.Serializable]
 public struct PerkModifiers
 {
     //struct to hold all the modifiers
