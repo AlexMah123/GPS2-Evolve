@@ -40,7 +40,7 @@ public class EnemyObjectPool : MonoBehaviour
     {
         for(int i = 0; i < amountToPool; i++)
         {
-            if (pooledEnemies[i].activeInHierarchy)
+            if (!pooledEnemies[i].activeInHierarchy)
             {
                 return pooledEnemies[i];
             }
