@@ -8,7 +8,7 @@ public class EnemyObjectPool : MonoBehaviour
 
     public static EnemyObjectPool enemyObjectPoolInstance;
     public List<GameObject> pooledEnemies;
-    public GameObject[] enemyType;
+    public GameObject[] enemyTypes;
     public GameObject enemyToPool;
     public int amountToPool;
     
@@ -37,14 +37,27 @@ public class EnemyObjectPool : MonoBehaviour
         }
     }
 
-    public GameObject GetPooledEnemy()
+    public GameObject GetPooledEnemy(ScriptableObject enemyScriptable)
     {
         bool hasSpawned = false;
-        
-        //spawned name has name(Clone)
+        string spawnName;
+
+        switch (enemyScriptable.name)
+        {
+            case "Unarmed Enemy":
+                spawnName = "EnemyBeta(Clone)";
+                break;
+            case "Armed Human":
+                spawnName = "2(Clone)";
+                break;
+            default:
+                spawnName = null;
+                break;
+        }
+
         for(int i = 0; i < amountToPool; i++)
         {
-            if (!pooledEnemies[i].activeInHierarchy)
+            if (!pooledEnemies[i].activeInHierarchy && pooledEnemies[i].name == spawnName)
             {
                 return pooledEnemies[i];
                 hasSpawned = true;
@@ -53,6 +66,14 @@ public class EnemyObjectPool : MonoBehaviour
 
         if (!hasSpawned)
         {
+            if(enemyScriptable.name == "Unarmed Enemy")
+            {
+                enemyToPool = enemyTypes[0];
+            }
+            else if(enemyScriptable.name == "ArmedHuman") 
+            {
+                enemyToPool = enemyTypes[1];
+            }
             GameObject tmp = Instantiate(enemyToPool);
             pooledEnemies.Add(tmp);
             amountToPool++;
