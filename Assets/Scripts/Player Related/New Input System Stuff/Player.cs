@@ -282,17 +282,14 @@ public partial class @Player : IInputActionCollection2, IDisposable
         m_PlayerMain_Move = m_PlayerMain.FindAction("Move", throwIfNotFound: true);
         m_PlayerMain_Jump = m_PlayerMain.FindAction("Jump", throwIfNotFound: true);
         m_PlayerMain_LookAround = m_PlayerMain.FindAction("Look Around", throwIfNotFound: true);
-<<<<<<< Updated upstream
         m_PlayerMain_Skill1 = m_PlayerMain.FindAction("Skill 1", throwIfNotFound: true);
         m_PlayerMain_Skill2 = m_PlayerMain.FindAction("Skill 2", throwIfNotFound: true);
         m_PlayerMain_Skill3 = m_PlayerMain.FindAction("Skill 3", throwIfNotFound: true);
         m_PlayerMain_Melee = m_PlayerMain.FindAction("Melee", throwIfNotFound: true);
         m_PlayerMain_Devour = m_PlayerMain.FindAction("Devour", throwIfNotFound: true);
-=======
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
->>>>>>> Stashed changes
     }
 
     public void Dispose()

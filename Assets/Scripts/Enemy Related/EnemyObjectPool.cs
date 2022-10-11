@@ -8,6 +8,7 @@ public class EnemyObjectPool : MonoBehaviour
 
     public static EnemyObjectPool enemyObjectPoolInstance;
     public List<GameObject> pooledEnemies;
+    public GameObject[] enemyType;
     public GameObject enemyToPool;
     public int amountToPool;
     
@@ -38,13 +39,26 @@ public class EnemyObjectPool : MonoBehaviour
 
     public GameObject GetPooledEnemy()
     {
+        bool hasSpawned = false;
+        
+        //spawned name has name(Clone)
         for(int i = 0; i < amountToPool; i++)
         {
             if (!pooledEnemies[i].activeInHierarchy)
             {
                 return pooledEnemies[i];
+                hasSpawned = true;
             }
         }
+
+        if (!hasSpawned)
+        {
+            GameObject tmp = Instantiate(enemyToPool);
+            pooledEnemies.Add(tmp);
+            amountToPool++;
+            return tmp;
+        }
+
         return null;
     }
 }
