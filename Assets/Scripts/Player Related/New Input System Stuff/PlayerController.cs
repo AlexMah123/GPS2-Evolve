@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
     //Created by Shane
 
     private Player playerInput;
-
+    private Transform cameraMain;
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
@@ -31,6 +32,10 @@ public class PlayerController : MonoBehaviour
         playerInput.Disable();
     }
 
+    private void Start()
+    {
+        cameraMain = Camera.main.transform;
+    }
     void Update()
     {
         groundedPlayer = controller.isGrounded;
@@ -39,12 +44,13 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
-        Vector3 move = new Vector3(movementInput.y, 0f, -movementInput.x);
+        Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>() ;
+        Vector3 move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
+        move.y = 0;
         controller.Move(playerSpeed * Time.deltaTime * move);
         if (move != Vector3.zero)
         {
-            gameObject.transform.forward = move;
+            //gameObject.transform.forward = move;
         }
 
         // Changes the height position of the player..
@@ -55,6 +61,12 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        if(movementInput != Vector2.zero)
+        {
+            Quaternion rotation = Quaternion.Euler(new(transform.localEulerAngles.x, cameraMain.localEulerAngles.y, transform.localEulerAngles.z));
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
+        }
     }
 
 }

@@ -19,6 +19,11 @@ public class GameSceneUI : MonoBehaviour
         playerInput = new Player();
         playerInput.Enable();
     }
+
+    private void OnDisable()
+    {
+        playerInput.Disable();
+    }
     private void Update()
     {
         //if (Application.platform == RuntimePlatform.Android)
