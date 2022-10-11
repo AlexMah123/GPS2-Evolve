@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     //Created by Shane
 
-    private Player playerInput;
+    [HideInInspector] public Player playerInput;
     private Transform cameraMain;
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
+
+    //FSM Stuff
+    public PlayerStateMachine currentState;
 
     private void Awake()
     {
@@ -35,6 +38,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         cameraMain = Camera.main.transform;
+        SetState(new NormalState(this));
     }
     void Update()
     {
@@ -67,6 +71,18 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(new(transform.localEulerAngles.x, cameraMain.localEulerAngles.y, transform.localEulerAngles.z));
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
         }
+
+
+        if (playerInput.PlayerMain.Melee.triggered)
+        {
+            //Melee code should go in NormalState.Melee
+            StartCoroutine(currentState.Melee());
+        }
     }
 
+    public void SetState(PlayerStateMachine state)
+    {
+        currentState = state;
+        StartCoroutine(currentState.Start());
+    }
 }
