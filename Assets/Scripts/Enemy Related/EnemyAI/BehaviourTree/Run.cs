@@ -24,13 +24,20 @@ public class Run : Node
     public override NodeState Evaluate()
     {
         float d = Vector3.Distance(_player.transform.position, _transform.position);
-        Running = d < 15 ? true : Running;
-        Running = d > 30 ? false : Running;
+        if (!Running && d < 15)
+        {
+            Running = true;
+        }
+        else if (Running && d > 30)
+        {
+            Running = false;
+        }
         Vector3 targetDir = (_transform.position - _player.transform.position).normalized;
         if (Running)
         {
             _nva.speed = _ess.Speed * 2;
             _nva.SetDestination(targetDir + _transform.position);
+            Debug.Log("Running");
             state = NodeState.RUNNING;
         }
         else 

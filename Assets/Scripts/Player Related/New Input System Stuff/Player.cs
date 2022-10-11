@@ -245,6 +245,34 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""caa88558-646e-4b3f-87de-f457f1d98250"",
+            ""actions"": [
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""d23dbc51-1ca4-4282-9e4f-0eec6663ed36"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""338057e0-c299-4827-bc86-86458f047310"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -254,11 +282,17 @@ public partial class @Player : IInputActionCollection2, IDisposable
         m_PlayerMain_Move = m_PlayerMain.FindAction("Move", throwIfNotFound: true);
         m_PlayerMain_Jump = m_PlayerMain.FindAction("Jump", throwIfNotFound: true);
         m_PlayerMain_LookAround = m_PlayerMain.FindAction("Look Around", throwIfNotFound: true);
+<<<<<<< Updated upstream
         m_PlayerMain_Skill1 = m_PlayerMain.FindAction("Skill 1", throwIfNotFound: true);
         m_PlayerMain_Skill2 = m_PlayerMain.FindAction("Skill 2", throwIfNotFound: true);
         m_PlayerMain_Skill3 = m_PlayerMain.FindAction("Skill 3", throwIfNotFound: true);
         m_PlayerMain_Melee = m_PlayerMain.FindAction("Melee", throwIfNotFound: true);
         m_PlayerMain_Devour = m_PlayerMain.FindAction("Devour", throwIfNotFound: true);
+=======
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
+>>>>>>> Stashed changes
     }
 
     public void Dispose()
@@ -403,6 +437,39 @@ public partial class @Player : IInputActionCollection2, IDisposable
         }
     }
     public PlayerMainActions @PlayerMain => new PlayerMainActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Escape;
+    public struct UIActions
+    {
+        private @Player m_Wrapper;
+        public UIActions(@Player wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Escape => m_Wrapper.m_UI_Escape;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @Escape.started -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IPlayerMainActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -413,5 +480,9 @@ public partial class @Player : IInputActionCollection2, IDisposable
         void OnSkill3(InputAction.CallbackContext context);
         void OnMelee(InputAction.CallbackContext context);
         void OnDevour(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

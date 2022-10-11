@@ -8075,6 +8075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ESS:
   - {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
+  - {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
   waveDelayMax: 3
 --- !u!4 &1495648538
 Transform:

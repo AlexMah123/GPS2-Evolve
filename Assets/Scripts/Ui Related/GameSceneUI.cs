@@ -6,15 +6,29 @@ using UnityEngine.SceneManagement;
 public class GameSceneUI : MonoBehaviour
 {
     //HYZ
+    private Player playerInput;
+    private CharacterController controller;
     //GameScene
     [SerializeField] private GameObject perkWindow;
     [SerializeField] private GameObject evoWindow;
     [SerializeField] private GameObject pauseWindow;
     [SerializeField] private GameObject settingsWindow;
 
+    private void OnEnable()
+    {
+        playerInput = new Player();
+        playerInput.Enable();
+    }
     private void Update()
     {
-       
+        //if (Application.platform == RuntimePlatform.Android)
+        //{
+            if(playerInput.UI.Escape.WasPressedThisFrame())
+            {
+                TogglePause();
+                Debug.Log(Time.timeScale);
+            }
+        //}
     }
     public void TogglePerk()
     {
