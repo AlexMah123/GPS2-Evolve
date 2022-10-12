@@ -16,5 +16,5 @@ MonoBehaviour:
   description: 
   attack: 0
   cooldownTime: 2
-  activeTime: 1
-  state: 0
+  activeTime: 2
+  state: 1

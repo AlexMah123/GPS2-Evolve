@@ -39,6 +39,10 @@ public class Player_AbilityHolder : MonoBehaviour
         CheckAbilityStates(skill1);
         CheckAbilityStates(skill2);
         CheckAbilityStates(skill3);
+
+        Debug.Log(tempActiveTime1);
+        Debug.Log(tempCooldownTime1);
+
     }
 
     #region AbilityChecks
@@ -95,7 +99,7 @@ public class Player_AbilityHolder : MonoBehaviour
                 case Player_BaseAbility.AbilityState.active:
                     if (tempActiveTime2 > 0)
                     {
-                        tempActiveTime1 -= Time.deltaTime;
+                        tempActiveTime2 -= Time.deltaTime;
                     }
                     else
                     {

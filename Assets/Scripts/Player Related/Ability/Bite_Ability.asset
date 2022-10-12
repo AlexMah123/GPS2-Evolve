@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Bite_Ability
   m_EditorClassIdentifier: 
   name: Bite
-  attack: 40
   description: Unleash a chomp infront of you
-  cooldownTime: 5
-  activeTime: 2
+  attack: 40
+  cooldownTime: 2
+  activeTime: 1
+  state: 0
