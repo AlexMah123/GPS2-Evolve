@@ -7,11 +7,24 @@ public class EnemyStatus : MonoBehaviour
 {
     public EnemyScriptable ess;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collided");
+            if (PlayerController.Instance.attacking == true)
+            {
+                ess.Health -= Player_StatusManager.Instance.playerBaseStats.Attack;
+                Debug.Log("Collided");
+            }
+            
+        }
+    }
+
+    private void Update()
+    {
+        if (ess.Health <= 0)
+        {
+            gameObject.SetActive(false);
         }
     }
 }

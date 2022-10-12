@@ -18,6 +18,7 @@ public class NormalState : PlayerStateMachine
 
     public override IEnumerator Melee()
     {
+        _system.attacking = true;
         _system.SetState(new AttackState(_system));
         yield break;
     }

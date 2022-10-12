@@ -16,7 +16,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
 
+    public bool attacking;
+
     public Animator animator;
+
+    public static PlayerController Instance;
     //FSM Stuff
     public PlayerStateMachine currentState;
 
@@ -24,6 +28,14 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = new Player();
         controller = GetComponent<CharacterController>();
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     private void OnEnable()

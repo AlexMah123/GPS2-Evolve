@@ -15,6 +15,7 @@ public class AttackState : PlayerStateMachine
 
     public override IEnumerator ActionFinished()
     {
+        _system.attacking = false;
         _system.animator.SetBool("NormalAttack", false);
         _system.SetState(new NormalState(_system));
         yield break;
