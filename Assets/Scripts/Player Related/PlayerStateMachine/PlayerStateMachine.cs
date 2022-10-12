@@ -32,6 +32,10 @@ public abstract class PlayerStateMachine
         yield break;
     }
 
+    public virtual IEnumerator ActionFinished()
+    {
+        yield break;
+    }
     public virtual IEnumerator Devour()
     {
         yield break;

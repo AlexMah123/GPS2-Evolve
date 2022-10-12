@@ -6,14 +6,17 @@ public class AttackState : PlayerStateMachine
 {
     public AttackState(PlayerController system) : base(system) { }
 
-    public override IEnumerator Movement()
-    {
-        //Player Movement should be moved here when done
-        yield break;
-    }
+    //No Movement Here
 
     public override IEnumerator Melee()
     {
+        yield break;
+    }
+
+    public override IEnumerator ActionFinished()
+    {
+        _system.animator.SetBool("NormalAttack", false);
+        _system.SetState(new NormalState(_system));
         yield break;
     }
 }

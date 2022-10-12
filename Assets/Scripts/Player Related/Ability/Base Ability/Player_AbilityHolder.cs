@@ -17,11 +17,21 @@ public class Player_AbilityHolder : MonoBehaviour
     float tempCooldownTime3;
     float tempActiveTime3;
 
-    Player playerInput;
+    public Player playerInput;
 
     private void Awake()
     {
-        playerInput = new();
+        playerInput = new Player();
+    }
+
+    private void OnEnable()
+    {
+        playerInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerInput.Disable();
     }
 
     private void Update()

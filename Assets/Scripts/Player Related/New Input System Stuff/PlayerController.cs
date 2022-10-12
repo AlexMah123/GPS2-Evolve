@@ -11,11 +11,12 @@ public class PlayerController : MonoBehaviour
     private Transform cameraMain;
     private CharacterController controller;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
+    [SerializeField] private bool groundedPlayer;
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
 
+    public Animator animator;
     //FSM Stuff
     public PlayerStateMachine currentState;
 
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+
+        Debug.Log(currentState);
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -76,10 +79,20 @@ public class PlayerController : MonoBehaviour
         if (playerInput.PlayerMain.Melee.triggered)
         {
             //Melee code should go in NormalState.Melee
+            animator.SetBool("NormalAttack", true);
             StartCoroutine(currentState.Melee());
+        }
+
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Melee"))
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
+            {
+                StartCoroutine(currentState.ActionFinished());
+            }
         }
     }
 
+    //Function called to change Player State in the FSM
     public void SetState(PlayerStateMachine state)
     {
         currentState = state;

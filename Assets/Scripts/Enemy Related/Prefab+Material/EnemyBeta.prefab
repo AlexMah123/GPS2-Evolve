@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4845677421956124909}
   - component: {fileID: 559648465576246187}
   - component: {fileID: 5524263248044705127}
+  - component: {fileID: -3677966974310759022}
   m_Layer: 0
   m_Name: EnemyBeta
   m_TagString: Untagged
@@ -115,3 +116,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &-3677966974310759022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6445780644082940286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1aab54c6135e7b4ab1aa1b40a5227bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ess: {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
