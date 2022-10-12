@@ -72,7 +72,8 @@ public class PlayerController : MonoBehaviour
 
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>() ;
         Vector3 move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
-        
+
+        animator.SetFloat("Running", move != Vector3.zero ? 1 : 0);
         move.y = 0;
         controller.Move(playerSpeed * Time.deltaTime * move);
         if (move != Vector3.zero)
