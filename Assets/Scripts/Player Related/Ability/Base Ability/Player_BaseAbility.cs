@@ -13,6 +13,14 @@ public abstract class Player_BaseAbility : ScriptableObject
     public float cooldownTime;
     public float activeTime;
 
+    public enum AbilityState
+    {
+        ready,
+        active,
+        cooldown
+    }
+    public AbilityState state = AbilityState.ready;
+
     public virtual void Activate(GameObject parent)
     {
 

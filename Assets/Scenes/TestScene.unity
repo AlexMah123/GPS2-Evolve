@@ -1683,8 +1683,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7361dd3806c4f458852929a0520655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 11400000, guid: 6436b7b1c07359540abf9e5ba023cdaf, type: 2}
-  key: 32
+  skill1: {fileID: 11400000, guid: 6436b7b1c07359540abf9e5ba023cdaf, type: 2}
+  skill2: {fileID: 11400000, guid: ff614330e091990459070b624c0245dc, type: 2}
+  skill3: {fileID: 11400000, guid: 95b1405a15bdd6346be5f398c0a49f2d, type: 2}
 --- !u!114 &302951028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2370,7 +2371,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403516178}
-  m_LocalRotation: {x: 0.052488226, y: -0.6556952, z: 0.045778096, w: 0.7518066}
+  m_LocalRotation: {x: 0.052488234, y: -0.6556952, z: 0.0457781, w: 0.7518066}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6107,7 +6108,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.052488208, y: -0.65569526, z: 0.045778085, w: 0.75180656}
+  m_LocalRotation: {x: 0.052488245, y: -0.65569526, z: 0.045778118, w: 0.75180656}
   m_LocalPosition: {x: 10.026063, y: 5, z: 3.6243243}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8094,8 +8095,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ESS:
-  - {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
-  - {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
   - {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
   waveDelayMax: 3
 --- !u!4 &1495648538
