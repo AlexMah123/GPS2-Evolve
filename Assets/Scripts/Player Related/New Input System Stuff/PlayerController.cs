@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Player playerInput;
     private Transform cameraMain;
     private CharacterController controller;
-    private Vector3 playerVelocity;
-    [SerializeField] private bool groundedPlayer;
+    [SerializeField] Vector3 playerVelocity;
+    [SerializeField] private bool groundedPlayer = true;
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     [SerializeField] private float gravityValue = -9.81f;
@@ -43,13 +43,18 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        //Debug.Log(currentState);
 
-        Debug.Log(currentState);
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        if(controller.isGrounded)
+        {
+            groundedPlayer = true;
+        }
+
+        if (groundedPlayer)
         {
             playerVelocity.y = 0f;
         }
+
 
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>() ;
         Vector3 move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
@@ -64,6 +69,7 @@ public class PlayerController : MonoBehaviour
         if (playerInput.PlayerMain.Jump.triggered && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            groundedPlayer = false;
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;

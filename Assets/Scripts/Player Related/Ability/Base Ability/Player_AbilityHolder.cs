@@ -40,9 +40,6 @@ public class Player_AbilityHolder : MonoBehaviour
         CheckAbilityStates(skill2);
         CheckAbilityStates(skill3);
 
-        Debug.Log(tempActiveTime1);
-        Debug.Log(tempCooldownTime1);
-
     }
 
     #region AbilityChecks
