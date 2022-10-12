@@ -14,6 +14,7 @@ public class Player_Base
     [SerializeField] float attackSpeed = 0.8f;
     [SerializeField] float speed = 2;
     [SerializeField] float jumpHeight = 3;
+    [SerializeField] int currEvolveBar = 0;
     [SerializeField] int maxEvolveBar = 80;
     [SerializeField] int eatHeal = 5;
     [SerializeField] float eatTime = 1.5f;
@@ -59,6 +60,12 @@ public class Player_Base
     {
         get => maxEvolveBar;
         set => maxEvolveBar = value;
+    }
+
+    public int CurrEvolveBar
+    {
+        get => currEvolveBar;
+        set => currEvolveBar = value;
     }
 
     public int EatHeal

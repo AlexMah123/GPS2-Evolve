@@ -2,22 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameSceneUI : MonoBehaviour
 {
     //HYZ
     private Player playerInput;
-    private CharacterController controller;
+    [SerializeField] private Player_StatusManager player;
     //GameScene
     [SerializeField] private GameObject perkWindow;
     [SerializeField] private GameObject evoWindow;
     [SerializeField] private GameObject pauseWindow;
     [SerializeField] private GameObject settingsWindow;
+    [SerializeField] private Slider health;
+    [SerializeField] private Slider evo;
+    private int maxH;
 
     private void OnEnable()
     {
         playerInput = new Player();
         playerInput.Enable();
+        maxH = player.playerBaseStats.Health;
     }
 
     private void OnDisable()
@@ -26,6 +31,8 @@ public class GameSceneUI : MonoBehaviour
     }
     private void Update()
     {
+        health.value = ((float)player.playerBaseStats.Health/ maxH);
+        evo.value = ((float)player.playerBaseStats.CurrEvolveBar/ player.playerBaseStats.MaxEvolveBar);
         //if (Application.platform == RuntimePlatform.Android)
         //{
             if(playerInput.UI.Escape.WasPressedThisFrame())
