@@ -37,7 +37,7 @@ public class EnemyObjectPool : MonoBehaviour
         }
     }
 
-    public GameObject GetPooledEnemy(ScriptableObject enemyScriptable)
+    public GameObject GetPooledEnemy(EnemyScriptable enemyScriptable)
     {
         bool hasSpawned = false;
         string spawnName;
@@ -45,10 +45,10 @@ public class EnemyObjectPool : MonoBehaviour
         switch (enemyScriptable.name)
         {
             case "Unarmed Enemy":
-                spawnName = "EnemyBeta(Clone)";
+                spawnName = $"{enemyScriptable.enemy.name}(Clone)";
                 break;
             case "Armed Human":
-                spawnName = "2(Clone)";
+                spawnName = $"{enemyScriptable.enemy.name}(Clone)";
                 break;
             default:
                 spawnName = null;
