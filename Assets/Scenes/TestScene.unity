@@ -1604,7 +1604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2149,7 +2149,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1273894808742661446, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1273894808742661446, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2630,7 +2630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 19aef7e8be40a764a81109bb13785a06, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 19aef7e8be40a764a81109bb13785a06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7019,7 +7019,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1273894808742661446, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1273894808742661446, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10510,6 +10510,7 @@ MonoBehaviour:
   ESS:
   - {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
   - {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
+  - {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
   waveDelayMax: 3
 --- !u!1 &1854594588
 GameObject:

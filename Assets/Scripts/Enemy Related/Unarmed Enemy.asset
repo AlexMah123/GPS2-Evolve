@@ -20,6 +20,6 @@ MonoBehaviour:
   defence: 0
   attack: 0
   attackSpeed: 0
-  speed: 1.5
+  speed: 3
   evolvePointGain: 2
   testResponse: signal received, should spawn enemy now

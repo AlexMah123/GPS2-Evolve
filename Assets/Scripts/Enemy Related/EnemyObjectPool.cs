@@ -59,8 +59,8 @@ public class EnemyObjectPool : MonoBehaviour
         {
             if (!pooledEnemies[i].activeInHierarchy && pooledEnemies[i].name == spawnName)
             {
-                return pooledEnemies[i];
                 hasSpawned = true;
+                return pooledEnemies[i];
             }
         }
 
@@ -70,10 +70,11 @@ public class EnemyObjectPool : MonoBehaviour
             {
                 enemyToPool = enemyTypes[0];
             }
-            else if(enemyScriptable.name == "ArmedHuman") 
+            else if(enemyScriptable.name == "Armed Human") 
             {
                 enemyToPool = enemyTypes[1];
             }
+
             GameObject tmp = Instantiate(enemyToPool);
             pooledEnemies.Add(tmp);
             amountToPool++;

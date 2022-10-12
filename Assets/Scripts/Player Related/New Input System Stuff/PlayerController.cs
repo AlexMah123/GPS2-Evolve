@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
         cameraMain = Camera.main.transform;
         SetState(new NormalState(this));
     }
+
+
     void Update()
     {
         //Debug.Log(currentState);
@@ -70,15 +72,7 @@ public class PlayerController : MonoBehaviour
 
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>() ;
         Vector3 move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
-        if (move != Vector3.zero)
-        {
-            animator.SetFloat("Running", 0.5f);
-        }
-        else
-        {
-            animator.SetFloat("Running", 0);
-
-        }
+        
         move.y = 0;
         controller.Move(playerSpeed * Time.deltaTime * move);
         if (move != Vector3.zero)

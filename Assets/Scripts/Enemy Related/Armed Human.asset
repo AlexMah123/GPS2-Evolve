@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99e82280bbd9fc440ada3d298eb6aabb, type: 3}
-  m_Name: ArmedHuman
+  m_Name: Armed Human
   m_EditorClassIdentifier: 
   enemy: {fileID: 8754786251051910079, guid: 94c82f9bceee089418212cd54eeb288f, type: 3}
   spawnCount: 10
   spawnDelay: 0.5
-  name: Armed
-  health: 0
+  name: Armed Human
+  health: 10
   defence: 0
   attack: 0
   attackSpeed: 0
-  speed: 10
+  speed: 5
   evolvePointGain: 0
   testResponse: signal received, should spawn enemy now
