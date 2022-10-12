@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 //HYZ
-[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(NavMeshAgent)),RequireComponent(typeof(EnemyStatus))]
 public class UnarmedTree : Tree
 {
     public EnemyScriptable ess;
