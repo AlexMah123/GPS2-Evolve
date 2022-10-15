@@ -16,13 +16,11 @@ public class GameSceneUI : MonoBehaviour
     [SerializeField] private GameObject settingsWindow;
     [SerializeField] private Slider health;
     [SerializeField] private Slider evo;
-    private int maxH;
 
     private void OnEnable()
     {
         playerInput = new Player();
         playerInput.Enable();
-        maxH = player.playerBaseStats.Health;
     }
 
     private void OnDisable()
@@ -31,7 +29,7 @@ public class GameSceneUI : MonoBehaviour
     }
     private void Update()
     {
-        health.value = ((float)player.playerBaseStats.Health/ maxH);
+        health.value = ((float)player.playerBaseStats.Health/ player.playerBaseStats.MaxHealth);
         evo.value = ((float)player.playerBaseStats.CurrEvolveBar/ player.playerBaseStats.MaxEvolveBar);
         //if (Application.platform == RuntimePlatform.Android)
         //{

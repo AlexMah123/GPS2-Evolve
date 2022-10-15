@@ -9,6 +9,7 @@ public class Player_Base
     //created by Alex
 
     [SerializeField] int health = 300;
+    [SerializeField] int maxHealth = 300;
     [SerializeField] int defence = 5;
     [SerializeField] int attack = 20;
     [SerializeField] float attackSpeed = 0.8f;
@@ -24,6 +25,11 @@ public class Player_Base
     {
         get => health;
         set => health = value;
+    }
+     public int MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
     }
 
     public int Defence
