@@ -1944,7 +1944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBaseStats:
-    currHealth: 300
+    currHealth: 100
     maxHealth: 300
     defence: 5
     attack: 20

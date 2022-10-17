@@ -16,4 +16,4 @@ MonoBehaviour:
   description: You feel your body recover faster
   perkTypes: 1
   maxHealth: -50
-  regenPerSecond: 1
+  regenPerSecond: 2
