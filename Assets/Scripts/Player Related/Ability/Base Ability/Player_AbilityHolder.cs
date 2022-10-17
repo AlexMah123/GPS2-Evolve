@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player_AbilityHolder : MonoBehaviour
@@ -9,6 +10,11 @@ public class Player_AbilityHolder : MonoBehaviour
     public Player_BaseAbility skill1;
     public Player_BaseAbility skill2;
     public Player_BaseAbility skill3;
+
+    [SerializeField] TextMeshPro skill1TMP;
+    [SerializeField] TextMeshPro skill2TMP;
+    [SerializeField] TextMeshPro skill3TMP;
+
 
     float tempCooldownTime1;
     float tempActiveTime1;
@@ -50,6 +56,7 @@ public class Player_AbilityHolder : MonoBehaviour
             switch (skill.state)
             {
                 case Player_BaseAbility.AbilityState.ready:
+                    skill1TMP.text = "skill 1";
                     if (playerInput.PlayerMain.Skill1.triggered)
                     {
                         ActivateSkill(skill);
@@ -73,6 +80,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (tempCooldownTime1 > 0)
                     {
                         tempCooldownTime1 -= Time.deltaTime;
+                        skill1TMP.text = tempCooldownTime1.ToString();
                     }
                     else
                     {
@@ -86,6 +94,7 @@ public class Player_AbilityHolder : MonoBehaviour
             switch (skill.state)
             {
                 case Player_BaseAbility.AbilityState.ready:
+                    skill2TMP.text = "skill 2";
                     if (playerInput.PlayerMain.Skill2.triggered)
                     {
                         ActivateSkill(skill);
@@ -102,6 +111,8 @@ public class Player_AbilityHolder : MonoBehaviour
                     {
                         skill.state = Player_BaseAbility.AbilityState.cooldown;
                         tempCooldownTime2 = skill.cooldownTime;
+                        skill2TMP.text = tempCooldownTime2.ToString();
+
                     }
                     break;
 
@@ -122,6 +133,7 @@ public class Player_AbilityHolder : MonoBehaviour
             switch (skill.state)
             {
                 case Player_BaseAbility.AbilityState.ready:
+                    skill3TMP.text = "skill 3";
                     if (playerInput.PlayerMain.Skill3.triggered)
                     {
                         ActivateSkill(skill);
@@ -145,6 +157,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (tempCooldownTime3 > 0)
                     {
                         tempCooldownTime3 -= Time.deltaTime;
+                        skill3TMP.text = tempCooldownTime3.ToString();
                     }
                     else
                     {

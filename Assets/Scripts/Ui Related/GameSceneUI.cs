@@ -27,10 +27,12 @@ public class GameSceneUI : MonoBehaviour
     {
         playerInput.Disable();
     }
+
     private void Update()
     {
-        health.value = ((float)player.playerBaseStats.Health/ player.playerBaseStats.MaxHealth);
+        health.value = ((float)player.playerBaseStats.CurrHealth/ player.playerBaseStats.MaxHealth);
         evo.value = ((float)player.playerBaseStats.CurrEvolveBar/ player.playerBaseStats.MaxEvolveBar);
+
         //if (Application.platform == RuntimePlatform.Android)
         //{
             if(playerInput.UI.Escape.WasPressedThisFrame())

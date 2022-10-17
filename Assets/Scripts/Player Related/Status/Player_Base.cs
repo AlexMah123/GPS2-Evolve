@@ -8,7 +8,7 @@ public class Player_Base
 {
     //created by Alex
 
-    [SerializeField] int health = 300;
+    [SerializeField] int currHealth = 300;
     [SerializeField] int maxHealth = 300;
     [SerializeField] int defence = 5;
     [SerializeField] int attack = 20;
@@ -21,10 +21,10 @@ public class Player_Base
     [SerializeField] float eatTime = 1.5f;
 
     #region Properties
-    public int Health
+    public int CurrHealth
     {
-        get => health;
-        set => health = value;
+        get => currHealth;
+        set => currHealth = value;
     }
      public int MaxHealth
     {
