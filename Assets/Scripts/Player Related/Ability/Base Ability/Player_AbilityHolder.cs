@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,9 +12,9 @@ public class Player_AbilityHolder : MonoBehaviour
     public Player_BaseAbility skill2;
     public Player_BaseAbility skill3;
 
-    [SerializeField] TextMeshPro skill1TMP;
-    [SerializeField] TextMeshPro skill2TMP;
-    [SerializeField] TextMeshPro skill3TMP;
+    [SerializeField] TextMeshProUGUI skill1TMP;
+    [SerializeField] TextMeshProUGUI skill2TMP;
+    [SerializeField] TextMeshProUGUI skill3TMP;
 
 
     float tempCooldownTime1;
@@ -56,7 +57,7 @@ public class Player_AbilityHolder : MonoBehaviour
             switch (skill.state)
             {
                 case Player_BaseAbility.AbilityState.ready:
-                    skill1TMP.text = "skill 1";
+                    skill1TMP.text = skill.name;
                     if (playerInput.PlayerMain.Skill1.triggered)
                     {
                         ActivateSkill(skill);
@@ -65,7 +66,8 @@ public class Player_AbilityHolder : MonoBehaviour
                     break;
 
                 case Player_BaseAbility.AbilityState.active:
-                    if(tempActiveTime1 > 0)
+                    skill1TMP.text = "Active";
+                    if (tempActiveTime1 > 0)
                     {
                         tempActiveTime1 -= Time.deltaTime;
                     }
@@ -80,7 +82,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (tempCooldownTime1 > 0)
                     {
                         tempCooldownTime1 -= Time.deltaTime;
-                        skill1TMP.text = tempCooldownTime1.ToString();
+                        skill1TMP.text = Math.Round(tempCooldownTime1, 1).ToString();
                     }
                     else
                     {
@@ -94,7 +96,7 @@ public class Player_AbilityHolder : MonoBehaviour
             switch (skill.state)
             {
                 case Player_BaseAbility.AbilityState.ready:
-                    skill2TMP.text = "skill 2";
+                    skill2TMP.text = skill.name;
                     if (playerInput.PlayerMain.Skill2.triggered)
                     {
                         ActivateSkill(skill);
@@ -103,6 +105,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     break;
 
                 case Player_BaseAbility.AbilityState.active:
+                    skill2TMP.text = "Active";
                     if (tempActiveTime2 > 0)
                     {
                         tempActiveTime2 -= Time.deltaTime;
@@ -111,8 +114,6 @@ public class Player_AbilityHolder : MonoBehaviour
                     {
                         skill.state = Player_BaseAbility.AbilityState.cooldown;
                         tempCooldownTime2 = skill.cooldownTime;
-                        skill2TMP.text = tempCooldownTime2.ToString();
-
                     }
                     break;
 
@@ -120,6 +121,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (tempCooldownTime2 > 0)
                     {
                         tempCooldownTime2 -= Time.deltaTime;
+                        skill2TMP.text = Math.Round(tempCooldownTime2, 1).ToString();
                     }
                     else
                     {
@@ -133,7 +135,7 @@ public class Player_AbilityHolder : MonoBehaviour
             switch (skill.state)
             {
                 case Player_BaseAbility.AbilityState.ready:
-                    skill3TMP.text = "skill 3";
+                    skill3TMP.text = skill.name;
                     if (playerInput.PlayerMain.Skill3.triggered)
                     {
                         ActivateSkill(skill);
@@ -142,6 +144,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     break;
 
                 case Player_BaseAbility.AbilityState.active:
+                    skill3TMP.text = "Active";
                     if (tempActiveTime3 > 0)
                     {
                         tempActiveTime3 -= Time.deltaTime;
@@ -157,7 +160,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (tempCooldownTime3 > 0)
                     {
                         tempCooldownTime3 -= Time.deltaTime;
-                        skill3TMP.text = tempCooldownTime3.ToString();
+                        skill3TMP.text = Math.Round(tempCooldownTime3, 1).ToString();
                     }
                     else
                     {
