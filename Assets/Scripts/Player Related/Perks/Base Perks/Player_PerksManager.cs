@@ -13,9 +13,12 @@ public class Player_PerksManager : MonoBehaviour
     public List<Modifier> totalModifiers = new();
     PerkModifiers tempPerks = new();
 
+
     private void Awake()
     {
-        if(Instance != null && Instance != this)
+
+        #region Singleton
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
@@ -23,11 +26,23 @@ public class Player_PerksManager : MonoBehaviour
         {
             Instance = this;
         }
+        #endregion
+
+        AwakePerks();
     }
 
     private void Start()
     {
       
+    }
+
+    #region PerkFunction
+    public void AwakePerks()
+    {
+        for (int i = 0; i < totalModifiers.Count; i++)
+        {
+            totalModifiers[i].perks.Awake();
+        }
     }
 
     public PerkModifiers UpdatePerk(PerkModifiers perkMod)
@@ -48,14 +63,16 @@ public class Player_PerksManager : MonoBehaviour
         #endregion
     }
 
-    public void UpdateEffects()
+    public void UpdateEffects(Player_Base playerObj)
     {
         //foreach status in the list, apply all of them
         for (int i = 0; i < totalModifiers.Count; i++)
         {
-            totalModifiers[i].perks.ApplyEffects();
+            totalModifiers[i].perks.ApplyEffects(playerObj);
         }
     }
+
+    #endregion
 }
 
 [Serializable]

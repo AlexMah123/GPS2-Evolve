@@ -26,12 +26,12 @@ public class Player_StatusManager : MonoBehaviour
     {
         playerPerks = Player_PerksManager.Instance.UpdatePerk(playerPerks);
 
-        //Debug.Log(playerPerks.attackModifier);
-
+        Debug.Log(playerPerks.healthModifier);
     }
 
     private void Update()
     {
-        
+        //run the update effects on perk
+        Player_PerksManager.Instance.UpdateEffects(playerBaseStats);
     }
 }

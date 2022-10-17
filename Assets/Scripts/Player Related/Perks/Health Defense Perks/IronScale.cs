@@ -16,7 +16,7 @@ public class IronScale : Player_BasePerk
         return perkMod;
     }
 
-    public override void ApplyEffects()
+    public override void ApplyEffects(Player_Base playerObj)
     {
 
     }

@@ -18,15 +18,23 @@ public abstract class Player_BasePerk : ScriptableObject
     public new string name;
     public string description;
     public PerkTypes perkTypes;
-  
+
+
+    public virtual void Awake()
+    {
+        //runs awake in individual perks
+        //do nothing
+    }
+
     public virtual PerkModifiers ApplyPerks(PerkModifiers perkMod)
     {
         //do nothing
         return perkMod;
     }
 
-    public virtual void ApplyEffects()
+    public virtual void ApplyEffects(Player_Base playerObj)
     {
+        //apply effects in individual perks 
         //do nothing
     }
 }
