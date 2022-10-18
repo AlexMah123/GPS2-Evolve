@@ -54,8 +54,6 @@ public class PlayerController : MonoBehaviour
         cameraMain = Camera.main.transform;
         SetState(new NormalState(this));
     }
-
-
     void Update()
     {
         //Debug.Log(currentState);
@@ -68,10 +66,6 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(currentState.JumpFinished());
             playerVelocity.y = 0f;
-        }
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
-        {
-            animator.SetBool("Jumping", !(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1));
         }
         Debug.Log(currentState);
 
@@ -100,27 +94,33 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(new(transform.localEulerAngles.x, cameraMain.localEulerAngles.y, transform.localEulerAngles.z));
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
         }
-
-
         if (playerInput.PlayerMain.Melee.triggered)
         {
             //Melee code should go in NormalState.Melee
             StartCoroutine(currentState.Melee());
         }
-
         if (playerInput.PlayerMain.Devour.triggered)
         {
             StartCoroutine(currentState.Devour());
+            animator.SetBool("Devour", true);
         }
 
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Melee"))
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle/Attack"))
         {
             animator.SetFloat("Blend", animator.GetCurrentAnimatorStateInfo(0).normalizedTime * 2);
-            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
             {
                 StartCoroutine(currentState.ActionFinished());
             }
         }
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Devour"))
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
+            {
+                StartCoroutine(currentState.DevourFinished());
+            }
+        }
+
     }
 
     //Function called to change Player State in the FSM
@@ -130,5 +130,3 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(currentState.Start());
     }
 }
-
-

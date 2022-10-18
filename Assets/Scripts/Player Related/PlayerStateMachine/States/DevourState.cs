@@ -14,7 +14,7 @@ public class DevourState : PlayerStateMachine
     public override IEnumerator DevourFinished()
     {
         //Animator Stuff should be here
-        //_system.animator.SetBool("NormalAttack", false);
+        _system.animator.SetBool("Devour", false);
         _system.SetState(new NormalState(_system));
         yield break;
     }

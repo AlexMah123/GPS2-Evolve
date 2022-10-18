@@ -18,7 +18,8 @@ public class JumpState : PlayerStateMachine
     public override IEnumerator JumpFinished()
     {
         //Animator Stuff should be here
-        //_system.animator.SetBool("NormalAttack", false);
+
+        _system.animator.SetBool("Jumping", false);
         _system.SetState(new NormalState(_system));
         yield break;
     }
