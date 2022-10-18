@@ -30,8 +30,8 @@ public class GameSceneUI : MonoBehaviour
 
     private void Update()
     {
-        health.value = ((float)player.playerBaseStats.CurrHealth/ player.playerBaseStats.MaxHealth);
-        evo.value = ((float)player.playerBaseStats.CurrEvolveBar/ player.playerBaseStats.MaxEvolveBar);
+        health.value = ((float)player.playerStats.CurrHealth/ player.playerStats.MaxHealth);
+        evo.value = ((float)player.playerStats.CurrEvolveBar/ player.playerStats.MaxEvolveBar);
 
         //if (Application.platform == RuntimePlatform.Android)
         //{

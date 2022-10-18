@@ -19,6 +19,7 @@ public class Player_Base
     [SerializeField] int maxEvolveBar = 80;
     [SerializeField] int eatHeal = 5;
     [SerializeField] float eatTime = 1.5f;
+    [SerializeField] float buffExtend = 0f;
 
     #region Properties
     public int CurrHealth
@@ -84,6 +85,12 @@ public class Player_Base
     {
         get => eatTime;
         set => eatTime = value;
+    }
+
+    public float BuffExtend
+    {
+        get => buffExtend;
+        set => buffExtend = value;
     }
     #endregion
 }

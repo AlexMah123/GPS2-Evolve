@@ -50,10 +50,11 @@ public struct PerkModifiers
     public float speedModifier;
     public float jumpHeightModifier;
     public float evolveBarModifier;
-    public float eatHealModifier;
+    public int eatHealModifier;
     public float eatTimeModifier;
+    public float buffExtendModifier;
 
-    public PerkModifiers(int healthMod, int defenceMod, int attackMod, float attackSpeedMod, float speedMod, float jumpHeightMod, float evolveBarMod ,float eatHealMod, float eatTimeMod)
+    public PerkModifiers(int healthMod, int defenceMod, int attackMod, float attackSpeedMod, float speedMod, float jumpHeightMod, float evolveBarMod ,int eatHealMod, float eatTimeMod, float buffExtendMod)
     {
         healthModifier = healthMod;
         defenceModifier = defenceMod;
@@ -64,5 +65,6 @@ public struct PerkModifiers
         evolveBarModifier = evolveBarMod;
         eatHealModifier = eatHealMod;
         eatTimeModifier = eatTimeMod;
+        buffExtendModifier = buffExtendMod;
     }
 }

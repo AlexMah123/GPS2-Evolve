@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = new Player();
         controller = GetComponent<CharacterController>();
+
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);

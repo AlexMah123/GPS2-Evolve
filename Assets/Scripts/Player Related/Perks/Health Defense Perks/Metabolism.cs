@@ -26,6 +26,7 @@ public class Metabolism : Player_BasePerk
 
     public override void ApplyEffects(Player_Base playerObj)
     {
+
         if((temp -= Time.deltaTime) < 0)
         {
             playerObj.CurrHealth += 3;

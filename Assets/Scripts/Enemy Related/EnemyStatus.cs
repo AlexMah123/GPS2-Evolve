@@ -18,7 +18,7 @@ public class EnemyStatus : MonoBehaviour
         {
             if (PlayerController.Instance.attacking == true)
             {
-                tempHealth -= Player_StatusManager.Instance.playerBaseStats.Attack;
+                tempHealth -= Player_StatusManager.Instance.playerStats.Attack;
                 Debug.Log("Collided");
             }
             

@@ -1919,6 +1919,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalModifiers:
   - perks: {fileID: 11400000, guid: 12bea4cfc6ff3044d8d313f6f981ec65, type: 2}
+  - perks: {fileID: 11400000, guid: 8a31ea287ccfe5d4cbf544e4234fb27d, type: 2}
+  - perks: {fileID: 11400000, guid: ead37de8ac772d14982e067e60fd4302, type: 2}
+  - perks: {fileID: 11400000, guid: 048ef4837ff2c5d468a7da82e05f33ae, type: 2}
 --- !u!4 &302951030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
@@ -1956,18 +1959,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c8c9d543a05a34f961cf3518f42329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBaseStats:
-    currHealth: 100
+  playerStats:
+    currHealth: 200
     maxHealth: 300
     defence: 5
     attack: 20
     attackSpeed: 0.8
     speed: 2
     jumpHeight: 3
-    currEvolveBar: 100
-    maxEvolveBar: 100
+    currEvolveBar: 0
+    maxEvolveBar: 80
     eatHeal: 5
     eatTime: 1.5
+    buffExtend: 0
   playerPerks:
     healthModifier: 0
     defenceModifier: 0
@@ -1978,6 +1982,7 @@ MonoBehaviour:
     evolveBarModifier: 0
     eatHealModifier: 0
     eatTimeModifier: 0
+    buffExtendModifier: 0
 --- !u!1 &303712423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,7 +2672,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403516178}
-  m_LocalRotation: {x: 0.052488234, y: -0.6556952, z: 0.0457781, w: 0.7518066}
+  m_LocalRotation: {x: 0.052488226, y: -0.6556952, z: 0.045778096, w: 0.7518066}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6462,7 +6467,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.052488245, y: -0.65569526, z: 0.045778118, w: 0.75180656}
+  m_LocalRotation: {x: 0.052488208, y: -0.65569526, z: 0.045778085, w: 0.75180656}
   m_LocalPosition: {x: 10.026063, y: 5, z: 3.6243243}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7988,17 +7993,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
   m_PrefabInstance: {fileID: 1454284999}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1454285001 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
-  m_PrefabInstance: {fileID: 1454284999}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1458632313
 GameObject:
   m_ObjectHideFlags: 0
@@ -8195,36 +8189,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9b366f65afc3fd448a081ca9ae29b4df, type: 3}
   m_PrefabInstance: {fileID: 1466788778}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1466788780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466788779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ce45c8fcb79f5c4da8ff471a36ee927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
-  speed: 10
-  rb: {fileID: 1466788782}
-  joystick: {fileID: 1454285001}
---- !u!136 &1466788781
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466788779}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.99394464
-  m_Height: 1.9576893
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.00000002980233, z: 0.9000002}
 --- !u!54 &1466788782
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8241,6 +8205,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1466788786
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466788779}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9878893, y: 1.9576893, z: 1.8000004}
+  m_Center: {x: 0, y: -0.00000002980233, z: 0.9000002}
 --- !u!1 &1469291474
 GameObject:
   m_ObjectHideFlags: 0

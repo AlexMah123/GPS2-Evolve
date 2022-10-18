@@ -7,7 +7,8 @@ public class Player_StatusManager : MonoBehaviour
     //created by Alex
     public static Player_StatusManager Instance;
 
-    public Player_Base playerBaseStats = new();
+    Player_Base playerBaseStats = new();
+    public Player_Base playerStats = new();
     public PerkModifiers playerPerks = new();
 
     private void Awake()
@@ -24,14 +25,27 @@ public class Player_StatusManager : MonoBehaviour
 
     private void Start()
     {
-        playerPerks = Player_PerksManager.Instance.UpdatePerk(playerPerks);
-
-        Debug.Log(playerPerks.healthModifier);
+        UpdatePlayerStats();
     }
 
     private void Update()
     {
         //run the update effects on perk
-        Player_PerksManager.Instance.UpdateEffects(playerBaseStats);
+        Player_PerksManager.Instance.UpdateEffects(playerStats);
+    }
+
+    void UpdatePlayerStats()
+    {
+        playerPerks = Player_PerksManager.Instance.UpdatePerk(playerPerks);
+
+        playerStats.MaxHealth = playerBaseStats.MaxHealth + playerPerks.healthModifier;
+        playerStats.Defence = playerBaseStats.Defence + playerPerks.defenceModifier;
+        playerStats.Attack = playerBaseStats.Attack + playerPerks.attackModifier;
+        playerStats.AttackSpeed = playerBaseStats.AttackSpeed + playerPerks.attackSpeedModifier;
+        playerStats.Speed = playerBaseStats.Speed + playerPerks.speedModifier;
+        playerStats.JumpHeight = playerBaseStats.JumpHeight + playerPerks.jumpHeightModifier;
+        playerStats.EatHeal = playerBaseStats.EatHeal + playerPerks.eatHealModifier;
+        playerStats.EatTime = playerBaseStats.EatTime + playerPerks.eatHealModifier;
+        playerStats.BuffExtend = playerBaseStats.BuffExtend + playerPerks.buffExtendModifier;
     }
 }

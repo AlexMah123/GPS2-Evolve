@@ -37,7 +37,7 @@ public class Run : Node
         {
             _nva.speed = _ess.Speed * 2;
             _nva.SetDestination(targetDir + _transform.position);
-            Debug.Log("Running");
+            //Debug.Log("Running");
             state = NodeState.RUNNING;
         }
         else 

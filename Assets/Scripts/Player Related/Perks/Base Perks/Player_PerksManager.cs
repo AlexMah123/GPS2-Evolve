@@ -13,7 +13,6 @@ public class Player_PerksManager : MonoBehaviour
     public List<Modifier> totalModifiers = new();
     PerkModifiers tempPerks = new();
 
-
     private void Awake()
     {
 

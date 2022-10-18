@@ -24,29 +24,11 @@ public class Player_AbilityHolder : MonoBehaviour
     float tempCooldownTime3;
     float tempActiveTime3;
 
-    public Player playerInput;
-
-    private void Awake()
-    {
-        playerInput = new Player();
-    }
-
-    private void OnEnable()
-    {
-        playerInput.Enable();
-    }
-
-    private void OnDisable()
-    {
-        playerInput.Disable();
-    }
-
     private void Update()
     {
         CheckAbilityStates(skill1);
         CheckAbilityStates(skill2);
         CheckAbilityStates(skill3);
-
     }
 
     #region AbilityChecks
@@ -58,7 +40,7 @@ public class Player_AbilityHolder : MonoBehaviour
             {
                 case Player_BaseAbility.AbilityState.ready:
                     skill1TMP.text = skill.name;
-                    if (playerInput.PlayerMain.Skill1.triggered)
+                    if (PlayerController.Instance.playerInput.PlayerMain.Skill1.triggered)
                     {
                         ActivateSkill(skill);
                         tempActiveTime1 = skill.activeTime;
@@ -97,7 +79,7 @@ public class Player_AbilityHolder : MonoBehaviour
             {
                 case Player_BaseAbility.AbilityState.ready:
                     skill2TMP.text = skill.name;
-                    if (playerInput.PlayerMain.Skill2.triggered)
+                    if (PlayerController.Instance.playerInput.PlayerMain.Skill2.triggered)
                     {
                         ActivateSkill(skill);
                         tempActiveTime2 = skill.activeTime;
@@ -136,7 +118,7 @@ public class Player_AbilityHolder : MonoBehaviour
             {
                 case Player_BaseAbility.AbilityState.ready:
                     skill3TMP.text = skill.name;
-                    if (playerInput.PlayerMain.Skill3.triggered)
+                    if (PlayerController.Instance.playerInput.PlayerMain.Skill3.triggered)
                     {
                         ActivateSkill(skill);
                         tempActiveTime3 = skill.activeTime;
@@ -173,7 +155,7 @@ public class Player_AbilityHolder : MonoBehaviour
 
     void ActivateSkill(Player_BaseAbility skill)
     {
-        Debug.Log(skill.name);
+        //Debug.Log(skill.name);
         skill.Activate(gameObject);
         skill.state = Player_BaseAbility.AbilityState.active;
     }
