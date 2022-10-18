@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5511193810434041940}
   - component: {fileID: 8345092551666354866}
   - component: {fileID: 8813409202242013515}
-  - component: {fileID: 5101462104152113383}
   - component: {fileID: 5271751886526917728}
   - component: {fileID: 1001434853548100958}
+  - component: {fileID: -5465120421236515377}
   m_Layer: 0
   m_Name: ArmedHuman
   m_TagString: Untagged
@@ -131,20 +131,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5101462104152113383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c56b6bde76afd654d87417c0fb56c061, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ess: {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
-  player: {fileID: 0}
 --- !u!195 &5271751886526917728
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -180,3 +166,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
+--- !u!114 &-5465120421236515377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8754786251051910079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172dde806be391e4abecf63708486916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ess: {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
+  player: {fileID: 0}

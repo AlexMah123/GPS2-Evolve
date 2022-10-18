@@ -23,9 +23,14 @@ public class Approach : Node
     }
     public override NodeState Evaluate()
     {
+        Debug.Log(Approaching);
         float d = Vector3.Distance(_transform.position, _player.transform.position);
 
-        if(d < 45 && !Approaching)
+        if(d < 10)
+        {
+            Approaching = false;
+        }
+        else if(d < 45 && !Approaching)
         {
             Approaching = true;
         }
@@ -36,6 +41,8 @@ public class Approach : Node
         Vector3 targetDir = (_player.transform.position - _transform.position).normalized;
         if(Approaching)
         {
+            _nva.speed = _ess.Speed * 2;
+            _nva.SetDestination(targetDir + _transform.position);
             state = NodeState.RUNNING;
         }
         else

@@ -20,6 +20,7 @@ public class ArmedTree : Tree
     {
         Node root = new Selector(new List<Node>
         {
+            new Approach(this.transform,player,nva,ess),
             new Patrol(this.transform,player,nva,ess),
         });
 
