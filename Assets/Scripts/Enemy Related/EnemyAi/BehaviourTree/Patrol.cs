@@ -14,8 +14,6 @@ public class Patrol : Node
 
     [Header("Ind Var")]
     private float patrolRad = 25f; 
-    private float patrolTime = 3f;
-    private float curTimer = 2.9f;
 
     public Patrol(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess)
     {

@@ -59,24 +59,26 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log(currentState);
 
-        if(controller.isGrounded)
+        if (controller.isGrounded)
         {
             groundedPlayer = true;
         }
-
         if (groundedPlayer)
         {
             StartCoroutine(currentState.JumpFinished());
             playerVelocity.y = 0f;
         }
-
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        {
+            animator.SetBool("Jumping", !(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1));
+        }
         Debug.Log(currentState);
 
-        Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>() ;
+        Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
         Vector3 move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
-
+        animator.SetFloat("Running", move != Vector3.zero ? Mathf.Abs(movementInput.magnitude) : 0.01f);
         StartCoroutine(currentState.Movement(move));
-        
+
         if (move != Vector3.zero)
         {
             //gameObject.transform.forward = move;
@@ -86,12 +88,13 @@ public class PlayerController : MonoBehaviour
         if (playerInput.PlayerMain.Jump.triggered && groundedPlayer)
         {
             StartCoroutine(currentState.Jump());
+            animator.SetBool("Jumping", !groundedPlayer);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        if(movementInput != Vector2.zero)
+        if (movementInput != Vector2.zero)
         {
             Quaternion rotation = Quaternion.Euler(new(transform.localEulerAngles.x, cameraMain.localEulerAngles.y, transform.localEulerAngles.z));
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
@@ -111,6 +114,7 @@ public class PlayerController : MonoBehaviour
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Melee"))
         {
+            animator.SetFloat("Blend", animator.GetCurrentAnimatorStateInfo(0).normalizedTime * 2);
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
             {
                 StartCoroutine(currentState.ActionFinished());
@@ -125,3 +129,5 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(currentState.Start());
     }
 }
+
+
