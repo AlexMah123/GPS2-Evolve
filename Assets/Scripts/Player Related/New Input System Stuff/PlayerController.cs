@@ -9,12 +9,12 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public Player playerInput;
     private Transform cameraMain;
-    private CharacterController controller;
-    [SerializeField] Vector3 playerVelocity;
-    [SerializeField] private bool groundedPlayer = true;
-    [SerializeField] private float playerSpeed = 2.0f;
-    [SerializeField] private float jumpHeight = 1.0f;
-    [SerializeField] private float gravityValue = -9.81f;
+    public CharacterController controller;
+    public Vector3 playerVelocity;
+    public bool groundedPlayer = true;
+    public float playerSpeed = 2.0f;
+    public float jumpHeight = 1.0f;
+    public float gravityValue = -9.81f;
 
     public bool attacking;
 
@@ -66,16 +66,17 @@ public class PlayerController : MonoBehaviour
 
         if (groundedPlayer)
         {
+            StartCoroutine(currentState.JumpFinished());
             playerVelocity.y = 0f;
         }
 
+        Debug.Log(currentState);
 
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>() ;
         Vector3 move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
 
-        animator.SetFloat("Running", move != Vector3.zero ? 1 : 0);
-        move.y = 0;
-        controller.Move(playerSpeed * Time.deltaTime * move);
+        StartCoroutine(currentState.Movement(move));
+        
         if (move != Vector3.zero)
         {
             //gameObject.transform.forward = move;
@@ -84,8 +85,7 @@ public class PlayerController : MonoBehaviour
         // Changes the height position of the player..
         if (playerInput.PlayerMain.Jump.triggered && groundedPlayer)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-            groundedPlayer = false;
+            StartCoroutine(currentState.Jump());
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -101,8 +101,12 @@ public class PlayerController : MonoBehaviour
         if (playerInput.PlayerMain.Melee.triggered)
         {
             //Melee code should go in NormalState.Melee
-            animator.SetBool("NormalAttack", true);
             StartCoroutine(currentState.Melee());
+        }
+
+        if (playerInput.PlayerMain.Devour.triggered)
+        {
+            StartCoroutine(currentState.Devour());
         }
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Melee"))

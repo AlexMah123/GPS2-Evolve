@@ -22,7 +22,7 @@ public abstract class PlayerStateMachine
         yield break;
     }
 
-    public virtual IEnumerator Movement()
+    public virtual IEnumerator Movement(Vector3 move)
     {
         yield break;
     }
@@ -33,6 +33,11 @@ public abstract class PlayerStateMachine
     }
 
     public virtual IEnumerator ActionFinished()
+    {
+        yield break;
+    }
+
+    public virtual IEnumerator JumpFinished()
     {
         yield break;
     }
