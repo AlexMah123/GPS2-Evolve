@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e82280bbd9fc440ada3d298eb6aabb, type: 3}
   m_Name: Unarmed Enemy
   m_EditorClassIdentifier: 
-  enemy: {fileID: 8754786251051910079, guid: c0c9e1dd94b598141a347fc99762df5e, type: 3}
+  enemy: {fileID: 6261479332135800635, guid: 8b5b83a81b9383343b99ba98ef6889e3, type: 3}
   spawnCount: 5
   spawnDelay: 0.5
   name: Unarmed Enemy

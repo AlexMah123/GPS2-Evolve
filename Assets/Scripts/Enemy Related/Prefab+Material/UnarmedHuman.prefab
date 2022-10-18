@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8754786251051910079
+--- !u!1 &6261479332135800635
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,15 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4579133389716557735}
-  - component: {fileID: 120905184831099025}
-  - component: {fileID: 6683686119272269717}
-  - component: {fileID: 5511193810434041940}
-  - component: {fileID: 8345092551666354866}
-  - component: {fileID: 8813409202242013515}
-  - component: {fileID: 5101462104152113383}
-  - component: {fileID: 5271751886526917728}
-  - component: {fileID: 3604214781776109647}
+  - component: {fileID: 1939733433796592956}
+  - component: {fileID: 1697023015718437612}
+  - component: {fileID: 5453379433297799967}
+  - component: {fileID: 8402517936726743510}
+  - component: {fileID: 6025392603623179741}
+  - component: {fileID: 6025392603623179740}
+  - component: {fileID: 6025392603623179738}
+  - component: {fileID: 6025392603623179739}
   m_Layer: 0
   m_Name: UnarmedHuman
   m_TagString: Untagged
@@ -24,13 +23,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4579133389716557735
+--- !u!4 &1939733433796592956
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
+  m_GameObject: {fileID: 6261479332135800635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -39,21 +38,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &120905184831099025
+--- !u!33 &1697023015718437612
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
+  m_GameObject: {fileID: 6261479332135800635}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6683686119272269717
+--- !u!23 &5453379433297799967
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
+  m_GameObject: {fileID: 6261479332135800635}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -89,26 +88,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5511193810434041940
-BoxCollider:
+--- !u!136 &8402517936726743510
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
+  m_GameObject: {fileID: 6261479332135800635}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &8345092551666354866
+--- !u!54 &6025392603623179741
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
+  m_GameObject: {fileID: 6261479332135800635}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -118,26 +118,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8813409202242013515
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5101462104152113383
+--- !u!114 &6025392603623179740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
+  m_GameObject: {fileID: 6261479332135800635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1aab54c6135e7b4ab1aa1b40a5227bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ess: {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
+--- !u!114 &6025392603623179738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261479332135800635}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c56b6bde76afd654d87417c0fb56c061, type: 3}
@@ -145,17 +145,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
   player: {fileID: 0}
---- !u!195 &5271751886526917728
+--- !u!195 &6025392603623179739
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
+  m_GameObject: {fileID: 6261479332135800635}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 10
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -164,19 +164,6 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3604214781776109647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1aab54c6135e7b4ab1aa1b40a5227bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ess: {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
