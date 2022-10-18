@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        //Debug.Log(currentState);
+        Debug.Log(groundedPlayer);
 
         if (controller.isGrounded)
         {
@@ -64,7 +64,6 @@ public class PlayerController : MonoBehaviour
         }
         if (groundedPlayer)
         {
-            StartCoroutine(currentState.JumpFinished());
             playerVelocity.y = 0f;
         }
         Debug.Log(currentState);
@@ -79,7 +78,7 @@ public class PlayerController : MonoBehaviour
             //gameObject.transform.forward = move;
         }
 
-        // Changes the height position of the player..
+        //Changes the height position of the player..
         if (playerInput.PlayerMain.Jump.triggered && groundedPlayer)
         {
             StartCoroutine(currentState.Jump());
@@ -104,7 +103,14 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(currentState.Devour());
             animator.SetBool("Devour", true);
         }
-
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
+            {
+                StartCoroutine(currentState.JumpFinished());
+            }
+        }
+        
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle/Attack"))
         {
             animator.SetFloat("Blend", animator.GetCurrentAnimatorStateInfo(0).normalizedTime * 2);
@@ -122,7 +128,11 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
+    public void JumpEvent()
+    {
+        StartCoroutine(currentState.Jump());
+        animator.SetBool("Jumping", !groundedPlayer);
+    }
     //Function called to change Player State in the FSM
     public void SetState(PlayerStateMachine state)
     {

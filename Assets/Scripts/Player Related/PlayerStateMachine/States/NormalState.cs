@@ -28,7 +28,7 @@ public class NormalState : PlayerStateMachine
 
     public override IEnumerator Jump()
     {
-        _system.playerVelocity.y += Mathf.Sqrt(_system.jumpHeight * -3.0f * _system.gravityValue);
+        //_system.playerVelocity.y += Mathf.Sqrt(_system.jumpHeight * -3.0f * _system.gravityValue);
         _system.groundedPlayer = false;
         _system.SetState(new JumpState(_system));
         yield break;
