@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    //Created by Shane
+    //Created by Shane, edited by Alex, Yung Zhen
 
     [HideInInspector] public Player playerInput;
     private Transform cameraMain;
@@ -56,7 +56,8 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(groundedPlayer);
+        //Debug.Log(groundedPlayer);
+        //Debug.Log(currentState);
 
         if (controller.isGrounded)
         {
@@ -66,7 +67,6 @@ public class PlayerController : MonoBehaviour
         {
             playerVelocity.y = 0f;
         }
-        Debug.Log(currentState);
 
         Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
         Vector3 move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
@@ -78,13 +78,6 @@ public class PlayerController : MonoBehaviour
             //gameObject.transform.forward = move;
         }
 
-        //Changes the height position of the player..
-        if (playerInput.PlayerMain.Jump.triggered && groundedPlayer)
-        {
-            StartCoroutine(currentState.Jump());
-            animator.SetBool("Jumping", !groundedPlayer);
-        }
-
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
@@ -93,16 +86,27 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(new(transform.localEulerAngles.x, cameraMain.localEulerAngles.y, transform.localEulerAngles.z));
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 5);
         }
-        if (playerInput.PlayerMain.Melee.triggered)
+
+        #region buttonTriggers
+        //Changes the height position of the player..
+        if (playerInput.PlayerMain.Jump.triggered && groundedPlayer)
+        {
+            StartCoroutine(currentState.Jump());
+            animator.SetBool("Jumping", !groundedPlayer);
+        }
+        else if (playerInput.PlayerMain.Melee.triggered)
         {
             //Melee code should go in NormalState.Melee
             StartCoroutine(currentState.Melee());
         }
-        if (playerInput.PlayerMain.Devour.triggered)
+        else if (playerInput.PlayerMain.Devour.triggered)
         {
             StartCoroutine(currentState.Devour());
             animator.SetBool("Devour", true);
         }
+        #endregion
+
+        #region endAnimatorTriggers
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
         {
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
@@ -110,8 +114,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(currentState.JumpFinished());
             }
         }
-        
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle/Attack"))
+        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle/Attack"))
         {
             animator.SetFloat("Blend", animator.GetCurrentAnimatorStateInfo(0).normalizedTime * 2);
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
@@ -119,14 +122,14 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(currentState.ActionFinished());
             }
         }
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Devour"))
+        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Devour"))
         {
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
             {
                 StartCoroutine(currentState.DevourFinished());
             }
         }
-
+        #endregion
     }
     public void JumpEvent()
     {
