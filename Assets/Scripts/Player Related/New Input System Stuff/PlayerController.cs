@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Debug.Log(groundedPlayer);
-        //Debug.Log(currentState);
+        Debug.Log(currentState);
 
         if (controller.isGrounded)
         {
@@ -102,19 +102,19 @@ public class PlayerController : MonoBehaviour
         else if (playerInput.PlayerMain.Devour.triggered)
         {
             StartCoroutine(currentState.Devour());
-            animator.SetBool("Devour", true);
+            
         }
         #endregion
 
         #region endAnimatorTriggers
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
+            if ((animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0)) || animator.GetBool("Jumping") == false )
             {
                 StartCoroutine(currentState.JumpFinished());
             }
         }
-        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle/Attack"))
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle/Attack"))
         {
             animator.SetFloat("Blend", animator.GetCurrentAnimatorStateInfo(0).normalizedTime * 2);
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
@@ -122,8 +122,9 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(currentState.ActionFinished());
             }
         }
-        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Devour"))
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Devour"))
         {
+            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
             {
                 StartCoroutine(currentState.DevourFinished());

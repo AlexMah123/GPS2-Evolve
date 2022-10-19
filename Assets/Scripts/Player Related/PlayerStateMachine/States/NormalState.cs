@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class NormalState : PlayerStateMachine
 {
+    PlayerStateMachine psm;
     public NormalState(PlayerController system) : base(system) { }
 
     public override IEnumerator Start()
@@ -12,9 +13,12 @@ public class NormalState : PlayerStateMachine
     public override IEnumerator Movement(Vector3 move)
     {
         //Player Movement should be moved here when done
-        _system.animator.SetFloat("Running", move != Vector3.zero ? 1 : 0);
-        move.y = 0;
-        _system.controller.Move(_system.playerSpeed * Time.deltaTime * move);
+
+            _system.animator.SetFloat("Running", move != Vector3.zero ? 1 : 0);
+            move.y = 0;
+            _system.controller.Move(_system.playerSpeed * Time.deltaTime * move);
+    
+        
         yield break;
     }
 
@@ -31,6 +35,13 @@ public class NormalState : PlayerStateMachine
         //_system.playerVelocity.y += Mathf.Sqrt(_system.jumpHeight * -3.0f * _system.gravityValue);
         _system.groundedPlayer = false;
         _system.SetState(new JumpState(_system));
+        yield break;
+    }
+
+    public override IEnumerator Devour()
+    {
+        _system.animator.SetBool("Devour", true);
+        _system.SetState(new DevourState(_system));
         yield break;
     }
 }
