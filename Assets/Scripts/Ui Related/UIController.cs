@@ -14,10 +14,6 @@ public class UIController : MonoBehaviour
     {
         StartCoroutine(LoadScene(sceneIndex));
     }
-    public void ButtonTest()
-    {
-        Debug.Log("Button Clicked");
-    }
 
     IEnumerator LoadScene(int sceneIndex)
     {

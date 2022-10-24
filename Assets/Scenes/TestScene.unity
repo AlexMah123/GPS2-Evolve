@@ -923,10 +923,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012432863}
-        m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: ButtonTest
-        m_Mode: 1
+      - m_Target: {fileID: 1750497843}
+        m_TargetAssemblyTypeName: Player_PerksManager, Assembly-CSharp
+        m_MethodName: ChoosePerk
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1432,14 +1432,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012432863}
-        m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: ButtonTest
-        m_Mode: 1
+      - m_Target: {fileID: 1750497843}
+        m_TargetAssemblyTypeName: Player_PerksManager, Assembly-CSharp
+        m_MethodName: ChoosePerk
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1619,6 +1619,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 987981340}
+  - {fileID: 1750497842}
   - {fileID: 1849216457}
   m_Father: {fileID: 608468510}
   m_RootOrder: 1
@@ -1867,24 +1869,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 3, z: 0}
---- !u!114 &302951027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302951025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7361dd3806c4f458852929a0520655, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skill1: {fileID: 11400000, guid: 6436b7b1c07359540abf9e5ba023cdaf, type: 2}
-  skill2: {fileID: 11400000, guid: ff614330e091990459070b624c0245dc, type: 2}
-  skill3: {fileID: 11400000, guid: 95b1405a15bdd6346be5f398c0a49f2d, type: 2}
-  skill1TMP: {fileID: 881255897}
-  skill2TMP: {fileID: 1710575380}
-  skill3TMP: {fileID: 1469291476}
 --- !u!114 &302951028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1905,23 +1889,6 @@ MonoBehaviour:
   gravityValue: -9.81
   attacking: 0
   animator: {fileID: 302951031}
---- !u!114 &302951029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302951025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6e0398845cc23e4ba2503858040b98a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalModifiers:
-  - perks: {fileID: 11400000, guid: 12bea4cfc6ff3044d8d313f6f981ec65, type: 2}
-  - perks: {fileID: 11400000, guid: 8a31ea287ccfe5d4cbf544e4234fb27d, type: 2}
-  - perks: {fileID: 11400000, guid: ead37de8ac772d14982e067e60fd4302, type: 2}
-  - perks: {fileID: 11400000, guid: 048ef4837ff2c5d468a7da82e05f33ae, type: 2}
 --- !u!4 &302951030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
@@ -1947,42 +1914,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &302951032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302951025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74c8c9d543a05a34f961cf3518f42329, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats:
-    currHealth: 200
-    maxHealth: 300
-    defence: 5
-    attack: 20
-    attackSpeed: 0.8
-    speed: 2
-    jumpHeight: 3
-    currEvolveBar: 0
-    maxEvolveBar: 80
-    eatHeal: 5
-    eatTime: 1.5
-    buffExtend: 0
-  playerPerks:
-    healthModifier: 0
-    defenceModifier: 0
-    attackModifier: 0
-    attackSpeedModifier: 0
-    speedModifier: 0
-    jumpHeightModifier: 0
-    evolveBarModifier: 0
-    eatHealModifier: 0
-    eatTimeModifier: 0
-    buffExtendModifier: 0
 --- !u!1 &303712423
 GameObject:
   m_ObjectHideFlags: 0
@@ -5455,7 +5386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ce097105c0b194ebec93f71cbf8453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 302951032}
   perkWindow: {fileID: 307469484}
   evoWindow: {fileID: 206084100}
   pauseWindow: {fileID: 367852225}
@@ -6308,14 +6238,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012432863}
-        m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: ButtonTest
-        m_Mode: 1
+      - m_Target: {fileID: 1750497843}
+        m_TargetAssemblyTypeName: Player_PerksManager, Assembly-CSharp
+        m_MethodName: ChoosePerk
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6509,6 +6439,74 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &987981339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 987981340}
+  - component: {fileID: 987981341}
+  m_Layer: 0
+  m_Name: PlayerStatus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &987981340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987981339}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 287029384}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &987981341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987981339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c8c9d543a05a34f961cf3518f42329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats:
+    currHealth: 200
+    maxHealth: 300
+    defence: 5
+    attack: 20
+    attackSpeed: 0.8
+    speed: 2
+    jumpHeight: 3
+    currEvolveBar: 0
+    maxEvolveBar: 80
+    eatHeal: 5
+    eatTime: 1.5
+    buffExtend: 0
+  playerPerks:
+    healthModifier: 0
+    defenceModifier: 0
+    attackModifier: 0
+    attackSpeedModifier: 0
+    speedModifier: 0
+    jumpHeightModifier: 0
+    evolveBarModifier: 0
+    eatHealModifier: 0
+    eatTimeModifier: 0
+    buffExtendModifier: 0
 --- !u!1 &1026161479
 GameObject:
   m_ObjectHideFlags: 0
@@ -6602,8 +6600,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -7710,8 +7708,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -9153,8 +9151,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -9894,6 +9892,99 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710575378}
   m_CullTransparentMesh: 1
+--- !u!1 &1750497841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1750497842}
+  - component: {fileID: 1750497843}
+  - component: {fileID: 1750497844}
+  m_Layer: 0
+  m_Name: Perks+Ability
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1750497842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750497841}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 287029384}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1750497843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750497841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e0398845cc23e4ba2503858040b98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalModList:
+  - perks: {fileID: 11400000, guid: eedb4534333efc147a6358d250cf8c8b, type: 2}
+  - perks: {fileID: 11400000, guid: 634d56022a372b44387e3e49ea09ec2b, type: 2}
+  - perks: {fileID: 11400000, guid: 0baa968c1e056644cba06b47b17f4e5f, type: 2}
+  - perks: {fileID: 11400000, guid: 4e9689edeceef5f47a2b9ef4d49ba202, type: 2}
+  - perks: {fileID: 11400000, guid: 8a31ea287ccfe5d4cbf544e4234fb27d, type: 2}
+  - perks: {fileID: 11400000, guid: 3c3efccbb7302fb44bfa5c4d448dbf78, type: 2}
+  - perks: {fileID: 11400000, guid: 12bea4cfc6ff3044d8d313f6f981ec65, type: 2}
+  - perks: {fileID: 11400000, guid: 8b08a3f474c15534ca7d3f0463e1c81c, type: 2}
+  - perks: {fileID: 11400000, guid: 3c58020ac90c3034a915f5a74c7c157a, type: 2}
+  - perks: {fileID: 11400000, guid: 7e3b9afd1541f854fba28023b680f4ff, type: 2}
+  - perks: {fileID: 11400000, guid: 691b992c28d33a840bc8ad82509cd7f9, type: 2}
+  - perks: {fileID: 11400000, guid: 048ef4837ff2c5d468a7da82e05f33ae, type: 2}
+  - perks: {fileID: 11400000, guid: c7c96f5b28ca8b94591427dae46cd31e, type: 2}
+  - perks: {fileID: 11400000, guid: ead37de8ac772d14982e067e60fd4302, type: 2}
+  - perks: {fileID: 11400000, guid: 00e04d8bee393b44294eb1b74297f329, type: 2}
+  displayModList: []
+  selectedModList: []
+  perk1: {fileID: 117371712}
+  perk1Logo: {fileID: 1873243467}
+  perk1Desc: {fileID: 1331280417}
+  perk1Name: {fileID: 893629108}
+  perk2: {fileID: 231725804}
+  perk2Logo: {fileID: 514264197}
+  perk2Desc: {fileID: 1544183346}
+  perk2Name: {fileID: 2129570441}
+  perk3: {fileID: 936295796}
+  perk3Logo: {fileID: 1698649017}
+  perk3Desc: {fileID: 1026161481}
+  perk3Name: {fileID: 340445525}
+--- !u!114 &1750497844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750497841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7361dd3806c4f458852929a0520655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill1: {fileID: 11400000, guid: 6436b7b1c07359540abf9e5ba023cdaf, type: 2}
+  skill2: {fileID: 11400000, guid: ff614330e091990459070b624c0245dc, type: 2}
+  skill3: {fileID: 11400000, guid: 95b1405a15bdd6346be5f398c0a49f2d, type: 2}
+  skill1TMP: {fileID: 881255897}
+  skill2TMP: {fileID: 1710575380}
+  skill3TMP: {fileID: 1469291476}
 --- !u!1 &1765607559
 GameObject:
   m_ObjectHideFlags: 0
@@ -10575,7 +10666,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 287029384}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1849216458
 MonoBehaviour:
@@ -10609,7 +10700,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ESS:
   - {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
-  - {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
   waveDelayMax: 3
 --- !u!1 &1854594588
 GameObject:
@@ -11113,7 +11203,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 94.795044}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

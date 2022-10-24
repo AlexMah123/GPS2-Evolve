@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum PerkTypes
 {
@@ -15,6 +16,7 @@ public abstract class Player_BasePerk : ScriptableObject
 
     //base attributes that all perks will inherit
     [Header("Perks Description")]
+    public Image perkLogo;
     public new string name;
     public string description;
     public PerkTypes perkTypes;

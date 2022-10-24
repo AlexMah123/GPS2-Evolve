@@ -6,9 +6,8 @@ using UnityEngine.UI;
 
 public class GameSceneUI : MonoBehaviour
 {
-    //HYZ
-    private Player playerInput;
-    [SerializeField] private Player_StatusManager player;
+    //created by HYZ, edited by Alex
+    PlayerController PlayerController;
     //GameScene
     [SerializeField] private GameObject perkWindow;
     [SerializeField] private GameObject evoWindow;
@@ -17,25 +16,19 @@ public class GameSceneUI : MonoBehaviour
     [SerializeField] private Slider health;
     [SerializeField] private Slider evo;
 
-    private void OnEnable()
+    private void Awake()
     {
-        playerInput = new Player();
-        playerInput.Enable();
-    }
-
-    private void OnDisable()
-    {
-        playerInput.Disable();
+        PlayerController = PlayerController.Instance;
     }
 
     private void Update()
     {
-        health.value = ((float)player.playerStats.CurrHealth/ player.playerStats.MaxHealth);
-        evo.value = ((float)player.playerStats.CurrEvolveBar/ player.playerStats.MaxEvolveBar);
+        health.value = ((float)Player_StatusManager.Instance.playerStats.CurrHealth/ Player_StatusManager.Instance.playerStats.MaxHealth);
+        evo.value = ((float)Player_StatusManager.Instance.playerStats.CurrEvolveBar/ Player_StatusManager.Instance.playerStats.MaxEvolveBar);
 
         //if (Application.platform == RuntimePlatform.Android)
         //{
-            if(playerInput.UI.Escape.WasPressedThisFrame())
+            if(PlayerController.playerInput.UI.Escape.WasPressedThisFrame())
             {
                 TogglePause();
                 Debug.Log(Time.timeScale);

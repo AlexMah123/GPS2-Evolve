@@ -1,17 +1,39 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_PerksManager : MonoBehaviour
 {
     //created by Alex
 
+    //init random 
+    public static System.Random _random = new();
     public static Player_PerksManager Instance { get; private set; }
 
     [Header("Modifiers")]
-    public List<Modifier> totalModifiers = new();
+    public List<Modifier> totalModList = new();
+    public List<Modifier> displayModList = new();
+    public List<Modifier> selectedModList = new();
     PerkModifiers tempPerks = new();
+
+    [Header("Perks UI Variables")]
+    [SerializeField] GameObject perk1;
+    [SerializeField] Image perk1Logo;
+    [SerializeField] TextMeshProUGUI perk1Desc;
+    [SerializeField] TextMeshProUGUI perk1Name;
+
+    [SerializeField] GameObject perk2;
+    [SerializeField] Image perk2Logo;
+    [SerializeField] TextMeshProUGUI perk2Desc;
+    [SerializeField] TextMeshProUGUI perk2Name;
+
+    [SerializeField] GameObject perk3;
+    [SerializeField] Image perk3Logo;
+    [SerializeField] TextMeshProUGUI perk3Desc;
+    [SerializeField] TextMeshProUGUI perk3Name;
 
     private void Awake()
     {
@@ -19,28 +41,36 @@ public class Player_PerksManager : MonoBehaviour
         #region Singleton
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
+            Destroy(this);
         }
         else
         {
             Instance = this;
         }
         #endregion
-
-        AwakePerks();
     }
 
     private void Start()
     {
-      
+        //TESTING
+        /*for(int i=0; i<14; i++)
+        {
+            selectedModList.Add(totalModList[i]);
+        }*/
+
+        AwakePerks();
+        Player_StatusManager.Instance.UpdatePlayerStats();
+
+        SelectingPerk();
+
     }
 
     #region PerkFunction
     public void AwakePerks()
     {
-        for (int i = 0; i < totalModifiers.Count; i++)
+        for (int i = 0; i < selectedModList.Count; i++)
         {
-            totalModifiers[i].perks.Awake();
+            selectedModList[i].perks.Awake();
         }
     }
 
@@ -48,9 +78,9 @@ public class Player_PerksManager : MonoBehaviour
     {
 
         //foreach perk in the list, apply all of them
-        for (int i = 0; i < totalModifiers.Count; i++)
+        for (int i = 0; i < selectedModList.Count; i++)
         {
-            tempPerks = totalModifiers[i].perks.ApplyPerks(tempPerks);
+            tempPerks = selectedModList[i].perks.ApplyPerks(tempPerks);
         }
 
         //do something with perkMod
@@ -64,11 +94,94 @@ public class Player_PerksManager : MonoBehaviour
 
     public void UpdateEffects(Player_Base playerObj)
     {
-        //foreach status in the list, apply all of them
-        for (int i = 0; i < totalModifiers.Count; i++)
+        //foreach status in the selectedMod list, apply all of them
+        for (int i = 0; i < selectedModList.Count; i++)
         {
-            totalModifiers[i].perks.ApplyEffects(playerObj);
+            selectedModList[i].perks.ApplyEffects(playerObj);
         }
+    }
+
+    public void SelectingPerk()
+    {
+        //reset list
+        displayModList.Clear();
+
+        //if there are less than 3 perks to show, show the remaing amount
+        int amountToDisplay = selectedModList.Count <= 12 ? amountToDisplay = 3 : amountToDisplay = totalModList.Count - selectedModList.Count;
+        int rand;
+
+        //choose perks to display
+        for (int i = 0; i < amountToDisplay; i++)
+        {
+            rand = _random.Next(0, totalModList.Count);
+
+            while(selectedModList.Contains(totalModList[rand]) || displayModList.Contains(totalModList[rand]))
+            {
+                rand = _random.Next(0, totalModList.Count);
+            }
+
+            displayModList.Add(totalModList[rand]);
+        }
+        DisplayPerks();
+    }
+
+    public void DisplayPerks()
+    {
+        //resets the perks
+        perk1.SetActive(false);
+        perk2.SetActive(false);
+        perk3.SetActive(false);
+
+        //display perks
+        for (int i = 0; i < displayModList.Count; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    perk1.gameObject.SetActive(true);
+                    //perk1Logo.sprite = displayModList[i].perks;
+                    perk1Desc.text = displayModList[i].perks.description;
+                    perk1Name.text = displayModList[i].perks.name;
+                    break;
+
+                case 1:
+                    perk2.gameObject.SetActive(true);
+                    //perk2Logo = displayModList[i].perks.;
+                    perk2Desc.text = displayModList[i].perks.description;
+                    perk2Name.text = displayModList[i].perks.name;
+                    break;
+
+                case 2:
+                    perk3.gameObject.SetActive(true);
+                    //perk3Logo = displayModList[i].perks.;
+                    perk3Desc.text = displayModList[i].perks.description;
+                    perk3Name.text = displayModList[i].perks.name;
+                    break;
+            }
+        }
+    }
+
+    public void ChoosePerk(int perkNum)
+    {
+        switch(perkNum)
+        {
+            case 0:
+                selectedModList.Add(displayModList[perkNum]);
+                break;
+
+            case 1:
+                selectedModList.Add(displayModList[perkNum]);
+                break;
+
+            case 2:
+                selectedModList.Add(displayModList[perkNum]);
+                break;
+        }
+
+        //after choose, run awake, run updateplayerstats
+        AwakePerks();
+        Player_StatusManager.Instance.UpdatePlayerStats();
+
     }
 
     #endregion

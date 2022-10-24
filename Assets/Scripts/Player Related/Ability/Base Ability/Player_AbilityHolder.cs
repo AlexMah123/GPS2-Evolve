@@ -8,6 +8,8 @@ public class Player_AbilityHolder : MonoBehaviour
 {
     //created by Alex
 
+    public static Player_AbilityHolder Instance;
+
     public Player_BaseAbility skill1;
     public Player_BaseAbility skill2;
     public Player_BaseAbility skill3;

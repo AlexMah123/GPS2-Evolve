@@ -25,17 +25,21 @@ public class Player_StatusManager : MonoBehaviour
 
     private void Start()
     {
-        UpdatePlayerStats();
+        //UpdatePlayerStats();
     }
 
     private void Update()
     {
-        //run the update effects on perk
-        Player_PerksManager.Instance.UpdateEffects(playerStats);
+        //run the update effects on perk if selectedMod List has something
+        if (Player_PerksManager.Instance.selectedModList.Count > 0)
+        {
+            Player_PerksManager.Instance.UpdateEffects(playerStats);
+        }
     }
 
-    void UpdatePlayerStats()
+    public void UpdatePlayerStats()
     {
+        //updates and takes all the current selectedMods in the list and applies them
         playerPerks = Player_PerksManager.Instance.UpdatePerk(playerPerks);
 
         playerStats.MaxHealth = playerBaseStats.MaxHealth + playerPerks.healthModifier;
