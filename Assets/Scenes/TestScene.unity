@@ -10609,6 +10609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ESS:
   - {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
+  - {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
   waveDelayMax: 3
 --- !u!1 &1854594588
 GameObject:
