@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class ArmedTree : Tree
 {
     public EnemyScriptable ess;
+    public Player_Base pb;
     public GameObject player;
     public NavMeshAgent nva
     {
@@ -20,6 +21,7 @@ public class ArmedTree : Tree
     {
         Node root = new Selector(new List<Node>
         {
+            new Shoot(this.transform,player,nva,ess,pb),
             new Approach(this.transform,player,nva,ess),
             new Patrol(this.transform,player,nva,ess),
         });

@@ -26,7 +26,7 @@ public class Approach : Node
         Debug.Log(Approaching);
         float d = Vector3.Distance(_transform.position, _player.transform.position);
 
-        if(d < 10)
+        if(d < 15)
         {
             Approaching = false;
         }
