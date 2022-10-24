@@ -11,12 +11,11 @@ GameObject:
   - component: {fileID: 4579133389716557735}
   - component: {fileID: 120905184831099025}
   - component: {fileID: 6683686119272269717}
-  - component: {fileID: 5511193810434041940}
   - component: {fileID: 8345092551666354866}
-  - component: {fileID: 8813409202242013515}
   - component: {fileID: 5271751886526917728}
   - component: {fileID: 1001434853548100958}
   - component: {fileID: -5465120421236515377}
+  - component: {fileID: 8890003366862141416}
   m_Layer: 0
   m_Name: ArmedHuman
   m_TagString: Untagged
@@ -89,19 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5511193810434041940
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8345092551666354866
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -118,19 +104,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8813409202242013515
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &5271751886526917728
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -150,7 +123,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1001434853548100958
@@ -179,4 +152,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
+  psm: {fileID: 0}
   player: {fileID: 0}
+--- !u!136 &8890003366862141416
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8754786251051910079}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

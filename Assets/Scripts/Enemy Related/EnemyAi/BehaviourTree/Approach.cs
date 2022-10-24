@@ -23,7 +23,7 @@ public class Approach : Node
     }
     public override NodeState Evaluate()
     {
-        Debug.Log(Approaching);
+        //Debug.Log(Approaching);
         float d = Vector3.Distance(_transform.position, _player.transform.position);
 
         if(d < 15)

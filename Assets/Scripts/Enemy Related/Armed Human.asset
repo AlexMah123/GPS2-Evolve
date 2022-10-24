@@ -18,8 +18,8 @@ MonoBehaviour:
   name: Armed Human
   health: 10
   defence: 0
-  attack: 0
-  attackSpeed: 0
+  attack: 10
+  attackSpeed: 1
   speed: 5
   evolvePointGain: 0
   testResponse: signal received, should spawn enemy now

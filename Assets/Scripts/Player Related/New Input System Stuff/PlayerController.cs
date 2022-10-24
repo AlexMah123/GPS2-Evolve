@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Debug.Log(groundedPlayer);
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
 
         if (controller.isGrounded)
         {

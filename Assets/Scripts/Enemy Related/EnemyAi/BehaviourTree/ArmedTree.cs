@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class ArmedTree : Tree
 {
     public EnemyScriptable ess;
-    public Player_Base pb;
+    public Player_StatusManager psm;
     public GameObject player;
     public NavMeshAgent nva
     {
@@ -16,12 +16,13 @@ public class ArmedTree : Tree
     public void Awake()
     {
         player = GameObject.Find("Kaiju_right_position");
+        psm = Player_StatusManager.Instance;
     }
     public override Node SetupTree()
     {
         Node root = new Selector(new List<Node>
         {
-            new Shoot(this.transform,player,nva,ess,pb),
+            new Shoot(this.transform,player,nva,ess,psm),
             new Approach(this.transform,player,nva,ess),
             new Patrol(this.transform,player,nva,ess),
         });

@@ -11,19 +11,19 @@ public class Shoot : Node
     private Transform _transform;
     private NavMeshAgent _nva;
     private EnemyScriptable _ess;
-    private Player_Base _pb;
+    private Player_StatusManager _psm;
 
     [Header("Ind Var")]
     private bool Shooting;
     private float Reloading;
 
-    public Shoot(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Player_Base pb)
+    public Shoot(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Player_StatusManager psm)
     {
         _transform = transform;
         _player = player;
         _nva = nva;
         _ess = ess;
-        _pb = pb;
+        _psm = psm;
     }
 
     public override NodeState Evaluate()
@@ -44,22 +44,33 @@ public class Shoot : Node
         }
 
         Vector3 targetDir = (_player.transform.position - _transform.position).normalized;
+        targetDir.y += 0.25f;
 
         if (Shooting)
         {
-            //_nva.speed = 0;
-            //_nva.SetDestination(targetDir + _transform.position);
-            if (Reloading >= 10 / _ess.AttackSpeed)
+            Debug.DrawRay(_transform.position, targetDir * 20);
+            if (Reloading >= 1 / _ess.AttackSpeed)
             {
+                //Shoot!
                 RaycastHit Hit;
+                int dmg;
                 if (Physics.Raycast(_transform.position, targetDir, out Hit, 20))
                 {
-                    Debug.DrawRay(_transform.position, targetDir * 20);
                     if (Hit.transform.gameObject == _player)
                     {
+                        dmg = _ess.Attack - _psm.playerStats.Defence;
+                        if (dmg < 0)
+                        {
+                            dmg = 0;
+                        }
                         Debug.Log("Player has been hit!");
-                        _pb
+                        _psm.playerStats.CurrHealth -= dmg;
                     }
+                    else
+                    {
+                        Debug.Log("Hit something else");
+                    }
+                    Reloading = 0;
                 }
             }
             else
