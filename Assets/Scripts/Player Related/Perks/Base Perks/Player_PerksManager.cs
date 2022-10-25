@@ -35,6 +35,7 @@ public class Player_PerksManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI perk3Desc;
     [SerializeField] TextMeshProUGUI perk3Name;
 
+
     private void Awake()
     {
 
@@ -139,21 +140,21 @@ public class Player_PerksManager : MonoBehaviour
             {
                 case 0:
                     perk1.gameObject.SetActive(true);
-                    //perk1Logo.sprite = displayModList[i].perks;
+                    perk1Logo.sprite = displayModList[i].perks.perkLogo;
                     perk1Desc.text = displayModList[i].perks.description;
                     perk1Name.text = displayModList[i].perks.name;
                     break;
 
                 case 1:
                     perk2.gameObject.SetActive(true);
-                    //perk2Logo = displayModList[i].perks.;
+                    perk2Logo.sprite = displayModList[i].perks.perkLogo;
                     perk2Desc.text = displayModList[i].perks.description;
                     perk2Name.text = displayModList[i].perks.name;
                     break;
 
                 case 2:
                     perk3.gameObject.SetActive(true);
-                    //perk3Logo = displayModList[i].perks.;
+                    perk3Logo.sprite = displayModList[i].perks.perkLogo;
                     perk3Desc.text = displayModList[i].perks.description;
                     perk3Name.text = displayModList[i].perks.name;
                     break;

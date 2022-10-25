@@ -16,7 +16,7 @@ public abstract class Player_BasePerk : ScriptableObject
 
     //base attributes that all perks will inherit
     [Header("Perks Description")]
-    public Image perkLogo;
+    public Sprite perkLogo;
     public new string name;
     public string description;
     public PerkTypes perkTypes;

@@ -35,6 +35,7 @@ public class GameSceneUI : MonoBehaviour
             }
         //}
     }
+
     public void TogglePerk()
     {
         perkWindow.SetActive(!perkWindow.activeSelf);
