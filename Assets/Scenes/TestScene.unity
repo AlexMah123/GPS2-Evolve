@@ -1742,7 +1742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8272123541724162102, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: -8255419651671768602, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -1810,7 +1810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7741954881762409376, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: -7716166735236391322, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -1830,7 +1830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7519338408872418546, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: -7444616384730652335, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -1858,7 +1858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7105979587407489431, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: -6900919288126026998, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -1899,6 +1899,10 @@ PrefabInstance:
     - target: {fileID: -5694154564104819198, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5694154564104819198, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5694154564104819198, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
@@ -2034,7 +2038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3609853381664185309, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: -3507508017446322694, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -2050,7 +2054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3134811784822592981, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: -2963247779733461482, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -2102,7 +2106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2407655983074052972, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: -2396495499477997158, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -2205,6 +2209,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -1215248026256319869, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1215248026256319869, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -2274,7 +2282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 44523894549148409, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: 74404150943748997, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -2386,7 +2394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1865589900586261259, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: 1932990571134054644, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -2602,7 +2610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5455457408139587422, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: 5513278966014202237, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -2622,11 +2630,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5666808270574622108, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: 5721595825313299565, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721595825313299565, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
+      propertyPath: m_TagString
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: 5774187141997637403, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -2642,7 +2654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5980173815788169527, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: 6039581718429376433, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -2718,7 +2730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6733958362773368757, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: 6771337129738245537, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -2727,6 +2739,10 @@ PrefabInstance:
     - target: {fileID: 6823707633449877008, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823707633449877008, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
+      propertyPath: m_TagString
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: 6835014920553303341, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -2752,6 +2768,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7478527807583789961, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
+      propertyPath: m_TagString
+      value: Player Hitbox
+      objectReference: {fileID: 0}
     - target: {fileID: 7779665647217112252, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -2770,7 +2790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7897355986956112824, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Player Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: 7920873425986645465, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
@@ -7490,6 +7510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c8c9d543a05a34f961cf3518f42329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 302951030}
   playerStats:
     currHealth: 200
     maxHealth: 300
@@ -7503,6 +7524,13 @@ MonoBehaviour:
     eatHeal: 5
     eatTime: 1.5
     buffExtend: 0
+    size: 1
+    execute: 0
+    executeValue: 0
+    overHeal: 0
+    overHealValue: 0
+    block: 0
+    blockChance: 0
   playerPerks:
     healthModifier: 0
     defenceModifier: 0
@@ -7514,6 +7542,7 @@ MonoBehaviour:
     eatHealModifier: 0
     eatTimeModifier: 0
     buffExtendModifier: 0
+    sizeModifier: 0
 --- !u!1 &1026161479
 GameObject:
   m_ObjectHideFlags: 0

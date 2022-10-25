@@ -77,7 +77,6 @@ public class Player_PerksManager : MonoBehaviour
 
     public PerkModifiers UpdatePerk(PerkModifiers perkMod)
     {
-
         //foreach perk in the list, apply all of them
         for (int i = 0; i < selectedModList.Count; i++)
         {
@@ -182,7 +181,7 @@ public class Player_PerksManager : MonoBehaviour
         //after choose, run awake, run updateplayerstats
         AwakePerks();
         Player_StatusManager.Instance.UpdatePlayerStats();
-
+        Debug.Log($"Selected Perk, Applying");
     }
 
     #endregion

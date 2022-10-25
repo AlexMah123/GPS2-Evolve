@@ -56,7 +56,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (tempActiveTime1 > 0)
                     {
                         tempActiveTime1 -= Time.deltaTime;
-                        activeTime.value = tempActiveTime1 / skill.activeTime;
+                        //activeTime.value = tempActiveTime1 / skill.activeTime;
                     }
                     else
                     {
@@ -96,7 +96,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (tempActiveTime2 > 0)
                     {
                         tempActiveTime2 -= Time.deltaTime;
-                        activeTime.value = tempActiveTime2 / skill.activeTime;
+                        //activeTime.value = tempActiveTime2 / skill.activeTime;
                     }
                     else
                     {
@@ -136,7 +136,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (tempActiveTime3 > 0)
                     {
                         tempActiveTime3 -= Time.deltaTime;
-                        activeTime.value = tempActiveTime3 / skill.activeTime;
+                        //activeTime.value = tempActiveTime3 / skill.activeTime;
                     }
                     else
                     {

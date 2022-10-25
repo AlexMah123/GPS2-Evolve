@@ -8,16 +8,20 @@ public class Tenacity : Player_BasePerk
 {
     //created by Alex
     [Header("Tenacity - Perk Details")]
-    [SerializeField] float statusModifier = 0.15f;
+    [SerializeField] float blockChance = 0.15f;
 
     public override PerkModifiers ApplyPerks(PerkModifiers perkMod)
     {
-       
         return perkMod;
     }
 
     public override void ApplyEffects(Player_Base playerObj)
     {
-
+        if (!playerObj.Block)
+        {
+            playerObj.Block = true;
+            playerObj.BlockChance = blockChance;
+        }
+            
     }
 }

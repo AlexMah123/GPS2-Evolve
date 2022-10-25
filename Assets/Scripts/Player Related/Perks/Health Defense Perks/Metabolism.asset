@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8345e0bd9759dd7419d24defacf0ba4a, type: 3}
   m_Name: Metabolism
   m_EditorClassIdentifier: 
+  perkLogo: {fileID: 0}
   name: Metabolism
-  description: You feel your body recover faster
+  description: You feel your body recover faster. HP Regen is possible
   perkTypes: 1
   maxHealth: -50
   regenPerSecond: 1

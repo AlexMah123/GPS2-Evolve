@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136d708605d7b154ba26f0f447f659a6, type: 3}
   m_Name: Brutal
   m_EditorClassIdentifier: 
+  perkLogo: {fileID: 0}
   name: Brutal
-  description: You slowly become more brutal in your attacks
+  description: You become more brutal in your attacks. Increased attack.
   perkTypes: 0
   attackModifier: 5

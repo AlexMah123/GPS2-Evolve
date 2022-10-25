@@ -7,6 +7,7 @@ public class Player_StatusManager : MonoBehaviour
     //created by Alex
     public static Player_StatusManager Instance;
 
+    [SerializeField] Transform player;
     Player_Base playerBaseStats = new();
     public Player_Base playerStats = new();
     public PerkModifiers playerPerks = new();
@@ -25,7 +26,7 @@ public class Player_StatusManager : MonoBehaviour
 
     private void Start()
     {
-        //UpdatePlayerStats();
+        UpdatePlayerStats();
     }
 
     private void Update()
@@ -42,6 +43,7 @@ public class Player_StatusManager : MonoBehaviour
         //updates and takes all the current selectedMods in the list and applies them
         playerPerks = Player_PerksManager.Instance.UpdatePerk(playerPerks);
 
+        #region base properties
         playerStats.MaxHealth = playerBaseStats.MaxHealth + playerPerks.healthModifier;
         playerStats.Defence = playerBaseStats.Defence + playerPerks.defenceModifier;
         playerStats.Attack = playerBaseStats.Attack + playerPerks.attackModifier;
@@ -51,5 +53,13 @@ public class Player_StatusManager : MonoBehaviour
         playerStats.EatHeal = playerBaseStats.EatHeal + playerPerks.eatHealModifier;
         playerStats.EatTime = playerBaseStats.EatTime + playerPerks.eatHealModifier;
         playerStats.BuffExtend = playerBaseStats.BuffExtend + playerPerks.buffExtendModifier;
+        playerStats.Size = playerBaseStats.Size + playerPerks.sizeModifier;
+        player.transform.localScale = new Vector3(playerStats.Size, playerStats.Size, playerStats.Size);
+        #endregion
+
+        #region perks properties
+        //playerStats.Execute =
+        #endregion
+
     }
 }

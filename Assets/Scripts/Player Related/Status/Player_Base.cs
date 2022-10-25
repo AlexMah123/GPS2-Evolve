@@ -7,7 +7,7 @@ using UnityEngine;
 public class Player_Base
 {
     //created by Alex
-
+    [Header("Base stats properties")]
     [SerializeField] int currHealth = 300;
     [SerializeField] int maxHealth = 300;
     [SerializeField] int defence = 5;
@@ -20,8 +20,23 @@ public class Player_Base
     [SerializeField] int eatHeal = 5;
     [SerializeField] float eatTime = 1.5f;
     [SerializeField] float buffExtend = 0f;
+    [SerializeField] float size = 0.8f;
 
-    #region Properties
+    [Header("Perk properties")]
+    [Tooltip("Predator Instinct Perk")]
+    [SerializeField] bool execute = false;
+    [SerializeField] float executeValue = 0f;
+
+    [Tooltip("Store Fat Perk")]
+    [SerializeField] bool overHeal = false;
+    [SerializeField] int overHealValue = 0;
+
+    [Tooltip("Tenacity Perk")]
+    [SerializeField] bool block = false;
+    [SerializeField] float blockChance = 0f;
+
+
+    #region Base Stats Properties
     public int CurrHealth
     {
         get => currHealth;
@@ -91,6 +106,51 @@ public class Player_Base
     {
         get => buffExtend;
         set => buffExtend = value;
+    }
+
+    public float Size
+    {
+        get => size;
+        set => size = value;
+    }
+
+    #endregion
+
+    #region Perks Properties
+    public bool Execute
+    {
+        get => execute;
+        set => execute = value;
+    }
+
+    public float ExecuteValue
+    {
+        get => executeValue;
+        set => executeValue = value;
+    }
+
+    public bool OverHeal
+    {
+        get => overHeal;
+        set => overHeal = value;
+    }
+
+    public int OverHealValue
+    {
+        get => overHealValue;
+        set => overHealValue = value;
+    }
+
+    public bool Block
+    {
+        get => block;
+        set => block = value;
+    }
+
+    public float BlockChance
+    {
+        get => blockChance;
+        set => blockChance = value;
     }
     #endregion
 }

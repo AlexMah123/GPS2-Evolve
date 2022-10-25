@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321962545db298741a447fddc370c598, type: 3}
   m_Name: StoreFat
   m_EditorClassIdentifier: 
+  perkLogo: {fileID: 0}
   name: Store Fat
-  description: Turns your fat into a shield
+  description: Turns your fat into a shield. Overheal is possible
   perkTypes: 1
   eatingHeal: 5
   speedModifier: -0.2

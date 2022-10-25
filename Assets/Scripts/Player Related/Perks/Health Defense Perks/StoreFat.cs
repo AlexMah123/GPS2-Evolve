@@ -9,6 +9,7 @@ public class StoreFat : Player_BasePerk
     [Header("Store Fat - Perk Details")]
     [SerializeField] int eatingHeal = 5;
     [SerializeField] float speedModifier = -0.2f;
+    [SerializeField] int overHeal = 60;
 
 
     public override PerkModifiers ApplyPerks(PerkModifiers perkMod)
@@ -20,6 +21,10 @@ public class StoreFat : Player_BasePerk
 
     public override void ApplyEffects(Player_Base playerObj)
     {
-
+        if(!playerObj.OverHeal)
+        {
+            playerObj.OverHeal = true;
+            playerObj.OverHealValue = 60;
+        }
     }
 }

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e5d2add843010459821bbc3a63b38e, type: 3}
   m_Name: Titan
   m_EditorClassIdentifier: 
+  perkLogo: {fileID: 0}
   name: Titan
-  description: Increase your size
+  description: Increase your size and max health is increased
   perkTypes: 1
   maxHealth: 100

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ef4d939af22aa43a9fee1bce584f32, type: 3}
   m_Name: FocusMind
   m_EditorClassIdentifier: 
+  perkLogo: {fileID: 0}
   name: Focus Mind
-  description: When you activate a skill, increase attack by 5 for 3 seconds
+  description: Activating skills increases attack by 5 for 3 seconds.
   perkTypes: 2
   statusModifier: 5
+  duration: 3

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7b19d35dfc0f047b3cf5c35a0fb412, type: 3}
   m_Name: Feast
   m_EditorClassIdentifier: 
+  perkLogo: {fileID: 0}
   name: Feast
-  description: Increase stats gained when devouring
+  description: Increase devour points gained when devouring.
   perkTypes: 2
   evolvePointGain: 1
   eatTime: 0.5

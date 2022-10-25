@@ -12,13 +12,23 @@ public class EnemyStatus : MonoBehaviour
     {
         tempHealth = ess.Health;
     }
+
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player Hitbox"))
         {
             if (PlayerController.Instance.attacking == true)
             {
-                tempHealth -= Player_StatusManager.Instance.playerStats.Attack;
+                if(tempHealth < tempHealth * Player_StatusManager.Instance.playerStats.ExecuteValue && Player_StatusManager.Instance.playerStats.Execute)
+                {
+                    tempHealth = 0;
+                    Debug.Log("Execute");
+                }
+                else
+                {
+                    tempHealth -= Player_StatusManager.Instance.playerStats.Attack;
+                }
+
                 Debug.Log("Collided");
             }
             
