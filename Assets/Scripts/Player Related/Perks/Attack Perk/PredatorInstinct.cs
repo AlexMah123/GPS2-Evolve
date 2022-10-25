@@ -10,6 +10,7 @@ public class PredatorInstinct : Player_BasePerk
     [SerializeField] int attackModifier = -8;
     [SerializeField] float executeValue = 0.25f;
 
+
     public override PerkModifiers ApplyPerks(PerkModifiers perkMod)
     {
         // do something

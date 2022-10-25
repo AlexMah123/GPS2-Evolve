@@ -27,6 +27,8 @@ public class Player_StatusManager : MonoBehaviour
     private void Start()
     {
         UpdatePlayerStats();
+        Debug.Log("RESETING");
+        playerStats.Reset();
     }
 
     private void Update()
@@ -44,6 +46,7 @@ public class Player_StatusManager : MonoBehaviour
         playerPerks = Player_PerksManager.Instance.UpdatePerk(playerPerks);
 
         #region base properties
+        //playerStats.CurrHealth = playerBaseStats.CurrHealth;
         playerStats.MaxHealth = playerBaseStats.MaxHealth + playerPerks.healthModifier;
         playerStats.Defence = playerBaseStats.Defence + playerPerks.defenceModifier;
         playerStats.Attack = playerBaseStats.Attack + playerPerks.attackModifier;
@@ -55,10 +58,6 @@ public class Player_StatusManager : MonoBehaviour
         playerStats.BuffExtend = playerBaseStats.BuffExtend + playerPerks.buffExtendModifier;
         playerStats.Size = playerBaseStats.Size + playerPerks.sizeModifier;
         player.transform.localScale = new Vector3(playerStats.Size, playerStats.Size, playerStats.Size);
-        #endregion
-
-        #region perks properties
-        //playerStats.Execute =
         #endregion
 
     }

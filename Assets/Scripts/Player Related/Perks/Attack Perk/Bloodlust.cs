@@ -7,17 +7,21 @@ public class Bloodlust : Player_BasePerk
 {
     //created by Alex
     [Header("Bloodlust - Perk Details")]
-    [SerializeField] float attackSpeed = 0.12f;
+    [SerializeField] float bloodlustValue = 0.12f;
 
     public override PerkModifiers ApplyPerks(PerkModifiers perkMod)
     {
         // do something
-        perkMod.attackSpeedModifier += attackSpeed;
+        //perkMod.attackSpeedModifier += attackSpeed;
         return perkMod;
     }
 
     public override void ApplyEffects(Player_Base playerObj)
     {
-        
+        if (!playerObj.Bloodlust)
+        {
+            playerObj.Bloodlust = true;
+            playerObj.BloodlustValue = bloodlustValue;
+        }
     }
 }

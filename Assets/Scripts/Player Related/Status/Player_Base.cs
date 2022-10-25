@@ -35,12 +35,48 @@ public class Player_Base
     [SerializeField] bool block = false;
     [SerializeField] float blockChance = 0f;
 
+    [Tooltip("Bloodlust Perk")]
+    [SerializeField] bool bloodlust = false;
+    [SerializeField] float bloodlustValue = 0f;
+
+    [Tooltip("Anger Perk")]
+    [SerializeField] bool anger = false;
+    [SerializeField] float angerValue = 0f;
+
+
+    public void Reset()
+    {
+        //CurrHealth = currHealth;
+        MaxHealth = maxHealth;
+        Defence = defence;
+        Attack = attack;
+        AttackSpeed = attackSpeed;
+        Speed = speed;
+        JumpHeight = jumpHeight;
+        CurrEvolveBar = currEvolveBar;
+        MaxEvolveBar = maxEvolveBar;
+        EatHeal = eatHeal;
+        BuffExtend = buffExtend;
+        Size = size;
+
+        Execute = execute;
+        ExecuteValue = executeValue;
+        OverHeal = overHeal;
+        OverHealValue = overHealValue;
+        Block = block;
+        BlockChance = blockChance;
+        Bloodlust = bloodlust;
+        BloodlustValue = bloodlustValue;
+        AngerValue = angerValue;
+
+        Player_StatusManager.Instance.UpdatePlayerStats();
+    }
 
     #region Base Stats Properties
     public int CurrHealth
     {
         get => currHealth;
-        set => currHealth = value;
+        set => currHealth = Mathf.Clamp(value, 0, MaxHealth);
     }
      public int MaxHealth
     {
@@ -87,7 +123,7 @@ public class Player_Base
     public int CurrEvolveBar
     {
         get => currEvolveBar;
-        set => currEvolveBar = value;
+        set => currEvolveBar = Mathf.Clamp(value, 0, MaxEvolveBar);
     }
 
     public int EatHeal
@@ -111,7 +147,7 @@ public class Player_Base
     public float Size
     {
         get => size;
-        set => size = value;
+        set => size = Mathf.Clamp(value, Size, 1.5f);
     }
 
     #endregion
@@ -152,5 +188,30 @@ public class Player_Base
         get => blockChance;
         set => blockChance = value;
     }
+
+    public bool Bloodlust
+    {
+        get => bloodlust;
+        set => bloodlust = value;
+    }
+
+    public float BloodlustValue
+    {
+        get => bloodlustValue;
+        set => bloodlustValue = value;
+    }
+
+    public bool Anger
+    {
+        get => anger;
+        set => anger = value;
+    }
+
+    public float AngerValue
+    {
+        get => angerValue;
+        set => angerValue = value;
+    }
     #endregion
+
 }
