@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class NormalState : PlayerStateMachine
 {
-    PlayerStateMachine psm;
     public NormalState(PlayerController system) : base(system) { }
 
     public override IEnumerator Start()
@@ -12,11 +11,10 @@ public class NormalState : PlayerStateMachine
     }
     public override IEnumerator Movement(Vector3 move)
     {
-        //Player Movement should be moved here when done
 
-            _system.animator.SetFloat("Running", move != Vector3.zero ? 1 : 0);
-            move.y = 0;
-            _system.controller.Move(_system.playerSpeed * Time.deltaTime * move);
+        _system.animator.SetFloat("Running", move != Vector3.zero ? 1 : 0);
+        move.y = 0;
+        _system.controller.Move(_system.playerSpeed * Time.deltaTime * move);
     
         
         yield break;
@@ -43,5 +41,39 @@ public class NormalState : PlayerStateMachine
         _system.animator.SetBool("Devour", true);
         _system.SetState(new DevourState(_system));
         yield break;
+    }
+
+    public override IEnumerator Skill(string skillName)
+    {
+        switch (skillName)
+        {
+            case "Bite":
+                //Skill Code here
+                _system.SetState(new SkillState(_system));
+                yield break;
+            case "Roar":
+                //Skill Code here
+                _system.SetState(new SkillState(_system));
+                yield break;
+            case "Dash":
+                //Skill Code here
+                _system.SetState(new SkillState(_system));
+                yield break;
+            case "Smash":
+                //Skill Code here
+                _system.SetState(new SkillState(_system));
+                yield break;
+            case "Whip":
+                //Skill Code here
+                _system.SetState(new SkillState(_system));
+                yield break;
+            case "Leap Smash":
+                //Skill Code here
+                _system.SetState(new SkillState(_system));
+                yield break;
+            default:
+                Debug.Log("Something went wrong, you shouldn't be seeing this");
+                yield break;
+        }
     }
 }

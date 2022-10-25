@@ -5,10 +5,9 @@ public class JumpState : PlayerStateMachine
 {
     public JumpState(PlayerController system) : base(system) { }
 
-    //No Movement Here
+    //No Movement Here(?)
     public override IEnumerator Movement(Vector3 move)
     {
-        //Player Movement should be moved here when done
         _system.animator.SetFloat("Running", move != Vector3.zero ? 1 : 0);
         move.y = 0;
         _system.controller.Move(_system.playerSpeed * Time.deltaTime * move);

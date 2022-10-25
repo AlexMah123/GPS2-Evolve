@@ -6,11 +6,6 @@ public class DevourState : PlayerStateMachine
 
     //No Movement Here
 
-    public override IEnumerator Devour()
-    {
-        yield break;
-    }
-
     public override IEnumerator DevourFinished()
     {
         //Animator Stuff should be here

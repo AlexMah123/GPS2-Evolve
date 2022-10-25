@@ -6,11 +6,6 @@ public class AttackState : PlayerStateMachine
 
     //No Movement Here
 
-    public override IEnumerator Melee()
-    {
-        yield break;
-    }
-
     public override IEnumerator ActionFinished()
     {
         _system.attacking = false;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class PlayerStateMachine
 {
-    //Shane
+    //Shane, All States also by Shane (unless stated otherwise)
     protected readonly PlayerController _system;
 
     public PlayerStateMachine(PlayerController sys)
@@ -51,6 +51,16 @@ public abstract class PlayerStateMachine
         yield break;
     }
     public virtual IEnumerator Death()
+    {
+        yield break;
+    }
+
+    public virtual IEnumerator Skill(string skillName)
+    {
+        yield break;
+    }
+
+    public virtual IEnumerator SkillFinished()
     {
         yield break;
     }

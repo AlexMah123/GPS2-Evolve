@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     public bool attacking;
 
     public Animator animator;
+    //IK Stuff
+    [Range(0,1f)]
+    public float distanceToGround;
+    public LayerMask layerMask;
 
     public static PlayerController Instance;
     //FSM Stuff
@@ -28,7 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = new Player();
         controller = GetComponent<CharacterController>();
-
+        animator = GetComponent<Animator>();
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -124,13 +128,13 @@ public class PlayerController : MonoBehaviour
         }
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Devour"))
         {
-            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
             {
                 StartCoroutine(currentState.DevourFinished());
             }
         }
         #endregion
+
     }
     public void JumpEvent()
     {
@@ -143,4 +147,35 @@ public class PlayerController : MonoBehaviour
         currentState = state;
         StartCoroutine(currentState.Start());
     }
+
+    public void ActivateSkill(string skillName)
+    {
+        StartCoroutine(currentState.Skill(skillName));
+    }
+    #region IK Stuff (WIP)
+    private void OnAnimatorIK(int layerIndex)
+    {
+        Debug.Log("Running");
+        if (animator)
+        {
+            animator.SetIKPositionWeight(AvatarIKGoal.RightFoot, 1f);
+            animator.SetIKRotationWeight(AvatarIKGoal.RightFoot, 1f);
+
+            //Right Foot
+
+            RaycastHit hit;
+            Ray ray = new Ray(animator.GetIKPosition(AvatarIKGoal.RightFoot) + Vector3.up, Vector3.down);
+            if(Physics.Raycast(ray, out hit, distanceToGround + 1f, layerMask))
+            {
+                if(hit.transform.tag == "Walkable")
+                {
+                    Vector3 footPosition = hit.point;
+                    footPosition.y += distanceToGround;
+                    animator.SetIKPosition(AvatarIKGoal.RightFoot, footPosition);
+                }
+            }
+        }
+    }
+
+    #endregion
 }
