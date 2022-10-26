@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Shane
+//Shane, edited by Alex
 public class EnemyStatus : MonoBehaviour
 {
     public EnemyScriptable ess;
@@ -19,7 +19,7 @@ public class EnemyStatus : MonoBehaviour
         {
             if (PlayerController.Instance.attacking == true)
             {
-                if(tempHealth < tempHealth * Player_StatusManager.Instance.playerStats.ExecuteValue && Player_StatusManager.Instance.playerStats.Execute)
+                if(tempHealth < ess.Health * Player_StatusManager.Instance.playerStats.ExecuteValue && Player_StatusManager.Instance.playerStats.Execute)
                 {
                     tempHealth = 0;
                     Debug.Log("Execute");
@@ -28,7 +28,6 @@ public class EnemyStatus : MonoBehaviour
                 {
                     tempHealth -= Player_StatusManager.Instance.playerStats.Attack;
                 }
-
                 Debug.Log("Collided");
             }
             
@@ -39,7 +38,15 @@ public class EnemyStatus : MonoBehaviour
     {
         if (tempHealth <= 0)
         {
+            //if selected perks contains bloodlust
+            if(Player_PerksManager.Instance.selectedModList.Contains(Player_PerksManager.Instance.totalModList[1]))
+            {
+                Player_StatusManager.Instance.playerStats.Bloodlust = true;
+                Player_StatusManager.Instance.playerStats.BloodlustDuration = 3 + Player_StatusManager.Instance.playerStats.BuffExtend;
+                Player_StatusManager.Instance.playerStats.BloodlustCap++;
+            }
+            
             gameObject.SetActive(false);
-        }
+        }      
     }
 }

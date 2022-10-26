@@ -59,6 +59,10 @@ public class Player_PerksManager : MonoBehaviour
             selectedModList.Add(totalModList[i]);
         }*/
 
+        //selectedModList.Add(totalModList[1]);
+        selectedModList.Add(totalModList[4]);
+        //selectedModList.Add(totalModList[13]);
+
         AwakePerks();
         Player_StatusManager.Instance.UpdatePlayerStats();
 

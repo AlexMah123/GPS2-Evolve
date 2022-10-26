@@ -8,7 +8,7 @@ public class Player_StatusManager : MonoBehaviour
     public static Player_StatusManager Instance;
 
     [SerializeField] Transform player;
-    Player_Base playerBaseStats = new();
+    [HideInInspector] public Player_Base playerBaseStats = new();
     public Player_Base playerStats = new();
     public PerkModifiers playerPerks = new();
 
@@ -27,8 +27,8 @@ public class Player_StatusManager : MonoBehaviour
     private void Start()
     {
         UpdatePlayerStats();
-        Debug.Log("RESETING");
-        playerStats.Reset();
+        //Debug.Log("RESETING");
+        //playerStats.Reset();
     }
 
     private void Update()

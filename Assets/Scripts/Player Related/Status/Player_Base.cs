@@ -37,12 +37,13 @@ public class Player_Base
 
     [Tooltip("Bloodlust Perk")]
     [SerializeField] bool bloodlust = false;
-    [SerializeField] float bloodlustValue = 0f;
+    [SerializeField] float bloodlustCap = 0f;
+    [SerializeField] float bloodlustDuration = 0f;
 
     [Tooltip("Anger Perk")]
     [SerializeField] bool anger = false;
     [SerializeField] float angerValue = 0f;
-
+    [SerializeField] float angerDuration = 0f;
 
     public void Reset()
     {
@@ -66,7 +67,9 @@ public class Player_Base
         Block = block;
         BlockChance = blockChance;
         Bloodlust = bloodlust;
-        BloodlustValue = bloodlustValue;
+        BloodlustCap = bloodlustCap;
+        BloodlustDuration = bloodlustDuration;
+        Anger = anger;
         AngerValue = angerValue;
 
         Player_StatusManager.Instance.UpdatePlayerStats();
@@ -99,7 +102,7 @@ public class Player_Base
     public float AttackSpeed
     {
         get => attackSpeed;
-        set => attackSpeed = value;
+        set => attackSpeed = Mathf.Clamp(value, 0.8f, 1.5f);
     }
 
     public float Speed
@@ -195,10 +198,16 @@ public class Player_Base
         set => bloodlust = value;
     }
 
-    public float BloodlustValue
+    public float BloodlustCap
     {
-        get => bloodlustValue;
-        set => bloodlustValue = value;
+        get => bloodlustCap;
+        set => bloodlustCap = Mathf.Clamp(value, 0, 3f);
+    }
+
+    public float BloodlustDuration
+    {
+        get => bloodlustDuration;
+        set => bloodlustDuration = Mathf.Clamp(value, 0, 3 + BuffExtend);
     }
 
     public bool Anger
@@ -211,6 +220,12 @@ public class Player_Base
     {
         get => angerValue;
         set => angerValue = value;
+    }
+
+    public float AngerDuration
+    {
+        get => angerDuration;
+        set => angerDuration = Mathf.Clamp(value, 0, 3 + BuffExtend);
     }
     #endregion
 

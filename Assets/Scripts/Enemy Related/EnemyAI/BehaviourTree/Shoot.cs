@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Shoot : Node
 {
-    //ter
+    //ter, editted by Alex
     [Header("Tree Var")]
     private GameObject _player;
     private Transform _transform;
@@ -63,8 +63,42 @@ public class Shoot : Node
                         {
                             dmg = 0;
                         }
-                        Debug.Log("Player has been hit!");
-                        _psm.playerStats.CurrHealth -= dmg;
+
+                        //if block is active, run the effect
+                        if(_psm.playerStats.Block)
+                        {
+                            int rand = Random.Range(0, 100);
+
+                            //if the chance of block is hit
+                            if (rand < _psm.playerStats.BlockChance * 100)
+                            {
+                                Debug.Log("Blocked!");
+                            }
+                            else
+                            {
+                                _psm.playerStats.CurrHealth -= dmg;
+                                Debug.Log("Player has been hit!");
+
+                                //if anger is active
+                                if (Player_PerksManager.Instance.selectedModList.Contains(Player_PerksManager.Instance.totalModList[4]))
+                                {
+                                    _psm.playerStats.Anger = true;
+                                    Player_StatusManager.Instance.playerStats.AngerDuration = 3 + Player_StatusManager.Instance.playerStats.BuffExtend;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            _psm.playerStats.CurrHealth -= dmg;
+
+                            //if anger is active
+                            if (Player_PerksManager.Instance.selectedModList.Contains(Player_PerksManager.Instance.totalModList[4]))
+                            {
+                                _psm.playerStats.Anger = true;
+                                Player_StatusManager.Instance.playerStats.AngerDuration = 3 + Player_StatusManager.Instance.playerStats.BuffExtend;
+                            }
+                        }
+
                     }
                     else
                     {
