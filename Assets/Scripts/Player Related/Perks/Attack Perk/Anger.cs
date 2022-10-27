@@ -29,7 +29,7 @@ public class Anger : Player_BasePerk
                 playerObj.Speed = Player_StatusManager.Instance.playerBaseStats.Speed + Player_StatusManager.Instance.playerPerks.speedModifier;
                 playerObj.AngerDuration = duration;
                 playerObj.Anger = false;
-                Debug.Log("inactive");
+                //Debug.Log("inactive");
 
             }
             else
@@ -41,7 +41,7 @@ public class Anger : Player_BasePerk
                 playerObj.Speed
                     = Player_StatusManager.Instance.playerBaseStats.Speed + Player_StatusManager.Instance.playerPerks.speedModifier + angerValue;
 
-                Debug.Log("Active");
+                //Debug.Log("Active");
             }
         }
     }
