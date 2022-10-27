@@ -77,7 +77,7 @@ public class Shoot : Node
                             else
                             {
                                 _psm.playerStats.CurrHealth -= dmg;
-                                Debug.Log("Player has been hit!");
+                                //Debug.Log("Player has been hit!");
 
                                 //if anger is active
                                 if (Player_PerksManager.Instance.selectedModList.Contains(Player_PerksManager.Instance.totalModList[4]))
@@ -102,7 +102,7 @@ public class Shoot : Node
                     }
                     else
                     {
-                        Debug.Log("Hit something else");
+                        //Debug.Log("Hit something else");
                     }
                     Reloading = 0;
                 }

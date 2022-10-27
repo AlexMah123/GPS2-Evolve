@@ -10,6 +10,7 @@ public class DevourState : PlayerStateMachine
     {
         //Animator Stuff should be here
         _system.animator.SetBool("Devour", false);
+        _system.devouring = false;
         _system.SetState(new NormalState(_system));
         yield break;
     }

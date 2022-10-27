@@ -39,6 +39,7 @@ public class NormalState : PlayerStateMachine
     public override IEnumerator Devour()
     {
         _system.animator.SetBool("Devour", true);
+        _system.devouring = true;
         _system.SetState(new DevourState(_system));
         yield break;
     }

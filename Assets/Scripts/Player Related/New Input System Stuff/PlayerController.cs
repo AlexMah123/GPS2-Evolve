@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     //Created by Shane, edited by Alex, Yung Zhen
 
+    public static PlayerController Instance;
+
+    [Header("Player Related")]
     [HideInInspector] public Player playerInput;
     private Transform cameraMain;
     public CharacterController controller;
@@ -16,15 +19,17 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 1.0f;
     public float gravityValue = -9.81f;
 
+    [Header("Boolean States")]
     public bool attacking;
+    public bool devouring;
 
+    [Header("Animators and IK")]
     public Animator animator;
     //IK Stuff
     [Range(0,1f)]
     public float distanceToGround;
     public LayerMask layerMask;
 
-    public static PlayerController Instance;
     //FSM Stuff
     public PlayerStateMachine currentState;
 
@@ -177,5 +182,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    #endregion
+
+
+    #region CollisionRelated
+    private void OnTriggerEnter(Collider other)
+    {
+       
+    }
     #endregion
 }

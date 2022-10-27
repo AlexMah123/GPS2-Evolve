@@ -6,11 +6,14 @@ using UnityEngine;
 public class EnemyStatus : MonoBehaviour
 {
     public EnemyScriptable ess;
+    public GameObject deathObject;
     float tempHealth;
+    bool killed;
 
     private void Awake()
     {
         tempHealth = ess.Health;
+        killed = false;
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -45,8 +48,18 @@ public class EnemyStatus : MonoBehaviour
                 Player_StatusManager.Instance.playerStats.BloodlustDuration = 3 + Player_StatusManager.Instance.playerStats.BuffExtend;
                 Player_StatusManager.Instance.playerStats.BloodlustCap++;
             }
-            
+
+            killed = true;
             gameObject.SetActive(false);
         }      
     }
+
+    private void OnDisable()
+    {
+        if(killed)
+        {
+            Instantiate(deathObject, transform.position, Quaternion.identity);
+        }
+    }
+
 }
