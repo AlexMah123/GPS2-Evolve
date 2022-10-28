@@ -38,11 +38,35 @@ public class Approach : Node
         {
             Approaching = false;
         }
+
+        Vector3 separateDir = Vector3.zero;
+
+        //avoid by Ter
+
+        /*Debug.DrawRay(_transform.position, _transform.right * 5, Color.cyan);
+        Debug.DrawRay(_transform.position, -_transform.right * 5, Color.cyan);
+        Debug.DrawRay(_transform.position, (_transform.right + _transform.forward) * 5, Color.cyan);
+        Debug.DrawRay(_transform.position, (_transform.right - _transform.forward) * 5, Color.cyan);
+        Debug.DrawRay(_transform.position, (-_transform.right + _transform.forward) * 5, Color.cyan);
+        Debug.DrawRay(_transform.position, (-_transform.right - _transform.forward) * 5, Color.cyan);*/
+
+        if (Physics.Raycast(_transform.position, _transform.right, 5) || Physics.Raycast(_transform.position, (_transform.right + _transform.forward).normalized, 5) || Physics.Raycast(_transform.position, (_transform.right - _transform.forward).normalized, 5))
+        {
+            separateDir -= _transform.right;
+        }
+
+        if (Physics.Raycast(_transform.position, -_transform.right, 5) || Physics.Raycast(_transform.position, (-_transform.right + _transform.forward).normalized, 5) || Physics.Raycast(_transform.position, (-_transform.right - _transform.forward).normalized, 5))
+        {
+            separateDir += _transform.right;
+        }
+        separateDir = separateDir.normalized * 0.5f;
+
         Vector3 targetDir = (_player.transform.position - _transform.position).normalized;
         if(Approaching)
         {
             _nva.speed = _ess.Speed * 2;
-            _nva.SetDestination(targetDir + _transform.position);
+            _nva.SetDestination(targetDir + _transform.position + separateDir);
+            _transform.LookAt(_player.transform);
             state = NodeState.RUNNING;
         }
         else
