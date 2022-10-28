@@ -708,6 +708,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3677966974310759022, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
+      propertyPath: deathObject
+      value: 
+      objectReference: {fileID: 8108302210967120548, guid: 8be35420e476bb047959fbbb3f79c0c4, type: 3}
     - target: {fileID: 1273894808742661446, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2757,6 +2761,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3767567775833405075, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
+      propertyPath: m_TagString
+      value: Devour Hitbox
+      objectReference: {fileID: 0}
     - target: {fileID: 3837214824063086251, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -3423,6 +3431,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3677966974310759022, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
+      propertyPath: deathObject
+      value: 
+      objectReference: {fileID: 8108302210967120548, guid: 8be35420e476bb047959fbbb3f79c0c4, type: 3}
     - target: {fileID: 1273894808742661446, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -8337,6 +8349,24 @@ Transform:
   m_Father: {fileID: 303712424}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1059858277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3767567775833405075, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
+  m_PrefabInstance: {fileID: 302951024}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1059858279
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059858277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1073745623
 GameObject:
   m_ObjectHideFlags: 0
@@ -8681,6 +8711,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3677966974310759022, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
+      propertyPath: deathObject
+      value: 
+      objectReference: {fileID: 8108302210967120548, guid: 8be35420e476bb047959fbbb3f79c0c4, type: 3}
     - target: {fileID: 1273894808742661446, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -12253,7 +12287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ESS:
-  - {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
+  - {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
   waveDelayMax: 3
 --- !u!1 &1854594588
 GameObject:

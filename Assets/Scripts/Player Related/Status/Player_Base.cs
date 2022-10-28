@@ -16,6 +16,7 @@ public class Player_Base
     [SerializeField] float speed = 2;
     [SerializeField] float jumpHeight = 3;
     [SerializeField] int currEvolveBar = 0;
+    [SerializeField] int evolveBarIncrease = 0;
     [SerializeField] int maxEvolveBar = 80;
     [SerializeField] int eatHeal = 5;
     [SerializeField] float eatTime = 1.5f;
@@ -55,6 +56,7 @@ public class Player_Base
         Speed = speed;
         JumpHeight = jumpHeight;
         CurrEvolveBar = currEvolveBar;
+        EvolveBarIncrease = evolveBarIncrease;
         MaxEvolveBar = maxEvolveBar;
         EatHeal = eatHeal;
         BuffExtend = buffExtend;
@@ -127,6 +129,12 @@ public class Player_Base
     {
         get => currEvolveBar;
         set => currEvolveBar = Mathf.Clamp(value, 0, MaxEvolveBar);
+    }
+
+    public int EvolveBarIncrease
+    {
+        get => evolveBarIncrease;
+        set => evolveBarIncrease = value;
     }
 
     public int EatHeal

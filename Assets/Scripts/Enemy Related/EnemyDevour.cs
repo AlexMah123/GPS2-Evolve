@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class EnemyDevour : MonoBehaviour
 {
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Devour Hitbox"))
         {
+            Debug.Log("Devouring");
             if(PlayerController.Instance.devouring)
             {
+                Player_StatusManager.Instance.playerStats.CurrEvolveBar += 10;
                 Destroy(gameObject);
             }
-            /*if (PlayerController.Instance.animator.GetCurrentAnimatorStateInfo(0).IsName("Devour"))
-            {
-                if (PlayerController.Instance.animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !PlayerController.Instance.animator.IsInTransition(0))
-                {
-                    Destroy(gameObject);
-                }
-            }*/
+            
         }
     }
 

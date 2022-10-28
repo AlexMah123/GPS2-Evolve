@@ -53,6 +53,8 @@ public class Player_StatusManager : MonoBehaviour
         playerStats.AttackSpeed = playerBaseStats.AttackSpeed + playerPerks.attackSpeedModifier;
         playerStats.Speed = playerBaseStats.Speed + playerPerks.speedModifier;
         playerStats.JumpHeight = playerBaseStats.JumpHeight + playerPerks.jumpHeightModifier;
+        playerStats.MaxEvolveBar = playerBaseStats.MaxEvolveBar;
+        playerStats.EvolveBarIncrease = playerBaseStats.EvolveBarIncrease + playerPerks.evolveBarModifier;
         playerStats.EatHeal = playerBaseStats.EatHeal + playerPerks.eatHealModifier;
         playerStats.EatTime = playerBaseStats.EatTime + playerPerks.eatHealModifier;
         playerStats.BuffExtend = playerBaseStats.BuffExtend + playerPerks.buffExtendModifier;

@@ -31,7 +31,7 @@ public class EnemyStatus : MonoBehaviour
                 {
                     tempHealth -= Player_StatusManager.Instance.playerStats.Attack;
                 }
-                Debug.Log("Collided");
+                //Debug.Log("Collided");
             }
             
         }
@@ -58,7 +58,7 @@ public class EnemyStatus : MonoBehaviour
     {
         if(killed)
         {
-            Instantiate(deathObject, transform.position, Quaternion.identity);
+            Instantiate(deathObject, transform.position, deathObject.transform.rotation);
         }
     }
 
