@@ -35,6 +35,9 @@ public class Player_PerksManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI perk3Desc;
     [SerializeField] TextMeshProUGUI perk3Name;
 
+    [Header("Selected Perks Display")]
+    [SerializeField] GameObject sPerk;
+    [SerializeField] GameObject content;
 
     private void Awake()
     {
@@ -51,6 +54,14 @@ public class Player_PerksManager : MonoBehaviour
         #endregion
     }
 
+    public void SelectedPerkDisplay(int i)
+    {
+        GameObject s = sPerk;
+        s.GetComponentInChildren<Image>().sprite = selectedModList[i].perks.perkLogo;
+        s.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = selectedModList[i].perks.name;
+        s.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = selectedModList[i].perks.description;
+        Instantiate(s, content.transform);
+    }
     private void Start()
     {
         //TESTING
@@ -146,6 +157,7 @@ public class Player_PerksManager : MonoBehaviour
                     perk1Logo.sprite = displayModList[i].perks.perkLogo;
                     perk1Desc.text = displayModList[i].perks.description;
                     perk1Name.text = displayModList[i].perks.name;
+
                     break;
 
                 case 1:
@@ -171,19 +183,24 @@ public class Player_PerksManager : MonoBehaviour
         {
             case 0:
                 selectedModList.Add(displayModList[perkNum]);
+                SelectedPerkDisplay(selectedModList.Count-1) ;
                 break;
 
             case 1:
                 selectedModList.Add(displayModList[perkNum]);
+                SelectedPerkDisplay(selectedModList.Count - 1);
                 break;
 
             case 2:
                 selectedModList.Add(displayModList[perkNum]);
+                SelectedPerkDisplay(selectedModList.Count - 1);
                 break;
         }
+        
 
         //after choose, run awake, run updateplayerstats
         AwakePerks();
+        //SelectedPerkDisplay();
         Player_StatusManager.Instance.UpdatePlayerStats();
         Debug.Log($"Selected Perk, Applying");
     }
