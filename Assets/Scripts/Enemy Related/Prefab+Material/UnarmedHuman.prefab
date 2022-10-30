@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6025392603623179740}
   - component: {fileID: 6025392603623179738}
   - component: {fileID: 6025392603623179739}
+  - component: {fileID: 1950989708015098231}
   m_Layer: 0
   m_Name: UnarmedHuman
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8927794813518370627}
+  - {fileID: 234492998192286150}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -169,7 +170,27 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!1001 &8966490290544914600
+--- !u!95 &1950989708015098231
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261479332135800635}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2637374769906664fa8ef65934352ac5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &345562618127986221
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -221,6 +242,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1271159591157538652, guid: 539b6b9692136604a8e3028735d11f7d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1271159591157538652, guid: 539b6b9692136604a8e3028735d11f7d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1271159591157538652, guid: 539b6b9692136604a8e3028735d11f7d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -232,30 +261,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unarmed Model
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 539b6b9692136604a8e3028735d11f7d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3034546717619362261, guid: 539b6b9692136604a8e3028735d11f7d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3034546717619362261, guid: 539b6b9692136604a8e3028735d11f7d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3034546717619362261, guid: 539b6b9692136604a8e3028735d11f7d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3034546717619362261, guid: 539b6b9692136604a8e3028735d11f7d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3034546717619362261, guid: 539b6b9692136604a8e3028735d11f7d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3034546717619362261, guid: 539b6b9692136604a8e3028735d11f7d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 539b6b9692136604a8e3028735d11f7d, type: 3}
---- !u!4 &8927794813518370627 stripped
+--- !u!4 &234492998192286150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 539b6b9692136604a8e3028735d11f7d, type: 3}
-  m_PrefabInstance: {fileID: 8966490290544914600}
+  m_PrefabInstance: {fileID: 345562618127986221}
   m_PrefabAsset: {fileID: 0}
