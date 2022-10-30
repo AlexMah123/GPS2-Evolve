@@ -14,6 +14,7 @@ public class Player_StatusManager : MonoBehaviour
 
     private void Awake()
     {
+
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -56,7 +57,7 @@ public class Player_StatusManager : MonoBehaviour
         playerStats.MaxEvolveBar = playerBaseStats.MaxEvolveBar;
         playerStats.EvolveBarIncrease = playerBaseStats.EvolveBarIncrease + playerPerks.evolveBarModifier;
         playerStats.EatHeal = playerBaseStats.EatHeal + playerPerks.eatHealModifier;
-        playerStats.EatTime = playerBaseStats.EatTime + playerPerks.eatHealModifier;
+        playerStats.EatTime = playerBaseStats.EatTime + playerPerks.eatTimeModifier;
         playerStats.BuffExtend = playerBaseStats.BuffExtend + playerPerks.buffExtendModifier;
         playerStats.Size = playerBaseStats.Size + playerPerks.sizeModifier;
         player.transform.localScale = new Vector3(playerStats.Size, playerStats.Size, playerStats.Size);

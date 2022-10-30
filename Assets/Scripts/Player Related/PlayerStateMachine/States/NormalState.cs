@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+//created by Shane, editted by Alex
 public class NormalState : PlayerStateMachine
 {
     public NormalState(PlayerController system) : base(system) { }
@@ -30,8 +31,7 @@ public class NormalState : PlayerStateMachine
 
     public override IEnumerator Jump()
     {
-        //_system.playerVelocity.y += Mathf.Sqrt(_system.jumpHeight * -3.0f * _system.gravityValue);
-        _system.groundedPlayer = false;
+        _system.playerVelocity.y += Mathf.Sqrt(_system.jumpHeight * -3.0f * _system.gravityValue);
         _system.SetState(new JumpState(_system));
         yield break;
     }
@@ -40,6 +40,14 @@ public class NormalState : PlayerStateMachine
     {
         _system.animator.SetBool("Devour", true);
         _system.devouring = true;
+
+        //checks and runs the coroutine on the enemybody to be devoured
+        if(_system.deathbodyList[0] != null)
+        {
+            GameObject enemy = _system.deathbodyList[0];
+            _system.StartCoroutine(enemy.GetComponent<EnemyDevour>().Devouring(enemy));
+        }
+
         _system.SetState(new DevourState(_system));
         yield break;
     }
@@ -77,4 +85,5 @@ public class NormalState : PlayerStateMachine
                 yield break;
         }
     }
+
 }

@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class ArmedTree : Tree
 {
     public EnemyScriptable ess;
-    public Player_StatusManager psm;
+    Player_StatusManager psm;
     public GameObject player;
     public NavMeshAgent nva
     {

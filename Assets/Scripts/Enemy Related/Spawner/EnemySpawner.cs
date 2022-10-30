@@ -38,8 +38,6 @@ public class EnemySpawner : MonoBehaviour
 
                 spawned++;
                 spawnDelay = spawnDelayMax;
-
-                //ESS[currentESS].signalTest();
             }
             else if (spawned >= ESS[currentESS].spawnCount && currentESS+1 < ESS.Length)
             {

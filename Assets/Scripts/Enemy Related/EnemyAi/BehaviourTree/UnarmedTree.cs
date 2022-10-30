@@ -15,7 +15,7 @@ public class UnarmedTree : Tree
     }
     public void Awake()
     {
-        player = GameObject.Find("Kaiju_right_position");
+        player = GameObject.Find("Kaiju");
     }
     public override Node SetupTree()
     {

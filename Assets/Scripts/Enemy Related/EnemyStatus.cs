@@ -6,14 +6,15 @@ using UnityEngine;
 public class EnemyStatus : MonoBehaviour
 {
     public EnemyScriptable ess;
-    public GameObject deathObject;
-    float tempHealth;
+    public float tempHealth;
     bool killed;
+    bool delay;
 
     private void Awake()
     {
         tempHealth = ess.Health;
         killed = false;
+        delay = false;
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -22,16 +23,7 @@ public class EnemyStatus : MonoBehaviour
         {
             if (PlayerController.Instance.attacking == true)
             {
-                if(tempHealth < ess.Health * Player_StatusManager.Instance.playerStats.ExecuteValue && Player_StatusManager.Instance.playerStats.Execute)
-                {
-                    tempHealth = 0;
-                    Debug.Log("Execute");
-                }
-                else
-                {
-                    tempHealth -= Player_StatusManager.Instance.playerStats.Attack;
-                }
-                //Debug.Log("Collided");
+                StartCoroutine(TakeDamage());
             }
             
         }
@@ -58,8 +50,26 @@ public class EnemyStatus : MonoBehaviour
     {
         if(killed)
         {
-            Instantiate(deathObject, transform.position, deathObject.transform.rotation);
+            Instantiate(ess.enemyDeathBody, transform.position, ess.enemyDeathBody.transform.rotation);
         }
     }
 
+    IEnumerator TakeDamage()
+    {
+        if(!delay)
+        {
+            if (tempHealth < ess.Health * Player_StatusManager.Instance.playerStats.ExecuteValue && Player_StatusManager.Instance.playerStats.Execute)
+            {
+                tempHealth = 0;
+                Debug.Log("Execute");
+            }
+            else
+            {
+                tempHealth -= Player_StatusManager.Instance.playerStats.Attack;
+            }
+            delay = true;
+        }
+        yield return new WaitForSeconds(1f);
+        delay = false;
+    }
 }

@@ -133,7 +133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
-  deathObject: {fileID: 0}
 --- !u!114 &6025392603623179738
 MonoBehaviour:
   m_ObjectHideFlags: 0

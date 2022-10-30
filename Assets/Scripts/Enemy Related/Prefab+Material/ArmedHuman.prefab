@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6683686119272269717}
   - component: {fileID: 8345092551666354866}
   - component: {fileID: 5271751886526917728}
+  - component: {fileID: 3094824512531116818}
   - component: {fileID: 1001434853548100958}
   - component: {fileID: -5465120421236515377}
-  - component: {fileID: 8890003366862141416}
   m_Layer: 0
   m_Name: ArmedHuman
   m_TagString: Untagged
@@ -102,7 +102,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!195 &5271751886526917728
 NavMeshAgent:
@@ -126,6 +126,20 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!64 &3094824512531116818
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8754786251051910079}
+  m_Material: {fileID: 13400000, guid: 3017567bafd891f47a3dc9be164a5611, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1001434853548100958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
-  deathObject: {fileID: 0}
+  tempHealth: 0
 --- !u!114 &-5465120421236515377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,19 +167,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
-  psm: {fileID: 0}
-  player: {fileID: 0}
---- !u!136 &8890003366862141416
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8754786251051910079}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  player: {fileID: 8108302210967120548, guid: 8be35420e476bb047959fbbb3f79c0c4, type: 3}

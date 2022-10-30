@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Armed Human
   m_EditorClassIdentifier: 
   enemy: {fileID: 8754786251051910079, guid: 94c82f9bceee089418212cd54eeb288f, type: 3}
-  spawnCount: 10
-  spawnDelay: 0.5
+  enemyDeathBody: {fileID: 8108302210967120548, guid: de5d1fd2cb8aff5498f13d7577e056b6, type: 3}
+  spawnCount: 5
+  spawnDelay: 1
   name: Armed Human
-  health: 10
-  defence: 0
+  health: 60
+  defence: 5
   attack: 10
   attackSpeed: 1
   speed: 5
-  evolvePointGain: 0
+  evolvePointGain: 3
   testResponse: signal received, should spawn enemy now

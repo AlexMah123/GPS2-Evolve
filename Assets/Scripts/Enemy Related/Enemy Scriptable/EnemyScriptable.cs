@@ -8,6 +8,7 @@ using UnityEngine;
 public class EnemyScriptable : ScriptableObject
 {
     public GameObject enemy;
+    public GameObject enemyDeathBody;
     public int spawnCount = 5;
     public float spawnDelay = 0.5f;
     [SerializeField] new string name;
@@ -16,17 +17,14 @@ public class EnemyScriptable : ScriptableObject
     [SerializeField] int attack;
     [SerializeField] float attackSpeed;
     [SerializeField] float speed;
-    [SerializeField] float evolvePointGain;
-
-    [SerializeField] string testResponse = "signal received, should spawn enemy now";
-
-    public void signalTest()
-    {
-        Debug.Log(testResponse);
-    }
-
+    [SerializeField] int evolvePointGain;
 
     #region Properties
+    public string Name
+    {
+        get => name;
+        private set => name = value;
+    }
     public int Health
     {
         get => health;
@@ -56,5 +54,12 @@ public class EnemyScriptable : ScriptableObject
         get => speed;
         set => speed = value;
     }
+
+    public int EvolvePointGain
+    {
+        get => evolvePointGain;
+        set => evolvePointGain = value;
+    }
+
     #endregion
 }

@@ -13,6 +13,7 @@ public class GameSceneUI : MonoBehaviour
     [SerializeField] private GameObject evoWindow;
     [SerializeField] private GameObject pauseWindow;
     [SerializeField] private GameObject settingsWindow;
+    [SerializeField] private Button devourButton;
     [SerializeField] private Slider health;
     [SerializeField] private Slider evo;
 
@@ -23,12 +24,29 @@ public class GameSceneUI : MonoBehaviour
 
     private void Update()
     {
+        #region health evo bar
         health.value = ((float)Player_StatusManager.Instance.playerStats.CurrHealth/ Player_StatusManager.Instance.playerStats.MaxHealth);
         evo.value = ((float)Player_StatusManager.Instance.playerStats.CurrEvolveBar/ Player_StatusManager.Instance.playerStats.MaxEvolveBar);
+        #endregion
+
+        #region devourButton
+        if (PlayerController.Instance.devouring)
+        {
+            devourButton.interactable = false;
+        }
+        else if (PlayerController.Instance.inRangeDevour)
+        {
+            devourButton.interactable = true;
+        }
+        else
+        {
+            devourButton.interactable = false;
+        }
+        #endregion
 
         //if (Application.platform == RuntimePlatform.Android)
         //{
-            if(PlayerController.playerInput.UI.Escape.WasPressedThisFrame())
+        if (PlayerController.playerInput.UI.Escape.WasPressedThisFrame())
             {
                 TogglePause();
                 Debug.Log(Time.timeScale);

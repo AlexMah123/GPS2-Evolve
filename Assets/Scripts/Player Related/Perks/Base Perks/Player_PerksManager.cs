@@ -14,7 +14,7 @@ public class Player_PerksManager : MonoBehaviour
     public static Player_PerksManager Instance { get; private set; }
 
     [Header("Modifiers")]
-    public List<Modifier> totalModList = new();
+    [NonReorderable] public List<Modifier> totalModList = new();
     public List<Modifier> displayModList = new();
     public List<Modifier> selectedModList = new();
     PerkModifiers tempPerks = new();
@@ -65,10 +65,10 @@ public class Player_PerksManager : MonoBehaviour
     private void Start()
     {
         //TESTING
-        /*for(int i=0; i<14; i++)
+        for(int i=0; i<15; i++)
         {
             selectedModList.Add(totalModList[i]);
-        }*/
+        }
 
         //selectedModList.Add(totalModList[1]);
         //selectedModList.Add(totalModList[4]);
