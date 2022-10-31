@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 27285044}
   - component: {fileID: 27285043}
   m_Layer: 5
-  m_Name: Perk Logo
+  m_Name: Ability Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -370,6 +370,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 247044554275309611, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 247044554275309611, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1998263189}
     - target: {fileID: 353273961841897412, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -388,7 +396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 353273961841897412, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6387679
+      value: 0.48877358
       objectReference: {fileID: 0}
     - target: {fileID: 353273961841897412, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -396,7 +404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 353273961841897412, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7693995
+      value: -0.8724107
       objectReference: {fileID: 0}
     - target: {fileID: 353273961841897412, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
       propertyPath: m_LocalRotation.z
@@ -408,7 +416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 353273961841897412, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -100.6
+      value: -121.48
       objectReference: {fileID: 0}
     - target: {fileID: 353273961841897412, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -432,7 +440,7 @@ GameObject:
   - component: {fileID: 55379854}
   - component: {fileID: 55379853}
   m_Layer: 5
-  m_Name: Perk Name
+  m_Name: Ability Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3901,7 +3909,7 @@ GameObject:
   - component: {fileID: 489396554}
   - component: {fileID: 489396553}
   m_Layer: 5
-  m_Name: Perk Logo
+  m_Name: Ability Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4034,7 +4042,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502530526}
-  m_LocalRotation: {x: -0.12564304, y: 0.86556387, z: -0.27018645, w: -0.40250754}
+  m_LocalRotation: {x: -0.12564307, y: 0.86556387, z: -0.27018648, w: -0.4025075}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4606,14 +4614,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012432863}
-        m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: ButtonTest
-        m_Mode: 1
+      - m_Target: {fileID: 1750497844}
+        m_TargetAssemblyTypeName: Player_AbilityHolder, Assembly-CSharp
+        m_MethodName: ChooseAbility
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7060,7 +7068,7 @@ GameObject:
   - component: {fileID: 1073745626}
   - component: {fileID: 1073745625}
   m_Layer: 5
-  m_Name: Perk Desc
+  m_Name: Ability Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8588,7 +8596,7 @@ GameObject:
   - component: {fileID: 1472119553}
   - component: {fileID: 1472119552}
   m_Layer: 5
-  m_Name: Perk Desc
+  m_Name: Ability Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9084,7 +9092,7 @@ GameObject:
   - component: {fileID: 1522501564}
   - component: {fileID: 1522501563}
   m_Layer: 5
-  m_Name: Perk Name
+  m_Name: Ability Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10207,13 +10215,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7361dd3806c4f458852929a0520655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalSkillList:
+  - {fileID: 11400000, guid: 6436b7b1c07359540abf9e5ba023cdaf, type: 2}
+  - {fileID: 11400000, guid: ff614330e091990459070b624c0245dc, type: 2}
+  - {fileID: 11400000, guid: 95b1405a15bdd6346be5f398c0a49f2d, type: 2}
+  - {fileID: 11400000, guid: f28bcb65d6bc6c14e99b330e84715f37, type: 2}
+  - {fileID: 11400000, guid: 9e380aefbb45e864e9dce721de0ac186, type: 2}
+  - {fileID: 11400000, guid: 8117c5ed327372f4eb876d0536e5878e, type: 2}
+  displaySkillList: []
+  selectedSkillList: []
   skill1: {fileID: 11400000, guid: 6436b7b1c07359540abf9e5ba023cdaf, type: 2}
   skill2: {fileID: 11400000, guid: ff614330e091990459070b624c0245dc, type: 2}
   skill3: {fileID: 11400000, guid: 95b1405a15bdd6346be5f398c0a49f2d, type: 2}
+  skill1Button: {fileID: 816517061}
+  skill2Button: {fileID: 440651075}
+  skill3Button: {fileID: 2076485732}
   skill1TMP: {fileID: 881255897}
   skill2TMP: {fileID: 1710575380}
   skill3TMP: {fileID: 1469291476}
   activeTime: {fileID: 0}
+  skill1Obj: {fileID: 1783924507}
+  skill1Logo: {fileID: 27285043}
+  skill1Desc: {fileID: 1073745625}
+  skill1Name: {fileID: 55379853}
+  skill2Obj: {fileID: 636083904}
+  skill2Logo: {fileID: 489396553}
+  skill2Desc: {fileID: 2067203876}
+  skill2Name: {fileID: 1522501563}
+  skill3Obj: {fileID: 1854594588}
+  skill3Logo: {fileID: 1797372794}
+  skill3Desc: {fileID: 1472119552}
+  skill3Name: {fileID: 1919470899}
 --- !u!1 &1765607559
 GameObject:
   m_ObjectHideFlags: 0
@@ -10465,10 +10497,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012432863}
-        m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: ButtonTest
-        m_Mode: 1
+      - m_Target: {fileID: 1750497844}
+        m_TargetAssemblyTypeName: Player_AbilityHolder, Assembly-CSharp
+        m_MethodName: ChooseAbility
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10539,7 +10571,7 @@ GameObject:
   - component: {fileID: 1797372795}
   - component: {fileID: 1797372794}
   m_Layer: 5
-  m_Name: Perk Logo
+  m_Name: Ability Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11182,14 +11214,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012432863}
-        m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: ButtonTest
-        m_Mode: 1
+      - m_Target: {fileID: 1750497844}
+        m_TargetAssemblyTypeName: Player_AbilityHolder, Assembly-CSharp
+        m_MethodName: ChooseAbility
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11332,7 +11364,7 @@ GameObject:
   - component: {fileID: 1919470900}
   - component: {fileID: 1919470899}
   m_Layer: 5
-  m_Name: Perk Name
+  m_Name: Ability Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12072,7 +12104,7 @@ GameObject:
   - component: {fileID: 2067203877}
   - component: {fileID: 2067203876}
   m_Layer: 5
-  m_Name: Perk Desc
+  m_Name: Ability Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

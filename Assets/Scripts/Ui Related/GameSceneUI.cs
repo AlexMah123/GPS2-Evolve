@@ -10,6 +10,7 @@ public class GameSceneUI : MonoBehaviour
     PlayerController PlayerController;
     //GameScene
     [SerializeField] private GameObject perkWindow;
+    [SerializeField] private GameObject abilityWindow;
     [SerializeField] private GameObject evoWindow;
     [SerializeField] private GameObject pauseWindow;
     [SerializeField] private GameObject settingsWindow;
@@ -58,6 +59,12 @@ public class GameSceneUI : MonoBehaviour
     {
         perkWindow.SetActive(!perkWindow.activeSelf);
     }
+
+    public void ToggleAbility()
+    {
+        abilityWindow.SetActive(!abilityWindow.activeSelf);
+    }
+
     public void ToggleEvolve()
     {
         evoWindow.SetActive(!evoWindow.activeSelf);

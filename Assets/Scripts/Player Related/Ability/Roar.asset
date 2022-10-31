@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e06fa888534707439d8e736f19d49c3, type: 3}
-  m_Name: Bite_Ability
+  m_Script: {fileID: 11500000, guid: 7d0d6c2d88bcf32478cd69a21d97fb4a, type: 3}
+  m_Name: Roar
   m_EditorClassIdentifier: 
-  name: Bite
-  description: Unleash a chomp infront of you.
-  attack: 40
-  cooldownTime: 5
-  activeTime: 1
-  state: 2
+  name: Roar
+  description: Bellow a roar and inflict fear.
+  attack: 0
+  cooldownTime: 12
+  activeTime: 2
+  state: 0

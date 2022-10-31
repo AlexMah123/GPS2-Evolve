@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Walkable
   - Player Hitbox
-  - Devour Hitbox
   - Deadbody
+  - Bite Hitbox
   layers:
   - Default
   - TransparentFX

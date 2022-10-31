@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     [Header("Boolean States")]
     public bool attacking;
     public bool devouring;
+    public bool lookAt;
+
 
     [Header("Animators and IK")]
     public Animator animator;
@@ -75,8 +77,15 @@ public class PlayerController : MonoBehaviour
         //if you are devouring and in range, look at the body
         if(devouring && inRangeDevour)
         {
-            transform.LookAt(deathbodyList[0].transform);
-            transform.position = deathbodyList[0].transform.position;
+            Vector3 dir = (deathbodyList[0].transform.position - transform.position).normalized;
+
+            if (lookAt)
+            {
+                Quaternion lookRotation = Quaternion.LookRotation(dir, Vector3.up);
+                transform.localRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
+                transform.position = deathbodyList[0].transform.position;
+                lookAt = false;
+            }
         }
         #endregion
 
@@ -84,7 +93,7 @@ public class PlayerController : MonoBehaviour
         //if you are grounded, apply less force, else apply full force
         if (controller.isGrounded)
         {
-            playerVelocity.y = gravityValue * 0.02f;
+            playerVelocity.y = gravityValue * 0.05f;
         }
         else
         {
@@ -127,6 +136,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(currentState.Devour());
         }
         #endregion
+
         #region endAnimatorTriggers
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
         {

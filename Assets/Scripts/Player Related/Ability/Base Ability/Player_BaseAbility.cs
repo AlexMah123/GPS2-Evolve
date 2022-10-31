@@ -7,6 +7,7 @@ public abstract class Player_BaseAbility : ScriptableObject
     //created by Alex
 
     [Header("Base Ability Details")]
+    public Sprite logo;
     public new string name;
     public string description;
     public int attack;

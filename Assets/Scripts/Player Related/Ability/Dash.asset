@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Dash
   m_EditorClassIdentifier: 
   name: Dash
-  description: 
-  attack: 0
-  cooldownTime: 2
+  description: Charge towards the direction you are facing.
+  attack: 25
+  cooldownTime: 10
   activeTime: 2
-  state: 1
+  state: 0

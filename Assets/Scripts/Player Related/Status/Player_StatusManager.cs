@@ -34,6 +34,8 @@ public class Player_StatusManager : MonoBehaviour
 
     private void Update()
     {
+        UpdatePlayerStats();
+
         //run the update effects on perk if selectedMod List has something
         if (Player_PerksManager.Instance.selectedModList.Count > 0)
         {

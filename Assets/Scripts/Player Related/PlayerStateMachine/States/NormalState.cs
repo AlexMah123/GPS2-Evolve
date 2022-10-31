@@ -40,6 +40,7 @@ public class NormalState : PlayerStateMachine
     {
         _system.animator.SetBool("Devour", true);
         _system.devouring = true;
+        _system.lookAt = true;
 
         //checks and runs the coroutine on the enemybody to be devoured
         if(_system.deathbodyList[0] != null)

@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e06fa888534707439d8e736f19d49c3, type: 3}
-  m_Name: Bite_Ability
+  m_Script: {fileID: 11500000, guid: 34da9a64abbda2244bb8e9f7a8398d65, type: 3}
+  m_Name: Leap Smash
   m_EditorClassIdentifier: 
-  name: Bite
-  description: Unleash a chomp infront of you.
-  attack: 40
-  cooldownTime: 5
-  activeTime: 1
-  state: 2
+  name: Leap Smash
+  description: Leap into the air and pulverize objects in front of you.
+  attack: 35
+  cooldownTime: 9
+  activeTime: 2
+  state: 0

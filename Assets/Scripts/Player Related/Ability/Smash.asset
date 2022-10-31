@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34da9a64abbda2244bb8e9f7a8398d65, type: 3}
-  m_Name: LeapSmash
+  m_Script: {fileID: 11500000, guid: fcf36c224d65e974f8d9749eaa6fd324, type: 3}
+  m_Name: Smash
   m_EditorClassIdentifier: 
-  name: Leap Smash
+  name: Smash
   description: 
-  attack: 0
-  cooldownTime: 3
-  activeTime: 2
+  attack: 30
+  cooldownTime: 7
+  activeTime: 1
   state: 0

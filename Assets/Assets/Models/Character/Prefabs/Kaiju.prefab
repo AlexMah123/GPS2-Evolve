@@ -2600,8 +2600,10 @@ MonoBehaviour:
   playerSpeed: 5
   jumpHeight: 3
   gravityValue: -9.81
+  inRangeDevour: 0
   attacking: 0
   devouring: 0
+  lookAt: 0
   animator: {fileID: 247044554275309608}
   distanceToGround: 1
   layerMask:
@@ -7141,7 +7143,7 @@ GameObject:
   - component: {fileID: 3146731506518299401}
   m_Layer: 6
   m_Name: Bone005
-  m_TagString: Devour Hitbox
+  m_TagString: Bite Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

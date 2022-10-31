@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Smash : MonoBehaviour
+[CreateAssetMenu(fileName = "Smash", menuName = "PlayerAbility/Smash")]
+public class Smash : Player_BaseAbility
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //created by Alex
 
-    // Update is called once per frame
-    void Update()
+    public override void Activate(GameObject parent)
     {
-        
+        //activate ability
     }
 }

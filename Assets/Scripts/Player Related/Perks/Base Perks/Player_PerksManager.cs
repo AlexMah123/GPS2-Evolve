@@ -76,10 +76,10 @@ public class Player_PerksManager : MonoBehaviour
     private void Start()
     {
         //TESTING
-        for(int i=0; i<15; i++)
+        /*for(int i=0; i<15; i++)
         {
             selectedModList.Add(totalModList[i]);
-        }
+        }*/
 
         //selectedModList.Add(totalModList[1]);
         //selectedModList.Add(totalModList[4]);
