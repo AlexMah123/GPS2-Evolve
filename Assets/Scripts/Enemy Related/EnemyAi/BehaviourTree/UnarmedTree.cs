@@ -9,6 +9,10 @@ public class UnarmedTree : Tree
 {
     public EnemyScriptable ess;
     public GameObject player;
+    public Animator animator
+    {
+        get => GetComponentInChildren<Animator>();
+    }
     public NavMeshAgent nva
     {
         get => GetComponent<NavMeshAgent>();
@@ -21,8 +25,8 @@ public class UnarmedTree : Tree
     {
         Node root = new Selector(new List<Node>
         {
-            new Run(this.transform,player,nva,ess),
-            new Patrol(this.transform,player,nva,ess),
+            new Run(this.transform,player,nva,ess,animator),
+            new Patrol(this.transform,player,nva,ess,animator),
         });
         
         return root;

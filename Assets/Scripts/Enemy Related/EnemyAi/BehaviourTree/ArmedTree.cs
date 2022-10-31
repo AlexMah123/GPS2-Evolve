@@ -9,6 +9,11 @@ public class ArmedTree : Tree
     public EnemyScriptable ess;
     Player_StatusManager psm;
     public GameObject player;
+    public Animator animator
+    {
+        get => GetComponentInChildren<Animator>();
+    }
+
     public NavMeshAgent nva
     {
         get => GetComponent<NavMeshAgent>();
@@ -24,7 +29,7 @@ public class ArmedTree : Tree
         {
             new Shoot(this.transform,player,nva,ess,psm),
             new Approach(this.transform,player,nva,ess),
-            new Patrol(this.transform,player,nva,ess),
+            new Patrol(this.transform,player,nva,ess,animator),
         });
 
         return root;

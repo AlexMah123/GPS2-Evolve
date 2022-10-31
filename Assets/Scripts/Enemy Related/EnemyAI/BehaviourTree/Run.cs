@@ -11,15 +11,17 @@ public class Run : Node
     private Transform _transform;
     private NavMeshAgent _nva;
     private EnemyScriptable _ess;
+    private Animator _animator;
 
     [Header("Ind Var")]
     private bool Running;
-    public Run(Transform transform , GameObject player,NavMeshAgent nva, EnemyScriptable ess)
+    public Run(Transform transform , GameObject player,NavMeshAgent nva, EnemyScriptable ess, Animator animator)
     {
         _transform = transform;
         _player = player;
         _nva = nva;
         _ess = ess;
+        _animator = animator;
     }
     public override NodeState Evaluate()
     {
@@ -37,6 +39,7 @@ public class Run : Node
         {
             _nva.speed = _ess.Speed * 2;
             _nva.SetDestination(targetDir + _transform.position);
+            _animator.SetInteger("State", 2);
             //Debug.Log("Running");
             state = NodeState.RUNNING;
         }

@@ -11,16 +11,18 @@ public class Patrol : Node
     private Transform _transform;
     private NavMeshAgent _nva;
     private EnemyScriptable _ess;
+    private Animator _animator;
 
     [Header("Ind Var")]
     private float patrolRad = 25f; 
 
-    public Patrol(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess)
+    public Patrol(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Animator animator)
     {
         _player = player;
         _transform = transform;
         _nva = nva;
         _ess = ess;
+        _animator = animator;
     }
     public override NodeState Evaluate()
     {
@@ -36,6 +38,7 @@ public class Patrol : Node
                 nextPos = PatrolPoint(patrolRad);
                 _nva.speed = _ess.Speed;
                 _nva.SetDestination(nextPos);
+                _animator.SetInteger("State", 1);
             }
             state = NodeState.RUNNING;
         }
