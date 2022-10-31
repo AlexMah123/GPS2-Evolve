@@ -30,6 +30,7 @@ public class Run : Node
         {
             Running = true;
             _animator.SetInteger("State", 2);
+            _animator.SetFloat("Blend", _animator.GetFloat("Blend") + Time.deltaTime);
         }
         else if (Running && d > 30)
         {

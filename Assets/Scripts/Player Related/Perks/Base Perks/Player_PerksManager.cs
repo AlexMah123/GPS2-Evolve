@@ -41,7 +41,7 @@ public class Player_PerksManager : MonoBehaviour
 
     private void Awake()
     {
-
+        
         #region Singleton
         if (Instance != null && Instance != this)
         {
@@ -62,6 +62,17 @@ public class Player_PerksManager : MonoBehaviour
         s.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = selectedModList[i].perks.description;
         Instantiate(s, content.transform);
     }
+    public void AllSelectedPerkDisplay()
+    {
+        for (int i = 0; i < selectedModList.Count; i++)
+        {
+            GameObject s = sPerk;
+            s.GetComponentInChildren<Image>().sprite = selectedModList[i].perks.perkLogo;
+            s.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = selectedModList[i].perks.name;
+            s.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = selectedModList[i].perks.description;
+            Instantiate(s, content.transform);
+        } 
+    }
     private void Start()
     {
         //TESTING
@@ -78,7 +89,7 @@ public class Player_PerksManager : MonoBehaviour
         AwakePerks();
         Player_StatusManager.Instance.UpdatePlayerStats();
         SelectingPerk();
-
+        AllSelectedPerkDisplay();
     }
 
     #region PerkFunction
