@@ -29,6 +29,7 @@ public class Run : Node
         if (!Running && d < 15)
         {
             Running = true;
+            _animator.SetInteger("State", 2);
         }
         else if (Running && d > 30)
         {
@@ -39,7 +40,6 @@ public class Run : Node
         {
             _nva.speed = _ess.Speed * 2;
             _nva.SetDestination(targetDir + _transform.position);
-            _animator.SetInteger("State", 2);
             //Debug.Log("Running");
             state = NodeState.RUNNING;
         }
