@@ -4628,7 +4628,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 796142579}
         m_TargetAssemblyTypeName: GameSceneUI, Assembly-CSharp
-        m_MethodName: TogglePerk
+        m_MethodName: ToggleAbility
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5403,6 +5403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perkWindow: {fileID: 307469484}
+  abilityWindow: {fileID: 206084100}
   evoWindow: {fileID: 206084100}
   pauseWindow: {fileID: 367852225}
   settingsWindow: {fileID: 1805111853}
@@ -5643,7 +5644,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831007109}
-  m_LocalRotation: {x: -0.11093906, y: 0.8748071, z: -0.23856659, w: -0.40680584}
+  m_LocalRotation: {x: -0.11093908, y: 0.8748071, z: -0.23856659, w: -0.40680587}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10511,7 +10512,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 796142579}
         m_TargetAssemblyTypeName: GameSceneUI, Assembly-CSharp
-        m_MethodName: TogglePerk
+        m_MethodName: ToggleAbility
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11228,7 +11229,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 796142579}
         m_TargetAssemblyTypeName: GameSceneUI, Assembly-CSharp
-        m_MethodName: TogglePerk
+        m_MethodName: ToggleAbility
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
