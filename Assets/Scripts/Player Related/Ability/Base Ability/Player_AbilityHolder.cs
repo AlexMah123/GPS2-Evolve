@@ -17,9 +17,9 @@ public class Player_AbilityHolder : MonoBehaviour
     public List<Player_BaseAbility> selectedSkillList = new();
 
     [Header("Ability Button")]
-    Player_BaseAbility skill1;
-    Player_BaseAbility skill2;
-    Player_BaseAbility skill3;
+    [HideInInspector] public Player_BaseAbility skill1;
+    [HideInInspector] public Player_BaseAbility skill2;
+    [HideInInspector] public Player_BaseAbility skill3;
 
     [SerializeField] Button skill1Button;
     [SerializeField] Button skill2Button;
@@ -77,7 +77,7 @@ public class Player_AbilityHolder : MonoBehaviour
     }
 
     #region AbilityChecks
-    void CheckAbilityStates(Player_BaseAbility skill)
+    public void CheckAbilityStates(Player_BaseAbility skill)
     {
         if(skill == skill1)
         {
@@ -102,6 +102,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     }
                     else
                     {
+                        StartCoroutine(PlayerController.Instance.currentState.SkillFinished());
                         skill.state = Player_BaseAbility.AbilityState.cooldown;
                         tempCooldownTime1 = skill.cooldownTime;
                     }
@@ -144,6 +145,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     }
                     else
                     {
+                        StartCoroutine(PlayerController.Instance.currentState.SkillFinished());
                         skill.state = Player_BaseAbility.AbilityState.cooldown;
                         tempCooldownTime2 = skill.cooldownTime;
                     }
@@ -187,6 +189,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     }
                     else
                     {
+                        StartCoroutine(PlayerController.Instance.currentState.SkillFinished());
                         skill.state = Player_BaseAbility.AbilityState.cooldown;
                         tempCooldownTime3 = skill.cooldownTime;
                     }
@@ -209,11 +212,13 @@ public class Player_AbilityHolder : MonoBehaviour
         }
     }
 
-    void ActivateSkill(Player_BaseAbility skill)
+    public void ActivateSkill(Player_BaseAbility skill)
     {
         //Debug.Log(skill.name);
         skill.Activate(gameObject);
         skill.state = Player_BaseAbility.AbilityState.active;
+        //sets the current state to skillstate
+        StartCoroutine(PlayerController.Instance.currentState.SkillState());
     }
 
     public void SelectingAbility()

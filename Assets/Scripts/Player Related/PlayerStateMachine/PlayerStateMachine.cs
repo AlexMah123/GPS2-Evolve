@@ -55,7 +55,7 @@ public abstract class PlayerStateMachine
         yield break;
     }
 
-    public virtual IEnumerator Skill(string skillName)
+    public virtual IEnumerator SkillState()
     {
         yield break;
     }

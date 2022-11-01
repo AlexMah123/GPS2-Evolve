@@ -8,6 +8,7 @@ public class SkillState : PlayerStateMachine
     public override IEnumerator SkillFinished()
     {
         //Animator Stuff should be here
+        _system.skillActive = false;
         _system.SetState(new NormalState(_system));
         yield break;
     }

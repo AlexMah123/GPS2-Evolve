@@ -69,6 +69,7 @@ public class GameSceneUI : MonoBehaviour
     {
         evoWindow.SetActive(!evoWindow.activeSelf);
     }
+
     public void TogglePause()
     {
         pauseWindow.SetActive(!pauseWindow.activeSelf);
@@ -82,11 +83,13 @@ public class GameSceneUI : MonoBehaviour
         }
         Debug.Log(Time.timeScale);
     }
+
     public void ToggleSettings()
     {
         pauseWindow.SetActive(!pauseWindow.activeSelf);
         settingsWindow.SetActive(!settingsWindow.activeSelf);
     }
+
     public void LvlUp()
     {
         TogglePerk();

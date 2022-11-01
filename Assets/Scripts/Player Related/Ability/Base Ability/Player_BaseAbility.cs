@@ -24,6 +24,6 @@ public abstract class Player_BaseAbility : ScriptableObject
 
     public virtual void Activate(GameObject parent)
     {
-
+        
     }
 }

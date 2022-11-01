@@ -53,9 +53,13 @@ public class NormalState : PlayerStateMachine
         yield break;
     }
 
-    public override IEnumerator Skill(string skillName)
+    public override IEnumerator SkillState()
     {
-        switch (skillName)
+        _system.skillActive = true;
+        _system.SetState(new SkillState(_system));
+        yield break;
+
+        /*switch (skillName)
         {
             case "Bite":
                 //Skill Code here
@@ -84,7 +88,9 @@ public class NormalState : PlayerStateMachine
             default:
                 Debug.Log("Something went wrong, you shouldn't be seeing this");
                 yield break;
-        }
+        }*/
+
+
     }
 
 }

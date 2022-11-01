@@ -22,20 +22,21 @@ public class PlayerController : MonoBehaviour
     public bool inRangeDevour;
 
     [Header("Boolean States")]
+    [HideInInspector] public bool lookAt;
     public bool attacking;
     public bool devouring;
-    public bool lookAt;
-
+    public bool skillActive;
 
     [Header("Animators and IK")]
     public Animator animator;
-    //IK Stuff
     [Range(0,1f)]
     public float distanceToGround;
     public LayerMask layerMask;
 
-    //FSM Stuff
+    [Header("FSM")]
     public PlayerStateMachine currentState;
+
+    Vector2 movementInput;
 
     private void Awake()
     {
@@ -100,14 +101,13 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y += gravityValue * Time.deltaTime;
         }
 
-        Vector2 movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
-        Vector3 move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
-        animator.SetFloat("Running", move != Vector3.zero ? Mathf.Abs(movementInput.magnitude) : 0.01f);
-        StartCoroutine(currentState.Movement(move));
-
-        if (move != Vector3.zero)
+        //
+        if(!devouring && !attacking && !skillActive)
         {
-            //gameObject.transform.forward = move;
+            movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
+            Vector3 move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
+            animator.SetFloat("Running", move != Vector3.zero ? Mathf.Abs(movementInput.magnitude) : 0.01f);
+            StartCoroutine(currentState.Movement(move));
         }
 
         controller.Move(playerVelocity * Time.deltaTime);
@@ -177,10 +177,10 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(currentState.Start());
     }
 
-    public void ActivateSkill(string skillName)
+    /*public void ActivateSkill(string skillName)
     {
         StartCoroutine(currentState.Skill(skillName));
-    }
+    }*/
 
     #region IK Stuff (WIP)
     private void OnAnimatorIK(int layerIndex)
