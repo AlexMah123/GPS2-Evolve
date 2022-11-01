@@ -53,6 +53,21 @@ public class GameSceneUI : MonoBehaviour
                 Debug.Log(Time.timeScale);
             }
         //}
+        if(Player_StatusManager.Instance.one)
+        {
+            perkWindow.SetActive(true);
+            Player_StatusManager.Instance.one = false;
+        }
+        else if (Player_StatusManager.Instance.two)
+        {
+            perkWindow.SetActive(true);
+            Player_StatusManager.Instance.two = false;
+        }
+        else if (Player_StatusManager.Instance.three)
+        {
+            evoWindow.SetActive(true);
+            Player_StatusManager.Instance.three = false;
+        }
     }
 
     public void TogglePerk()

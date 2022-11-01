@@ -12,6 +12,10 @@ public class Player_StatusManager : MonoBehaviour
     public Player_Base playerStats = new();
     public PerkModifiers playerPerks = new();
 
+    public bool one;
+    public bool two;
+    public bool three;
+
     private void Awake()
     {
 
@@ -41,6 +45,10 @@ public class Player_StatusManager : MonoBehaviour
         {
             Player_PerksManager.Instance.UpdateEffects(playerStats);
         }
+        
+        one = Mathf.FloorToInt(playerStats.CurrEvolveBar / 30) == 1;
+        two = Mathf.FloorToInt(playerStats.CurrEvolveBar / 30) == 2;
+        three = Mathf.FloorToInt(playerStats.CurrEvolveBar / 30) == 3;
     }
 
     public void UpdatePlayerStats()

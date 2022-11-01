@@ -17,7 +17,7 @@ public class Patrol : Node
     private float patrolRad = 25f;
     private bool stopped = false;
     private float stoppedTime = 0;
-    private float stoppedMax = 8; 
+    private float stoppedMax = 4; 
 
     public Patrol(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Animator animator)
     {
@@ -34,7 +34,7 @@ public class Patrol : Node
         if (d > 10)
         {
             Vector3 nextPos = Vector3.zero;
-            if(stopped == false)
+            if(!stopped)
             {
                 _animator.SetInteger("State", 1);
                 patrolRad = Random.Range(25, 50);
@@ -49,11 +49,13 @@ public class Patrol : Node
             {
                 if (stoppedTime <= 0)
                 {
+                    
                     stopped = false;
-                    _animator.SetInteger("State", 0);
+                    
                 }
                 else
                 {
+                    
                     stoppedTime -= Time.deltaTime;
                 }
             }
@@ -74,6 +76,8 @@ public class Patrol : Node
         NavMesh.SamplePosition(dir, out NavMeshHit navHit, distance, NavMesh.AllAreas);
         stopped = true;
         stoppedTime = stoppedMax;
+        _animator.SetInteger("State", 0);
+        _nva.speed = 0;
         return navHit.position;
     }
 }

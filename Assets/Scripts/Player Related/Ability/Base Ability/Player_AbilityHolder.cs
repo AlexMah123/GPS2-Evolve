@@ -54,6 +54,8 @@ public class Player_AbilityHolder : MonoBehaviour
     float tempActiveTime3;
     bool chosenAbility = false;
 
+    [SerializeField] Animator anim;
+
     private void Start()
     {
         SelectingAbility();
@@ -89,6 +91,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (PlayerController.Instance.playerInput.PlayerMain.Skill1.triggered)
                     {
                         ActivateSkill(skill);
+                        anim.SetTrigger(skill.name);
                         tempActiveTime1 = skill.activeTime;
                     }
                     break;
@@ -132,6 +135,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (PlayerController.Instance.playerInput.PlayerMain.Skill2.triggered)
                     {
                         ActivateSkill(skill);
+                        anim.SetTrigger(skill.name);
                         tempActiveTime2 = skill.activeTime;
                     }
                     break;
@@ -176,6 +180,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (PlayerController.Instance.playerInput.PlayerMain.Skill3.triggered)
                     {
                         ActivateSkill(skill);
+                        anim.SetTrigger(skill.name);
                         tempActiveTime3 = skill.activeTime;
                     }
                     break;
