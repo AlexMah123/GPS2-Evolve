@@ -17,9 +17,10 @@ public class Player_AbilityHolder : MonoBehaviour
     public List<Player_BaseAbility> selectedSkillList = new();
 
     [Header("Ability Button")]
-    public Player_BaseAbility skill1;
-    public Player_BaseAbility skill2;
-    public Player_BaseAbility skill3;
+    Player_BaseAbility skill1;
+    Player_BaseAbility skill2;
+    Player_BaseAbility skill3;
+
     [SerializeField] Button skill1Button;
     [SerializeField] Button skill2Button;
     [SerializeField] Button skill3Button;
@@ -51,6 +52,7 @@ public class Player_AbilityHolder : MonoBehaviour
     float tempActiveTime2;
     float tempCooldownTime3;
     float tempActiveTime3;
+    bool chosenAbility = false;
 
     private void Start()
     {
@@ -59,10 +61,19 @@ public class Player_AbilityHolder : MonoBehaviour
 
     private void Update()
     {
-        CheckAbilityStates(skill1);
-        CheckAbilityStates(skill2);
-        CheckAbilityStates(skill3);
+        for (int i = 0; i < selectedSkillList.Count; i++)
+        {
+            if (selectedSkillList[i] != null)
+            {
+                CheckAbilityStates(selectedSkillList[i]);
+            }
+        }
 
+        if(chosenAbility)
+        {
+            UpdateAbilityChosen();
+            chosenAbility = false;
+        }
     }
 
     #region AbilityChecks
@@ -73,6 +84,7 @@ public class Player_AbilityHolder : MonoBehaviour
             switch (skill.state)
             {
                 case Player_BaseAbility.AbilityState.ready:
+                    skill1Button.interactable = true;
                     skill1TMP.text = skill.name;
                     if (PlayerController.Instance.playerInput.PlayerMain.Skill1.triggered)
                     {
@@ -105,8 +117,6 @@ public class Player_AbilityHolder : MonoBehaviour
                     else
                     {
                         skill.state = Player_BaseAbility.AbilityState.ready;
-                        skill1Button.interactable = true;
-
                     }
                     break;
             }
@@ -116,6 +126,7 @@ public class Player_AbilityHolder : MonoBehaviour
             switch (skill.state)
             {
                 case Player_BaseAbility.AbilityState.ready:
+                    skill2Button.interactable = true;
                     skill2TMP.text = skill.name;
                     if (PlayerController.Instance.playerInput.PlayerMain.Skill2.triggered)
                     {
@@ -149,8 +160,6 @@ public class Player_AbilityHolder : MonoBehaviour
                     else
                     {
                         skill.state = Player_BaseAbility.AbilityState.ready;
-                        skill2Button.interactable = true;
-
                     }
                     break;
             }
@@ -160,6 +169,7 @@ public class Player_AbilityHolder : MonoBehaviour
             switch (skill.state)
             {
                 case Player_BaseAbility.AbilityState.ready:
+                    skill3Button.interactable = true;
                     skill3TMP.text = skill.name;
                     if (PlayerController.Instance.playerInput.PlayerMain.Skill3.triggered)
                     {
@@ -193,7 +203,6 @@ public class Player_AbilityHolder : MonoBehaviour
                     else
                     {
                         skill.state = Player_BaseAbility.AbilityState.ready;
-                        skill3Button.interactable = true;
                     }
                     break;
             }
@@ -215,7 +224,7 @@ public class Player_AbilityHolder : MonoBehaviour
         int amountToDisplay = 3;
         int rand;
 
-        //choose perks to display
+        //choose ability to display
         for (int i = 0; i < amountToDisplay; i++)
         {
             rand = Player_PerksManager._random.Next(0, totalSkillList.Count);
@@ -267,25 +276,46 @@ public class Player_AbilityHolder : MonoBehaviour
 
     public void ChooseAbility(int abilityNum)
     {
-        switch (abilityNum)
+        //if there are less than 3 abilities and they are already not selected
+        if(selectedSkillList.Count < 3  && !selectedSkillList.Contains(displaySkillList[abilityNum]))
         {
-            case 0:
-                selectedSkillList.Add(displaySkillList[abilityNum]);
-                break;
+            switch (abilityNum)
+            {
+                case 0:
+                    selectedSkillList.Add(displaySkillList[abilityNum]);
+                    break;
 
-            case 1:
-                selectedSkillList.Add(displaySkillList[abilityNum]);
-                break;
+                case 1:
+                    selectedSkillList.Add(displaySkillList[abilityNum]);
+                    break;
 
-            case 2:
-                selectedSkillList.Add(displaySkillList[abilityNum]);
-                break;
+                case 2:
+                    selectedSkillList.Add(displaySkillList[abilityNum]);
+                    break;
+            }
         }
+
+        chosenAbility = true;
+
     }
 
     public void UpdateAbilityChosen()
     {
-        
+        switch(selectedSkillList.Count)
+        {
+            case 1:
+                skill1 = selectedSkillList[0];
+                break;
+            case 2:
+                skill1 = selectedSkillList[0];
+                skill2 = selectedSkillList[1];
+                break;
+            case 3:
+                skill1 = selectedSkillList[0];
+                skill2 = selectedSkillList[1];
+                skill3 = selectedSkillList[2];
+                break;
+        }
     }
     #endregion
 }

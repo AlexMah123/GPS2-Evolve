@@ -3138,6 +3138,14 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 470425725915618700, guid: 19aef7e8be40a764a81109bb13785a06, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 3017567bafd891f47a3dc9be164a5611, type: 2}
+    - target: {fileID: 470425725915618700, guid: 19aef7e8be40a764a81109bb13785a06, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 507151811852313670, guid: 19aef7e8be40a764a81109bb13785a06, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3732,7 +3740,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 440651076}
   m_OnClick:
     m_PersistentCalls:
@@ -4042,7 +4050,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502530526}
-  m_LocalRotation: {x: -0.12564307, y: 0.86556387, z: -0.27018648, w: -0.4025075}
+  m_LocalRotation: {x: -0.12564304, y: 0.86556387, z: -0.27018645, w: -0.40250754}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5519,7 +5527,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 816517062}
   m_OnClick:
     m_PersistentCalls:
@@ -10225,9 +10233,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8117c5ed327372f4eb876d0536e5878e, type: 2}
   displaySkillList: []
   selectedSkillList: []
-  skill1: {fileID: 11400000, guid: 6436b7b1c07359540abf9e5ba023cdaf, type: 2}
-  skill2: {fileID: 11400000, guid: ff614330e091990459070b624c0245dc, type: 2}
-  skill3: {fileID: 11400000, guid: 95b1405a15bdd6346be5f398c0a49f2d, type: 2}
   skill1Button: {fileID: 816517061}
   skill2Button: {fileID: 440651075}
   skill3Button: {fileID: 2076485732}
@@ -12366,7 +12371,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2076485733}
   m_OnClick:
     m_PersistentCalls:

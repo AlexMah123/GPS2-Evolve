@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf36c224d65e974f8d9749eaa6fd324, type: 3}
   m_Name: Smash
   m_EditorClassIdentifier: 
+  logo: {fileID: 0}
   name: Smash
-  description: 
+  description: Unleash a blow in front of you.
   attack: 30
   cooldownTime: 7
   activeTime: 1

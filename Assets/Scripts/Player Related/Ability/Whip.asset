@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57598acf1de36bc4f80f5bdc51bfd650, type: 3}
   m_Name: Whip
   m_EditorClassIdentifier: 
+  logo: {fileID: 0}
   name: Whip
-  description: 
+  description: Whip your tail in a circle around you.
   attack: 25
   cooldownTime: 6
   activeTime: 1
