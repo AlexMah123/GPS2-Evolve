@@ -36,19 +36,19 @@ public class Patrol : Node
         if (d > 10)
         {
             Vector3 nextPos = Vector3.zero;
-            if(!stopped)
+            if(stopped == false)
             {
-                _animator.SetInteger("State", 1);
+
                 patrolRad = Random.Range(25, 50);
                 if (_nva.remainingDistance <= _nva.stoppingDistance || timeout <= 0)
                 {
                     nextPos = PatrolPoint(patrolRad);
-                    _nva.speed = _ess.Speed;
                     _nva.SetDestination(nextPos);
                 }
                 else
                 {
                     timeout -= Time.deltaTime;
+                    _nva.speed = _ess.Speed;
                 }
             }
             else
@@ -56,10 +56,11 @@ public class Patrol : Node
                 if (stoppedTime <= 0)
                 {
                     stopped = false;
+                    _animator.SetInteger("State", 1);
+                    Debug.Log(_animator.GetInteger("State"));
                 }
                 else
                 {
-                    
                     stoppedTime -= Time.deltaTime;
                 }
             }
@@ -81,6 +82,7 @@ public class Patrol : Node
         stopped = true;
         stoppedTime = stoppedMax;
         _animator.SetInteger("State", 0);
+        Debug.Log(_animator.GetInteger("State"));
         _nva.speed = 0;
         timeout = timeoutMax;
         return navHit.position;
