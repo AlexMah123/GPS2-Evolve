@@ -20,7 +20,7 @@ public class ArmedTree : Tree
     }
     public void Awake()
     {
-        player = GameObject.Find("Kaiju_right_position");
+        player = GameObject.Find("Kaiju");
         psm = Player_StatusManager.Instance;
     }
     public override Node SetupTree()
