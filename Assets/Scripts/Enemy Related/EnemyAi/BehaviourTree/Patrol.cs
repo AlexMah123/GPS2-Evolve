@@ -17,7 +17,9 @@ public class Patrol : Node
     private float patrolRad = 25f;
     private bool stopped = false;
     private float stoppedTime = 0;
-    private float stoppedMax = 4; 
+    private float stoppedMax = 4;
+    private float timeout = 30;
+    private float timeoutMax = 30;
 
     public Patrol(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Animator animator)
     {
@@ -38,20 +40,22 @@ public class Patrol : Node
             {
                 _animator.SetInteger("State", 1);
                 patrolRad = Random.Range(25, 50);
-                if (_nva.remainingDistance <= _nva.stoppingDistance)
+                if (_nva.remainingDistance <= _nva.stoppingDistance || timeout <= 0)
                 {
                     nextPos = PatrolPoint(patrolRad);
                     _nva.speed = _ess.Speed;
                     _nva.SetDestination(nextPos);
+                }
+                else
+                {
+                    timeout -= Time.deltaTime;
                 }
             }
             else
             {
                 if (stoppedTime <= 0)
                 {
-                    
                     stopped = false;
-                    
                 }
                 else
                 {
@@ -78,6 +82,7 @@ public class Patrol : Node
         stoppedTime = stoppedMax;
         _animator.SetInteger("State", 0);
         _nva.speed = 0;
+        timeout = timeoutMax;
         return navHit.position;
     }
 }
