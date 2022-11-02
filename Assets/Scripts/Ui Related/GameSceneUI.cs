@@ -17,6 +17,8 @@ public class GameSceneUI : MonoBehaviour
     [SerializeField] private Button devourButton;
     [SerializeField] private Slider health;
     [SerializeField] private Slider evo;
+    private bool t1;
+    private bool t2;
 
     private void Awake()
     {
@@ -45,29 +47,31 @@ public class GameSceneUI : MonoBehaviour
         }
         #endregion
 
-        //if (Application.platform == RuntimePlatform.Android)
-        //{
-        if (PlayerController.playerInput.UI.Escape.WasPressedThisFrame())
-            {
-                TogglePause();
-                Debug.Log(Time.timeScale);
-            }
-        //}
-        if(Player_StatusManager.Instance.one)
+        if (Player_StatusManager.Instance.one && !t1) 
         {
-            perkWindow.SetActive(true);
-            Player_StatusManager.Instance.one = false;
+            TogglePerk();
+            t1 = true; 
         }
-        else if (Player_StatusManager.Instance.two)
+        else if(Player_StatusManager.Instance.two && !t2)
         {
-            perkWindow.SetActive(true);
-            Player_StatusManager.Instance.two = false;
+            TogglePerk();
+            t2 = true;
         }
         else if (Player_StatusManager.Instance.three)
         {
-            evoWindow.SetActive(true);
-            Player_StatusManager.Instance.three = false;
+            ToggleAbility();
+            Player_StatusManager.Instance.playerStats.CurrEvolveBar = 0;
+            t1 = false;
+            t2 = false;
         }
+        //if (Application.platform == RuntimePlatform.Android)
+        //{
+        /*if (PlayerController.playerInput.UI.Escape.WasPressedThisFrame())
+            {
+                TogglePause();
+                Debug.Log(Time.timeScale);
+            }*/
+        //}
     }
 
     public void TogglePerk()

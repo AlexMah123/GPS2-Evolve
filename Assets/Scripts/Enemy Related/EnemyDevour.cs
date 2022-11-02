@@ -18,7 +18,7 @@ public class EnemyDevour : MonoBehaviour
             yield return new WaitForSeconds(devouringTime);
 
             //adds to evolvebar based on ess + eat heal, removes from the list, and destroys the obj
-            Player_StatusManager.Instance.playerStats.CurrEvolveBar += ess.EvolvePointGain;
+            Player_StatusManager.Instance.playerStats.CurrEvolveBar += ess.EvolvePointGain + Player_StatusManager.Instance.playerStats.EvolveBarIncrease;
             Player_StatusManager.Instance.playerStats.CurrHealth += Player_StatusManager.Instance.playerStats.EatHeal;
             PlayerController.Instance.deathbodyList.Remove(gameObj);
             Destroy(gameObj);

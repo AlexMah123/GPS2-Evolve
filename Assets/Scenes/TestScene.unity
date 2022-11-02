@@ -5729,7 +5729,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831007109}
-  m_LocalRotation: {x: -0.11093906, y: 0.8748071, z: -0.23856659, w: -0.40680584}
+  m_LocalRotation: {x: -0.11093908, y: 0.8748071, z: -0.23856659, w: -0.40680587}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6763,7 +6763,7 @@ MonoBehaviour:
     jumpHeight: 3
     currEvolveBar: 0
     evolveBarIncrease: 0
-    maxEvolveBar: 80
+    maxEvolveBar: 90
     eatHeal: 5
     eatTime: 1.5
     buffExtend: 0
@@ -6790,8 +6790,8 @@ MonoBehaviour:
     jumpHeight: 3
     currEvolveBar: 0
     evolveBarIncrease: 0
-    maxEvolveBar: 90
-    eatHeal: 5
+    maxEvolveBar: 80
+    eatHeal: 0
     eatTime: 1.5
     buffExtend: 0
     size: 0.8

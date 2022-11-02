@@ -8,7 +8,8 @@ public class Player_StatusManager : MonoBehaviour
     public static Player_StatusManager Instance;
 
     [SerializeField] Transform player;
-    [HideInInspector] public Player_Base playerBaseStats = new();
+    //[HideInInspector]
+    public Player_Base playerBaseStats = new();
     public Player_Base playerStats = new();
     public PerkModifiers playerPerks = new();
 
@@ -38,17 +39,15 @@ public class Player_StatusManager : MonoBehaviour
 
     private void Update()
     {
-        UpdatePlayerStats();
+        //UpdatePlayerStats();
 
         //run the update effects on perk if selectedMod List has something
         if (Player_PerksManager.Instance.selectedModList.Count > 0)
         {
             Player_PerksManager.Instance.UpdateEffects(playerStats);
         }
-        
-        one = Mathf.FloorToInt(playerStats.CurrEvolveBar / 30) == 1;
-        two = Mathf.FloorToInt(playerStats.CurrEvolveBar / 30) == 2;
-        three = Mathf.FloorToInt(playerStats.CurrEvolveBar / 30) == 3;
+
+        CheckPlayerLevel();
     }
 
     public void UpdatePlayerStats()
@@ -73,5 +72,16 @@ public class Player_StatusManager : MonoBehaviour
         player.transform.localScale = new Vector3(playerStats.Size, playerStats.Size, playerStats.Size);
         #endregion
 
+    }
+
+    void CheckPlayerLevel()
+    {
+        int value = Mathf.FloorToInt(playerStats.CurrEvolveBar / 30);
+
+        one = value >= 1 && value < 2;
+        two = value >= 2 && value < 3;
+        three = value >= 3;
+        Debug.Log(value);
+        
     }
 }

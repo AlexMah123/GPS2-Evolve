@@ -61,6 +61,7 @@ public class Player_AbilityHolder : MonoBehaviour
         SelectingAbility();
     }
 
+
     private void Update()
     {
         for (int i = 0; i < selectedSkillList.Count; i++)
@@ -71,11 +72,7 @@ public class Player_AbilityHolder : MonoBehaviour
             }
         }
 
-        if(chosenAbility)
-        {
-            UpdateAbilityChosen();
-            chosenAbility = false;
-        }
+        
     }
 
     #region AbilityChecks
@@ -305,7 +302,8 @@ public class Player_AbilityHolder : MonoBehaviour
             }
         }
 
-        chosenAbility = true;
+        UpdateAbilityChosen();
+        SelectingAbility();
 
     }
 

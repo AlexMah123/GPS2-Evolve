@@ -17,7 +17,7 @@ public class Player_PerksManager : MonoBehaviour
     [NonReorderable] public List<Modifier> totalModList = new();
     public List<Modifier> displayModList = new();
     public List<Modifier> selectedModList = new();
-    PerkModifiers tempPerks = new();
+    PerkModifiers tempPerks;
 
     [Header("Perks UI Variables")]
     [SerializeField] GameObject perk1;
@@ -103,6 +103,7 @@ public class Player_PerksManager : MonoBehaviour
 
     public PerkModifiers UpdatePerk(PerkModifiers perkMod)
     {
+        tempPerks = new();
         //foreach perk in the list, apply all of them
         for (int i = 0; i < selectedModList.Count; i++)
         {
@@ -190,30 +191,34 @@ public class Player_PerksManager : MonoBehaviour
 
     public void ChoosePerk(int perkNum)
     {
-        switch(perkNum)
+        if(!selectedModList.Contains(displayModList[perkNum]))
         {
-            case 0:
-                selectedModList.Add(displayModList[perkNum]);
-                SelectedPerkDisplay(selectedModList.Count-1) ;
-                break;
+            switch (perkNum)
+            {
+                case 0:
+                    selectedModList.Add(displayModList[perkNum]);
+                    SelectedPerkDisplay(selectedModList.Count - 1);
+                    break;
 
-            case 1:
-                selectedModList.Add(displayModList[perkNum]);
-                SelectedPerkDisplay(selectedModList.Count - 1);
-                break;
+                case 1:
+                    selectedModList.Add(displayModList[perkNum]);
+                    SelectedPerkDisplay(selectedModList.Count - 1);
+                    break;
 
-            case 2:
-                selectedModList.Add(displayModList[perkNum]);
-                SelectedPerkDisplay(selectedModList.Count - 1);
-                break;
+                case 2:
+                    selectedModList.Add(displayModList[perkNum]);
+                    SelectedPerkDisplay(selectedModList.Count - 1);
+                    break;
+            }
+
+            //after choose, run awake, run updateplayerstats
+            AwakePerks();
+            //SelectedPerkDisplay();
+            SelectingPerk();
+            Player_StatusManager.Instance.UpdatePlayerStats();
+            Debug.Log($"Selected Perk, Applying");
+
         }
-        
-
-        //after choose, run awake, run updateplayerstats
-        AwakePerks();
-        //SelectedPerkDisplay();
-        Player_StatusManager.Instance.UpdatePlayerStats();
-        Debug.Log($"Selected Perk, Applying");
     }
 
     #endregion

@@ -128,7 +128,7 @@ public class Player_Base
     public int CurrEvolveBar
     {
         get => currEvolveBar;
-        set => currEvolveBar = Mathf.Clamp(value + EvolveBarIncrease, 0, MaxEvolveBar);
+        set => currEvolveBar = Mathf.Clamp(value, 0, MaxEvolveBar);
     }
 
     public int EvolveBarIncrease
