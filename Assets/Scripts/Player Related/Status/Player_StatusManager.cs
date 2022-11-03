@@ -17,6 +17,9 @@ public class Player_StatusManager : MonoBehaviour
     public bool two;
     public bool three;
 
+    public bool isSlowed;
+    public float slowedTime;
+
     private void Awake()
     {
 
@@ -45,6 +48,15 @@ public class Player_StatusManager : MonoBehaviour
         if (Player_PerksManager.Instance.selectedModList.Count > 0)
         {
             Player_PerksManager.Instance.UpdateEffects(playerStats);
+        }
+
+        if (slowedTime <= 0)
+        {
+            isSlowed = false;
+        }
+        else
+        {
+            slowedTime -= Time.deltaTime;
         }
 
         CheckPlayerLevel();

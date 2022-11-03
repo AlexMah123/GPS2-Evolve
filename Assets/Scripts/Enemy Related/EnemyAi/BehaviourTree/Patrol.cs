@@ -57,7 +57,7 @@ public class Patrol : Node
                 {
                     stopped = false;
                     _animator.SetInteger("State", 1);
-                    Debug.Log(_animator.GetInteger("State"));
+                    //Debug.Log(_animator.GetInteger("State"));
                 }
                 else
                 {
@@ -82,7 +82,7 @@ public class Patrol : Node
         stopped = true;
         stoppedTime = stoppedMax;
         _animator.SetInteger("State", 0);
-        Debug.Log(_animator.GetInteger("State"));
+        //Debug.Log(_animator.GetInteger("State"));
         _nva.speed = 0;
         timeout = timeoutMax;
         return navHit.position;

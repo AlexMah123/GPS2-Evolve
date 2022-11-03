@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    //Created by Shane, edited by Alex, Yung Zhen
+    //Created by Shane, edited by Alex, Yung Zhen, Terrence
 
     public static PlayerController Instance;
 
@@ -105,6 +105,10 @@ public class PlayerController : MonoBehaviour
         if(!devouring && !attacking && !skillActive)
         {
             movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
+            if (Player_StatusManager.Instance.isSlowed = true)
+            {
+                movementInput = movementInput * 0.6f;
+            }
             Vector3 move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
             animator.SetFloat("Running", move != Vector3.zero ? Mathf.Abs(movementInput.magnitude) : 0.01f);
             StartCoroutine(currentState.Movement(move));
