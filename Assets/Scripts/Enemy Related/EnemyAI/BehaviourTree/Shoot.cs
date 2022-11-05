@@ -12,18 +12,20 @@ public class Shoot : Node
     private NavMeshAgent _nva;
     private EnemyScriptable _ess;
     private Player_StatusManager _psm;
+    private Animator _animator;
 
     [Header("Ind Var")]
     private bool Shooting;
     private float Reloading;
 
-    public Shoot(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Player_StatusManager psm)
+    public Shoot(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Player_StatusManager psm, Animator animator)
     {
         _transform = transform;
         _player = player;
         _nva = nva;
         _ess = ess;
         _psm = psm;
+        _animator = animator;
     }
 
     public override NodeState Evaluate()
@@ -54,6 +56,7 @@ public class Shoot : Node
                 //Shoot!
                 RaycastHit Hit;
                 int dmg;
+                _animator.SetInteger("State", 3);
                 if (Physics.Raycast(_transform.position, targetDir, out Hit, 20))
                 {
                     if (Hit.transform.gameObject == _player)

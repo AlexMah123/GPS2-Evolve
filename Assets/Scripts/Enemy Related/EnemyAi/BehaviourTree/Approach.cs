@@ -10,16 +10,18 @@ public class Approach : Node
     private Transform _transform;
     private NavMeshAgent _nva;
     private EnemyScriptable _ess;
+    private Animator _animator;
 
     [Header("Ind Var")]
     private bool Approaching;
 
-    public Approach(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess)
+    public Approach(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Animator animator)
     {
         _transform = transform;
         _player = player;
         _nva = nva;
         _ess = ess;
+        _animator = animator;
     }
     public override NodeState Evaluate()
     {
@@ -67,6 +69,7 @@ public class Approach : Node
             _nva.speed = _ess.Speed * 2;
             _nva.SetDestination(targetDir + _transform.position + separateDir);
             _transform.LookAt(_player.transform);
+            _animator.SetInteger("State", 2);
             state = NodeState.RUNNING;
         }
         else

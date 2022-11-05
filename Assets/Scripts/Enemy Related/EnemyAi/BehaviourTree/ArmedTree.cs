@@ -27,8 +27,8 @@ public class ArmedTree : Tree
     {
         Node root = new Selector(new List<Node>
         {
-            new Shoot(this.transform,player,nva,ess,psm),
-            new Approach(this.transform,player,nva,ess),
+            new Shoot(this.transform,player,nva,ess,psm,animator),
+            new Approach(this.transform,player,nva,ess,animator),
             new Patrol(this.transform,player,nva,ess,animator),
         });
 
