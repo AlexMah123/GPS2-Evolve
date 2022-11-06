@@ -61,6 +61,7 @@ public class Shoot : Node
                 {
                     if (Hit.transform.gameObject == _player)
                     {
+                        
                         dmg = _ess.Attack - _psm.playerStats.Defence;
                         if (dmg < 0)
                         {
@@ -88,6 +89,15 @@ public class Shoot : Node
                                     _psm.playerStats.Anger = true;
                                     Player_StatusManager.Instance.playerStats.AngerDuration = 3 + Player_StatusManager.Instance.playerStats.BuffExtend;
                                 }
+
+                                if (_ess.Name == "Ice Thrower Enemy")
+                                {
+                                    if (_psm.isSlowed == false)
+                                    {
+                                        _psm.isSlowed = true;
+                                    }
+                                    _psm.slowedTime = 3;
+                                }
                             }
                         }
                         else
@@ -99,6 +109,15 @@ public class Shoot : Node
                             {
                                 _psm.playerStats.Anger = true;
                                 Player_StatusManager.Instance.playerStats.AngerDuration = 3 + Player_StatusManager.Instance.playerStats.BuffExtend;
+                            }
+
+                            if (_ess.Name == "Ice Thrower Enemy")
+                            {
+                                if (_psm.isSlowed == false)
+                                {
+                                    _psm.isSlowed = true;
+                                }
+                                _psm.slowedTime = 3;
                             }
                         }
 
