@@ -19,6 +19,7 @@ public abstract class Player_BasePerk : ScriptableObject
     public Sprite perkLogo;
     public new string name;
     public string description;
+    public string effect;
     public PerkTypes perkTypes;
 
 

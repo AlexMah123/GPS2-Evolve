@@ -60,6 +60,7 @@ public class Player_PerksManager : MonoBehaviour
         s.GetComponentInChildren<Image>().sprite = selectedModList[i].perks.perkLogo;
         s.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = selectedModList[i].perks.name;
         s.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = selectedModList[i].perks.description;
+        s.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = selectedModList[i].perks.effect; 
         Instantiate(s, content.transform);
     }
     public void AllSelectedPerkDisplay()
