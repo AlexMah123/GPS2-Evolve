@@ -22,8 +22,19 @@ public abstract class Player_BaseAbility : ScriptableObject
     }
     public AbilityState state = AbilityState.ready;
 
+    public virtual void Awake()
+    {
+
+    }
+
     public virtual void Activate(GameObject parent)
     {
         
+    }
+
+    public virtual IEnumerator AbilityEffect()
+    {
+
+        yield break;
     }
 }

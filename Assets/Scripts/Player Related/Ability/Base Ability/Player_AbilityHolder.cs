@@ -45,6 +45,9 @@ public class Player_AbilityHolder : MonoBehaviour
     [SerializeField] TextMeshProUGUI skill3Desc;
     [SerializeField] TextMeshProUGUI skill3Name;
 
+    [Header("Player Related")]
+    [SerializeField] Animator anim;
+    [SerializeField] GameObject player;
 
     float tempCooldownTime1;
     float tempActiveTime1;
@@ -53,7 +56,6 @@ public class Player_AbilityHolder : MonoBehaviour
     float tempCooldownTime3;
     float tempActiveTime3;
 
-    [SerializeField] Animator anim;
 
     private void Start()
     {
@@ -68,6 +70,7 @@ public class Player_AbilityHolder : MonoBehaviour
             if (selectedSkillList[i] != null)
             {
                 CheckAbilityStates(selectedSkillList[i]);
+                UpdateAbilityChosen();
             }
         }
 
@@ -97,6 +100,8 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (tempActiveTime1 > 0)
                     {
                         tempActiveTime1 -= Time.deltaTime;
+                        skill1Button.interactable = false;
+
                         //activeTime.value = tempActiveTime1 / skill.activeTime;
                     }
                     else
@@ -112,7 +117,6 @@ public class Player_AbilityHolder : MonoBehaviour
                     {
                         tempCooldownTime1 -= Time.deltaTime;
                         skill1TMP.text = Math.Round(tempCooldownTime1, 1).ToString();
-                        skill1Button.interactable = false;
                     }
                     else
                     {
@@ -141,6 +145,8 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (tempActiveTime2 > 0)
                     {
                         tempActiveTime2 -= Time.deltaTime;
+                        skill2Button.interactable = false;
+
                         //activeTime.value = tempActiveTime2 / skill.activeTime;
                     }
                     else
@@ -156,7 +162,6 @@ public class Player_AbilityHolder : MonoBehaviour
                     {
                         tempCooldownTime2 -= Time.deltaTime;
                         skill2TMP.text = Math.Round(tempCooldownTime2, 1).ToString();
-                        skill2Button.interactable = false;
 
                     }
                     else
@@ -186,6 +191,8 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (tempActiveTime3 > 0)
                     {
                         tempActiveTime3 -= Time.deltaTime;
+                        skill3Button.interactable = false;
+
                         //activeTime.value = tempActiveTime3 / skill.activeTime;
                     }
                     else
@@ -201,7 +208,6 @@ public class Player_AbilityHolder : MonoBehaviour
                     {
                         tempCooldownTime3 -= Time.deltaTime;
                         skill3TMP.text = Math.Round(tempCooldownTime3, 1).ToString();
-                        skill3Button.interactable = false;
 
                     }
                     else
@@ -216,7 +222,8 @@ public class Player_AbilityHolder : MonoBehaviour
     public void ActivateSkill(Player_BaseAbility skill)
     {
         //Debug.Log(skill.name);
-        skill.Activate(gameObject);
+        skill.Activate(player);
+        StartCoroutine(skill.AbilityEffect());
         skill.state = Player_BaseAbility.AbilityState.active;
         //sets the current state to skillstate
         StartCoroutine(PlayerController.Instance.currentState.SkillState());

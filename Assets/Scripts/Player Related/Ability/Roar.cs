@@ -6,11 +6,35 @@ using UnityEngine;
 public class Roar : Player_BaseAbility
 {
     //created by Alex
+    
+    [SerializeField] float uptime = 5f;
+    [SerializeField] int defenseIncrease = 4;
+    [SerializeField] float attkSpeedIncrease = 0.2f;
+    bool once;
 
     public override void Activate(GameObject parent)
     {
-        //activate ability
+        once = false;
+        Debug.Log("roar");
     }
 
-    
+    public override IEnumerator AbilityEffect()
+    {
+        if (!once)
+        {
+            Player_StatusManager.Instance.playerBaseStats.Defence += defenseIncrease;
+            Player_StatusManager.Instance.playerBaseStats.AttackSpeed += attkSpeedIncrease;
+            once = true;
+        }
+
+        float newtime = uptime + Player_StatusManager.Instance.playerStats.BuffExtend;
+        yield return new WaitForSeconds(newtime);
+        
+        if(once)
+        {
+            Player_StatusManager.Instance.playerBaseStats.Defence -= defenseIncrease;
+            Player_StatusManager.Instance.playerBaseStats.AttackSpeed -= attkSpeedIncrease;
+            once = false;
+        }
+    }
 }
