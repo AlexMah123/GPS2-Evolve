@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e82280bbd9fc440ada3d298eb6aabb, type: 3}
   m_Name: Ice Thrower Enemy
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  enemyDeathBody: {fileID: 0}
-  spawnCount: 5
+  enemy: {fileID: 8754786251051910079, guid: d6a19f1b653a5d14085a25df60db07a9, type: 3}
+  enemyDeathBody: {fileID: 8108302210967120548, guid: de5d1fd2cb8aff5498f13d7577e056b6, type: 3}
+  spawnCount: 3
   spawnDelay: 0.5
-  name: 
-  health: 0
-  defence: 0
-  attack: 0
-  attackSpeed: 0
-  speed: 0
-  evolvePointGain: 0
+  name: Ice Thrower Enemy
+  health: 60
+  defence: 5
+  attack: 5
+  attackSpeed: 0.6
+  speed: 4
+  evolvePointGain: 3
