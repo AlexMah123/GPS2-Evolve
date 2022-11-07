@@ -15,5 +15,6 @@ MonoBehaviour:
   perkLogo: {fileID: 0}
   name: Brutal
   description: You become more brutal in your attacks. Increased attack.
+  effect: +5 Attack
   perkTypes: 0
   attackModifier: 5

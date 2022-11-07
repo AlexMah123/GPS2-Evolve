@@ -16,6 +16,8 @@ public class GameSceneUI : MonoBehaviour
     [SerializeField] private GameObject settingsWindow;
     [SerializeField] private Button devourButton;
     [SerializeField] private Slider health;
+    [SerializeField] private GameObject overheal;
+    [SerializeField] private Slider overhealSlider;
     [SerializeField] private Slider evo;
     private bool t1;
     private bool t2;
@@ -30,6 +32,27 @@ public class GameSceneUI : MonoBehaviour
         #region health evo bar
         health.value = ((float)Player_StatusManager.Instance.playerStats.CurrHealth/ Player_StatusManager.Instance.playerStats.MaxHealth);
         evo.value = ((float)Player_StatusManager.Instance.playerStats.CurrEvolveBar/ Player_StatusManager.Instance.playerStats.MaxEvolveBar);
+
+        if(Player_StatusManager.Instance.playerStats.OverHeal)
+        {
+            if(Player_StatusManager.Instance.playerStats.CurrOverheal > 0)
+            {
+                if (!overheal.activeSelf)
+                {
+                    overheal.SetActive(true);
+                }
+
+                overhealSlider.value = ((float)Player_StatusManager.Instance.playerStats.CurrOverheal / Player_StatusManager.Instance.playerStats.MaxOverheal);
+            }
+            else
+            {
+                if(overheal.activeSelf)
+                {
+                    overheal.SetActive(false);
+                }
+            }
+
+        }
         #endregion
 
         #region devourButton

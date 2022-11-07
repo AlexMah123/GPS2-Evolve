@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 8754786251051910079, guid: 94c82f9bceee089418212cd54eeb288f, type: 3}
   enemyDeathBody: {fileID: 8108302210967120548, guid: de5d1fd2cb8aff5498f13d7577e056b6, type: 3}
-  spawnCount: 5
+  spawnCount: 2
   spawnDelay: 1
   name: Armed Human
   health: 60
@@ -23,4 +23,3 @@ MonoBehaviour:
   attackSpeed: 1
   speed: 5
   evolvePointGain: 3
-  testResponse: signal received, should spawn enemy now

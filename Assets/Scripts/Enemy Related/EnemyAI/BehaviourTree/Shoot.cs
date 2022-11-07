@@ -80,7 +80,25 @@ public class Shoot : Node
                             }
                             else
                             {
-                                _psm.playerStats.CurrHealth -= dmg;
+                                #region overheal dmg
+                                if (_psm.playerStats.OverHeal)
+                                {
+                                    if(_psm.playerStats.CurrOverheal > 0)
+                                    {
+                                        _psm.playerStats.CurrHealth -= Mathf.Abs(dmg - _psm.playerStats.CurrOverheal);
+                                        _psm.playerStats.CurrOverheal -= dmg;
+                                    }
+                                    else
+                                    {
+                                        _psm.playerStats.CurrHealth -= dmg;
+                                    }
+                                }
+                                else
+                                {
+                                    _psm.playerStats.CurrHealth -= dmg;
+                                }
+
+                                #endregion
                                 //Debug.Log("Player has been hit!");
 
                                 //if anger is active
@@ -102,7 +120,24 @@ public class Shoot : Node
                         }
                         else
                         {
-                            _psm.playerStats.CurrHealth -= dmg;
+                            #region overheal dmg
+                            if (_psm.playerStats.OverHeal)
+                            {
+                                if (_psm.playerStats.CurrOverheal > 0)
+                                {
+                                    _psm.playerStats.CurrHealth -= Mathf.Abs(dmg - _psm.playerStats.CurrOverheal);
+                                    _psm.playerStats.CurrOverheal -= dmg;
+                                }
+                                else
+                                {
+                                    _psm.playerStats.CurrHealth -= dmg;
+                                }
+                            }
+                            else
+                            {
+                                _psm.playerStats.CurrHealth -= dmg;
+                            }
+                            #endregion
 
                             //if anger is active
                             if (Player_PerksManager.Instance.selectedModList.Contains(Player_PerksManager.Instance.totalModList[4]))

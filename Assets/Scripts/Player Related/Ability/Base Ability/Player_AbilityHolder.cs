@@ -52,7 +52,6 @@ public class Player_AbilityHolder : MonoBehaviour
     float tempActiveTime2;
     float tempCooldownTime3;
     float tempActiveTime3;
-    bool chosenAbility = false;
 
     [SerializeField] Animator anim;
 

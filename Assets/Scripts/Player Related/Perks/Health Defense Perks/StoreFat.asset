@@ -15,6 +15,8 @@ MonoBehaviour:
   perkLogo: {fileID: 0}
   name: Store Fat
   description: Turns your fat into a shield. Overheal is possible
+  effect: 'Overheal as you devour. (Max: 60)'
   perkTypes: 1
   eatingHeal: 5
   speedModifier: -0.2
+  overHeal: 60

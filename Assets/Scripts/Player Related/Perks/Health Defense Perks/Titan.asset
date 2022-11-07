@@ -15,5 +15,7 @@ MonoBehaviour:
   perkLogo: {fileID: 0}
   name: Titan
   description: Increase your size and max health is increased
+  effect: +100 Max Health.
   perkTypes: 1
   maxHealth: 100
+  sizeMod: 0.2

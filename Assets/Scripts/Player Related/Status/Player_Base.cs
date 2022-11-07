@@ -10,6 +10,8 @@ public class Player_Base
     [Header("Base stats properties")]
     [SerializeField] int currHealth = 300;
     [SerializeField] int maxHealth = 300;
+    [SerializeField] int currOverheal = 0;
+    [SerializeField] int maxOverheal = 0;
     [SerializeField] int defence = 5;
     [SerializeField] int attack = 20;
     [SerializeField] float attackSpeed = 0.8f;
@@ -81,12 +83,32 @@ public class Player_Base
     public int CurrHealth
     {
         get => currHealth;
-        set => currHealth = Mathf.Clamp(value, 0, MaxHealth);
+        set
+        {
+            if(value > maxHealth && OverHeal)
+            {
+                currOverheal += value - maxHealth;
+            }
+            
+            currHealth = Mathf.Clamp(value, 0, MaxHealth);
+        }
     }
-     public int MaxHealth
+    public int MaxHealth
     {
         get => maxHealth;
         set => maxHealth = value;
+    }
+
+    public int CurrOverheal
+    {
+        get => currOverheal;
+        set => currOverheal = Mathf.Clamp(value, 0, MaxOverheal);
+    }
+
+    public int MaxOverheal
+    {
+        get => maxOverheal;
+        set => maxOverheal = value;
     }
 
     public int Defence

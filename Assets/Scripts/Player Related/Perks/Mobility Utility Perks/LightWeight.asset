@@ -15,6 +15,7 @@ MonoBehaviour:
   perkLogo: {fileID: 0}
   name: Light  Weight
   description: Increase your overall speed, but reduced in resiliency.
+  effect: +0.8 speed, -40 max health.
   perkTypes: 2
   speed: 0.8
   maxHealth: -40

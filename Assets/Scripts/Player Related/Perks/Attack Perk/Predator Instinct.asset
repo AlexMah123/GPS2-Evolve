@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perkLogo: {fileID: 0}
   name: Predator Instinct
-  description: Your senses are honed in. Instant kill monster below 25% health
+  description: 'Your senses are honed in. '
+  effect: Instant kill monster below 25% health
   perkTypes: 0
   attackModifier: -8
+  executeValue: 0.25

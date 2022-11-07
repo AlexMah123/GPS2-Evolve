@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perkLogo: {fileID: 0}
   name: Feast
-  description: Increase devour points gained when devouring.
+  description: Gain additional stats when you devour
+  effect: +1 Evolve points gained when devouring
   perkTypes: 2
   evolvePointGain: 1
   eatTime: 0.5

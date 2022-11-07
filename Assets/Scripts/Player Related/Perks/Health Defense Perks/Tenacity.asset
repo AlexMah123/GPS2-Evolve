@@ -15,5 +15,6 @@ MonoBehaviour:
   perkLogo: {fileID: 0}
   name: Tenacity
   description: Increase your toughness and reduces damage taken
+  effect: 15% to prevent incoming attacks
   perkTypes: 1
-  statusModifier: 0.15
+  blockChance: 0.15

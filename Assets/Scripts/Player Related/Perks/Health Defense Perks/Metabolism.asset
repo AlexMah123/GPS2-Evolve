@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perkLogo: {fileID: 0}
   name: Metabolism
-  description: You feel your body recover faster. HP Regen is possible
+  description: 'You feel your body recover faster. '
+  effect: Hp Regeneration +1/second
   perkTypes: 1
   maxHealth: -50
   regenPerSecond: 1

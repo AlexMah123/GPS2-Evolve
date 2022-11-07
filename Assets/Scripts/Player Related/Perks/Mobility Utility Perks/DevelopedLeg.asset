@@ -15,6 +15,7 @@ MonoBehaviour:
   perkLogo: {fileID: 0}
   name: Developed Leg
   description: Increase your leg strength, your speed and jump increases.
+  effect: +1 Jump, +0.2 Speed
   perkTypes: 2
   jumpHeight: 1
   speed: 0.2

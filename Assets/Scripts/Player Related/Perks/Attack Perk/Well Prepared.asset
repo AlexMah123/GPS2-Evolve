@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f629d4d1a2f34c342b5f703f23f9c019, type: 3}
   m_Name: Well Prepared
   m_EditorClassIdentifier: 
+  perkLogo: {fileID: 0}
   name: Well Prepared
-  description: When your current health is higher or equal than 75% of your max health,
+  description: You plan your attacks better.
+  effect: When your current health is higher or equal than 75% of your max health,
     apply bonus
   perkTypes: 0
-  attackModifier: 7
+  statusModifier: 7
+  healthPercent: 0.75

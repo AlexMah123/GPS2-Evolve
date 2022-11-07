@@ -42,7 +42,7 @@ public class Player_StatusManager : MonoBehaviour
 
     private void Update()
     {
-        //UpdatePlayerStats();
+        UpdatePlayerStats();
 
         //run the update effects on perk if selectedMod List has something
         if (Player_PerksManager.Instance.selectedModList.Count > 0)
@@ -68,8 +68,9 @@ public class Player_StatusManager : MonoBehaviour
         playerPerks = Player_PerksManager.Instance.UpdatePerk(playerPerks);
 
         #region base properties
-        //playerStats.CurrHealth = playerBaseStats.CurrHealth;
+        playerStats.CurrHealth = playerStats.CurrHealth;
         playerStats.MaxHealth = playerBaseStats.MaxHealth + playerPerks.healthModifier;
+        playerStats.MaxOverheal = playerBaseStats.MaxOverheal + playerStats.OverHealValue;
         playerStats.Defence = playerBaseStats.Defence + playerPerks.defenceModifier;
         playerStats.Attack = playerBaseStats.Attack + playerPerks.attackModifier;
         playerStats.AttackSpeed = playerBaseStats.AttackSpeed + playerPerks.attackSpeedModifier;
@@ -92,8 +93,7 @@ public class Player_StatusManager : MonoBehaviour
 
         one = value >= 1 && value < 2;
         two = value >= 2 && value < 3;
-        three = value >= 3;
-        Debug.Log(value);
-        
+        three = value >= 3;        
     }
+
 }
