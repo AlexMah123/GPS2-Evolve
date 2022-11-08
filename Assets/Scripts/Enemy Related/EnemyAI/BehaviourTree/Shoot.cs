@@ -50,13 +50,13 @@ public class Shoot : Node
 
         if (Shooting)
         {
+            _animator.SetInteger("State", 3);
             Debug.DrawRay(_transform.position, targetDir * 20);
             if (Reloading >= 1 / _ess.AttackSpeed)
             {
                 //Shoot!
                 RaycastHit Hit;
                 int dmg;
-                _animator.SetInteger("State", 3);
                 if (Physics.Raycast(_transform.position, targetDir, out Hit, 20))
                 {
                     if (Hit.transform.gameObject == _player)
