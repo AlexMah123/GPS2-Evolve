@@ -32,7 +32,7 @@ public abstract class Player_BaseAbility : ScriptableObject
         
     }
 
-    public virtual IEnumerator AbilityEffect()
+    public virtual IEnumerator AbilityEffect(Player_BaseAbility skill, GameObject parent)
     {
 
         yield break;

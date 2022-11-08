@@ -47,7 +47,7 @@ public class Player_AbilityHolder : MonoBehaviour
 
     [Header("Player Related")]
     [SerializeField] Animator anim;
-    [SerializeField] GameObject player;
+    [SerializeField] GameObject playerKaiju;
     [SerializeField] float Blend;
 
     float tempCooldownTime1;
@@ -90,7 +90,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     skill1TMP.text = skill.name;
                     if (PlayerController.Instance.playerInput.PlayerMain.Skill1.triggered)
                     {
-                        ActivateSkill(skill);
+                        ActivateSkill(skill, playerKaiju);
                         anim.SetTrigger(skill.name);
                         tempActiveTime1 = skill.activeTime;
                         Blend = 0;
@@ -142,7 +142,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     skill2TMP.text = skill.name;
                     if (PlayerController.Instance.playerInput.PlayerMain.Skill2.triggered)
                     {
-                        ActivateSkill(skill);
+                        ActivateSkill(skill, playerKaiju);
                         anim.SetTrigger(skill.name);
                         tempActiveTime2 = skill.activeTime;
                     }
@@ -189,7 +189,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     skill3TMP.text = skill.name;
                     if (PlayerController.Instance.playerInput.PlayerMain.Skill3.triggered)
                     {
-                        ActivateSkill(skill);
+                        ActivateSkill(skill, playerKaiju);
                         anim.SetTrigger(skill.name);
                         tempActiveTime3 = skill.activeTime;
                     }
@@ -229,14 +229,19 @@ public class Player_AbilityHolder : MonoBehaviour
         }
     }
 
-    public void ActivateSkill(Player_BaseAbility skill)
+    public void ActivateSkill(Player_BaseAbility skill, GameObject player)
     {
-        //Debug.Log(skill.name);
-        skill.Activate(player);
-        StartCoroutine(skill.AbilityEffect());
         skill.state = Player_BaseAbility.AbilityState.active;
+
+        //activates skills ability + effect
+        skill.Awake();
+        skill.Activate(player);
+        StartCoroutine(skill.AbilityEffect(skill, player));
+
+        //sets the state to active
+
         //sets the current state to skillstate
-        StartCoroutine(PlayerController.Instance.currentState.SkillState());
+        StartCoroutine(PlayerController.Instance.currentState.SkillState(skill));
     }
 
     public void SelectingAbility()

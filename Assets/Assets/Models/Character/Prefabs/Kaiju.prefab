@@ -2601,9 +2601,10 @@ MonoBehaviour:
   jumpHeight: 3
   gravityValue: -9.81
   inRangeDevour: 0
+  lookAt: 0
   attacking: 0
   devouring: 0
-  lookAt: 0
+  skillActive: 0
   animator: {fileID: 247044554275309608}
   distanceToGround: 1
   layerMask:
@@ -2636,10 +2637,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129493555124598142}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 6
   m_Center: {x: 0, y: 3, z: 0}
 --- !u!1 &1245334818018794106
 GameObject:
@@ -8061,9 +8062,10 @@ GameObject:
   - component: {fileID: 8604231716289237302}
   - component: {fileID: 8656389669417055434}
   - component: {fileID: 5628587009771625695}
+  - component: {fileID: 193399791244249858}
   m_Layer: 6
   m_Name: Object046
-  m_TagString: Untagged
+  m_TagString: Whip HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8147,6 +8149,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5569566118741114203, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
+--- !u!65 &193399791244249858
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4553796720337375174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2329948, y: 1, z: 1.2749761}
+  m_Center: {x: -1.3313249, y: 0.000000505371, z: -2.9165254}
 --- !u!1 &4589990992551294979
 GameObject:
   m_ObjectHideFlags: 0
@@ -10936,9 +10951,10 @@ GameObject:
   - component: {fileID: 1846702278277894307}
   - component: {fileID: 5447858383123390882}
   - component: {fileID: 1293176757038891928}
+  - component: {fileID: 5412784129973167509}
   m_Layer: 6
   m_Name: Tail
-  m_TagString: Untagged
+  m_TagString: Whip HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11023,6 +11039,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5590088527756992369, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
+--- !u!65 &5412784129973167509
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759742960827537746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4635019, y: 1, z: 1}
+  m_Center: {x: -3.157186, y: 0.00000028928082, z: -3.80853}
 --- !u!1 &5817887814052435870
 GameObject:
   m_ObjectHideFlags: 0
@@ -11996,9 +12025,10 @@ GameObject:
   - component: {fileID: 2612546210105511974}
   - component: {fileID: 755455974272060517}
   - component: {fileID: 7861027989298365385}
+  - component: {fileID: 4829297104930138391}
   m_Layer: 6
   m_Name: Object047
-  m_TagString: Untagged
+  m_TagString: Whip HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12082,6 +12112,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7858766198223003207, guid: ab2fcaf59f510174bba8fd048bd54a32, type: 3}
+--- !u!65 &4829297104930138391
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536834457244246329}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1577568, y: 1, z: 1}
+  m_Center: {x: -2.114336, y: 0.00000021352454, z: -3.5259542}
 --- !u!1 &6546315347817574984
 GameObject:
   m_ObjectHideFlags: 0

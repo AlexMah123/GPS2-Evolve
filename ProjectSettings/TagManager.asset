@@ -8,6 +8,7 @@ TagManager:
   - Player Hitbox
   - Deadbody
   - Bite Hitbox
+  - Whip HitBox
   layers:
   - Default
   - TransparentFX

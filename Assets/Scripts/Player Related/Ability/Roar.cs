@@ -15,10 +15,9 @@ public class Roar : Player_BaseAbility
     public override void Activate(GameObject parent)
     {
         once = false;
-        Debug.Log("roar");
     }
 
-    public override IEnumerator AbilityEffect()
+    public override IEnumerator AbilityEffect(Player_BaseAbility skill, GameObject parent)
     {
         if (!once)
         {

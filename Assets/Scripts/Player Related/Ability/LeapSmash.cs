@@ -17,7 +17,7 @@ public class LeapSmash : Player_BaseAbility
         //activate ability
     }
 
-    public override IEnumerator AbilityEffect()
+    public override IEnumerator AbilityEffect(Player_BaseAbility skill, GameObject parent)
     {
 
         yield break;

@@ -181,11 +181,6 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(currentState.Start());
     }
 
-    /*public void ActivateSkill(string skillName)
-    {
-        StartCoroutine(currentState.Skill(skillName));
-    }*/
-
     #region IK Stuff (WIP)
     private void OnAnimatorIK(int layerIndex)
     {

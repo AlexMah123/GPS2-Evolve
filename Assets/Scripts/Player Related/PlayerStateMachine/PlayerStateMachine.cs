@@ -55,7 +55,7 @@ public abstract class PlayerStateMachine
         yield break;
     }
 
-    public virtual IEnumerator SkillState()
+    public virtual IEnumerator SkillState(Player_BaseAbility skill)
     {
         yield break;
     }

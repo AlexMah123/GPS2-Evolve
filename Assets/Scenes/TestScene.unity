@@ -362,22 +362,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1998263194, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
-      propertyPath: m_Radius
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1998263194, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 247044554275309611, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
-      propertyPath: controller
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 247044554275309611, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
-      propertyPath: playerTransform
-      value: 
-      objectReference: {fileID: 1998263189}
     - target: {fileID: 353273961841897412, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -8004,6 +7988,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5524263248044705127, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 6445780644082940286, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
       propertyPath: m_Name
       value: EnemyBeta
@@ -9142,6 +9130,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ControlPath: <Keyboard>/m
+--- !u!1 &1507769636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1129493555124598142, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
+  m_PrefabInstance: {fileID: 33689908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1514869680
 GameObject:
   m_ObjectHideFlags: 0
@@ -10635,7 +10628,7 @@ MonoBehaviour:
   skill3Desc: {fileID: 1472119552}
   skill3Name: {fileID: 1919470899}
   anim: {fileID: 1998263193}
-  player: {fileID: 0}
+  playerKaiju: {fileID: 1507769636}
   Blend: 0
 --- !u!1 &1765607559
 GameObject:

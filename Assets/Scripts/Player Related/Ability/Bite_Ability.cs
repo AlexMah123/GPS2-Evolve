@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bite_Ability : Player_BaseAbility
 {
     //created by Alex
+    [SerializeField] int damage = 40;
 
     public override void Awake()
     {
@@ -17,7 +18,7 @@ public class Bite_Ability : Player_BaseAbility
         //activate ability
     }
 
-    public override IEnumerator AbilityEffect()
+    public override IEnumerator AbilityEffect(Player_BaseAbility skill, GameObject parent)
     {
 
         yield break;
