@@ -52,7 +52,11 @@ public class Player_StatusManager : MonoBehaviour
 
         if (slowedTime <= 0)
         {
-            isSlowed = false;
+            if (isSlowed == true)
+            {
+                isSlowed = false;
+                Debug.Log("Debuff runs out");
+            }
         }
         else
         {

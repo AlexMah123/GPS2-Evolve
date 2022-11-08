@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         if(!devouring && !attacking && !skillActive)
         {
             movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
-            if (Player_StatusManager.Instance.isSlowed = true)
+            if (Player_StatusManager.Instance.isSlowed == true)
             {
                 movementInput = movementInput * 0.6f;
             }

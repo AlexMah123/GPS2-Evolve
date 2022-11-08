@@ -15,7 +15,7 @@ MonoBehaviour:
   enemy: {fileID: 8754786251051910079, guid: d6a19f1b653a5d14085a25df60db07a9, type: 3}
   enemyDeathBody: {fileID: 8108302210967120548, guid: de5d1fd2cb8aff5498f13d7577e056b6, type: 3}
   spawnCount: 3
-  spawnDelay: 0.5
+  spawnDelay: 1
   name: Ice Thrower Enemy
   health: 60
   defence: 5
