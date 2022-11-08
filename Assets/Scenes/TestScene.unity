@@ -10576,8 +10576,7 @@ MonoBehaviour:
   - perks: {fileID: 11400000, guid: 048ef4837ff2c5d468a7da82e05f33ae, type: 2}
   - perks: {fileID: 11400000, guid: c7c96f5b28ca8b94591427dae46cd31e, type: 2}
   displayModList: []
-  selectedModList:
-  - perks: {fileID: 11400000, guid: 8b08a3f474c15534ca7d3f0463e1c81c, type: 2}
+  selectedModList: []
   perk1: {fileID: 117371712}
   perk1Logo: {fileID: 1873243467}
   perk1Desc: {fileID: 1331280417}
@@ -10636,6 +10635,8 @@ MonoBehaviour:
   skill3Desc: {fileID: 1472119552}
   skill3Name: {fileID: 1919470899}
   anim: {fileID: 1998263193}
+  player: {fileID: 0}
+  Blend: 0
 --- !u!1 &1765607559
 GameObject:
   m_ObjectHideFlags: 0

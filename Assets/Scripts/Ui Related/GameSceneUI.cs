@@ -115,15 +115,7 @@ public class GameSceneUI : MonoBehaviour
     public void TogglePause()
     {
         pauseWindow.SetActive(!pauseWindow.activeSelf);
-        if(pauseWindow.activeSelf)
-        {
-            Time.timeScale = 0.0f;
-        }
-        else if(!pauseWindow.activeSelf)
-        {
-            Time.timeScale = 1.0f;
-        }
-        Debug.Log(Time.timeScale);
+        Time.timeScale = pauseWindow.activeSelf ? 0.0f : 1.0f;
     }
 
     public void ToggleSettings()

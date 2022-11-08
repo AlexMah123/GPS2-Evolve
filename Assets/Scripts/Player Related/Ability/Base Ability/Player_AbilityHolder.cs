@@ -48,6 +48,7 @@ public class Player_AbilityHolder : MonoBehaviour
     [Header("Player Related")]
     [SerializeField] Animator anim;
     [SerializeField] GameObject player;
+    [SerializeField] float Blend;
 
     float tempCooldownTime1;
     float tempActiveTime1;
@@ -92,6 +93,7 @@ public class Player_AbilityHolder : MonoBehaviour
                         ActivateSkill(skill);
                         anim.SetTrigger(skill.name);
                         tempActiveTime1 = skill.activeTime;
+                        Blend = 0;
                     }
                     break;
 
@@ -100,21 +102,27 @@ public class Player_AbilityHolder : MonoBehaviour
                     if (tempActiveTime1 > 0)
                     {
                         tempActiveTime1 -= Time.deltaTime;
+                        Blend += Time.deltaTime;
                         skill1Button.interactable = false;
-
+                        anim.SetFloat("Blend", Blend) ;
                         //activeTime.value = tempActiveTime1 / skill.activeTime;
                     }
                     else
                     {
+ 
+
                         StartCoroutine(PlayerController.Instance.currentState.SkillFinished());
                         skill.state = Player_BaseAbility.AbilityState.cooldown;
                         tempCooldownTime1 = skill.cooldownTime;
+
                     }
                     break;
 
                 case Player_BaseAbility.AbilityState.cooldown:
                     if (tempCooldownTime1 > 0)
                     {
+                        Blend -= Time.deltaTime;
+                        anim.SetFloat("Blend", Blend);
                         tempCooldownTime1 -= Time.deltaTime;
                         skill1TMP.text = Math.Round(tempCooldownTime1, 1).ToString();
                     }
@@ -146,6 +154,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     {
                         tempActiveTime2 -= Time.deltaTime;
                         skill2Button.interactable = false;
+                        anim.SetFloat("Blend", skill.activeTime - tempActiveTime2);
 
                         //activeTime.value = tempActiveTime2 / skill.activeTime;
                     }
@@ -192,6 +201,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     {
                         tempActiveTime3 -= Time.deltaTime;
                         skill3Button.interactable = false;
+                        anim.SetFloat("Blend", (skill.activeTime - tempActiveTime3)*2);
 
                         //activeTime.value = tempActiveTime3 / skill.activeTime;
                     }
