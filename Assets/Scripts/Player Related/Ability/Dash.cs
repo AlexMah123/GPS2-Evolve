@@ -26,14 +26,14 @@ public class Dash : Player_BaseAbility
         }
     }
 
-    public override IEnumerator AbilityEffect(Player_BaseAbility skill, GameObject parent)
+    public override IEnumerator AbilityEffect(Player_BaseAbility skill, GameObject player)
     {
         if(skill.state == AbilityState.active)
         {
             if(dashing)
             {
                 Player_StatusManager.Instance.playerBaseStats.Defence += defenseIncrease;
-                PlayerController.Instance.playerVelocity = dashDistance * parent.transform.forward;
+                PlayerController.Instance.playerVelocity = dashDistance/skill.activeTime * player.transform.forward * 1.5f;
                 Debug.Log("Dashing");
             }
         }
