@@ -9,6 +9,7 @@ public class MachineTree : Tree
 {
     public EnemyScriptable ess;
     public GameObject player;
+    Player_StatusManager psm;
     public Animator Animator
     {
         get => GetComponentInChildren<Animator>();
@@ -20,12 +21,13 @@ public class MachineTree : Tree
     public void Awake()
     {
         player = GameObject.Find("Kaiju");
+        psm = Player_StatusManager.Instance;
     }
     public override Node SetupTree()
     {
         Node root = new Selector(new List<Node>
         {
-            new Run(this.transform,player,Nva,ess,Animator),
+            new Charge(this.transform,player,Nva,ess,Animator,psm),
             new Patrol(this.transform,player,Nva,ess,Animator),
         });
 
