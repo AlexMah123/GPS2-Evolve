@@ -258,6 +258,15 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Test"",
+                    ""type"": ""Button"",
+                    ""id"": ""51c30716-1e83-4bbb-998d-f2b1d5502214"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -269,6 +278,17 @@ public partial class @Player : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ae9dd453-d5e7-43d5-b305-c5626ef74d63"",
+                    ""path"": ""<Keyboard>/#(O)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Test"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -290,6 +310,7 @@ public partial class @Player : IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
+        m_UI_Test = m_UI.FindAction("Test", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -439,11 +460,13 @@ public partial class @Player : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Escape;
+    private readonly InputAction m_UI_Test;
     public struct UIActions
     {
         private @Player m_Wrapper;
         public UIActions(@Player wrapper) { m_Wrapper = wrapper; }
         public InputAction @Escape => m_Wrapper.m_UI_Escape;
+        public InputAction @Test => m_Wrapper.m_UI_Test;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -456,6 +479,9 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Escape.started -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
                 @Escape.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
                 @Escape.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
+                @Test.started -= m_Wrapper.m_UIActionsCallbackInterface.OnTest;
+                @Test.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnTest;
+                @Test.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnTest;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -463,6 +489,9 @@ public partial class @Player : IInputActionCollection2, IDisposable
                 @Escape.started += instance.OnEscape;
                 @Escape.performed += instance.OnEscape;
                 @Escape.canceled += instance.OnEscape;
+                @Test.started += instance.OnTest;
+                @Test.performed += instance.OnTest;
+                @Test.canceled += instance.OnTest;
             }
         }
     }
@@ -481,5 +510,6 @@ public partial class @Player : IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnEscape(InputAction.CallbackContext context);
+        void OnTest(InputAction.CallbackContext context);
     }
 }

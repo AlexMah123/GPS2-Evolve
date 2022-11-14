@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,6 +20,19 @@ public class GameSceneUI : MonoBehaviour
     [SerializeField] private GameObject overheal;
     [SerializeField] private Slider overhealSlider;
     [SerializeField] private Slider evo;
+
+    [Header("Objective")]
+    [SerializeField] private Button info;
+    [SerializeField] private TextMeshProUGUI obj1;
+    [SerializeField] private TextMeshProUGUI obj2;
+    [SerializeField] private TextMeshProUGUI obj3;
+    [SerializeField] private TextMeshProUGUI obj4;
+    [SerializeField] private Transform objective;
+    public static float armedK;
+    public static bool rTower;
+    public static bool eCamp;
+    public static bool fBoss;
+
     private bool t1;
     private bool t2;
 
@@ -70,6 +84,14 @@ public class GameSceneUI : MonoBehaviour
         }
         #endregion
 
+        #region obj
+        obj1.text = $"Kill Armed Human<indent=85%> {armedK}/5 </indent>";
+        obj1.text = armedK >= 5 ? $"<s><color=green>{obj1.text}</color></s>" : $"<color=red>{obj1.text}</color>";
+        obj2.text = rTower ? $"<s><color=green>Destroy Radio Tower</color></s>" : $"<color=red>Destroy Radio Tower</color>";
+        obj3.text = eCamp ? $"<s><color=green>Destroy Enemy Camp</color></s>" : $"<color=red>Destroy Enemy Camp</color>";
+        obj4.text = fBoss ? $"<s><color=green>Defeat Final Boss</color></s>" : $"<color=red>Defeat Final Boss</color>";
+
+        #endregion
         if (Player_StatusManager.Instance.one && !t1) 
         {
             TogglePerk();
@@ -95,6 +117,13 @@ public class GameSceneUI : MonoBehaviour
                 Debug.Log(Time.timeScale);
             }*/
         //}
+        if(PlayerController.playerInput.UI.Test.WasPressedThisFrame())
+        {
+            armedK += 1;
+            rTower = !rTower;
+            eCamp = !eCamp;
+            fBoss = !fBoss;
+        }
     }
 
     public void TogglePerk()
@@ -127,5 +156,48 @@ public class GameSceneUI : MonoBehaviour
     public void LvlUp()
     {
         TogglePerk();
+    }
+
+    public void DisplayWindow()
+    {
+        Vector3 closedPos = new(-1132.5f, objective.localPosition.y, 1);
+        Vector3 openPos = new(-632, objective.localPosition.y, 1);
+        if (objective.localPosition.x >= openPos.x)
+        {
+            StopCoroutine(CloseObj(closedPos, 1));
+            StartCoroutine(CloseObj(closedPos, 1));
+        }
+        else if (objective.localPosition.x <= closedPos.x)
+        {
+            StopCoroutine(OpenObj(openPos, 1));
+            StartCoroutine(OpenObj(openPos, 1));
+        }
+    }
+
+    IEnumerator CloseObj (Vector3 close, float dura)
+    {
+        float time = 0;
+        info.enabled = false;
+        while (time < dura)
+        {
+            objective.localPosition = Vector3.Lerp(objective.localPosition, close, time / dura);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        info.enabled = true;
+        objective.localPosition = close;
+    }
+    IEnumerator OpenObj (Vector3 open, float dura)
+    {
+        float time = 0;
+        info.enabled = false;
+        while (time < dura)
+        {
+            objective.localPosition = Vector3.Lerp(objective.localPosition, open, time / dura);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        info.enabled = true;
+        objective.localPosition = open;
     }
 }
