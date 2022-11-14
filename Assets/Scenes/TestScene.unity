@@ -12467,6 +12467,8 @@ MonoBehaviour:
   enemyTypes:
   - {fileID: 6261479332135800635, guid: 8b5b83a81b9383343b99ba98ef6889e3, type: 3}
   - {fileID: 8754786251051910079, guid: 94c82f9bceee089418212cd54eeb288f, type: 3}
+  - {fileID: 8754786251051910079, guid: d6a19f1b653a5d14085a25df60db07a9, type: 3}
+  - {fileID: 6261479332135800635, guid: 95579aaa69884f44087d192d6e8e700d, type: 3}
   enemyToPool: {fileID: 6261479332135800635, guid: 8b5b83a81b9383343b99ba98ef6889e3, type: 3}
   amountToPool: 5
 --- !u!114 &1849216459
@@ -12482,8 +12484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ESS:
-  - {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
-  - {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
+  - {fileID: 11400000, guid: b3d43ab7f077a9d49a45f3ebd14df66f, type: 2}
   waveDelayMax: 3
 --- !u!1 &1854594588
 GameObject:

@@ -53,6 +53,9 @@ public class EnemyObjectPool : MonoBehaviour
             case "Ice Thrower Enemy":
                 spawnName = $"{enemyScriptable.enemy.name}(Clone)";
                 break;
+            case "Machine Enemy":
+                spawnName = $"{enemyScriptable.enemy.name}(Clone)";
+                break;
             default:
                 spawnName = null;
                 break;
@@ -80,6 +83,10 @@ public class EnemyObjectPool : MonoBehaviour
             else if (enemyScriptable.name == "Ice Thrower Enemy")
             {
                 enemyToPool = enemyTypes[2];
+            }
+            else if(enemyScriptable.name == "Machine Enemy")
+            {
+                enemyToPool = enemyTypes[3];
             }
 
             GameObject tmp = Instantiate(enemyToPool);

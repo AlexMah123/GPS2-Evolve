@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6025392603623179741}
   - component: {fileID: 6025392603623179740}
   - component: {fileID: 6025392603623179739}
+  - component: {fileID: 7897322732332509763}
   m_Layer: 0
   m_Name: MachineEnemy
   m_TagString: Untagged
@@ -121,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1aab54c6135e7b4ab1aa1b40a5227bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ess: {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
+  ess: {fileID: 11400000, guid: b3d43ab7f077a9d49a45f3ebd14df66f, type: 2}
   tempHealth: 0
 --- !u!195 &6025392603623179739
 NavMeshAgent:
@@ -145,6 +146,20 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7897322732332509763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261479332135800635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4bce7c4e4068b40826ed68f59e8029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ess: {fileID: 11400000, guid: b3d43ab7f077a9d49a45f3ebd14df66f, type: 2}
+  player: {fileID: 0}
 --- !u!1001 &4358989132643731581
 PrefabInstance:
   m_ObjectHideFlags: 0
