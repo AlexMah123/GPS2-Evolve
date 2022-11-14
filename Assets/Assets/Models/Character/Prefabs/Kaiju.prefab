@@ -2605,6 +2605,12 @@ MonoBehaviour:
   attacking: 0
   devouring: 0
   skillActive: 0
+  biteActive: 0
+  roarActive: 0
+  dashActive: 0
+  smashActive: 0
+  whipActive: 0
+  leapsmashActive: 0
   animator: {fileID: 247044554275309608}
   distanceToGround: 1
   layerMask:
@@ -7142,6 +7148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3146731506518299401}
+  - component: {fileID: 343903100}
   m_Layer: 6
   m_Name: Bone005
   m_TagString: Bite Hitbox
@@ -7167,6 +7174,19 @@ Transform:
   m_Father: {fileID: 8776943984395300882}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &343903100
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3973506761444589244}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4086759166544574216
 GameObject:
   m_ObjectHideFlags: 0
@@ -8065,7 +8085,7 @@ GameObject:
   - component: {fileID: 193399791244249858}
   m_Layer: 6
   m_Name: Object046
-  m_TagString: Whip HitBox
+  m_TagString: Whip Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10954,7 +10974,7 @@ GameObject:
   - component: {fileID: 5412784129973167509}
   m_Layer: 6
   m_Name: Tail
-  m_TagString: Whip HitBox
+  m_TagString: Whip Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11050,7 +11070,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4635019, y: 1, z: 1}
+  m_Size: {x: 2, y: 1, z: 1}
   m_Center: {x: -3.157186, y: 0.00000028928082, z: -3.80853}
 --- !u!1 &5817887814052435870
 GameObject:
@@ -12028,7 +12048,7 @@ GameObject:
   - component: {fileID: 4829297104930138391}
   m_Layer: 6
   m_Name: Object047
-  m_TagString: Whip HitBox
+  m_TagString: Whip Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

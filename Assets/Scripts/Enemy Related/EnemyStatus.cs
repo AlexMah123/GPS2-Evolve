@@ -5,28 +5,21 @@ using UnityEngine;
 //Shane, edited by Alex
 public class EnemyStatus : MonoBehaviour
 {
+    [Header("Enemy Status")]
     public EnemyScriptable ess;
     public float tempHealth;
+
     bool killed;
     bool delay;
+    bool stun;
 
     private void Awake()
     {
         tempHealth = ess.Health;
         killed = false;
         delay = false;
-    }
+        stun = false;
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Player Hitbox"))
-        {
-            if (PlayerController.Instance.attacking == true)
-            {
-                StartCoroutine(TakeDamage());
-            }
-            
-        }
     }
 
     private void Update()
@@ -43,7 +36,30 @@ public class EnemyStatus : MonoBehaviour
 
             killed = true;
             gameObject.SetActive(false);
-        }      
+        }
+
+        #region roar skill
+        if (Vector3.Distance(gameObject.transform.position, PlayerController.Instance.gameObject.transform.position) <= 5)
+        {
+            if(PlayerController.Instance.roarActive)
+            {
+                if(!stun)
+                    stun = true;
+
+                if(stun)
+                {
+                    Debug.Log("stunned");
+                }
+            }
+            else
+            {
+                if (stun)
+                    stun = false;
+            }
+        }
+
+        
+        #endregion
     }
 
     private void OnDisable()
@@ -54,22 +70,81 @@ public class EnemyStatus : MonoBehaviour
         }
     }
 
-    IEnumerator TakeDamage()
+    IEnumerator TakeDamage(Player_BaseAbility ability)
     {
         if(!delay)
         {
+            if(ability == null)
+            {
+                tempHealth -= Player_StatusManager.Instance.playerStats.Attack;
+            }
+            else if(ability.name == "Bite" || ability.name == "Dash" || ability.name == "Smash" || ability.name == "Whip" || ability.name == "Leap Smash")
+            {
+                tempHealth -= ability.attack;
+                Debug.Log(ability.name);
+            }
+
+
+            //execute check
             if (tempHealth < ess.Health * Player_StatusManager.Instance.playerStats.ExecuteValue && Player_StatusManager.Instance.playerStats.Execute)
             {
                 tempHealth = 0;
                 Debug.Log("Execute");
             }
-            else
-            {
-                tempHealth -= Player_StatusManager.Instance.playerStats.Attack;
-            }
+
             delay = true;
         }
+
         yield return new WaitForSeconds(1f);
         delay = false;
     }
+
+    #region collision related
+    //melee colliders
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player Hitbox"))
+        {
+            if (PlayerController.Instance.attacking)
+            {
+                StartCoroutine(TakeDamage(null));
+            }
+            else if(PlayerController.Instance.smashActive)
+            {
+                StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[5]));
+            }
+            else if(PlayerController.Instance.leapsmashActive)
+            {
+                StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[3]));
+            }
+
+        }
+    }
+
+    //skill colliders
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Whip Hitbox"))
+        {
+            if(PlayerController.Instance.whipActive)
+            {
+                StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[5]));
+            }
+        }
+        else if(collision.gameObject.CompareTag("Bite Hitbox"))
+        {
+            if(PlayerController.Instance.biteActive)
+            {
+                StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[0]));
+            }
+        }
+        else
+        {
+            if (PlayerController.Instance.dashActive)
+            {
+                StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[1]));
+            }
+        }
+    }
+    #endregion
 }

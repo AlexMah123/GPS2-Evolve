@@ -8,7 +8,16 @@ public class SkillState : PlayerStateMachine
     public override IEnumerator SkillFinished()
     {
         //Animator Stuff should be here
+
+        //reset all states
         _system.skillActive = false;
+        _system.biteActive = false;
+        _system.roarActive = false;
+        _system.dashActive = false;
+        _system.smashActive = false;
+        _system.whipActive = false;
+        _system.leapsmashActive = false;
+
         _system.SetState(new NormalState(_system));
         yield break;
     }

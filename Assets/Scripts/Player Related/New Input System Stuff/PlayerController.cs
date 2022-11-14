@@ -18,14 +18,23 @@ public class PlayerController : MonoBehaviour
     public Vector3 playerVelocity;
     public float playerSpeed = 2.0f;
     public float jumpHeight = 1.0f;
+    public float jumpForce = 3.0f;
     public float gravityValue = -9.81f;
     public bool inRangeDevour;
 
     [Header("Boolean States")]
     [HideInInspector] public bool lookAt;
-    public bool attacking;
-    public bool devouring;
-    public bool skillActive;
+    public bool attacking = false;
+    public bool devouring = false;
+
+    [Header("Skill states")]
+    public bool skillActive = false;
+    public bool biteActive = false;
+    public bool roarActive = false;
+    public bool dashActive = false;
+    public bool smashActive = false;
+    public bool whipActive = false;
+    public bool leapsmashActive = false;
 
     [Header("Animators and IK")]
     public Animator animator;
@@ -94,15 +103,14 @@ public class PlayerController : MonoBehaviour
         //if you are grounded, apply less force, else apply full force
         if (controller.isGrounded)
         {
-            playerVelocity.y = gravityValue * 0.05f;
+            //playerVelocity.y = gravityValue * 0.05f;
         }
-        else
+        else if(!controller.isGrounded)
         {
             playerVelocity.y += gravityValue * Time.deltaTime;
         }
 
-        //
-        if(!devouring && !attacking && !skillActive)
+        if (!devouring && !attacking && !skillActive)
         {
             movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
             if (Player_StatusManager.Instance.isSlowed == true)
@@ -166,12 +174,6 @@ public class PlayerController : MonoBehaviour
         }
         #endregion
 
-    }
-
-    public void JumpEvent()
-    {
-        StartCoroutine(currentState.Jump());
-        animator.SetBool("Jumping", true);
     }
 
     //Function called to change Player State in the FSM

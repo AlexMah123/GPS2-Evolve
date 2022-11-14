@@ -497,6 +497,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1998263194, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 247044554275309607, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 247044554275309611, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
+      propertyPath: jumpForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 247044554275309611, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 247044554275309613, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 353273961841897412, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -11742,7 +11762,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e380aefbb45e864e9dce721de0ac186, type: 2}
   - {fileID: 11400000, guid: 8117c5ed327372f4eb876d0536e5878e, type: 2}
   displaySkillList: []
-  selectedSkillList: []
+  selectedSkillList:
+  - {fileID: 11400000, guid: 8117c5ed327372f4eb876d0536e5878e, type: 2}
   skill1: {fileID: 0}
   skill2: {fileID: 0}
   skill3: {fileID: 0}
@@ -12470,7 +12491,7 @@ MonoBehaviour:
   - {fileID: 8754786251051910079, guid: d6a19f1b653a5d14085a25df60db07a9, type: 3}
   - {fileID: 6261479332135800635, guid: 95579aaa69884f44087d192d6e8e700d, type: 3}
   enemyToPool: {fileID: 6261479332135800635, guid: 8b5b83a81b9383343b99ba98ef6889e3, type: 3}
-  amountToPool: 5
+  amountToPool: 1
 --- !u!114 &1849216459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12484,7 +12505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ESS:
-  - {fileID: 11400000, guid: b3d43ab7f077a9d49a45f3ebd14df66f, type: 2}
+  - {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
   waveDelayMax: 3
 --- !u!1 &1854594588
 GameObject:

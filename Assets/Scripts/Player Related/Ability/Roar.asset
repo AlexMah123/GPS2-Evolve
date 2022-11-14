@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d0d6c2d88bcf32478cd69a21d97fb4a, type: 3}
   m_Name: Roar
   m_EditorClassIdentifier: 
+  logo: {fileID: 0}
   name: Roar
   description: Bellow a roar and inflict fear.
   attack: 0
   cooldownTime: 12
   activeTime: 2
   state: 0
+  uptime: 5
+  defenseIncrease: 4
+  attkSpeedIncrease: 0.2

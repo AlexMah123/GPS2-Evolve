@@ -33,8 +33,7 @@ public class Dash : Player_BaseAbility
             if(dashing)
             {
                 Player_StatusManager.Instance.playerBaseStats.Defence += defenseIncrease;
-                PlayerController.Instance.playerVelocity = dashDistance/skill.activeTime * player.transform.forward * 1.5f;
-                Debug.Log("Dashing");
+                PlayerController.Instance.playerVelocity = dashDistance/skill.activeTime * player.transform.forward;
             }
         }
         
@@ -42,7 +41,6 @@ public class Dash : Player_BaseAbility
 
         if(dashing)
         {
-            Debug.Log("StoDashing");
             Player_StatusManager.Instance.playerBaseStats.Defence -= defenseIncrease;
             PlayerController.Instance.playerVelocity = Vector3.zero;
             dashing = false;

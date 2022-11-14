@@ -57,6 +57,17 @@ public class Player_AbilityHolder : MonoBehaviour
     float tempCooldownTime3;
     float tempActiveTime3;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -347,4 +358,7 @@ public class Player_AbilityHolder : MonoBehaviour
         }
     }
     #endregion
+
+
+
 }

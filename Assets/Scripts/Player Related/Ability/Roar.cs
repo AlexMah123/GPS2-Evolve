@@ -12,6 +12,11 @@ public class Roar : Player_BaseAbility
     [SerializeField] float attkSpeedIncrease = 0.2f;
     bool once;
 
+    public override void Awake()
+    {
+        
+    }
+
     public override void Activate(GameObject parent)
     {
         once = false;

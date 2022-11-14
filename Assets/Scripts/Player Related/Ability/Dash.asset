@@ -19,5 +19,5 @@ MonoBehaviour:
   cooldownTime: 10
   activeTime: 2
   state: 0
-  dashDistance: 5
+  dashDistance: 10
   defenseIncrease: 5

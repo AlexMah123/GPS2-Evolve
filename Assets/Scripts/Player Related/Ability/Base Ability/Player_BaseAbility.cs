@@ -37,4 +37,5 @@ public abstract class Player_BaseAbility : ScriptableObject
 
         yield break;
     }
+
 }

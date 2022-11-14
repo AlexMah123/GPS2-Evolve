@@ -31,7 +31,7 @@ public class NormalState : PlayerStateMachine
 
     public override IEnumerator Jump()
     {
-        _system.playerVelocity.y += Mathf.Sqrt(_system.jumpHeight * -3.0f * _system.gravityValue);
+        _system.playerVelocity.y += Mathf.Abs(_system.jumpHeight * _system.gravityValue/_system.jumpForce);
         _system.SetState(new JumpState(_system));
         yield break;
     }
@@ -59,30 +59,37 @@ public class NormalState : PlayerStateMachine
 
         switch (skill.name)
         {
+            //Skill Code here
             case "Bite":
-                //Skill Code here
+                _system.biteActive = true;
                 _system.SetState(new SkillState(_system));
                 yield break;
+
             case "Roar":
-                //Skill Code here
+                _system.roarActive = true;
                 _system.SetState(new SkillState(_system));
                 yield break;
+
             case "Dash":
-                //Skill Code here
+                _system.dashActive = true;
                 _system.SetState(new SkillState(_system));
                 yield break;
+
             case "Smash":
-                //Skill Code here
+                _system.smashActive = true;
                 _system.SetState(new SkillState(_system));
                 yield break;
+
             case "Whip":
-                //Skill Code here
+                _system.whipActive = true;
                 _system.SetState(new SkillState(_system));
                 yield break;
+
             case "Leap Smash":
-                //Skill Code here
+                _system.leapsmashActive = true;
                 _system.SetState(new SkillState(_system));
                 yield break;
+
             default:
                 Debug.Log("Something went wrong, you shouldn't be seeing this");
                 yield break;
