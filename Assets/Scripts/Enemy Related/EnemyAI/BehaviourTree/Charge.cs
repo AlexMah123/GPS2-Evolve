@@ -21,7 +21,7 @@ public class Charge : Node
     private float ChargeTimeMax = 3.5f;
     private float ChargeDuration = 0;
     private float ChargeDurationMax = 3;
-    private bool DamageActive = false;
+    //private bool DamageActive = false;
     public Charge(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Animator animator, Player_StatusManager psm)
     {
         _transform = transform;
@@ -60,7 +60,7 @@ public class Charge : Node
                 else
                 {
                     Charged = true;
-                    DamageActive = true;
+                    //DamageActive = true;
                 }
             }
             else
@@ -71,11 +71,16 @@ public class Charge : Node
                     ChargeDuration += Time.deltaTime;
                     _nva.speed = _ess.Speed * 4;
                     _nva.SetDestination(targetDir + _transform.position);
+                    if (Vector3.Distance(_transform.position, _player.transform.position) <= 1)
+                    {
+                        Charged = false;
+                        ChargeTime = 0;
+                    }
                 }
                 else
                 {
                     Charged = false;
-                    DamageActive = false;
+                    //DamageActive = false;
                 }
             }
             state = NodeState.RUNNING;
