@@ -565,6 +565,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kaiju
       objectReference: {fileID: 0}
+    - target: {fileID: 5000483230976458190, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
+      propertyPath: m_TagString
+      value: Player Hitbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126508246037287729, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
+      propertyPath: m_TagString
+      value: Player Hitbox
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
 --- !u!1 &55379851
@@ -4610,7 +4618,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502530526}
-  m_LocalRotation: {x: -0.12564304, y: 0.86556387, z: -0.27018645, w: -0.40250754}
+  m_LocalRotation: {x: -0.12564307, y: 0.86556387, z: -0.27018648, w: -0.4025075}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6372,7 +6380,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831007109}
-  m_LocalRotation: {x: -0.11093908, y: 0.8748071, z: -0.23856659, w: -0.40680587}
+  m_LocalRotation: {x: -0.11093906, y: 0.8748071, z: -0.23856659, w: -0.40680584}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8692,10 +8700,6 @@ PrefabInstance:
     - target: {fileID: 1273894808742661446, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5524263248044705127, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
-      propertyPath: m_Constraints
-      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 6445780644082940286, guid: d760943702a43544a817625e6a9fdbeb, type: 3}
       propertyPath: m_Name

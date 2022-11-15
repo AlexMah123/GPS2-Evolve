@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4845677421956124909}
   - component: {fileID: 5524263248044705127}
   - component: {fileID: -3677966974310759022}
-  - component: {fileID: -7122925100655091930}
+  - component: {fileID: 3477396941514534156}
   m_Layer: 0
   m_Name: EnemyBeta
   m_TagString: Untagged
@@ -116,8 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
   tempHealth: 0
---- !u!64 &-7122925100655091930
-MeshCollider:
+--- !u!136 &3477396941514534156
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -126,7 +126,7 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: 3017567bafd891f47a3dc9be164a5611, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
