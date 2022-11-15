@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(currentState.JumpFinished());
             }
         }
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle/Attack"))
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("LSlash"))
         {
             animator.SetFloat("Blend", animator.GetCurrentAnimatorStateInfo(0).normalizedTime * 2);
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
@@ -229,4 +229,9 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
+
+    public void JumpNow()
+    {
+        playerVelocity.y += Mathf.Abs(jumpHeight * gravityValue / jumpForce);
+    }
 }
