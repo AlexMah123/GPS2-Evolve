@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool lookAt;
     public bool attacking = false;
     public bool devouring = false;
+    public bool jumping = false;
 
     [Header("Skill states")]
     public bool skillActive = false;
@@ -101,9 +102,9 @@ public class PlayerController : MonoBehaviour
 
         #region movement
         //if you are grounded, apply less force, else apply full force
-        if (controller.isGrounded)
+        if (controller.isGrounded && !jumping)
         {
-            //playerVelocity.y = gravityValue * 0.05f;
+            playerVelocity.y = gravityValue * 0.05f;
         }
         else if(!controller.isGrounded)
         {

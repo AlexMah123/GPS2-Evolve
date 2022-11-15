@@ -31,7 +31,7 @@ public class EnemyObjectPool : MonoBehaviour
         GameObject tmp;
         for (int i = 0; i < amountToPool; i++)
         {
-            tmp = Instantiate(enemyToPool);
+            tmp = Instantiate(enemyToPool, transform.position, Quaternion.identity);
             tmp.SetActive(false);
             pooledEnemies.Add(tmp);
         }
@@ -89,7 +89,7 @@ public class EnemyObjectPool : MonoBehaviour
                 enemyToPool = enemyTypes[3];
             }
 
-            GameObject tmp = Instantiate(enemyToPool);
+            GameObject tmp = Instantiate(enemyToPool, transform.position, Quaternion.identity);
             pooledEnemies.Add(tmp);
             amountToPool++;
             return tmp;

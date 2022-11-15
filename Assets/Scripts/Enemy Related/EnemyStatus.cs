@@ -111,13 +111,20 @@ public class EnemyStatus : MonoBehaviour
             }
             else if(PlayerController.Instance.smashActive)
             {
-                StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[5]));
+                StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[4]));
             }
             else if(PlayerController.Instance.leapsmashActive)
             {
-                StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[3]));
+                StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[2]));
             }
 
+        }
+        else if(collision.gameObject.CompareTag("Bite Hitbox"))
+        {
+            if (PlayerController.Instance.biteActive)
+            {
+                StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[0]));
+            }
         }
     }
 
@@ -129,13 +136,6 @@ public class EnemyStatus : MonoBehaviour
             if(PlayerController.Instance.whipActive)
             {
                 StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[5]));
-            }
-        }
-        else if(collision.gameObject.CompareTag("Bite Hitbox"))
-        {
-            if(PlayerController.Instance.biteActive)
-            {
-                StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[0]));
             }
         }
         else

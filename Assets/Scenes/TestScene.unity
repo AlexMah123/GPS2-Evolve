@@ -4610,7 +4610,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502530526}
-  m_LocalRotation: {x: -0.12564307, y: 0.86556387, z: -0.27018648, w: -0.4025075}
+  m_LocalRotation: {x: -0.12564304, y: 0.86556387, z: -0.27018645, w: -0.40250754}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6372,7 +6372,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831007109}
-  m_LocalRotation: {x: -0.11093906, y: 0.8748071, z: -0.23856659, w: -0.40680584}
+  m_LocalRotation: {x: -0.11093908, y: 0.8748071, z: -0.23856659, w: -0.40680587}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8319,6 +8319,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122677533}
   m_CullTransparentMesh: 1
+--- !u!1 &1161686611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1161686612}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1161686612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161686611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.210841, y: 3.370267, z: 10.217688}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1182683818
 GameObject:
   m_ObjectHideFlags: 0
@@ -12507,6 +12538,7 @@ MonoBehaviour:
   ESS:
   - {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
   waveDelayMax: 3
+  spawnPoint: {fileID: 1161686611}
 --- !u!1 &1854594588
 GameObject:
   m_ObjectHideFlags: 0

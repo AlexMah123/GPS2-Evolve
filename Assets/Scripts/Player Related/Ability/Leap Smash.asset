@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34da9a64abbda2244bb8e9f7a8398d65, type: 3}
   m_Name: Leap Smash
   m_EditorClassIdentifier: 
+  logo: {fileID: 0}
   name: Leap Smash
   description: Leap into the air and pulverize objects in front of you.
   attack: 35
   cooldownTime: 9
-  activeTime: 2
-  state: 0
+  activeTime: 3
+  state: 2

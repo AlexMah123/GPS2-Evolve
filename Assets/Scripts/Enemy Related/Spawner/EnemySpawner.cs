@@ -7,6 +7,8 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] EnemyScriptable[] ESS;
     [SerializeField] float waveDelayMax = 3;
+    [SerializeField] GameObject spawnPoint;
+
     float waveDelay;
     int currentESS = 0;
     int spawned = 0;
@@ -31,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
 
                 if (enemy != null)
                 {
-                    enemy.transform.position = new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f));
+                    enemy.transform.position = new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), spawnPoint.transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f));
                     enemy.transform.rotation = transform.rotation;
                     enemy.SetActive(true);
                 }

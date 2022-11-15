@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Charge towards the direction you are facing.
   attack: 25
   cooldownTime: 10
-  activeTime: 2
+  activeTime: 3
   state: 0
   dashDistance: 10
   defenseIncrease: 5
