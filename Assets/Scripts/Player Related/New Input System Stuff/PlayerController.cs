@@ -37,11 +37,8 @@ public class PlayerController : MonoBehaviour
     public bool whipActive = false;
     public bool leapsmashActive = false;
 
-    [Header("Animators and IK")]
+    [Header("Animator")]
     public Animator animator;
-    [Range(0,1f)]
-    public float distanceToGround;
-    public LayerMask layerMask;
 
     [Header("FSM")]
     public PlayerStateMachine currentState;
@@ -183,34 +180,6 @@ public class PlayerController : MonoBehaviour
         currentState = state;
         StartCoroutine(currentState.Start());
     }
-
-    #region IK Stuff (WIP)
-    private void OnAnimatorIK(int layerIndex)
-    {
-        Debug.Log("Running");
-        if (animator)
-        {
-            animator.SetIKPositionWeight(AvatarIKGoal.RightFoot, 1f);
-            animator.SetIKRotationWeight(AvatarIKGoal.RightFoot, 1f);
-
-            //Right Foot
-
-            RaycastHit hit;
-            Ray ray = new Ray(animator.GetIKPosition(AvatarIKGoal.RightFoot) + Vector3.up, Vector3.down);
-            if(Physics.Raycast(ray, out hit, distanceToGround + 1f, layerMask))
-            {
-                if(hit.transform.tag == "Walkable")
-                {
-                    Vector3 footPosition = hit.point;
-                    footPosition.y += distanceToGround;
-                    animator.SetIKPosition(AvatarIKGoal.RightFoot, footPosition);
-                }
-            }
-        }
-    }
-
-    #endregion
-
 
     #region CollisionRelated
     private void OnTriggerEnter(Collider other)
