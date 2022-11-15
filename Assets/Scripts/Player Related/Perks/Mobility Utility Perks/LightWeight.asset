@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b3192db522afd468d0d03531fa61f3, type: 3}
   m_Name: LightWeight
   m_EditorClassIdentifier: 
-  perkLogo: {fileID: 0}
+  perkLogo: {fileID: 21300000, guid: cfbdb85ffa6d1404bbd82bbba19db6c6, type: 3}
   name: Light  Weight
   description: Increase your overall speed, but reduced in resiliency.
   effect: +0.8 speed, -40 max health.

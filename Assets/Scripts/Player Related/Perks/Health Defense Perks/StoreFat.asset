@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321962545db298741a447fddc370c598, type: 3}
   m_Name: StoreFat
   m_EditorClassIdentifier: 
-  perkLogo: {fileID: 0}
+  perkLogo: {fileID: 21300000, guid: 03256017e4baaed4c94986119c4f74c9, type: 3}
   name: Store Fat
   description: Turns your fat into a shield. Overheal is possible
   effect: 'Overheal as you devour. (Max: 60)'

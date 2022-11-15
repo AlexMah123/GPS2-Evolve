@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efc48af148fedb4f9a90435a550f2b6, type: 3}
   m_Name: Enduring
   m_EditorClassIdentifier: 
-  perkLogo: {fileID: 0}
+  perkLogo: {fileID: 21300000, guid: fa6ff2f1382088a4385e5b6054f56be7, type: 3}
   name: Enduring
   description: 'You are able to control and endure your '
   effect: +3 seconds to all status effects

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b539796ebb7505e48be9f4cfc88f0d63, type: 3}
   m_Name: DevelopedLeg
   m_EditorClassIdentifier: 
-  perkLogo: {fileID: 0}
+  perkLogo: {fileID: 21300000, guid: 3ca0ff8ca7fb72e49b736f0d46a0b7a8, type: 3}
   name: Developed Leg
   description: Increase your leg strength, your speed and jump increases.
   effect: +1 Jump, +0.2 Speed

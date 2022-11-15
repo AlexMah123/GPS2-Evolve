@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d42498c6b0191459830a2de738ea58, type: 3}
   m_Name: Predator Instinct
   m_EditorClassIdentifier: 
-  perkLogo: {fileID: 0}
+  perkLogo: {fileID: 21300000, guid: cb8896ad1cec2804ba7af8d162d48f69, type: 3}
   name: Predator Instinct
   description: 'Your senses are honed in. '
   effect: Instant kill monster below 25% health

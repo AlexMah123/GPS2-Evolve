@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4706e1d39db7e44c8cb34da55be3522, type: 3}
   m_Name: Anger
   m_EditorClassIdentifier: 
-  perkLogo: {fileID: 0}
+  perkLogo: {fileID: 21300000, guid: c6d4fb9d2852ab44b9d6bf53d307b257, type: 3}
   name: Anger
   description: Be consumed by rage.
   effect: After taking damage, increase attack speed and movespeed by 0.2 for 3 seconds

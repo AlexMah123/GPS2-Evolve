@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46492a6bfc596724490665c10c608dd8, type: 3}
   m_Name: IronScale
   m_EditorClassIdentifier: 
-  perkLogo: {fileID: 0}
+  perkLogo: {fileID: 21300000, guid: 88d4b5ed312176747a2b02f1316fc164, type: 3}
   name: Iron Scale
   description: Envelope your body with tougher scales and increases defence
   effect: +6 Defense

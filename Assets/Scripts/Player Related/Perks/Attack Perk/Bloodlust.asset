@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17cb9dd2a04258746aadf0b537442230, type: 3}
   m_Name: Bloodlust
   m_EditorClassIdentifier: 
-  perkLogo: {fileID: 0}
+  perkLogo: {fileID: 21300000, guid: fc1294ece9919734a86ec66ee690652a, type: 3}
   name: Bloodlust
   description: Your senses improve with blood.
   effect: After killing an enemy, increase attack speed by 0.12 for 3 seconds, maximum

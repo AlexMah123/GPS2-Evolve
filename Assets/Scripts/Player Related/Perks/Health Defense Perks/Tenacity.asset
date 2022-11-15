@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 861b456fd558a7c4780c4afb4c955876, type: 3}
   m_Name: Tenacity
   m_EditorClassIdentifier: 
-  perkLogo: {fileID: 0}
+  perkLogo: {fileID: 21300000, guid: 3e905061c449c894ca4ae685b645d335, type: 3}
   name: Tenacity
   description: Increase your toughness and reduces damage taken
   effect: 15% to prevent incoming attacks

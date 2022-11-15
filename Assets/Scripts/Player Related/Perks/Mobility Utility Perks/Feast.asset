@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7b19d35dfc0f047b3cf5c35a0fb412, type: 3}
   m_Name: Feast
   m_EditorClassIdentifier: 
-  perkLogo: {fileID: 0}
+  perkLogo: {fileID: 21300000, guid: 3789e1485cff18b41907cc1693461007, type: 3}
   name: Feast
   description: Gain additional stats when you devour
   effect: +1 Evolve points gained when devouring
