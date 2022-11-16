@@ -21,7 +21,6 @@ public class Charge : Node
     private float ChargeTimeMax = 3.5f;
     private float ChargeDuration = 0;
     private float ChargeDurationMax = 3;
-    //private bool DamageActive = false;
     private bool TargetLocked = false;
     private Vector3 targetDir = Vector3.zero;
     public Charge(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Animator animator, Player_StatusManager psm)

@@ -19,8 +19,6 @@ public class MachineTree : Tree
         get => GetComponent<NavMeshAgent>();
     }
     private bool DMGReady = true;
-    private float DMGTime;
-    private float DMGTimeMax = 4;
 
     public void Awake()
     {
@@ -39,7 +37,7 @@ public class MachineTree : Tree
                 dmg = 0;
             }
             DMGReady = false;
-            DMGTime = 0;
+            StartCoroutine(Cooldown());
 
             //if block is active, run the effect
             if (psm.playerStats.Block)
@@ -112,18 +110,12 @@ public class MachineTree : Tree
             }
         }
     }
-    /*private void Update()
+
+    IEnumerator Cooldown()
     {
-        SetupTree();
-        if (DMGTime >= DMGTimeMax && !DMGReady)
-        {
-            DMGReady = true;
-        }
-        else
-        {
-            DMGTime += Time.deltaTime;
-        }
-    }*/
+        yield return new WaitForSeconds(2);
+        DMGReady = true;
+    }
 
     public override Node SetupTree()
     {
