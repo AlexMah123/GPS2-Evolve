@@ -22,6 +22,8 @@ public class Charge : Node
     private float ChargeDuration = 0;
     private float ChargeDurationMax = 3;
     //private bool DamageActive = false;
+    private bool TargetLocked = false;
+    private Vector3 targetDir = Vector3.zero;
     public Charge(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Animator animator, Player_StatusManager psm)
     {
         _transform = transform;
@@ -34,7 +36,6 @@ public class Charge : Node
 
     public override NodeState Evaluate()
     {
-        Vector3 targetDir = Vector3.zero;
         float d = Vector3.Distance(_player.transform.position, _transform.position);
         if (!Detected && d < 15)
         {
@@ -52,7 +53,6 @@ public class Charge : Node
         {
             if (!Charged)
             {
-                targetDir = (_player.transform.position - _transform.position).normalized; //to be changed to predict
                 if (ChargeTime < ChargeTimeMax)
                 {
                     ChargeTime += Time.deltaTime;
@@ -66,21 +66,32 @@ public class Charge : Node
             else
             {
                 //charge at player
+                if (!TargetLocked)
+                {
+                    _nva.SetDestination(_transform.position);
+                    _transform.LookAt(_player.transform);
+                    targetDir = (_player.transform.position - _transform.position).normalized; //to be changed to predict
+                    TargetLocked = true;
+                }
+                
                 if (ChargeDuration < ChargeDurationMax)
                 {
                     ChargeDuration += Time.deltaTime;
                     _nva.speed = _ess.Speed * 4;
                     _nva.SetDestination(targetDir + _transform.position);
-                    if (Vector3.Distance(_transform.position, _player.transform.position) <= 1)
+                    _transform.LookAt(targetDir);
+                    if (Vector3.Distance(_transform.position, _player.transform.position) <= 0.2f)
                     {
                         Charged = false;
                         ChargeTime = 0;
+                        TargetLocked = false;
                     }
                 }
                 else
                 {
                     Charged = false;
                     //DamageActive = false;
+                    TargetLocked = false;
                 }
             }
             state = NodeState.RUNNING;
