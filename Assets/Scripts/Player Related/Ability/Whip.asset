@@ -17,5 +17,5 @@ MonoBehaviour:
   description: Whip your tail in a circle around you.
   attack: 25
   cooldownTime: 6
-  activeTime: 1
+  activeTime: 1.5
   state: 0

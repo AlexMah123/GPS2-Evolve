@@ -41,12 +41,12 @@ public class EnemyStatus : MonoBehaviour
         #region roar skill
         if (Vector3.Distance(gameObject.transform.position, PlayerController.Instance.gameObject.transform.position) <= 5)
         {
-            if(PlayerController.Instance.roarActive)
+            if (PlayerController.Instance.roarActive)
             {
-                if(!stun)
+                if (!stun)
                     stun = true;
 
-                if(stun)
+                if (stun)
                 {
                     Debug.Log("stunned");
                 }
@@ -57,7 +57,6 @@ public class EnemyStatus : MonoBehaviour
                     stun = false;
             }
         }
-
         
         #endregion
     }
@@ -133,10 +132,12 @@ public class EnemyStatus : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Whip Hitbox"))
         {
-            if(PlayerController.Instance.whipActive)
+            if (PlayerController.Instance.whipActive)
             {
                 StartCoroutine(TakeDamage(Player_AbilityHolder.Instance.totalSkillList[5]));
             }
+
+            
         }
         else
         {

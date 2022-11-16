@@ -9,6 +9,7 @@ public class GameSceneUI : MonoBehaviour
 {
     //created by HYZ, edited by Alex
     PlayerController PlayerController;
+
     //GameScene
     [SerializeField] private GameObject perkWindow;
     [SerializeField] private GameObject abilityWindow;
@@ -33,6 +34,7 @@ public class GameSceneUI : MonoBehaviour
     public static bool eCamp;
     public static bool fBoss;
 
+    //player evolve bar
     private bool t1;
     private bool t2;
 
@@ -70,17 +72,28 @@ public class GameSceneUI : MonoBehaviour
         #endregion
 
         #region devourButton
-        if (PlayerController.Instance.devouring)
+        if(PlayerController.Instance != null)
         {
-            devourButton.interactable = false;
-        }
-        else if (PlayerController.Instance.inRangeDevour)
-        {
-            devourButton.interactable = true;
-        }
-        else
-        {
-            devourButton.interactable = false;
+            if (PlayerController.Instance.devouring)
+            {
+                devourButton.interactable = false;
+            }
+            else if (PlayerController.Instance.inRangeDevour)
+            {
+                devourButton.interactable = true;
+            }
+            else
+            {
+                devourButton.interactable = false;
+            }
+
+            if (PlayerController.playerInput.UI.Test.WasPressedThisFrame())
+            {
+                armedK += 1;
+                rTower = !rTower;
+                eCamp = !eCamp;
+                fBoss = !fBoss;
+            }
         }
         #endregion
 
@@ -92,6 +105,8 @@ public class GameSceneUI : MonoBehaviour
         obj4.text = fBoss ? $"<s><color=green>Defeat Final Boss</color></s>" : $"<color=red>Defeat Final Boss</color>";
 
         #endregion
+
+        #region Player levelup
         if (Player_StatusManager.Instance.one && !t1) 
         {
             TogglePerk();
@@ -109,6 +124,8 @@ public class GameSceneUI : MonoBehaviour
             t1 = false;
             t2 = false;
         }
+
+        #endregion
         //if (Application.platform == RuntimePlatform.Android)
         //{
         /*if (PlayerController.playerInput.UI.Escape.WasPressedThisFrame())
@@ -117,13 +134,7 @@ public class GameSceneUI : MonoBehaviour
                 Debug.Log(Time.timeScale);
             }*/
         //}
-        if(PlayerController.playerInput.UI.Test.WasPressedThisFrame())
-        {
-            armedK += 1;
-            rTower = !rTower;
-            eCamp = !eCamp;
-            fBoss = !fBoss;
-        }
+
     }
 
     public void TogglePerk()

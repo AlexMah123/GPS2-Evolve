@@ -11,6 +11,7 @@ public class Player_PerksManager : MonoBehaviour
 
     //init random 
     public static System.Random _random = new();
+
     public static Player_PerksManager Instance { get; private set; }
 
     [Header("Modifiers")]

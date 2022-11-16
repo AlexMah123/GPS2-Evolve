@@ -2605,6 +2605,7 @@ MonoBehaviour:
   lookAt: 0
   attacking: 0
   devouring: 0
+  jumping: 0
   skillActive: 0
   biteActive: 0
   roarActive: 0
@@ -2613,10 +2614,6 @@ MonoBehaviour:
   whipActive: 0
   leapsmashActive: 0
   animator: {fileID: 247044554275309608}
-  distanceToGround: 1
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 55
 --- !u!114 &247044554275309607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8887,7 +8884,7 @@ GameObject:
   - component: {fileID: 1156728374}
   m_Layer: 6
   m_Name: Left Lower Arm
-  m_TagString: Untagged
+  m_TagString: Player Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17132,7 +17129,7 @@ GameObject:
   - component: {fileID: 1546181235}
   m_Layer: 6
   m_Name: Left Upper Arm
-  m_TagString: Untagged
+  m_TagString: Player Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

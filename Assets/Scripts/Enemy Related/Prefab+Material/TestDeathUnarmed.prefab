@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8108302210967120546}
   - component: {fileID: 2144377137335860033}
   - component: {fileID: 7219735244831356315}
-  - component: {fileID: -6181267319195972831}
+  - component: {fileID: 6620365007493704823}
   m_Layer: 0
   m_Name: TestDeathUnarmed
   m_TagString: Deadbody
@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
---- !u!64 &-6181267319195972831
-MeshCollider:
+--- !u!136 &6620365007493704823
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -125,7 +125,7 @@ MeshCollider:
   m_Material: {fileID: 13400000, guid: 3017567bafd891f47a3dc9be164a5611, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Radius: 0.5000002
+  m_Height: 2.75
+  m_Direction: 1
+  m_Center: {x: 0.00000005960466, y: 0, z: -0.00000008940697}

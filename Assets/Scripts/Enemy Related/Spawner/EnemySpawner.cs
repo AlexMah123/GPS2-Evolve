@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//created by terrence
+//created by terrence, editted by alex
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] EnemyScriptable[] ESS;
@@ -33,8 +33,10 @@ public class EnemySpawner : MonoBehaviour
 
                 if (enemy != null)
                 {
-                    enemy.transform.position = new Vector3(transform.position.x + Random.Range(-2.0f, 2.0f), spawnPoint.transform.position.y, transform.position.z + Random.Range(-2.0f, 2.0f));
-                    enemy.transform.rotation = transform.rotation;
+                    enemy.transform.position = new Vector3(spawnPoint.transform.position.x + Random.Range(-2.0f, 2.0f),
+                        spawnPoint.transform.position.y, spawnPoint.transform.position.z + Random.Range(-2.0f, 2.0f));
+
+                    enemy.transform.rotation = spawnPoint.transform.rotation;
                     enemy.SetActive(true);
                 }
 
