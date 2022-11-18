@@ -88,6 +88,7 @@ public class NormalState : PlayerStateMachine
 
             case "Leap Smash":
                 _system.leapsmashActive = true;
+                //_system.jumping = true;
                 _system.SetState(new SkillState(_system));
                 yield break;
 

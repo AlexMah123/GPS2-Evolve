@@ -17,6 +17,7 @@ public class SkillState : PlayerStateMachine
         _system.smashActive = false;
         _system.whipActive = false;
         _system.leapsmashActive = false;
+        _system.jumping = false;
 
         _system.SetState(new NormalState(_system));
         yield break;

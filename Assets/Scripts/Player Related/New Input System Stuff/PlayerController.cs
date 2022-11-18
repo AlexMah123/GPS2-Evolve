@@ -202,6 +202,14 @@ public class PlayerController : MonoBehaviour
 
     public void JumpNow()
     {
+        jumping = true;
         playerVelocity.y += Mathf.Abs(jumpHeight * gravityValue / jumpForce);
+        Debug.Log("J");
+    }
+    public void LeapNow()
+    {
+        jumping = true;
+        playerVelocity.y += Mathf.Abs(jumpHeight * gravityValue / jumpForce)/3.1f;
+        Debug.Log("J");
     }
 }

@@ -7,7 +7,25 @@ using UnityEngine.UI;
 public class EnemyDevour : MonoBehaviour
 {
     [SerializeField] EnemyScriptable ess;
+    private Rigidbody rb
+    {
+        get => GetComponent<Rigidbody>();
+    }
 
+    private void Awake()
+    {
+        StartCoroutine(OnTheFloor());
+    }
+
+    public IEnumerator OnTheFloor()
+    {
+        rb.constraints = rb.velocity.y <= 0.1f ? RigidbodyConstraints.FreezePosition :
+        if (rb.velocity.y <= 0.1f)
+        {
+            rb.constraints = 
+        }
+        yield break;
+    }
     public IEnumerator Devouring(GameObject gameObj)
     {
         if(PlayerController.Instance.devouring)

@@ -382,7 +382,7 @@ AnimatorStateMachine:
     m_Position: {x: 490, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3029694043327750874}
-    m_Position: {x: 250, y: 560, z: 0}
+    m_Position: {x: 260, y: 560, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2741955621888789987}
     m_Position: {x: -320, y: 240, z: 0}
@@ -570,7 +570,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Idle/JumpSmash
-  m_Speed: 1
+  m_Speed: 1.25
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2230167759513432794}
@@ -585,10 +585,10 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 2871970242618955076}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: Blend
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_TimeParameter: Blend
 --- !u!1101 &-2097501825495905996
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
