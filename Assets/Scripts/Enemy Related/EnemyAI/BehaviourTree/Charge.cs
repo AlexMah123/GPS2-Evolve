@@ -20,7 +20,7 @@ public class Charge : Node
     private float ChargeTime = 0;
     private float ChargeTimeMax = 3.5f;
     private float ChargeDuration = 0;
-    private float ChargeDurationMax = 3;
+    private float ChargeDurationMax = 2;
     private bool TargetLocked = false;
     private Vector3 targetDir = Vector3.zero;
     public Charge(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Animator animator, Player_StatusManager psm)
@@ -36,63 +36,56 @@ public class Charge : Node
     public override NodeState Evaluate()
     {
         float d = Vector3.Distance(_player.transform.position, _transform.position);
-        if (!Detected && d < 15)
-        {
-            Detected = true;
-            _animator.SetInteger("State", 2);
-            _animator.SetFloat("Blend", _animator.GetFloat("Blend") + Time.deltaTime);
-        }
-        else if (Detected && d > 25)
+        
+        //distance check
+        if (Detected && d > 15)
         {
             Detected = false;
         }
-        
+        else if (d <= 15) 
+        {
+            Detected = true;
+        }
 
         if (Detected)
         {
-            if (!Charged)
+            if (Charged)
             {
-                if (ChargeTime < ChargeTimeMax)
+                //attack and cooldown
+                _nva.SetDestination(targetDir + _transform.position);
+                if (d <= 0.15f || ChargeDuration >= ChargeDurationMax)
                 {
-                    ChargeTime += Time.deltaTime;
+                    ChargeDuration = 0;
+                    Charged = false;
                 }
                 else
                 {
-                    Charged = true;
-                    //DamageActive = true;
+                    //attacking
+                    ChargeDuration += Time.deltaTime;
                 }
             }
             else
             {
-                //charge at player
-                if (!TargetLocked)
+                //ramp up
+                if (ChargeTime >= ChargeTimeMax)
                 {
-                    _nva.SetDestination(_transform.position);
-                    _transform.LookAt(_player.transform);
-                    targetDir = (_player.transform.position - _transform.position).normalized; //to be changed to predict
-                    TargetLocked = true;
-                }
-                
-                if (ChargeDuration < ChargeDurationMax)
-                {
-                    ChargeDuration += Time.deltaTime;
+                    //release
                     _nva.speed = _ess.Speed * 4;
-                    _nva.SetDestination(targetDir + _transform.position);
-                    _transform.LookAt(targetDir);
-                    if (Vector3.Distance(_transform.position, _player.transform.position) <= 0.2f)
-                    {
-                        Charged = false;
-                        ChargeTime = 0;
-                        TargetLocked = false;
-                    }
+                    targetDir = (_player.transform.position - _transform.position).normalized;
+                    Charged = true;
+                    ChargeTime = 0;
                 }
                 else
                 {
-                    Charged = false;
-                    //DamageActive = false;
-                    TargetLocked = false;
+                    //charge up
+                    ChargeTime += Time.deltaTime;
                 }
             }
+        }
+
+        //Relay back to tree
+        if (Detected)
+        {
             state = NodeState.RUNNING;
         }
         else
