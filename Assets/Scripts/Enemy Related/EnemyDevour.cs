@@ -12,19 +12,20 @@ public class EnemyDevour : MonoBehaviour
         get => GetComponent<Rigidbody>();
     }
 
-    private void Awake()
+    private void Start()
     {
         StartCoroutine(OnTheFloor());
     }
 
     public IEnumerator OnTheFloor()
     {
-        rb.constraints = rb.velocity.y <= 0.1f ? RigidbodyConstraints.FreezePosition :
-        if (rb.velocity.y <= 0.1f)
+        yield return new WaitForSeconds(1);
+        while (rb.velocity.y > 0.1f)
         {
-            rb.constraints = 
+            yield return null;
         }
-        yield break;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        
     }
     public IEnumerator Devouring(GameObject gameObj)
     {
