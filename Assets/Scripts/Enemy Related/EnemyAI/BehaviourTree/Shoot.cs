@@ -50,7 +50,7 @@ public class Shoot : Node
 
         if (Shooting)
         {
-            _transform.LookAt(_player.transform);
+            _transform.LookAt(new Vector3(_player.transform.position.x, _transform.position.y, _player.transform.position.z), Vector3.up);
             _animator.SetInteger("State", 3);
             Debug.DrawRay(_transform.position, targetDir * 20);
             if (Reloading >= 1 / _ess.AttackSpeed)
