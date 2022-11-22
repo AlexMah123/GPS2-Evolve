@@ -20,9 +20,10 @@ public class Charge : Node
     private float ChargeTime = 0;
     private float ChargeTimeMax = 3.5f;
     private float ChargeDuration = 0;
-    private float ChargeDurationMax = 2;
-    private bool TargetLocked = false;
+    private float ChargeDurationMax = 3;
     private Vector3 targetDir = Vector3.zero;
+    private Vector3 targetMoveDir, targetPrevPos = Vector3.zero;
+    private float dot;
     public Charge(Transform transform, GameObject player, NavMeshAgent nva, EnemyScriptable ess, Animator animator, Player_StatusManager psm)
     {
         _transform = transform;
@@ -42,7 +43,7 @@ public class Charge : Node
         {
             Detected = false;
         }
-        else if (d <= 15) 
+        else if (d <= 25) 
         {
             Detected = true;
         }
@@ -57,6 +58,7 @@ public class Charge : Node
                 {
                     ChargeDuration = 0;
                     Charged = false;
+                    Debug.Log("Stop Attacking");
                 }
                 else
                 {
@@ -70,15 +72,32 @@ public class Charge : Node
                 if (ChargeTime >= ChargeTimeMax)
                 {
                     //release
-                    _nva.speed = _ess.Speed * 4;
-                    targetDir = (_player.transform.position - _transform.position).normalized;
+                    targetMoveDir = (_player.transform.position - targetPrevPos).normalized;
+                    dot = Vector3.Dot((_player.transform.position - _transform.position).normalized, targetMoveDir);
+                    //charging speed is 7.2
+                    _nva.speed = _ess.Speed * 6;
+                    if (dot >= -0.9239f) 
+                    {
+                        targetDir = (_player.transform.position - _transform.position).normalized + (targetMoveDir * d / 2);
+                        //amount to multiply d by is a guess
+                    }
+                    else
+                    {
+                        targetDir = (_player.transform.position - _transform.position).normalized;
+                    }
+                    _transform.LookAt(new Vector3(targetDir.x, _transform.position.y, targetDir.z), Vector3.up);
                     Charged = true;
                     ChargeTime = 0;
+                    Debug.Log("Start Attacking" + targetDir);
                 }
                 else
                 {
                     //charge up
+                    _nva.SetDestination(_transform.position);
                     ChargeTime += Time.deltaTime;
+                    _transform.LookAt(new Vector3(_player.transform.position.x, _transform.position.y, _player.transform.position.z), Vector3.up);
+                    targetPrevPos = _player.transform.position;
+                    //Debug.Log("Charging up: " + ChargeTime);
                 }
             }
         }

@@ -32,11 +32,11 @@ public class Approach : Node
         {
             Approaching = false;
         }
-        else if(d < 45 && !Approaching)
+        else if(d < 30 && !Approaching)
         {
             Approaching = true;
         }
-        else if (d > 100 && Approaching)
+        else if (d > 45 && Approaching)
         {
             Approaching = false;
         }
