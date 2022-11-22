@@ -69,6 +69,8 @@ public class NormalState : PlayerStateMachine
             //Skill Code here
             case "Bite":
                 _system.biteActive = true;
+                _system.animator.SetBool("BiteH", true);
+                _system.animator.SetBool("BiteH", false);
                 _system.SetState(new SkillState(_system));
                 yield break;
 

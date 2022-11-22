@@ -43,7 +43,7 @@ public class EnemyStatus : MonoBehaviour
         }
 
         #region roar skill
-        if (Vector3.Distance(gameObject.transform.position, PlayerController.Instance.gameObject.transform.position) <= 20)
+        if (Vector3.Distance(gameObject.transform.position, PlayerController.Instance.gameObject.transform.position) <= 5)
         {
             stun = PlayerController.Instance.roarActive ? stun = true : stun = false;
         }
