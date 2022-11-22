@@ -18,7 +18,7 @@ MonoBehaviour:
   attack: 0
   cooldownTime: 12
   activeTime: 2
-  state: 0
+  state: 2
   uptime: 5
   defenseIncrease: 4
   attkSpeedIncrease: 0.2

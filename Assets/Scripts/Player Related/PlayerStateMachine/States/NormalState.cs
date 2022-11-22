@@ -24,6 +24,7 @@ public class NormalState : PlayerStateMachine
     public override IEnumerator Melee()
     {
         _system.attacking = true;
+        _system.StartCoroutine(_system.AttackNow());
         _system.animator.SetBool("NormalAttack", true);
         _system.SetState(new AttackState(_system));
         yield break;
@@ -56,7 +57,9 @@ public class NormalState : PlayerStateMachine
 
     public override IEnumerator SkillState(Player_BaseAbility skill)
     {
+        //skill now function just gives a little momentum forward
         _system.skillActive = true;
+        _system.StartCoroutine(_system.AttackNow());
 
         switch (skill.name)
         {
@@ -88,7 +91,6 @@ public class NormalState : PlayerStateMachine
 
             case "Leap Smash":
                 _system.leapsmashActive = true;
-                //_system.jumping = true;
                 _system.SetState(new SkillState(_system));
                 yield break;
 

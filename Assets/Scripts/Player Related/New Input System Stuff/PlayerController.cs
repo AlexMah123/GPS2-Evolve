@@ -10,17 +10,20 @@ public class PlayerController : MonoBehaviour
 
     public static PlayerController Instance;
 
-    [Header("Player Related")]
+    [Header("Player Related Stats")]
     [HideInInspector] public Player playerInput;
-    public List<GameObject> deathbodyList;
+    [HideInInspector] public CharacterController controller;
+    [HideInInspector] public Vector3 playerVelocity;
     private Transform cameraMain;
-    public CharacterController controller;
-    public Vector3 playerVelocity;
+
+    public List<GameObject> deathbodyList;
     public float playerSpeed = 2.0f;
     public float jumpHeight = 1.0f;
     public float jumpForce = 3.0f;
     public float gravityValue = -9.81f;
     public bool inRangeDevour;
+    public int attackMomentum = 3;
+    public float attackMomentumDuration = 0.3f;
 
     [Header("Boolean States")]
     [HideInInspector] public bool lookAt;
@@ -209,5 +212,13 @@ public class PlayerController : MonoBehaviour
     {
         jumping = true;
         playerVelocity.y += Mathf.Abs(jumpHeight * gravityValue / jumpForce)/3.1f;
+    }
+
+    public IEnumerator AttackNow()
+    {
+        playerVelocity = attackMomentum * transform.forward;
+        yield return new WaitForSeconds(attackMomentumDuration);
+
+        playerVelocity = Vector3.zero;
     }
 }

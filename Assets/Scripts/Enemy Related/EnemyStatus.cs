@@ -8,7 +8,9 @@ public class EnemyStatus : MonoBehaviour
     [Header("Enemy Status")]
     public EnemyScriptable ess;
     public float tempHealth;
+    public float stunDuration = 3f;
 
+    Rigidbody rb;
     bool killed;
     bool delay;
     bool stun;
@@ -16,6 +18,8 @@ public class EnemyStatus : MonoBehaviour
     private void Awake()
     {
         tempHealth = ess.Health;
+
+        rb = GetComponent<Rigidbody>();
         killed = false;
         delay = false;
         stun = false;
@@ -39,25 +43,18 @@ public class EnemyStatus : MonoBehaviour
         }
 
         #region roar skill
-        if (Vector3.Distance(gameObject.transform.position, PlayerController.Instance.gameObject.transform.position) <= 5)
+        if (Vector3.Distance(gameObject.transform.position, PlayerController.Instance.gameObject.transform.position) <= 20)
         {
-            if (PlayerController.Instance.roarActive)
-            {
-                if (!stun)
-                    stun = true;
-
-                if (stun)
-                {
-                    Debug.Log("stunned");
-                }
-            }
-            else
-            {
-                if (stun)
-                    stun = false;
-            }
+            stun = PlayerController.Instance.roarActive ? stun = true : stun = false;
         }
-        
+
+        //freeze based on stun
+        if(stun)
+        {
+            stun = false;
+            StartCoroutine(Stunned());
+        }
+
         #endregion
     }
 
@@ -67,6 +64,13 @@ public class EnemyStatus : MonoBehaviour
         {
             Instantiate(ess.enemyDeathBody, transform.position, ess.enemyDeathBody.transform.rotation);
         }
+    }
+
+    IEnumerator Stunned()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        yield return new WaitForSeconds(stunDuration);
+        rb.constraints = RigidbodyConstraints.None;
     }
 
     IEnumerator TakeDamage(Player_BaseAbility ability)
