@@ -59,7 +59,10 @@ public class NormalState : PlayerStateMachine
     {
         //skill now function just gives a little momentum forward
         _system.skillActive = true;
-        _system.StartCoroutine(_system.AttackNow());
+        if(skill.name != "Dash")
+        {
+            _system.StartCoroutine(_system.AttackNow());
+        }
 
         switch (skill.name)
         {

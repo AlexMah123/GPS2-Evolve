@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     public bool whipActive = false;
     public bool leapsmashActive = false;
 
-    [Header("Animator")]
+    [Header("Animator + Mesh")]
     public Animator animator;
 
     [Header("FSM")]
