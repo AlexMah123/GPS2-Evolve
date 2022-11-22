@@ -19,7 +19,7 @@ public class SkillState : PlayerStateMachine
         _system.leapsmashActive = false;
         _system.jumping = false;
 
-
+        Debug.Log("Skill Finish");
         _system.SetState(new NormalState(_system));
         yield break;
     }

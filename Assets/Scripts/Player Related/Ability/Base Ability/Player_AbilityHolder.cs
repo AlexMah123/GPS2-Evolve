@@ -326,14 +326,17 @@ public class Player_AbilityHolder : MonoBehaviour
             {
                 case 0:
                     selectedSkillList.Add(displaySkillList[abilityNum]);
+                    displaySkillList[abilityNum].state = Player_BaseAbility.AbilityState.ready;
                     break;
 
                 case 1:
                     selectedSkillList.Add(displaySkillList[abilityNum]);
+                    displaySkillList[abilityNum].state = Player_BaseAbility.AbilityState.ready;
                     break;
 
                 case 2:
                     selectedSkillList.Add(displaySkillList[abilityNum]);
+                    displaySkillList[abilityNum].state = Player_BaseAbility.AbilityState.ready;
                     break;
             }
         }
@@ -349,22 +352,16 @@ public class Player_AbilityHolder : MonoBehaviour
         {
             case 1:
                 skill1 = selectedSkillList[0];
-                skill1.state = Player_BaseAbility.AbilityState.ready;
                 break;
             case 2:
                 skill1 = selectedSkillList[0];
                 skill2 = selectedSkillList[1];
-                skill1.state = Player_BaseAbility.AbilityState.ready;
-                skill2.state = Player_BaseAbility.AbilityState.ready;
 
                 break;
             case 3:
                 skill1 = selectedSkillList[0];
                 skill2 = selectedSkillList[1];
                 skill3 = selectedSkillList[2];
-                skill1.state = Player_BaseAbility.AbilityState.ready;
-                skill2.state = Player_BaseAbility.AbilityState.ready;
-                skill3.state = Player_BaseAbility.AbilityState.ready;
 
                 break;
         }

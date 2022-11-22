@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Related Stats")]
     [HideInInspector] public Player playerInput;
     [HideInInspector] public CharacterController controller;
-    [HideInInspector] public Vector3 playerVelocity;
+    public Vector3 playerVelocity;
     private Transform cameraMain;
 
     public List<GameObject> deathbodyList;
@@ -114,10 +114,12 @@ public class PlayerController : MonoBehaviour
         if (!devouring && !attacking && !skillActive)
         {
             movementInput = playerInput.PlayerMain.Move.ReadValue<Vector2>();
+
             if (Player_StatusManager.Instance.isSlowed == true)
             {
                 movementInput = movementInput * 0.6f;
             }
+
             Vector3 move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
             animator.SetFloat("Running", move != Vector3.zero ? Mathf.Abs(movementInput.magnitude) : 0.01f);
             StartCoroutine(currentState.Movement(move));
@@ -218,7 +220,7 @@ public class PlayerController : MonoBehaviour
     {
         playerVelocity = attackMomentum * transform.forward;
         yield return new WaitForSeconds(attackMomentumDuration);
-
+        
         playerVelocity = Vector3.zero;
     }
 }
