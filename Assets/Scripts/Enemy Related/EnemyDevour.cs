@@ -19,7 +19,7 @@ public class EnemyDevour : MonoBehaviour
 
     public IEnumerator OnTheFloor()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
         while (rb.velocity.y > 0.1f)
         {
             yield return null;

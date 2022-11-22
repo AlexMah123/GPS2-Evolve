@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: b3d43ab7f077a9d49a45f3ebd14df66f, type: 2}
   tempHealth: 0
+  stunDuration: 3
 --- !u!195 &6025392603623179739
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ NavMeshAgent:
   avoidancePriority: 50
   m_AngularSpeed: 15
   m_StoppingDistance: 0.5
-  m_AutoTraverseOffMeshLink: 1
+  m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.8
