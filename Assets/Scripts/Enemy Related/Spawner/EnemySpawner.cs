@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float currentWaveDelay = 3;
     [SerializeField] float currentSpawnDelay = 1;
     [SerializeField] int maxNumSpawned = 5;
+    [SerializeField] int waveCount;
 
     float tempWaveDelay;
     float tempSpawnDelay = 0;
@@ -28,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
     {
         tempWaveDelay -= Time.deltaTime;
 
-        if(tempWaveDelay <= 0)
+        if(tempWaveDelay <= 0 )
         {
             SpawnEnemy();
         }
@@ -68,6 +69,7 @@ public class EnemySpawner : MonoBehaviour
             //reset delays
             currentSpawnDelay = EnemySpawnableList[enemyIndex].spawnDelay;
             tempSpawnDelay = currentSpawnDelay;
+
         }
     }
 
