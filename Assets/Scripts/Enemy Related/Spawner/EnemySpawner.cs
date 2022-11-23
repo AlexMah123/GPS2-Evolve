@@ -7,11 +7,11 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Spawner Related")]
     [SerializeField] EnemyScriptable[] EnemySpawnableList;
-    [SerializeField] GameObject spawnPoint;
 
     [Header("Spawner Values")]
     [SerializeField] float currentWaveDelay = 3;
     [SerializeField] float currentSpawnDelay = 1;
+    [SerializeField] int maxNumSpawned = 5;
 
     float tempWaveDelay;
     float tempSpawnDelay = 0;
@@ -26,7 +26,12 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        SpawnEnemy();
+        tempWaveDelay -= Time.deltaTime;
+
+        if(tempWaveDelay <= 0)
+        {
+            SpawnEnemy();
+        }
     }
 
     void SpawnEnemy()
@@ -35,17 +40,17 @@ public class EnemySpawner : MonoBehaviour
         tempSpawnDelay -= Time.deltaTime;
 
         //if 0 and have not spawned enemy amount, spawn and +numSpawned, reset timer for next spawn
-        if(tempSpawnDelay <= 0 && numSpawned < EnemySpawnableList[enemyIndex].spawnCount)
+        if(tempSpawnDelay <= 0 && numSpawned < maxNumSpawned)
         {
             GameObject enemy = EnemyObjectPool.enemyObjectPoolInstance.GetPooledEnemy(EnemySpawnableList[enemyIndex]);
 
             if (enemy != null)
             {
                 //spawn enemy at spawnPoint within area
-                enemy.transform.localPosition = new Vector3(spawnPoint.transform.position.x + Random.Range(-2.0f, 2.0f),
-                    spawnPoint.transform.position.y, spawnPoint.transform.position.z + Random.Range(-2.0f, 2.0f));
+                enemy.transform.localPosition = new Vector3(transform.position.x + Random.Range(-3.0f, 3.0f),
+                    transform.position.y, transform.position.z + Random.Range(-3.0f, 3.0f));
 
-                enemy.transform.rotation = spawnPoint.transform.rotation;
+                enemy.transform.rotation = transform.rotation;
                 enemy.SetActive(true);
 
             }
