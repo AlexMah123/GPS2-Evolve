@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 6261479332135800635, guid: 8b5b83a81b9383343b99ba98ef6889e3, type: 3}
   enemyDeathBody: {fileID: 8108302210967120548, guid: 8be35420e476bb047959fbbb3f79c0c4, type: 3}
-  spawnCount: 3
+  spawnCount: 5
   spawnDelay: 0.5
   name: Unarmed Enemy
   health: 50

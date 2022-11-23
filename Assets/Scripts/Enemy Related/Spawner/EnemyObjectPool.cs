@@ -68,6 +68,10 @@ public class EnemyObjectPool : MonoBehaviour
                 hasSpawned = true;
                 return pooledEnemies[i];
             }
+            else
+            {
+                hasSpawned = false;
+            }
         }
 
         if (!hasSpawned)
@@ -90,6 +94,7 @@ public class EnemyObjectPool : MonoBehaviour
             }
 
             GameObject tmp = Instantiate(enemyToPool, transform.position, Quaternion.identity);
+            tmp.SetActive(false);
             pooledEnemies.Add(tmp);
             amountToPool++;
             return tmp;

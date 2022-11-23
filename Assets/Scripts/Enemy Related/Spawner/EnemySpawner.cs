@@ -42,12 +42,12 @@ public class EnemySpawner : MonoBehaviour
             if (enemy != null)
             {
                 //spawn enemy at spawnPoint within area
-                enemy.transform.position = new Vector3(spawnPoint.transform.position.x + Random.Range(-2.0f, 2.0f),
+                enemy.transform.localPosition = new Vector3(spawnPoint.transform.position.x + Random.Range(-2.0f, 2.0f),
                     spawnPoint.transform.position.y, spawnPoint.transform.position.z + Random.Range(-2.0f, 2.0f));
 
                 enemy.transform.rotation = spawnPoint.transform.rotation;
                 enemy.SetActive(true);
-                Debug.Log(enemy.transform.position);
+
             }
 
             //increment numSpawn, 
