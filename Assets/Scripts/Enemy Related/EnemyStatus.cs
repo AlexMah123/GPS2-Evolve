@@ -9,6 +9,7 @@ public class EnemyStatus : MonoBehaviour
     public EnemyScriptable ess;
     public float tempHealth;
     public float stunDuration = 3f;
+    DamageFlashEnemy damageFlashEnemy;
 
     Rigidbody rb;
     bool killed;
@@ -18,7 +19,7 @@ public class EnemyStatus : MonoBehaviour
     private void Awake()
     {
         tempHealth = ess.Health;
-
+        damageFlashEnemy = GetComponent<DamageFlashEnemy>();
         rb = GetComponent<Rigidbody>();
         killed = false;
         delay = false;
@@ -84,7 +85,6 @@ public class EnemyStatus : MonoBehaviour
             else if(ability.name == "Bite" || ability.name == "Dash" || ability.name == "Smash" || ability.name == "Whip" || ability.name == "Leap Smash")
             {
                 tempHealth -= ability.attack;
-                Debug.Log(ability.name);
             }
 
 
@@ -97,6 +97,8 @@ public class EnemyStatus : MonoBehaviour
 
             delay = true;
         }
+
+        StartCoroutine(damageFlashEnemy.Flash());
 
         yield return new WaitForSeconds(1f);
         delay = false;

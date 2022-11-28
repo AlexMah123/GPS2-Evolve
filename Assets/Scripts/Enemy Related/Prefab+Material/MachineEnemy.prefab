@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5453379433297799967}
   - component: {fileID: 8402517936726743510}
   - component: {fileID: 6025392603623179741}
-  - component: {fileID: 6025392603623179740}
   - component: {fileID: 6025392603623179739}
+  - component: {fileID: 6025392603623179740}
   - component: {fileID: 7897322732332509763}
+  - component: {fileID: 3865546032118361713}
   m_Layer: 0
   m_Name: MachineEnemy
   m_TagString: Untagged
@@ -110,21 +111,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6025392603623179740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6261479332135800635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1aab54c6135e7b4ab1aa1b40a5227bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ess: {fileID: 11400000, guid: b3d43ab7f077a9d49a45f3ebd14df66f, type: 2}
-  tempHealth: 0
-  stunDuration: 3
 --- !u!195 &6025392603623179739
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -147,6 +133,21 @@ NavMeshAgent:
   m_BaseOffset: 0.9
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6025392603623179740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261479332135800635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1aab54c6135e7b4ab1aa1b40a5227bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ess: {fileID: 11400000, guid: b3d43ab7f077a9d49a45f3ebd14df66f, type: 2}
+  tempHealth: 0
+  stunDuration: 3
 --- !u!114 &7897322732332509763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +162,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: b3d43ab7f077a9d49a45f3ebd14df66f, type: 2}
   player: {fileID: 0}
+--- !u!114 &3865546032118361713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261479332135800635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd6c0f6176ddda4a851a9cea8c5281c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderers: []
+  meshColor: []
+  flashDuration: 0.15
 --- !u!1001 &4358989132643731581
 PrefabInstance:
   m_ObjectHideFlags: 0

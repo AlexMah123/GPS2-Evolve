@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5453379433297799967}
   - component: {fileID: 8402517936726743510}
   - component: {fileID: 6025392603623179741}
+  - component: {fileID: 6025392603623179739}
   - component: {fileID: 6025392603623179740}
   - component: {fileID: 6025392603623179738}
-  - component: {fileID: 6025392603623179739}
+  - component: {fileID: 2318266047404235449}
   m_Layer: 0
   m_Name: UnarmedHuman
   m_TagString: Untagged
@@ -110,6 +111,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!195 &6025392603623179739
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6261479332135800635}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3
+  m_Acceleration: 5
+  avoidancePriority: 50
+  m_AngularSpeed: 15
+  m_StoppingDistance: 0.5
+  m_AutoTraverseOffMeshLink: 0
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.8
+  m_BaseOffset: 0.9
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &6025392603623179740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,28 +162,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: 3ed64072c3c199b438963b8f89f2544c, type: 2}
   player: {fileID: 0}
---- !u!195 &6025392603623179739
-NavMeshAgent:
+--- !u!114 &2318266047404235449
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6261479332135800635}
   m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3
-  m_Acceleration: 5
-  avoidancePriority: 50
-  m_AngularSpeed: 15
-  m_StoppingDistance: 0.5
-  m_AutoTraverseOffMeshLink: 0
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.8
-  m_BaseOffset: 0.9
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd6c0f6176ddda4a851a9cea8c5281c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderers: []
+  meshColor: []
+  flashDuration: 0.15
 --- !u!1001 &4358989132643731581
 PrefabInstance:
   m_ObjectHideFlags: 0

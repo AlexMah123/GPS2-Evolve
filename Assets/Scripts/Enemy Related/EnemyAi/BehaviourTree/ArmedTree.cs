@@ -23,6 +23,7 @@ public class ArmedTree : Tree
         player = GameObject.Find("Kaiju");
         psm = Player_StatusManager.Instance;
     }
+
     public override Node SetupTree()
     {
         Node root = new Selector(new List<Node>

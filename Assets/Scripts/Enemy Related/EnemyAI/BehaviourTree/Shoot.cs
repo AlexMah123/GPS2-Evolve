@@ -99,8 +99,10 @@ public class Shoot : Node
                                     _psm.playerStats.CurrHealth -= dmg;
                                 }
 
+
                                 #endregion
                                 //Debug.Log("Player has been hit!");
+                                PlayerController.Instance.StartCoroutine(PlayerController.Instance.GetComponent<DamageFlash>().Flash());
 
                                 //if anger is active
                                 if (Player_PerksManager.Instance.selectedModList.Contains(Player_PerksManager.Instance.totalModList[4]))
@@ -139,6 +141,9 @@ public class Shoot : Node
                                 _psm.playerStats.CurrHealth -= dmg;
                             }
                             #endregion
+
+                            PlayerController.Instance.StartCoroutine(PlayerController.Instance.GetComponent<DamageFlash>().Flash());
+
 
                             //if anger is active
                             if (Player_PerksManager.Instance.selectedModList.Contains(Player_PerksManager.Instance.totalModList[4]))

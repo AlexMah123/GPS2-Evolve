@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 120905184831099025}
   - component: {fileID: 6683686119272269717}
   - component: {fileID: 8345092551666354866}
+  - component: {fileID: -3024716866411564797}
   - component: {fileID: 5271751886526917728}
   - component: {fileID: 1001434853548100958}
   - component: {fileID: -5465120421236515377}
-  - component: {fileID: -3024716866411564797}
+  - component: {fileID: 7825233394466997076}
   m_Layer: 0
   m_Name: ArmedHuman
   m_TagString: Untagged
@@ -105,6 +106,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &-3024716866411564797
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8754786251051910079}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &5271751886526917728
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -142,6 +157,7 @@ MonoBehaviour:
   ess: {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
   tempHealth: 0
   stunDuration: 3
+  damageFlashEnemy: {fileID: 0}
 --- !u!114 &-5465120421236515377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,20 +172,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: f50140b33b644e44fb7417645995b9d3, type: 2}
   player: {fileID: 8108302210967120548, guid: 8be35420e476bb047959fbbb3f79c0c4, type: 3}
---- !u!136 &-3024716866411564797
-CapsuleCollider:
+--- !u!114 &7825233394466997076
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8754786251051910079}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd6c0f6176ddda4a851a9cea8c5281c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderers: []
+  meshColor: []
+  flashDuration: 0.15
 --- !u!1001 &6901007505238272516
 PrefabInstance:
   m_ObjectHideFlags: 0

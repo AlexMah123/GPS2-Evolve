@@ -2512,6 +2512,7 @@ GameObject:
   - component: {fileID: 247044554275309611}
   - component: {fileID: 247044554275309607}
   - component: {fileID: 1998263194}
+  - component: {fileID: 1401573733}
   m_Layer: 6
   m_Name: Kaiju
   m_TagString: Player
@@ -2594,14 +2595,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e27570b208014d40a446213f035b40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathbodyList: []
   controller: {fileID: 0}
   playerVelocity: {x: 0, y: 0, z: 0}
-  playerSpeed: 10
+  deathbodyList: []
+  playerSpeed: 12
   jumpHeight: 3
   jumpForce: 3
   gravityValue: -9.81
   inRangeDevour: 0
+  attackMomentum: 3
+  attackMomentumDuration: 0.3
   lookAt: 0
   attacking: 0
   devouring: 0
@@ -2646,6 +2649,21 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 6
   m_Center: {x: 0, y: 3, z: 0}
+--- !u!114 &1401573733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129493555124598142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf3de1450fff27409e612576e345b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderers: []
+  meshColor: []
+  flashDuration: 0.15
 --- !u!1 &1245334818018794106
 GameObject:
   m_ObjectHideFlags: 0
