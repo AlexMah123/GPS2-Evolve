@@ -11,6 +11,10 @@ public class EnemyDevour : MonoBehaviour
     {
         get => GetComponent<Rigidbody>();
     }
+    private CapsuleCollider cc
+    {
+        get => GetComponent<CapsuleCollider>();
+    }
 
     private void Start()
     {
@@ -19,12 +23,14 @@ public class EnemyDevour : MonoBehaviour
 
     public IEnumerator OnTheFloor()
     {
-        yield return new WaitForSeconds(1f);
-        while (rb.velocity.y > 0.1f)
+        yield return new WaitForSeconds(0.2f);
+        while (rb.velocity.y > 0.1f) 
         {
             yield return null;
         }
         rb.constraints = RigidbodyConstraints.FreezeAll;
+        cc.isTrigger = true;
+
         
     }
     public IEnumerator Devouring(GameObject gameObj)

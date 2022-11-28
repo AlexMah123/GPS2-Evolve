@@ -9,13 +9,25 @@ using UnityEngine.Audio;
 //Not for BGM
 public class AudioManager : MonoBehaviour
 {
-
+    public static AudioManager Instance;
+  
     [SerializeField]AudioSource audioSource
     {
         get { return GetComponent<AudioSource>(); } 
     }
     [SerializeField] private AudioClip[] clips;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     public void PlaySound(string clipName)
     {
         AudioClip ac = Array.Find(clips, AudioClip => AudioClip.name == clipName);
