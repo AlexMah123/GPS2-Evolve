@@ -177,6 +177,12 @@ public class PlayerController : MonoBehaviour
         }
         #endregion
 
+        //Death
+        if(Player_StatusManager.Instance.playerStats.CurrHealth <= 0)
+        {
+            StartCoroutine(currentState.Death());
+        }
+
     }
 
     //Function called to change Player State in the FSM

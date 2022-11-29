@@ -52,6 +52,7 @@ public abstract class PlayerStateMachine
     }
     public virtual IEnumerator Death()
     {
+        _system.SetState(new DeathState(_system));
         yield break;
     }
 
