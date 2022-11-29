@@ -65,7 +65,7 @@ public class Charge : Node
                     //attacking
                     ChargeDuration += Time.deltaTime;
                     _animator.SetInteger("State", 3);
-                    _transform.LookAt(new Vector3(targetDir.x, _transform.position.y, targetDir.z), Vector3.up);
+                    
                 }
             }
             else
@@ -87,7 +87,7 @@ public class Charge : Node
                     {
                         targetDir = (_player.transform.position - _transform.position).normalized;
                     }
-                    _transform.LookAt(new Vector3(targetDir.x, _transform.position.y, targetDir.z), Vector3.up);
+                    _transform.LookAt(new Vector3((targetDir.x + _transform.position.x), _transform.position.y, (targetDir.z+_transform.position.z)), Vector3.up);
                     Charged = true;
                     ChargeTime = 0;
                     Debug.Log("Start Attacking" + targetDir);
