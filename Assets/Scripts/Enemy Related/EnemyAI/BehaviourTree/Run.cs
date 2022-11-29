@@ -41,6 +41,7 @@ public class Run : Node
         {
             _nva.speed = _ess.Speed * 2;
             _nva.SetDestination(targetDir + _transform.position);
+            _transform.LookAt(new Vector3(targetDir.x, _transform.position.y, targetDir.z), Vector3.up);
             //Debug.Log("Running");
             state = NodeState.RUNNING;
         }

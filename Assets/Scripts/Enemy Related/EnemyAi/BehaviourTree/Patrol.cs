@@ -43,6 +43,7 @@ public class Patrol : Node
                 if (_nva.remainingDistance <= _nva.stoppingDistance || timeout <= 0)
                 {
                     nextPos = PatrolPoint(patrolRad);
+                    _transform.LookAt(new Vector3(nextPos.x, _transform.position.y, nextPos.z), Vector3.up);
                     _nva.SetDestination(nextPos);
                 }
                 else

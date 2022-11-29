@@ -64,6 +64,8 @@ public class Charge : Node
                 {
                     //attacking
                     ChargeDuration += Time.deltaTime;
+                    _animator.SetInteger("State", 3);
+                    _transform.LookAt(new Vector3(targetDir.x, _transform.position.y, targetDir.z), Vector3.up);
                 }
             }
             else
@@ -98,6 +100,7 @@ public class Charge : Node
                     _transform.LookAt(new Vector3(_player.transform.position.x, _transform.position.y, _player.transform.position.z), Vector3.up);
                     targetPrevPos = _player.transform.position;
                     //Debug.Log("Charging up: " + ChargeTime);
+                    _animator.SetInteger("State", 2);
                 }
             }
         }
