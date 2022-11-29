@@ -40,7 +40,7 @@ public class EnemyDevour : MonoBehaviour
             //sets the devour time based on the players eat time
             float devouringTime = Player_StatusManager.Instance.playerStats.EatTime;
 
-            yield return new WaitForSeconds(devouringTime);
+            yield return new WaitForSeconds(7);
 
             //adds to evolvebar based on ess + eat heal, removes from the list, and destroys the obj
             Player_StatusManager.Instance.playerStats.CurrEvolveBar += ess.EvolvePointGain + Player_StatusManager.Instance.playerStats.EvolveBarIncrease;            
