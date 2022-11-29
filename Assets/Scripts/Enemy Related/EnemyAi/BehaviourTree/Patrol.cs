@@ -89,6 +89,7 @@ public class Patrol : Node
         dir += _transform.position;
         NavMesh.SamplePosition(dir, out NavMeshHit navHit, distance, NavMesh.AllAreas);
         stopped = true;
+        stoppedMax = Random.Range(2.0f, 4.0f);
         stoppedTime = stoppedMax;
         _animator.SetInteger("State", 0);
         //Debug.Log(_animator.GetInteger("State"));
