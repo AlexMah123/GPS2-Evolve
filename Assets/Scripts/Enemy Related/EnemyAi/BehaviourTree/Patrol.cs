@@ -29,6 +29,7 @@ public class Patrol : Node
         _ess = ess;
         _animator = animator;
     }
+
     public override NodeState Evaluate()
     {
         float d = Vector3.Distance(_player.transform.position, _transform.position);
@@ -42,9 +43,16 @@ public class Patrol : Node
                 patrolRad = Random.Range(25, 50);
                 if (_nva.remainingDistance <= _nva.stoppingDistance || timeout <= 0)
                 {
+
                     nextPos = PatrolPoint(patrolRad);
                     _transform.LookAt(new Vector3(nextPos.x, _transform.position.y, nextPos.z), Vector3.up);
-                    _nva.SetDestination(nextPos);
+
+                    NavMeshPath path = new();
+
+                    if(_nva.CalculatePath(nextPos, path) && path.status == NavMeshPathStatus.PathComplete)
+                    {
+                        _nva.SetPath(path);
+                    }
                 }
                 else
                 {
