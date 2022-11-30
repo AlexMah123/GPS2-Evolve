@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e06fa888534707439d8e736f19d49c3, type: 3}
   m_Name: Bite_Ability
   m_EditorClassIdentifier: 
-  logo: {fileID: 0}
+  logo: {fileID: 21300000, guid: 85b5b3e45878ffb4eaa7592f256fb662, type: 3}
   name: Bite
   description: Unleash a chomp infront of you.
   attack: 40

@@ -63,6 +63,7 @@ public class UIController : MonoBehaviour
     {
         loadScreen.SetActive(true);
         AsyncOperation async = SceneManager.LoadSceneAsync(sceneIndex);
+        Time.timeScale = 1;
 
         while (!async.isDone)
         {

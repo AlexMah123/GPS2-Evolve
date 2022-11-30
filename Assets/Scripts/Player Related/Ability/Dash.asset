@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac97f6aa148ef0b46b0f174c09841c75, type: 3}
   m_Name: Dash
   m_EditorClassIdentifier: 
-  logo: {fileID: 0}
+  logo: {fileID: 21300000, guid: e6f7e63810b70fb4cb2c8ebe79431d47, type: 3}
   name: Dash
   description: Charge towards the direction you are facing.
   attack: 25

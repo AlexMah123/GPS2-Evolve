@@ -85,8 +85,6 @@ public class Player_AbilityHolder : MonoBehaviour
                 UpdateAbilityChosen();
             }
         }
-
-        
     }
 
     #region AbilityChecks
@@ -98,6 +96,7 @@ public class Player_AbilityHolder : MonoBehaviour
             {
                 case Player_BaseAbility.AbilityState.ready:
                     skill1Button.interactable = true;
+                    skill1Logo.sprite = skill.logo;
                     skill1TMP.text = skill.name;
                     if (PlayerController.Instance.playerInput.PlayerMain.Skill1.triggered)
                     {
@@ -120,8 +119,6 @@ public class Player_AbilityHolder : MonoBehaviour
                     }
                     else
                     {
- 
-
                         StartCoroutine(PlayerController.Instance.currentState.SkillFinished());
                         skill.state = Player_BaseAbility.AbilityState.cooldown;
                         tempCooldownTime1 = skill.cooldownTime;
@@ -148,6 +145,7 @@ public class Player_AbilityHolder : MonoBehaviour
             {
                 case Player_BaseAbility.AbilityState.ready:
                     skill2Button.interactable = true;
+                    skill2Logo.sprite = skill.logo;
                     skill2TMP.text = skill.name;
                     if (PlayerController.Instance.playerInput.PlayerMain.Skill2.triggered)
                     {
@@ -198,6 +196,7 @@ public class Player_AbilityHolder : MonoBehaviour
             {
                 case Player_BaseAbility.AbilityState.ready:
                     skill3Button.interactable = true;
+                    skill3Logo.sprite = skill.logo;
                     skill3TMP.text = skill.name;
                     if (PlayerController.Instance.playerInput.PlayerMain.Skill3.triggered)
                     {
