@@ -43,6 +43,10 @@ public class Charge : Node
         {
             Detected = false;
         }
+        else if (Detected && Player_StatusManager.Instance.playerStats.CurrHealth <= 0)
+        {
+            Detected = false;
+        }
         else if (d <= 25) 
         {
             Detected = true;
@@ -53,6 +57,7 @@ public class Charge : Node
             if (Charged)
             {
                 //attack and cooldown
+                targetDir = targetDir.normalized;
                 _nva.SetDestination(targetDir + _transform.position);
                 if (d <= 0.15f || ChargeDuration >= ChargeDurationMax)
                 {

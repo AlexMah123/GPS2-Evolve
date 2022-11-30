@@ -39,6 +39,10 @@ public class Shoot : Node
             {
                 Shooting = false;
             }
+            else if (Player_StatusManager.Instance.playerStats.CurrHealth <= 0)
+            {
+                Shooting = false;
+            }
         }
         else if (d < 15)//start shooting range
         {
@@ -53,6 +57,7 @@ public class Shoot : Node
             _transform.LookAt(new Vector3(_player.transform.position.x, _transform.position.y, _player.transform.position.z), Vector3.up);
             _animator.SetInteger("State", 3);
             Debug.DrawRay(_transform.position, targetDir * 20);
+            _nva.SetDestination(_transform.position);
             if (Reloading >= 1 / _ess.AttackSpeed)
             {
                 //Shoot!
