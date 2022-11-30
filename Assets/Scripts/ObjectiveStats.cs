@@ -10,13 +10,17 @@ public class ObjectiveStats : MonoBehaviour
     [SerializeField] string objectiveName;
     [SerializeField] GameObject destroyedObj;
     DamageFlash damageFlash;
+    ParticleSystem particleSystem;
 
-    bool delay;
-    int tempHealth;
+    bool delay = false;
+    int tempHealth = 0;
+    bool smoking = false;
 
     private void Awake()
     {
+        particleSystem = GetComponentInChildren<ParticleSystem>();
         damageFlash = GetComponent<DamageFlash>();
+        particleSystem.Stop();
     }
 
     private void Start()
@@ -26,6 +30,12 @@ public class ObjectiveStats : MonoBehaviour
 
     private void Update()
     {
+        if((tempHealth <= objectiveHealth / 2) && smoking == false)
+        {
+            smoking = true;
+            particleSystem.Play();
+        }
+
         if (tempHealth <= 0)
         {
             isDestroyed = true;
@@ -42,11 +52,15 @@ public class ObjectiveStats : MonoBehaviour
                 case "Radio Tower":
                     GameSceneUI.radioTowerDestroyed = true;
                     break;
+
                 case "Chemist Lab":
                     GameSceneUI.chemistLabDestroyed = true;
                     break;
+
                 case "Enemy Camp":
                     GameSceneUI.enemyCampDestroyed = true;
+                    break;
+                default:
                     break;
             }
 
@@ -117,7 +131,9 @@ public class ObjectiveStats : MonoBehaviour
 
         StartCoroutine(damageFlash.Flash());
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(delayTimer);
         delay = false;
     }
+
+
 }
