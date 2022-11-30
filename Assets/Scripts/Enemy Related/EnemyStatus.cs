@@ -64,6 +64,10 @@ public class EnemyStatus : MonoBehaviour
         if(killed)
         {
             Instantiate(ess.enemyDeathBody, transform.position, ess.enemyDeathBody.transform.rotation);
+            if(ess.Name == $"Armed Human")
+            {
+                GameSceneUI.armedKilled++;
+            }
         }
     }
 
