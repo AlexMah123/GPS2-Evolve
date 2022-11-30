@@ -909,6 +909,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadScreen: {fileID: 285155055}
   loadVal: {fileID: 1308760033}
+  volSlider: {fileID: 0}
+  horSlider: {fileID: 0}
+  verSlider: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 2477fa7f7c667c24b8d9a2889c79944e, type: 2}
+  volVal: {fileID: 0}
+  horVal: {fileID: 0}
+  vertVal: {fileID: 0}
+  CFL: {fileID: 0}
 --- !u!4 &1138516715
 Transform:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf36c224d65e974f8d9749eaa6fd324, type: 3}
   m_Name: Smash
   m_EditorClassIdentifier: 
-  logo: {fileID: 0}
+  logo: {fileID: 21300000, guid: 71a5018589eed8f49a0a000c5dbcbdbc, type: 3}
   name: Smash
   description: Unleash a blow in front of you.
   attack: 30
