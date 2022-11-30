@@ -144,7 +144,15 @@ public class PlayerController : MonoBehaviour
         else if (playerInput.PlayerMain.Melee.triggered)
         {
             //Melee code should go in NormalState.Melee
-            StartCoroutine(currentState.Melee());
+            if(!animator.GetBool("NormalAttack"))
+            {
+                StartCoroutine(currentState.Melee());
+            }
+            else if(animator.GetBool("NormalAttack"))
+            {
+                animator.SetTrigger("SecondAttack");
+            }
+            
         }
         else if (playerInput.PlayerMain.Devour.triggered && inRangeDevour)
         {
@@ -160,7 +168,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(currentState.JumpFinished());
             }
         }
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("LSlash"))
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("LSlash") || this.animator.GetCurrentAnimatorStateInfo(0).IsName("RSlash"))
         {
             animator.SetFloat("Blend", animator.GetCurrentAnimatorStateInfo(0).normalizedTime * 2);
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0))
