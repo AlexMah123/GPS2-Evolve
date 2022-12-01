@@ -220,7 +220,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    public void JumpNow()
+    public void JumpNow()   
     {
         jumping = true;
         playerVelocity.y += Mathf.Abs(jumpHeight * gravityValue / jumpForce);
@@ -230,7 +230,10 @@ public class PlayerController : MonoBehaviour
         jumping = true;
         playerVelocity.y += Mathf.Abs(jumpHeight * gravityValue / jumpForce)/3.1f;
     }
-
+    public void PlayAudio(string clip)
+    {
+        AudioManager.Instance.PlaySound(clip);
+    }
     public IEnumerator AttackNow()
     {
         playerVelocity = attackMomentum * transform.forward;

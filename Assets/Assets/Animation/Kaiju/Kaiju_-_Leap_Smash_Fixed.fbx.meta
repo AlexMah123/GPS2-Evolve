@@ -67,6 +67,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.62199306
+        functionName: PlayAudio
+        data: smash
+        objectReferenceParameter: {fileID: 1129493555124598142, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

@@ -60,9 +60,16 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.29892966
+      - time: 0.31267536
         functionName: JumpNow
         data: 
+        objectReferenceParameter: {fileID: 1129493555124598142, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: PlayAudio
+        data: jump
         objectReferenceParameter: {fileID: 1129493555124598142, guid: 3cbbab7aa04f26c44b433edaa8c06e8d, type: 3}
         floatParameter: 0
         intParameter: 0
