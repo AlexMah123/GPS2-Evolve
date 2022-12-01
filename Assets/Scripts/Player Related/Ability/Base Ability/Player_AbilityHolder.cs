@@ -32,16 +32,19 @@ public class Player_AbilityHolder : MonoBehaviour
     [Header("Ability Selection")]
     [SerializeField] GameObject skill1Obj;
     [SerializeField] Image skill1Logo;
+    [SerializeField] Image skill1LogoS;
     [SerializeField] TextMeshProUGUI skill1Desc;
     [SerializeField] TextMeshProUGUI skill1Name;
 
     [SerializeField] GameObject skill2Obj;
     [SerializeField] Image skill2Logo;
+    [SerializeField] Image skill2LogoS;
     [SerializeField] TextMeshProUGUI skill2Desc;
     [SerializeField] TextMeshProUGUI skill2Name;
 
     [SerializeField] GameObject skill3Obj;
     [SerializeField] Image skill3Logo;
+    [SerializeField] Image skill3LogoS;
     [SerializeField] TextMeshProUGUI skill3Desc;
     [SerializeField] TextMeshProUGUI skill3Name;
 
@@ -294,21 +297,21 @@ public class Player_AbilityHolder : MonoBehaviour
             {
                 case 0:
                     skill1Obj.gameObject.SetActive(true);
-                    skill1Logo.sprite = displaySkillList[i].logo;
+                    skill1LogoS.sprite = displaySkillList[i].logo;
                     skill1Desc.text = displaySkillList[i].description;
                     skill1Name.text = displaySkillList[i].name;
                     break;
 
                 case 1:
                     skill2Obj.gameObject.SetActive(true);
-                    skill2Logo.sprite = displaySkillList[i].logo;
+                    skill2LogoS.sprite = displaySkillList[i].logo;
                     skill2Desc.text = displaySkillList[i].description;
                     skill2Name.text = displaySkillList[i].name;
                     break;
 
                 case 2:
                     skill3Obj.gameObject.SetActive(true);
-                    skill3Logo.sprite = displaySkillList[i].logo;
+                    skill3LogoS.sprite = displaySkillList[i].logo;
                     skill3Desc.text = displaySkillList[i].description;
                     skill3Name.text = displaySkillList[i].name;
                     break;

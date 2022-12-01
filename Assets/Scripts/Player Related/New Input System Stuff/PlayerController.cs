@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public bool attacking = false;
     public bool devouring = false;
     public bool jumping = false;
+    public bool dying = false;
 
     [Header("Skill states")]
     public bool skillActive = false;

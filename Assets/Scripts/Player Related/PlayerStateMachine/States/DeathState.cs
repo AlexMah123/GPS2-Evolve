@@ -11,7 +11,13 @@ public class DeathState : PlayerStateMachine
     //Just a dead end for the FSM to go to
     public override IEnumerator Start()
     {
-        _system.animator.SetBool("Death", true);
+        if(!_system.dying)
+        {
+            _system.animator.SetTrigger("Dead");
+            Debug.Log("Dead");
+            _system.dying = true;
+        }
+        
         yield break;
     }
 }
