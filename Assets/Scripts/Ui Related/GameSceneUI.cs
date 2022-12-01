@@ -46,7 +46,7 @@ public class GameSceneUI : MonoBehaviour
     private void Awake()
     {
         PlayerController = PlayerController.Instance;
-        countdownM = 1;
+        countdownM = 8;
         countdownS = 0;
         StartCoroutine(Countdown());
     }

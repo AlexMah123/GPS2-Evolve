@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -61,7 +63,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             Instance = this;
-        }     
+        }
     }
 
     private void OnEnable()
@@ -87,17 +89,21 @@ public class PlayerController : MonoBehaviour
         inRangeDevour = deathbodyList.Count > 0 ? inRangeDevour = true : inRangeDevour = false;
 
         //if you are devouring and in range, look at the body
-        if(devouring && inRangeDevour)
+        if (devouring && inRangeDevour)
         {
-            Vector3 dir = (deathbodyList[0].transform.position - transform.position).normalized;
-
-            if (lookAt)
+            if (deathbodyList[0] != null)
             {
-                Quaternion lookRotation = Quaternion.LookRotation(dir, Vector3.up);
-                transform.localRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
-                transform.position = deathbodyList[0].transform.position;
-                lookAt = false;
+                Vector3 dir = (deathbodyList[0].transform.position - transform.position).normalized;
+
+                if (lookAt)
+                {
+                    Quaternion lookRotation = Quaternion.LookRotation(dir, Vector3.up);
+                    transform.localRotation = Quaternion.Euler(0, lookRotation.eulerAngles.y, 0);
+                    transform.position = deathbodyList[0].transform.position;
+                    lookAt = false;
+                }
             }
+            
         }
         #endregion
 
@@ -107,7 +113,7 @@ public class PlayerController : MonoBehaviour
         {
             playerVelocity.y = gravityValue * 0.05f;
         }
-        else if(!controller.isGrounded)
+        else if (!controller.isGrounded)
         {
             playerVelocity.y += gravityValue * Time.deltaTime;
         }
@@ -145,15 +151,15 @@ public class PlayerController : MonoBehaviour
         else if (playerInput.PlayerMain.Melee.triggered)
         {
             //Melee code should go in NormalState.Melee
-            if(!animator.GetBool("NormalAttack"))
+            if (!animator.GetBool("NormalAttack"))
             {
                 StartCoroutine(currentState.Melee());
             }
-            else if(animator.GetBool("NormalAttack"))
+            else if (animator.GetBool("NormalAttack"))
             {
                 animator.SetTrigger("SecondAttack");
             }
-            
+
         }
         else if (playerInput.PlayerMain.Devour.triggered && inRangeDevour)
         {
@@ -164,7 +170,7 @@ public class PlayerController : MonoBehaviour
         #region endAnimatorTriggers
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
         {
-            if ((animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0)) || animator.GetBool("Jumping") == false )
+            if ((animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !animator.IsInTransition(0)) || animator.GetBool("Jumping") == false)
             {
                 StartCoroutine(currentState.JumpFinished());
             }
@@ -187,7 +193,7 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         //Death
-        if(Player_StatusManager.Instance.playerStats.CurrHealth <= 0)
+        if (Player_StatusManager.Instance.playerStats.CurrHealth <= 0)
         {
             StartCoroutine(currentState.Death());
         }
@@ -212,15 +218,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.CompareTag("Deadbody"))
+        if (other.gameObject.CompareTag("Deadbody"))
         {
             deathbodyList.Remove(other.gameObject);
         }
     }
 
     #endregion
-
-    public void JumpNow()   
+    public void Devoured()
+    {
+        deathbodyList.Remove(deathbodyList[0]);
+    }
+    public void JumpNow()
     {
         jumping = true;
         playerVelocity.y += Mathf.Abs(jumpHeight * gravityValue / jumpForce);
@@ -228,7 +237,7 @@ public class PlayerController : MonoBehaviour
     public void LeapNow()
     {
         jumping = true;
-        playerVelocity.y += Mathf.Abs(jumpHeight * gravityValue / jumpForce)/3.1f;
+        playerVelocity.y += Mathf.Abs(jumpHeight * gravityValue / jumpForce) / 3.1f;
     }
     public void PlayAudio(string clip)
     {
@@ -242,19 +251,7 @@ public class PlayerController : MonoBehaviour
     {
         playerVelocity = attackMomentum * transform.forward;
         yield return new WaitForSeconds(attackMomentumDuration);
-        
-        playerVelocity = Vector3.zero;
-    }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if(hit.gameObject.CompareTag("Enemy"))
-        {
-            controller.slopeLimit = 30;
-        }
-        else
-        {
-            controller.slopeLimit = 50;
-        }
+        playerVelocity = Vector3.zero;
     }
 }

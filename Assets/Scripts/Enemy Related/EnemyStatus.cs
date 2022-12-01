@@ -63,6 +63,7 @@ public class EnemyStatus : MonoBehaviour
     {
         if(killed)
         {
+            PlayerController.Instance.deathbodyList.Remove(gameObject);
             if(ess.Name != "Machine Enemy")
             {
                 Instantiate(ess.enemyDeathBody, transform.position, ess.enemyDeathBody.transform.rotation);
