@@ -99,7 +99,7 @@ public class GameSceneUI : MonoBehaviour
         #endregion
 
         #region objectives
-        obj1.text = $"Kill Armed Human<indent=85%> {armedKilled}/5 </indent>";
+        obj1.text = $"Kill Armed Human<indent=80%> {armedKilled}/5 </indent>";
         obj1.text = armedKilled >= 5 ? $"<s><color=green>{obj1.text}</color></s>" : $"<color=red>{obj1.text}</color>";
         obj2.text = radioTowerDestroyed ? $"<s><color=green>Destroy Radio Tower</color></s>" : $"<color=red>Destroy Radio Tower</color>";
         obj3.text = chemistLabDestroyed ? $"<s><color=green>Destroy Enemy Camp</color></s>" : $"<color=red>Destroy Enemy Camp</color>";

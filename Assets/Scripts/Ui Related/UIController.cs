@@ -12,6 +12,8 @@ public class UIController : MonoBehaviour
     //HYZ
     [SerializeField] private GameObject loadScreen;
     [SerializeField] private Slider loadVal;
+    [SerializeField] private Sprite[] loadPic;
+    [SerializeField] private Image loadImage;
 
     [Header("Settings")]
     [SerializeField] private Slider volSlider;
@@ -38,6 +40,7 @@ public class UIController : MonoBehaviour
         horVal.text = "1";
         vertVal.text = "1";
     }
+
     public void SwitchScene(int sceneIndex)
     {
         StartCoroutine(LoadScene(sceneIndex));
@@ -61,6 +64,7 @@ public class UIController : MonoBehaviour
     }
     IEnumerator LoadScene(int sceneIndex)
     {
+        loadImage.sprite = loadPic[Random.Range(0, loadPic.Length)];
         loadScreen.SetActive(true);
         AsyncOperation async = SceneManager.LoadSceneAsync(sceneIndex);
         Time.timeScale = 1;
