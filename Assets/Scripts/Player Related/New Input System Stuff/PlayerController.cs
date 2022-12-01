@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("FSM")]
     public PlayerStateMachine currentState;
-
+    [SerializeField] private GameObject gameOver;
     Vector2 movementInput;
 
     private void Awake()
@@ -234,6 +234,10 @@ public class PlayerController : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(clip);
     }
+    public void GameOver()
+    {
+        gameOver.SetActive(true);
+    }
     public IEnumerator AttackNow()
     {
         playerVelocity = attackMomentum * transform.forward;
@@ -250,7 +254,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            controller.slopeLimit = 40;
+            controller.slopeLimit = 50;
         }
     }
 }

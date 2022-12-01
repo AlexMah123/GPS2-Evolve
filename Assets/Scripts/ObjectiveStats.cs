@@ -54,7 +54,7 @@ public class ObjectiveStats : MonoBehaviour
                     break;
 
                 case "Chemist Lab":
-                    GameSceneUI.chemistLabDestroyed = true;
+                    GameSceneUI.chemistLabDestroyed += 1;
                     break;
 
                 case "Enemy Camp":

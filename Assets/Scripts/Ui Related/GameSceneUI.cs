@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -22,6 +23,7 @@ public class GameSceneUI : MonoBehaviour
     [SerializeField] private GameObject overheal;
     [SerializeField] private Slider overhealSlider;
     [SerializeField] private Slider evo;
+    [SerializeField] private TextMeshProUGUI timer;
 
     [Header("Objective")]
     [SerializeField] private Button info;
@@ -32,8 +34,10 @@ public class GameSceneUI : MonoBehaviour
     [SerializeField] private Transform objective;
     public static float armedKilled;
     public static bool radioTowerDestroyed;
-    public static bool chemistLabDestroyed;
+    public static float chemistLabDestroyed;
     public static bool enemyCampDestroyed;
+    [SerializeField] private float countdownM;
+    [SerializeField] private float countdownS;
 
     //player evolve bar
     private bool t1;
@@ -42,6 +46,9 @@ public class GameSceneUI : MonoBehaviour
     private void Awake()
     {
         PlayerController = PlayerController.Instance;
+        countdownM = 1;
+        countdownS = 0;
+        StartCoroutine(Countdown());
     }
 
     private void Update()
@@ -71,7 +78,6 @@ public class GameSceneUI : MonoBehaviour
 
         }
         #endregion
-
         #region devourButton
         if(PlayerController.Instance != null)
         {
@@ -92,7 +98,7 @@ public class GameSceneUI : MonoBehaviour
             {
                 armedKilled += 1;
                 radioTowerDestroyed = !radioTowerDestroyed;
-                chemistLabDestroyed = !chemistLabDestroyed;
+                chemistLabDestroyed += 1;
                 enemyCampDestroyed = !enemyCampDestroyed;
             }
         }
@@ -102,7 +108,7 @@ public class GameSceneUI : MonoBehaviour
         obj1.text = $"Kill Armed Human<indent=80%> {armedKilled}/5 </indent>";
         obj1.text = armedKilled >= 5 ? $"<s><color=green>{obj1.text}</color></s>" : $"<color=red>{obj1.text}</color>";
         obj2.text = radioTowerDestroyed ? $"<s><color=green>Destroy Radio Tower</color></s>" : $"<color=red>Destroy Radio Tower</color>";
-        obj3.text = chemistLabDestroyed ? $"<s><color=green>Destroy Enemy Camp</color></s>" : $"<color=red>Destroy Enemy Camp</color>";
+        obj3.text = chemistLabDestroyed >= 2? $"<s><color=green>Destroy Chem Lab<indent=80%> {chemistLabDestroyed}/2 </indent> </color></s>" : $"<color=red>Destroy Chem Lab<indent=80%> {chemistLabDestroyed}/2 </indent> </color>";
         obj4.text = enemyCampDestroyed ? $"<s><color=green>Defeat Final Boss</color></s>" : $"<color=red>Defeat Final Boss</color>";
 
         #endregion
@@ -170,10 +176,26 @@ public class GameSceneUI : MonoBehaviour
         TogglePerk();
     }
 
+    IEnumerator Countdown()
+    {
+        while (countdownS > 0 || countdownM > 0)
+        {
+            if (countdownS == 0)
+            {
+                countdownM -= 1;
+                countdownS = 60;
+            }
+            yield return new WaitForSeconds(1);
+            countdownS -= 1;
+            timer.text = $"{countdownM}:{countdownS:00}";
+        }
+        Player_StatusManager.Instance.playerStats.CurrHealth = 0;
+    }
     public void DisplayWindow()
     {
         Vector3 closedPos = new(-1132.5f, objective.localPosition.y, 1);
         Vector3 openPos = new(-632, objective.localPosition.y, 1);
+        Debug.Log("Toggling");
         if (objective.localPosition.x >= openPos.x)
         {
             StopCoroutine(CloseObj(closedPos, 1));
