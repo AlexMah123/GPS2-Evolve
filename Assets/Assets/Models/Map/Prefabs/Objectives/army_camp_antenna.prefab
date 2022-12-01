@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyed: 0
-  objectiveHealth: 50
+  objectiveHealth: 100
   delayTimer: 0
   objectiveName: Antenna
   destroyedObj: {fileID: 0}

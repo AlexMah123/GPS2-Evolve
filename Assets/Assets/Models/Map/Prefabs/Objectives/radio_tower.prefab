@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 10984
+  m_VersionIndex: 10993
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -376,7 +376,7 @@ Transform:
   m_GameObject: {fileID: 1500909938147638664}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -418, y: 8.539956, z: -108}
-  m_LocalScale: {x: 0.182259, y: 0.17058799, z: 0.17690398}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3558870808779669788}
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyed: 0
-  objectiveHealth: 300
+  objectiveHealth: 350
   delayTimer: 1
   objectiveName: Radio Tower
   destroyedObj: {fileID: 0}
@@ -497,8 +497,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 180.5283, y: 192.85275, z: 61.70629}
-  m_Center: {x: -19.401985, y: -5.186162, z: 28.33913}
+  m_Size: {x: 163.69695, y: 174.58772, z: 61.7063}
+  m_Center: {x: -20.54568, y: -3.811798, z: 28.33913}
 --- !u!54 &8282496403100063694
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5340,15 +5340,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4588220633212869624, guid: edb5385ffe2114b4c8495a8f8c6342f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -208.49455
+      value: -241.41473
       objectReference: {fileID: 0}
     - target: {fileID: 4588220633212869624, guid: edb5385ffe2114b4c8495a8f8c6342f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.586235
+      value: 52.758705
       objectReference: {fileID: 0}
     - target: {fileID: 4588220633212869624, guid: edb5385ffe2114b4c8495a8f8c6342f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0000026954574
+      value: 11.305573
       objectReference: {fileID: 0}
     - target: {fileID: 4588220633212869624, guid: edb5385ffe2114b4c8495a8f8c6342f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5410,7 +5410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5014433812437519147, guid: 08bf748803605da44aa7af9c17cbe2cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00002156366
+      value: 11.30559
       objectReference: {fileID: 0}
     - target: {fileID: 5014433812437519147, guid: 08bf748803605da44aa7af9c17cbe2cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5464,15 +5464,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7161248790220129465, guid: ee70f0e141d86294a97a57b78464a4ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.946833
+      value: -60.353718
       objectReference: {fileID: 0}
     - target: {fileID: 7161248790220129465, guid: ee70f0e141d86294a97a57b78464a4ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 99.655334
+      value: 117.24156
       objectReference: {fileID: 0}
     - target: {fileID: 7161248790220129465, guid: ee70f0e141d86294a97a57b78464a4ef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00001078183
+      value: 16.958363
       objectReference: {fileID: 0}
     - target: {fileID: 7161248790220129465, guid: ee70f0e141d86294a97a57b78464a4ef, type: 3}
       propertyPath: m_LocalRotation.w

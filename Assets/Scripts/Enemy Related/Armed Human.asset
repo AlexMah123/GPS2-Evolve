@@ -19,7 +19,7 @@ MonoBehaviour:
   name: Armed Human
   health: 60
   defence: 5
-  attack: 10
+  attack: 5
   attackSpeed: 1
   speed: 5
   evolvePointGain: 10

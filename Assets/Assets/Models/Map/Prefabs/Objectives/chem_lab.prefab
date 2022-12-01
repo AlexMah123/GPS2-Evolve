@@ -4929,7 +4929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDestroyed: 0
-  objectiveHealth: 200
+  objectiveHealth: 300
   delayTimer: 1
   objectiveName: Chemist Lab
   destroyedObj: {fileID: 0}
@@ -5030,15 +5030,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4588220633212869624, guid: edb5385ffe2114b4c8495a8f8c6342f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.1902237
       objectReference: {fileID: 0}
     - target: {fileID: 4588220633212869624, guid: edb5385ffe2114b4c8495a8f8c6342f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -15.020021
       objectReference: {fileID: 0}
     - target: {fileID: 4588220633212869624, guid: edb5385ffe2114b4c8495a8f8c6342f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.3699932
       objectReference: {fileID: 0}
     - target: {fileID: 4588220633212869624, guid: edb5385ffe2114b4c8495a8f8c6342f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5092,15 +5092,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5014433812437519147, guid: 08bf748803605da44aa7af9c17cbe2cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 27.190224
       objectReference: {fileID: 0}
     - target: {fileID: 5014433812437519147, guid: 08bf748803605da44aa7af9c17cbe2cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -21.020021
       objectReference: {fileID: 0}
     - target: {fileID: 5014433812437519147, guid: 08bf748803605da44aa7af9c17cbe2cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.3699932
       objectReference: {fileID: 0}
     - target: {fileID: 5014433812437519147, guid: 08bf748803605da44aa7af9c17cbe2cc, type: 3}
       propertyPath: m_LocalRotation.w

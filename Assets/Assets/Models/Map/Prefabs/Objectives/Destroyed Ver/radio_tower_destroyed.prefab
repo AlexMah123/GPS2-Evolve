@@ -15,8 +15,8 @@ GameObject:
   m_Name: radio_tower_destroyed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &3047830103269371013
 Transform:
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2380084199717385791}
   m_LocalRotation: {x: -0.9848078, y: 0, z: 0.17364816, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.182259, y: 0.17058803, z: 0.176904}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

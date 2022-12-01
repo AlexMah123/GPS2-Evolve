@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!4 &4262861485575503130
 Transform:
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3486746276838221728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7447715825941934671}
@@ -48,8 +48,8 @@ GameObject:
   m_Name: army camp base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7447715825941934671
 Transform:
@@ -59,7 +59,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3675983919583765736}
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -274.51688, y: 28.72346, z: -93.988846}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.991823, y: 0.530456, z: 0.530456}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -139,7 +139,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6113257188027639446
 Transform:
@@ -149,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8055592049826814115}
   m_LocalRotation: {x: 0.00000008022278, y: 0.17364821, z: -0.000000014145441, w: 0.9848078}
-  m_LocalPosition: {x: -274.73575, y: 8.500187, z: -60.094746}
+  m_LocalPosition: {x: 0.0000009536743, y: -20, z: 31.112701}
   m_LocalScale: {x: 0.991823, y: 0.530456, z: 0.530456}
   m_ConstrainProportionsScale: 0
   m_Children: []
