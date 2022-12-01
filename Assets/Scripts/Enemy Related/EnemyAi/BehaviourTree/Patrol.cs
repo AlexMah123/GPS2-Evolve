@@ -34,7 +34,7 @@ public class Patrol : Node
     {
         float d = Vector3.Distance(_player.transform.position, _transform.position);
         Vector3 targetDir = (_player.transform.position - _transform.position).normalized;
-        if (d > 10)
+        if (d > 10 || Player_StatusManager.Instance.playerStats.CurrHealth <= 0)
         {
             Vector3 nextPos = Vector3.zero;
             if(stopped == false)

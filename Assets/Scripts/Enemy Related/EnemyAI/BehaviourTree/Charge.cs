@@ -47,7 +47,7 @@ public class Charge : Node
         {
             Detected = false;
         }
-        else if (d <= 25) 
+        else if (d <= 25 && Player_StatusManager.Instance.playerStats.CurrHealth > 0) 
         {
             Detected = true;
         }

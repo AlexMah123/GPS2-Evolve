@@ -44,7 +44,7 @@ public class Shoot : Node
                 Shooting = false;
             }
         }
-        else if (d < 15)//start shooting range
+        else if (d < 15 && Player_StatusManager.Instance.playerStats.CurrHealth > 0)//start shooting range
         {
             Shooting = true;
         }
