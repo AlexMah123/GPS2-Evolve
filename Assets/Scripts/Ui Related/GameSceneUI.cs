@@ -38,6 +38,7 @@ public class GameSceneUI : MonoBehaviour
     public static bool enemyCampDestroyed;
     [SerializeField] private float countdownM;
     [SerializeField] private float countdownS;
+    [SerializeField] private GameObject winScreen;
 
     //player evolve bar
     private bool t1;
@@ -45,9 +46,14 @@ public class GameSceneUI : MonoBehaviour
 
     private void Awake()
     {
+
         PlayerController = PlayerController.Instance;
         countdownM = 8;
         countdownS = 0;
+        armedKilled = 0;
+        radioTowerDestroyed = false;
+        chemistLabDestroyed = 0;
+        enemyCampDestroyed = false;
         StartCoroutine(Countdown());
     }
 
@@ -96,10 +102,16 @@ public class GameSceneUI : MonoBehaviour
 
             if (PlayerController.playerInput.UI.Test.WasPressedThisFrame())
             {
+                Debug.Log("Triggered");
                 armedKilled += 1;
-                radioTowerDestroyed = !radioTowerDestroyed;
+                radioTowerDestroyed = true;
                 chemistLabDestroyed += 1;
-                enemyCampDestroyed = !enemyCampDestroyed;
+                enemyCampDestroyed = true;
+            }
+
+            if (armedKilled >= 5 &&radioTowerDestroyed&& chemistLabDestroyed >= 2 && enemyCampDestroyed)
+            {
+                winScreen.SetActive(true);
             }
         }
         #endregion
@@ -109,7 +121,7 @@ public class GameSceneUI : MonoBehaviour
         obj1.text = armedKilled >= 5 ? $"<s><color=green>{obj1.text}</color></s>" : $"<color=red>{obj1.text}</color>";
         obj2.text = radioTowerDestroyed ? $"<s><color=green>Destroy Radio Tower</color></s>" : $"<color=red>Destroy Radio Tower</color>";
         obj3.text = chemistLabDestroyed >= 2? $"<s><color=green>Destroy Chem Lab<indent=80%> {chemistLabDestroyed}/2 </indent> </color></s>" : $"<color=red>Destroy Chem Lab<indent=80%> {chemistLabDestroyed}/2 </indent> </color>";
-        obj4.text = enemyCampDestroyed ? $"<s><color=green>Defeat Final Boss</color></s>" : $"<color=red>Defeat Final Boss</color>";
+        obj4.text = enemyCampDestroyed ? $"<s><color=green>Destroy Enemy Camp</color></s>" : $"<color=red>Destroy Enemy Camp</color>";
 
         #endregion
 
