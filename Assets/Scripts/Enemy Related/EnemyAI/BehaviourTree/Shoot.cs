@@ -50,7 +50,7 @@ public class Shoot : Node
         }
 
         Vector3 targetDir = (_player.transform.position - _transform.position).normalized;
-        targetDir.y += 0.25f;
+        targetDir.y += 0.35f;
 
         if (Shooting)
         {
