@@ -50,7 +50,7 @@ public class Player_Base
 
     public void Reset()
     {
-        //CurrHealth = currHealth;
+        CurrHealth = currHealth;
         MaxHealth = maxHealth;
         Defence = defence;
         Attack = attack;

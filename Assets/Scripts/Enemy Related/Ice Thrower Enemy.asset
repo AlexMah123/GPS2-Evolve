@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Ice Thrower Enemy
   m_EditorClassIdentifier: 
   enemy: {fileID: 8754786251051910079, guid: d6a19f1b653a5d14085a25df60db07a9, type: 3}
-  enemyDeathBody: {fileID: 8108302210967120548, guid: de5d1fd2cb8aff5498f13d7577e056b6, type: 3}
+  enemyDeathBody: {fileID: 4170932646379779411, guid: 54cc44e3c9d35f84d8f78ac2d893de1b, type: 3}
   spawnCount: 3
   spawnDelay: 1
   name: Ice Thrower Enemy
   health: 60
   defence: 5
-  attack: 5
+  attack: 10
   attackSpeed: 0.6
   speed: 4
-  evolvePointGain: 3
+  evolvePointGain: 10

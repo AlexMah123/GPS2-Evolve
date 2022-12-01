@@ -36,7 +36,9 @@ public class Run : Node
         {
             Running = false;
         }
+
         Vector3 targetDir = (_transform.position - _player.transform.position).normalized;
+
         if (Running)
         {
             _nva.speed = _ess.Speed * 2;

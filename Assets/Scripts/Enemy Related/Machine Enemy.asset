@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Machine Enemy
   m_EditorClassIdentifier: 
   enemy: {fileID: 6261479332135800635, guid: 95579aaa69884f44087d192d6e8e700d, type: 3}
-  enemyDeathBody: {fileID: 8108302210967120548, guid: de5d1fd2cb8aff5498f13d7577e056b6, type: 3}
+  enemyDeathBody: {fileID: 0}
   spawnCount: 1
   spawnDelay: 1
   name: Machine Enemy

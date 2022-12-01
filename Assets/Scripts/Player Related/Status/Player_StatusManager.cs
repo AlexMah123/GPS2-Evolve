@@ -37,7 +37,7 @@ public class Player_StatusManager : MonoBehaviour
     {
         UpdatePlayerStats();
         //Debug.Log("RESETING");
-        //playerStats.Reset();
+        playerStats.Reset();
     }
 
     private void Update()

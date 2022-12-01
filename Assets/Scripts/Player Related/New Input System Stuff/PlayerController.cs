@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public CharacterController controller;
     public Vector3 playerVelocity;
     private Transform cameraMain;
+    public Vector3 move;
 
     public List<GameObject> deathbodyList;
     public float playerSpeed = 2.0f;
@@ -127,7 +128,7 @@ public class PlayerController : MonoBehaviour
                 movementInput = movementInput * 0.6f;
             }
 
-            Vector3 move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
+            move = cameraMain.forward * movementInput.y + cameraMain.right * movementInput.x;
             animator.SetFloat("Running", move != Vector3.zero ? Mathf.Abs(movementInput.magnitude) : 0.01f);
             StartCoroutine(currentState.Movement(move));
         }
@@ -229,6 +230,7 @@ public class PlayerController : MonoBehaviour
     {
         deathbodyList.Remove(deathbodyList[0]);
     }
+
     public void JumpNow()
     {
         jumping = true;

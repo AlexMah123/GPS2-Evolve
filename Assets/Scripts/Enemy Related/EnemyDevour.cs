@@ -11,9 +11,9 @@ public class EnemyDevour : MonoBehaviour
     {
         get => GetComponent<Rigidbody>();
     }
-    private CapsuleCollider cc
+    private BoxCollider boxCollider
     {
-        get => GetComponent<CapsuleCollider>();
+        get => GetComponent<BoxCollider>();
     }
 
     private void Start()
@@ -29,7 +29,7 @@ public class EnemyDevour : MonoBehaviour
             yield return null;
         }
         rb.constraints = RigidbodyConstraints.FreezeAll;
-        cc.isTrigger = true;
+        boxCollider.isTrigger = true;
 
         
     }
@@ -39,13 +39,13 @@ public class EnemyDevour : MonoBehaviour
         {
             //sets the devour time based on the players eat time
             float devouringTime = Player_StatusManager.Instance.playerStats.EatTime;
+            PlayerController.Instance.deathbodyList.Remove(gameObj);
 
             yield return new WaitForSeconds(7);
 
             //adds to evolvebar based on ess + eat heal, removes from the list, and destroys the obj
             Player_StatusManager.Instance.playerStats.CurrEvolveBar += ess.EvolvePointGain + Player_StatusManager.Instance.playerStats.EvolveBarIncrease;            
             Player_StatusManager.Instance.playerStats.CurrHealth += Player_StatusManager.Instance.playerStats.EatHeal;
-            PlayerController.Instance.deathbodyList.Remove(gameObj);
             Destroy(gameObj);
         }
     }

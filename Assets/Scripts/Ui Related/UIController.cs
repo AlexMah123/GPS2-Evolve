@@ -25,6 +25,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI vertVal;
     [SerializeField] private CinemachineFreeLook CFL;
     private float val;
+
     private void Awake()
     {
         bool vol = mixer.GetFloat("Master", out var val);

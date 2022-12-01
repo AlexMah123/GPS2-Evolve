@@ -100,15 +100,6 @@ public class GameSceneUI : MonoBehaviour
                 devourButton.interactable = false;
             }
 
-            if (PlayerController.playerInput.UI.Test.WasPressedThisFrame())
-            {
-                Debug.Log("Triggered");
-                armedKilled += 1;
-                radioTowerDestroyed = true;
-                chemistLabDestroyed += 1;
-                enemyCampDestroyed = true;
-            }
-
             if (armedKilled >= 5 &&radioTowerDestroyed&& chemistLabDestroyed >= 2 && enemyCampDestroyed)
             {
                 winScreen.SetActive(true);

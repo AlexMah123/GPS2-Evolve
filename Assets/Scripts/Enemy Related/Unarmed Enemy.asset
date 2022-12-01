@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Unarmed Enemy
   m_EditorClassIdentifier: 
   enemy: {fileID: 6261479332135800635, guid: 8b5b83a81b9383343b99ba98ef6889e3, type: 3}
-  enemyDeathBody: {fileID: 8108302210967120548, guid: 8be35420e476bb047959fbbb3f79c0c4, type: 3}
+  enemyDeathBody: {fileID: 3799669217983140065, guid: d4ad14af0b7a57745a9322ec11eef308, type: 3}
   spawnCount: 5
   spawnDelay: 0.5
   name: Unarmed Enemy
@@ -22,4 +22,4 @@ MonoBehaviour:
   attack: 0
   attackSpeed: 0
   speed: 3
-  evolvePointGain: 2
+  evolvePointGain: 5

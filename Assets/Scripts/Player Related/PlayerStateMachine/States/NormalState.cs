@@ -25,6 +25,7 @@ public class NormalState : PlayerStateMachine
     {
         _system.attacking = true;
         _system.StartCoroutine(_system.AttackNow());
+
         _system.animator.SetBool("NormalAttack", true);
         _system.SetState(new AttackState(_system));
         yield break;

@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ess: {fileID: 11400000, guid: 168d0fecc5082c9428a25d50f65d45d4, type: 2}
-  player: {fileID: 8108302210967120548, guid: 8be35420e476bb047959fbbb3f79c0c4, type: 3}
+  player: {fileID: 0}
 --- !u!114 &-4728548662108809610
 MonoBehaviour:
   m_ObjectHideFlags: 0
