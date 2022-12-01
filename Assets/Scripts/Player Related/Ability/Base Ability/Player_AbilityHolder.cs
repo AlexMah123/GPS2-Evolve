@@ -101,7 +101,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     skill1Button.interactable = true;
                     skill1Logo.sprite = skill.logo;
                     skill1TMP.text = skill.name;
-                    if (PlayerController.Instance.playerInput.PlayerMain.Skill1.triggered)
+                    if (PlayerController.Instance.playerInput.PlayerMain.Skill1.triggered && !PlayerController.Instance.skillActive)
                     {
                         ActivateSkill(skill, playerKaiju);
                         anim.SetTrigger(skill.name);
@@ -150,7 +150,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     skill2Button.interactable = true;
                     skill2Logo.sprite = skill.logo;
                     skill2TMP.text = skill.name;
-                    if (PlayerController.Instance.playerInput.PlayerMain.Skill2.triggered)
+                    if (PlayerController.Instance.playerInput.PlayerMain.Skill2.triggered && !PlayerController.Instance.skillActive)
                     {
                         ActivateSkill(skill, playerKaiju);
                         anim.SetTrigger(skill.name);
@@ -201,7 +201,7 @@ public class Player_AbilityHolder : MonoBehaviour
                     skill3Button.interactable = true;
                     skill3Logo.sprite = skill.logo;
                     skill3TMP.text = skill.name;
-                    if (PlayerController.Instance.playerInput.PlayerMain.Skill3.triggered)
+                    if (PlayerController.Instance.playerInput.PlayerMain.Skill3.triggered && !PlayerController.Instance.skillActive)
                     {
                         ActivateSkill(skill, playerKaiju);
                         anim.SetTrigger(skill.name);
@@ -368,6 +368,7 @@ public class Player_AbilityHolder : MonoBehaviour
                 break;
         }
     }
+
     #endregion
 
 

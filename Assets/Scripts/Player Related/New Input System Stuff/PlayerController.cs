@@ -241,4 +241,16 @@ public class PlayerController : MonoBehaviour
         
         playerVelocity = Vector3.zero;
     }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.gameObject.CompareTag("Enemy"))
+        {
+            controller.slopeLimit = 30;
+        }
+        else
+        {
+            controller.slopeLimit = 40;
+        }
+    }
 }

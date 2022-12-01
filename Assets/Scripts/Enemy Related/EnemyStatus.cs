@@ -63,8 +63,12 @@ public class EnemyStatus : MonoBehaviour
     {
         if(killed)
         {
-            Instantiate(ess.enemyDeathBody, transform.position, ess.enemyDeathBody.transform.rotation);
-            if(ess.Name == $"Armed Human")
+            if(ess.Name != "Machine Enemy")
+            {
+                Instantiate(ess.enemyDeathBody, transform.position, ess.enemyDeathBody.transform.rotation);
+            }
+
+            if (ess.Name == $"Armed Human")
             {
                 GameSceneUI.armedKilled++;
             }
