@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private Transform cameraMain;
     public Vector3 move;
 
-    public List<GameObject> deathbodyList;
+    public List<GameObject> deathbodyList = new();
     public float playerSpeed = 2.0f;
     public float jumpHeight = 1.0f;
     public float jumpForce = 3.0f;
@@ -104,7 +104,6 @@ public class PlayerController : MonoBehaviour
                     lookAt = false;
                 }
             }
-            
         }
         #endregion
 

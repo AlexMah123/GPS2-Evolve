@@ -39,7 +39,6 @@ public class EnemyDevour : MonoBehaviour
         {
             //sets the devour time based on the players eat time
             float devouringTime = Player_StatusManager.Instance.playerStats.EatTime;
-            PlayerController.Instance.deathbodyList.Remove(gameObj);
 
             yield return new WaitForSeconds(7);
 
@@ -48,6 +47,11 @@ public class EnemyDevour : MonoBehaviour
             Player_StatusManager.Instance.playerStats.CurrHealth += Player_StatusManager.Instance.playerStats.EatHeal;
             Destroy(gameObj);
         }
+    }
+
+    private void OnDestroy()
+    {
+        PlayerController.Instance.deathbodyList.Remove(gameObject);
     }
 
 }
