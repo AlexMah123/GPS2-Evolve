@@ -18,4 +18,4 @@ MonoBehaviour:
   effect: Hp Regeneration +1/second
   perkTypes: 1
   maxHealth: -50
-  regenPerSecond: 1
+  regenPerSecond: 3

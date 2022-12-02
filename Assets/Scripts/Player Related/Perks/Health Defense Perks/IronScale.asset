@@ -17,4 +17,4 @@ MonoBehaviour:
   description: Envelope your body with tougher scales and increases defence
   effect: +6 Defense
   perkTypes: 1
-  defenseModifier: 6
+  defenseModifier: 4

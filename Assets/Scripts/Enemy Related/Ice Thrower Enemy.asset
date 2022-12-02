@@ -19,7 +19,7 @@ MonoBehaviour:
   name: Ice Thrower Enemy
   health: 60
   defence: 5
-  attack: 5
+  attack: 10
   attackSpeed: 0.6
   speed: 4
   evolvePointGain: 10

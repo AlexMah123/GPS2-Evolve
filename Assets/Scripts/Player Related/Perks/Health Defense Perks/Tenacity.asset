@@ -17,4 +17,4 @@ MonoBehaviour:
   description: Increase your toughness and reduces damage taken
   effect: 15% to prevent incoming attacks
   perkTypes: 1
-  blockChance: 0.15
+  blockChance: 0.3

@@ -104,6 +104,10 @@ public class PlayerController : MonoBehaviour
                     lookAt = false;
                 }
             }
+            else
+            {
+                deathbodyList.Remove(deathbodyList[0]);
+            }
         }
         #endregion
 
@@ -143,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
         #region buttonTriggers
         //Changes the height position of the player..
-        if (playerInput.PlayerMain.Jump.triggered && controller.isGrounded)
+        if (playerInput.PlayerMain.Jump.triggered && controller.isGrounded && !devouring)
         {
             StartCoroutine(currentState.Jump());
             animator.SetBool("Jumping", true);
@@ -161,7 +165,7 @@ public class PlayerController : MonoBehaviour
             }
 
         }
-        else if (playerInput.PlayerMain.Devour.triggered && inRangeDevour)
+        else if (playerInput.PlayerMain.Devour.triggered && inRangeDevour && !jumping)
         {
             StartCoroutine(currentState.Devour());
         }
@@ -225,11 +229,6 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
-    public void Devoured()
-    {
-        deathbodyList.Remove(deathbodyList[0]);
-    }
-
     public void JumpNow()
     {
         jumping = true;
@@ -247,6 +246,7 @@ public class PlayerController : MonoBehaviour
     public void GameOver()
     {
         gameOver.SetActive(true);
+
     }
     public IEnumerator AttackNow()
     {

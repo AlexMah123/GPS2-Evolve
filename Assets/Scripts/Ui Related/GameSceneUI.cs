@@ -48,7 +48,7 @@ public class GameSceneUI : MonoBehaviour
     {
 
         PlayerController = PlayerController.Instance;
-        countdownM = 8;
+        countdownM = 12;
         countdownS = 0;
         armedKilled = 0;
         radioTowerDestroyed = false;
