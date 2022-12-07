@@ -15,9 +15,9 @@ public class GameSceneUI : MonoBehaviour
     //GameScene
     [SerializeField] private GameObject perkWindow;
     [SerializeField] private GameObject abilityWindow;
-    [SerializeField] private GameObject evoWindow;
     [SerializeField] private GameObject pauseWindow;
     [SerializeField] private GameObject settingsWindow;
+    [SerializeField] private GameObject perkDisplay;
     [SerializeField] private Button devourButton;
     [SerializeField] private Slider health;
     [SerializeField] private GameObject overheal;
@@ -59,6 +59,14 @@ public class GameSceneUI : MonoBehaviour
 
     private void Update()
     {
+        if (perkWindow.activeSelf || abilityWindow.activeSelf || settingsWindow.activeSelf || pauseWindow.activeSelf || perkDisplay.activeSelf)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
         #region health evo bar
         health.value = ((float)Player_StatusManager.Instance.playerStats.CurrHealth/ Player_StatusManager.Instance.playerStats.MaxHealth);
         evo.value = ((float)Player_StatusManager.Instance.playerStats.CurrEvolveBar/ Player_StatusManager.Instance.playerStats.MaxEvolveBar);
@@ -157,11 +165,6 @@ public class GameSceneUI : MonoBehaviour
         abilityWindow.SetActive(!abilityWindow.activeSelf);
     }
 
-    public void ToggleEvolve()
-    {
-        evoWindow.SetActive(!evoWindow.activeSelf);
-    }
-
     public void TogglePause()
     {
         pauseWindow.SetActive(!pauseWindow.activeSelf);
@@ -198,7 +201,7 @@ public class GameSceneUI : MonoBehaviour
     {
         Vector3 closedPos = new(-1132.5f, objective.localPosition.y, 1);
         Vector3 openPos = new(-632, objective.localPosition.y, 1);
-        Debug.Log("Toggling");
+
         if (objective.localPosition.x >= openPos.x)
         {
             StopCoroutine(CloseObj(closedPos, 1));

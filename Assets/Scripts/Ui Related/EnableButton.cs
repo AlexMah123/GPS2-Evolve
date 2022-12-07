@@ -7,12 +7,22 @@ public class EnableButton : MonoBehaviour
 {
     private void OnEnable()
     {
-        Invoke("Enable", 2);
+        StartCoroutine(Enable());
     }
 
-    public void Enable()
+    private void OnDisable()
     {
+        StopCoroutine(Enable());
+    }
+    private void Update()
+    {
+        Debug.Log(Time.timeScale);
+    }
+    public IEnumerator Enable()
+    {
+        yield return new WaitForSeconds(2);
         Button button = gameObject.GetComponent<Button>();
-        button.enabled = true;
+        button.interactable = true;
+
     }
 }

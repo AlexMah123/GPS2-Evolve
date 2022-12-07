@@ -28,6 +28,7 @@ public class UIController : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         bool vol = mixer.GetFloat("Master", out var val);
         if (vol)
         {
