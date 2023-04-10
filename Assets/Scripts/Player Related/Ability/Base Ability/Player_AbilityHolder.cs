@@ -11,6 +11,12 @@ public class Player_AbilityHolder : MonoBehaviour
 
     public static Player_AbilityHolder Instance;
 
+    [Header("Upgraded Parts")]
+    [SerializeField] List<GameObject> spikeUpgrade = new List<GameObject>();
+    [SerializeField] List<GameObject> chestScaleUpgrade = new List<GameObject>();
+    [SerializeField] List<GameObject> scaleUpgrade = new List<GameObject>();
+    [SerializeField] List<GameObject> tailSpikeUpgrade = new List<GameObject>();
+
     [Header("Abilities")]
     [NonReorderable] public List<Player_BaseAbility> totalSkillList = new();
     public List<Player_BaseAbility> displaySkillList = new();
@@ -85,7 +91,6 @@ public class Player_AbilityHolder : MonoBehaviour
             if (selectedSkillList[i] != null)
             {
                 CheckAbilityStates(selectedSkillList[i]);
-                UpdateAbilityChosen();
             }
         }
     }
@@ -354,6 +359,7 @@ public class Player_AbilityHolder : MonoBehaviour
         {
             case 1:
                 skill1 = selectedSkillList[0];
+
                 break;
             case 2:
                 skill1 = selectedSkillList[0];
@@ -364,11 +370,72 @@ public class Player_AbilityHolder : MonoBehaviour
                 skill1 = selectedSkillList[0];
                 skill2 = selectedSkillList[1];
                 skill3 = selectedSkillList[2];
-
                 break;
         }
+
+        UpdatePartUpgrade();
     }
 
+    public void UpdatePartUpgrade()
+    {
+        //if there is a skill selected
+        if(selectedSkillList.Count > 0)
+        {
+            for (int i = 0; i < selectedSkillList.Count; i++)
+            {
+                for(int j = 0; j < totalSkillList.Count; j++)
+                {
+                    if (selectedSkillList[i].name == totalSkillList[j].name)
+                    {
+                        switch (j)
+                        {
+                            case 0:
+                                Debug.Log("Nothing changed, Fangs");
+                                break;
+
+                            case 1:
+                                for (int k = 0; k < chestScaleUpgrade.Count; k++)
+                                {
+                                    chestScaleUpgrade[k].SetActive(true);
+                                }
+                                break;
+                                
+
+                            case 2:
+                                Debug.Log("Nothing changed, leg scales");
+                                break;
+                                
+
+                            case 3:
+                                for (int k = 0; k < scaleUpgrade.Count; k++)
+                                {
+                                    scaleUpgrade[k].SetActive(true);
+                                }
+                                break;
+
+                            case 4:
+                                for (int k = 0; k < spikeUpgrade.Count; k++)
+                                {
+                                    spikeUpgrade[k].SetActive(true);
+                                }
+                                break;
+
+                            case 5:
+                                for (int k = 0; k < tailSpikeUpgrade.Count; k++)
+                                {
+                                    tailSpikeUpgrade[k].SetActive(true);
+                                }
+                                break;
+                                
+
+                        }
+                    }
+                }
+            }
+        }
+
+        
+    }
     #endregion
 
 

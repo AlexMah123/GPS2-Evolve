@@ -14578,7 +14578,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 4.5
   m_Radius: 1
-  m_SlopeLimit: 45
+  m_SlopeLimit: 30
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -14617,13 +14617,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   playerVelocity: {x: 0, y: 0, z: 0}
+  move: {x: 0, y: 0, z: 0}
   deathbodyList: []
   playerSpeed: 12
   jumpHeight: 3
   jumpForce: 3
   gravityValue: -9.81
   inRangeDevour: 0
-  attackMomentum: 3
+  attackMomentum: 5
   attackMomentumDuration: 0.3
   lookAt: 0
   attacking: 0
@@ -14638,6 +14639,7 @@ MonoBehaviour:
   whipActive: 0
   leapsmashActive: 0
   animator: {fileID: 7017728024230782867}
+  gameOver: {fileID: 0}
 --- !u!114 &7017728024230782876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14668,7 +14670,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 5
   m_Center: {x: 0, y: 3, z: 0}
 --- !u!114 &7065681356534611678
 MonoBehaviour:
